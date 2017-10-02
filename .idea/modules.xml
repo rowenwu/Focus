@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Focus.iml" filepath="$PROJECT_DIR$/Focus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Focus!/Focus!.iml" filepath="$PROJECT_DIR$/Focus!/Focus!.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/NotificationListenerService.iml" filepath="$PROJECT_DIR$/.idea/modules/NotificationListenerService.iml" />
+    </modules>
+  </component>
+</project>
