@@ -38,46 +38,48 @@ public class CreateProfileActivity extends ListActivity {
 
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
-        super.onListItemClick(l, v, position, id);
+//        super.onListItemClick(l, v, position, id);
+        v.setSelected(true);
 
-        ApplicationInfo app = applist.get(position);
-        try {
-            Intent intent = packageManager
-                    .getLaunchIntentForPackage(app.packageName);
-
-            if (null != intent) {
-                startActivity(intent);
-            }
-        } catch (ActivityNotFoundException e) {
-            Toast.makeText(CreateProfileActivity.this, e.getMessage(),
-                    Toast.LENGTH_LONG).show();
-        } catch (Exception e) {
-            Toast.makeText(CreateProfileActivity.this, e.getMessage(),
-                    Toast.LENGTH_LONG).show();
-        }
+//        ApplicationInfo app = applist.get(position);
+//        try {
+//            Intent intent = packageManager
+//                    .getLaunchIntentForPackage(app.packageName);
+//
+//            if (null != intent) {
+//                startActivity(intent);
+//            }
+//        } catch (ActivityNotFoundException e) {
+//            Toast.makeText(CreateProfileActivity.this, e.getMessage(),
+//                    Toast.LENGTH_LONG).show();
+//        } catch (Exception e) {
+//            Toast.makeText(CreateProfileActivity.this, e.getMessage(),
+//                    Toast.LENGTH_LONG).show();
+//        }
     }
 
-    private List<ApplicationInfo> checkForLaunchIntent(List<ApplicationInfo> list) {
-        ArrayList<ApplicationInfo> applist = new ArrayList<ApplicationInfo>();
-        for (ApplicationInfo info : list) {
-            try {
-                if (null != packageManager.getLaunchIntentForPackage(info.packageName)) {
-                    applist.add(info);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
-        return applist;
-    }
+//    private List<ApplicationInfo> checkForLaunchIntent(List<ApplicationInfo> list) {
+//        ArrayList<ApplicationInfo> applist = new ArrayList<ApplicationInfo>();
+//        for (ApplicationInfo info : list) {
+//            try {
+//                if (null != packageManager.getLaunchIntentForPackage(info.packageName)) {
+//                    applist.add(info);
+//                }
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//        }
+//
+//        return applist;
+//    }
 
     private class LoadApplications extends AsyncTask<Void, Void, Void> {
         private ProgressDialog progress = null;
 
         @Override
         protected Void doInBackground(Void... params) {
-            applist = checkForLaunchIntent(packageManager.getInstalledApplications(PackageManager.GET_META_DATA));
+//            applist = checkForLaunchIntent(packageManager.getInstalledApplications(PackageManager.GET_META_DATA));
+            applist = packageManager.getInstalledApplications(PackageManager.GET_META_DATA);
             listadaptor = new AppAdapter(CreateProfileActivity.this,
                     R.layout.snippet_list_row, applist);
 
