@@ -3,9 +3,21 @@ android:layout_width="fill_parent"
 android:layout_height="fill_parent"
 android:orientation="vertical">
 
-<ListView
-    android:id="@android:id/list"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content" />
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="match_parent" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create"
+        android:textAllCaps="true"
+        android:id="@+id/btnCreateProfile"
+        android:onClick="buttonClicked"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"/>
 
 </LinearLayout>

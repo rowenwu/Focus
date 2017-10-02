@@ -513,10 +513,10 @@ int id app_icon 0x7f0a0059
 int id app_name 0x7f0a0068
 int id beginning 0x7f0a001a
 int id bottom 0x7f0a0022
-int id btnCreateNotify 0x7f0a0055
-int id btnCreateProfile 0x7f0a0056
+int id btnCreateNotify 0x7f0a0056
+int id btnCreateProfile 0x7f0a0054
 int id btnListNotify 0x7f0a0057
-int id btnPermission 0x7f0a0054
+int id btnPermission 0x7f0a0055
 int id buttonPanel 0x7f0a002e
 int id cancel_action 0x7f0a005c
 int id checkbox 0x7f0a003c

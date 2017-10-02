@@ -42,39 +42,21 @@ public class CreateProfileActivity extends ListActivity {
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
 //        super.onListItemClick(l, v, position, id);
-        getListView().setItemChecked(position, true);
+            getListView().setItemChecked(position, listadaptor.changeCheckedState(position));
 
-//        ApplicationInfo app = applist.get(position);
-//        try {
-//            Intent intent = packageManager
-//                    .getLaunchIntentForPackage(app.packageName);
-//
-//            if (null != intent) {
-//                startActivity(intent);
-//            }
-//        } catch (ActivityNotFoundException e) {
-//            Toast.makeText(CreateProfileActivity.this, e.getMessage(),
-//                    Toast.LENGTH_LONG).show();
-//        } catch (Exception e) {
-//            Toast.makeText(CreateProfileActivity.this, e.getMessage(),
-//                    Toast.LENGTH_LONG).show();
-//        }
+//        if(!getListView().isItemChecked(position))
+//            getListView().setItemChecked(position, true);
+//        else
+//            getListView().setItemChecked(position, false);
+
+
     }
 
-//    private List<ApplicationInfo> checkForLaunchIntent(List<ApplicationInfo> list) {
-//        ArrayList<ApplicationInfo> applist = new ArrayList<ApplicationInfo>();
-//        for (ApplicationInfo info : list) {
-//            try {
-//                if (null != packageManager.getLaunchIntentForPackage(info.packageName)) {
-//                    applist.add(info);
-//                }
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        }
-//
-//        return applist;
-//    }
+
+    public void buttonClicked(View v){
+        // get list of app names
+
+    }
 
     private class LoadApplications extends AsyncTask<Void, Void, Void> {
         private ProgressDialog progress = null;

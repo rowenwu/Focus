@@ -15,12 +15,14 @@ public class AppAdapter extends ArrayAdapter<ApplicationInfo> {
     private List<ApplicationInfo> appsList = null;
     private Context context;
     private PackageManager packageManager;
+    private boolean[] checkedState = null;
 
     public AppAdapter(Context context, int textViewResourceId,
                               List<ApplicationInfo> appsList) {
         super(context, textViewResourceId, appsList);
         this.context = context;
         this.appsList = appsList;
+        checkedState = new boolean[appsList.size()];
         packageManager = context.getPackageManager();
     }
 
@@ -32,6 +34,10 @@ public class AppAdapter extends ArrayAdapter<ApplicationInfo> {
     @Override
     public ApplicationInfo getItem(int position) {
         return ((null != appsList) ? appsList.get(position) : null);
+    }
+
+    public boolean changeCheckedState(int position){
+        return checkedState[position] = !checkedState[position];
     }
 
     @Override

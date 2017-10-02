@@ -1838,10 +1838,10 @@ containing a value of this type.
         public static final int app_name=0x7f0a0068;
         public static final int beginning=0x7f0a001a;
         public static final int bottom=0x7f0a0022;
-        public static final int btnCreateNotify=0x7f0a0055;
-        public static final int btnCreateProfile=0x7f0a0056;
+        public static final int btnCreateNotify=0x7f0a0056;
+        public static final int btnCreateProfile=0x7f0a0054;
         public static final int btnListNotify=0x7f0a0057;
-        public static final int btnPermission=0x7f0a0054;
+        public static final int btnPermission=0x7f0a0055;
         public static final int buttonPanel=0x7f0a002e;
         public static final int cancel_action=0x7f0a005c;
         public static final int checkbox=0x7f0a003c;
