@@ -34,12 +34,15 @@ public class CreateProfileActivity extends ListActivity {
         packageManager = getPackageManager();
 
         new LoadApplications().execute();
+        ListView listView = getListView();
+        listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+
     }
 
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
 //        super.onListItemClick(l, v, position, id);
-        v.setSelected(true);
+        getListView().setItemChecked(position, true);
 
 //        ApplicationInfo app = applist.get(position);
 //        try {

@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sun Oct 01 23:27:30 PDT 2017
+#Mon Oct 02 00:28:14 PDT 2017
 122.file=C\:\\Users\\kathe\\Focus\\Focus\!\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable\\abc_item_background_holo_dark.xml
 60.set=ANDROID_RESOURCE
 129.file=C\:\\Users\\kathe\\Focus\\Focus\!\\build\\intermediates\\res\\resources-debug.ap_\\res\\anim\\abc_fade_out.xml

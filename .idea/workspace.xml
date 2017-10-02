@@ -7,82 +7,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fc93fc3-05a9-41a0-ac42-5e6153d72697" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Focus!/src/main/res/drawable/bg_key.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Focus!/src/main/res/values/colors.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/classes/debug/com/pk/example/AppAdapter.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/classes/debug/com/pk/example/AppAdapter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/classes/debug/com/pk/example/CreateProfileActivity$LoadApplications.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/classes/debug/com/pk/example/CreateProfileActivity$LoadApplications.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/classes/debug/com/pk/example/CreateProfileActivity.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/classes/debug/com/pk/example/CreateProfileActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/classes/debug/com/pk/example/R$id.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/classes/debug/com/pk/example/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/classes/debug/com/pk/example/R$integer.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/classes/debug/com/pk/example/R$integer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/classes/debug/com/pk/example/R$layout.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/classes/debug/com/pk/example/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/classes/debug/com/pk/example/R$menu.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/classes/debug/com/pk/example/R$menu.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/classes/debug/com/pk/example/R$string.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/classes/debug/com/pk/example/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/classes/debug/com/pk/example/R$style.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/classes/debug/com/pk/example/R$style.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/classes/debug/com/pk/example/R$styleable.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/classes/debug/com/pk/example/R$styleable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/incremental-verifier/debug/com/pk/example/AppAdapter.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/incremental-verifier/debug/com/pk/example/AppAdapter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/incremental-verifier/debug/com/pk/example/CreateProfileActivity$LoadApplications.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/incremental-verifier/debug/com/pk/example/CreateProfileActivity$LoadApplications.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/incremental-verifier/debug/com/pk/example/CreateProfileActivity.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/incremental-verifier/debug/com/pk/example/CreateProfileActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/incremental-verifier/debug/com/pk/example/R$id.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/incremental-verifier/debug/com/pk/example/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/incremental-verifier/debug/com/pk/example/R$integer.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/incremental-verifier/debug/com/pk/example/R$integer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/incremental-verifier/debug/com/pk/example/R$layout.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/incremental-verifier/debug/com/pk/example/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/incremental-verifier/debug/com/pk/example/R$menu.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/incremental-verifier/debug/com/pk/example/R$menu.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/incremental-verifier/debug/com/pk/example/R$string.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/incremental-verifier/debug/com/pk/example/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/incremental-verifier/debug/com/pk/example/R$style.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/incremental-verifier/debug/com/pk/example/R$style.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/incremental-verifier/debug/com/pk/example/R$styleable.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/incremental-verifier/debug/com/pk/example/R$styleable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/incremental/packageDebug/zip-cache/Wr3jJsxswD3Uqr+fsZrh2SLlKzI=" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/incremental/packageDebug/zip-cache/Wr3jJsxswD3Uqr+fsZrh2SLlKzI=" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/incremental/packageInstantRunResourcesDebug/zip-cache/Wr3jJsxswD3Uqr+fsZrh2SLlKzI=" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/incremental/packageInstantRunResourcesDebug/zip-cache/Wr3jJsxswD3Uqr+fsZrh2SLlKzI=" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/instant-run-resources/resources-debug.ir.ap_" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/instant-run-resources/resources-debug.ir.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/res/resources-debug.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/split-apk/debug/slices/slice_2.apk" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/split-apk/debug/slices/slice_2.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/dex/debug/folders/1000/5/slice_2/classes.dex" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/dex/debug/folders/1000/5/slice_2/classes.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/pk/example/AppAdapter.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/pk/example/AppAdapter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/pk/example/CreateProfileActivity$LoadApplications.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/pk/example/CreateProfileActivity$LoadApplications.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/pk/example/CreateProfileActivity.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/pk/example/CreateProfileActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/pk/example/R$id.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/pk/example/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/pk/example/R$integer.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/pk/example/R$integer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/pk/example/R$layout.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/pk/example/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/pk/example/R$menu.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/pk/example/R$menu.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/pk/example/R$string.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/pk/example/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/pk/example/R$style.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/pk/example/R$style.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/pk/example/R$styleable.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/pk/example/R$styleable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/com/pk/example/AppAdapter.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/com/pk/example/AppAdapter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/com/pk/example/CreateProfileActivity$LoadApplications.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/com/pk/example/CreateProfileActivity$LoadApplications.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/com/pk/example/CreateProfileActivity.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/com/pk/example/CreateProfileActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/com/pk/example/R$id.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/com/pk/example/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/com/pk/example/R$integer.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/com/pk/example/R$integer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/com/pk/example/R$layout.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/com/pk/example/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/com/pk/example/R$menu.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/com/pk/example/R$menu.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/com/pk/example/R$string.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/com/pk/example/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/com/pk/example/R$style.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/com/pk/example/R$style.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/com/pk/example/R$styleable.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/com/pk/example/R$styleable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/outputs/apk/Focus!-debug.apk" afterPath="$PROJECT_DIR$/Focus!/build/outputs/apk/Focus!-debug.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/Focus!.iml" afterPath="$PROJECT_DIR$/Focus!/Focus!.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/generated/source/r/debug/com/pk/example/R.java" afterPath="$PROJECT_DIR$/Focus!/build/generated/source/r/debug/com/pk/example/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/blame/res/debug/multi/values.json" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/blame/res/debug/multi/values.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/blame/res/debug/single/drawable-hdpi-v4.json" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/blame/res/debug/single/drawable-hdpi-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/blame/res/debug/single/drawable-mdpi-v4.json" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/blame/res/debug/single/drawable-mdpi-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/blame/res/debug/single/drawable-xhdpi-v4.json" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/blame/res/debug/single/drawable-xhdpi-v4.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/blame/res/debug/single/drawable.json" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/blame/res/debug/single/drawable.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/incremental/mergeDebugResources/merger.xml" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/incremental/mergeDebugResources/merger.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/incremental/packageDebug/file-input-save-data.txt" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/incremental/packageDebug/file-input-save-data.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/incremental/packageInstantRunResourcesDebug/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/incremental/packageInstantRunResourcesDebug/dex-renamer-state.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/incremental/packageInstantRunResourcesDebug/file-input-save-data.txt" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/incremental/packageInstantRunResourcesDebug/file-input-save-data.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/instant-run-support/debug/package_slice_2/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/instant-run-support/debug/package_slice_2/dex-renamer-state.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/res/merged/debug/layout/snippet_list_row.xml" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/res/merged/debug/layout/snippet_list_row.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/res/merged/debug/values/values.xml" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/res/merged/debug/values/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/res/merged/debug/drawable/bg_key.xml" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/res/merged/debug/drawable/bg_key.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/restart-dex/debug/build-info.xml" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/restart-dex/debug/build-info.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/symbols/debug/R.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/buildId.txt" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/buildId.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/AppAdapter.java" afterPath="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/AppAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/CreateProfileActivity.java" afterPath="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/CreateProfileActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/src/main/res/layout/snippet_list_row.xml" afterPath="$PROJECT_DIR$/Focus!/src/main/res/layout/snippet_list_row.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/src/main/res/drawable/bg_key.xml" afterPath="$PROJECT_DIR$/Focus!/src/main/res/drawable/bg_key.xml" />
     </list>
     <ignored path="NotificationListenerService.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -150,8 +107,8 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2739">
-              <caret line="97" column="0" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+            <state relative-caret-position="132">
+              <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -159,26 +116,49 @@
       </file>
       <file leaf-file-name="activity_create_profile.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Focus!/src/main/res/layout/activity_create_profile.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
           <provider editor-type-id="android-designer2">
             <state />
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="snippet_list_row.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Focus!/src/main/res/layout/snippet_list_row.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+            <state relative-caret-position="462">
+              <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
               <folding />
             </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="CreateProfileActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/CreateProfileActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="49" column="40" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="40" />
+            <state relative-caret-position="748">
+              <caret line="46" column="49" selection-start-line="46" selection-start-column="49" selection-end-line="46" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1506925198999" expanded="false" signature="2114:2131" ph="&lt;~&gt;" />
+                <marker date="1506929046907" expanded="false" signature="2246:2263" ph="&lt;~&gt;" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="colors.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Focus!/src/main/res/values/colors.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="66">
+              <caret line="2" column="39" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="39" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -186,31 +166,8 @@
       <file leaf-file-name="bg_key.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Focus!/src/main/res/drawable/bg_key.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="colors.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Focus!/src/main/res/values/colors.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="snippet_list_row.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Focus!/src/main/res/layout/snippet_list_row.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="891">
-              <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+            <state relative-caret-position="198">
+              <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -219,24 +176,11 @@
       <file leaf-file-name="AppAdapter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/AppAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="627">
-              <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+            <state relative-caret-position="363">
+              <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_main.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Focus!/src/main/res/layout/activity_main.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="759">
-              <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -2121,12 +2065,14 @@
         <option value="$PROJECT_DIR$/Focus!/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/AppList.java" />
         <option value="$PROJECT_DIR$/Focus!/src/main/res/layout/installed_app_list.xml" />
-        <option value="$PROJECT_DIR$/Focus!/src/main/res/layout/activity_create_profile.xml" />
         <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/AppAdapter.java" />
-        <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/CreateProfileActivity.java" />
         <option value="$PROJECT_DIR$/Focus!/src/main/res/values/bg_key.xml" />
         <option value="$PROJECT_DIR$/Focus!/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/Focus!/src/main/res/layout/snippet_list_row.xml" />
+        <option value="$PROJECT_DIR$/Focus!/src/main/res/layout/activity_create_profile.xml" />
+        <option value="$PROJECT_DIR$/Focus!/build/generated/source/r/debug/com/pk/example/R.java" />
+        <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/CreateProfileActivity.java" />
+        <option value="$PROJECT_DIR$/Focus!/src/main/res/drawable/bg_key.xml" />
       </list>
     </option>
   </component>
@@ -2161,6 +2107,11 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView">
+        <subPane />
+      </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2363,12 +2314,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="AndroidView">
-        <subPane />
-      </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2738,7 +2684,7 @@
       <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
       <option name="FORCE_STOP_RUNNING_APP" value="true" />
       <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="true" />
       <option name="PREFERRED_AVD" value="" />
       <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
       <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
@@ -2822,9 +2768,9 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296837" sideWeight="0.50137365" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296837" sideWeight="0.49862638" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296837" sideWeight="0.49862638" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2870,14 +2816,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Focus!/src/main/res/layout/activity_create_profile.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/CreateProfileActivity.java">
@@ -2886,20 +2832,20 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1506925198999" expanded="false" signature="2114:2131" ph="&lt;~&gt;" />
+            <marker date="1506929046907" expanded="false" signature="2246:2263" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Focus!/src/main/res/layout/snippet_list_row.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/AppAdapter.java">
@@ -2913,14 +2859,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Focus!/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="759">
           <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Focus!/src/main/AndroidManifest.xml">
@@ -2972,14 +2918,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Focus!/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="792">
           <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Focus!/src/main/res/values/strings.xml">
@@ -3031,14 +2977,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Focus!/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="792">
           <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Focus!/src/main/res/values/strings.xml">
@@ -3158,6 +3104,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Focus!/src/main/res/menu/main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/NLService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12639">
+          <caret line="409" column="0" selection-start-line="409" selection-start-column="0" selection-end-line="409" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/AppList.java" />
+    <entry file="file://$PROJECT_DIR$/Focus!/src/main/res/layout/installed_app_list.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+          <folding>
+            <element signature="e#355#376#0" expanded="true" />
+            <element signature="e#1030#1051#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Focus!/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Focus!/src/main/AndroidManifest.xml">
       <provider editor-type-id="android-manifest">
         <state />
@@ -3169,113 +3159,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Focus!/src/main/res/menu/main.xml">
+    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/AppAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Focus!/build/generated/source/r/debug/com/pk/example/R.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="36" column="53" selection-start-line="36" selection-start-column="53" selection-end-line="36" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Focus!/src/main/res/layout/snippet_list_row.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Focus!/src/main/res/layout/activity_create_profile.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
+        <state relative-caret-position="297">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2739">
-          <caret line="97" column="0" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+        <state relative-caret-position="132">
+          <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/NLService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12639">
-          <caret line="409" column="0" selection-start-line="409" selection-start-column="0" selection-end-line="409" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Focus!/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/AppList.java" />
-    <entry file="file://$PROJECT_DIR$/Focus!/src/main/res/layout/installed_app_list.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
-          <folding>
-            <element signature="e#355#376#0" expanded="true" />
-            <element signature="e#1030#1051#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Focus!/src/main/res/layout/activity_create_profile.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/AppAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/CreateProfileActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="49" column="40" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="40" />
+        <state relative-caret-position="748">
+          <caret line="46" column="49" selection-start-line="46" selection-start-column="49" selection-end-line="46" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1506925198999" expanded="false" signature="2114:2131" ph="&lt;~&gt;" />
+            <marker date="1506929046907" expanded="false" signature="2246:2263" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Focus!/src/main/res/drawable/bg_key.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+        <state relative-caret-position="198">
+          <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Focus!/src/main/res/values/colors.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Focus!/src/main/res/layout/snippet_list_row.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="891">
-          <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+        <state relative-caret-position="66">
+          <caret line="2" column="39" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="39" />
           <folding />
         </state>
       </provider>
