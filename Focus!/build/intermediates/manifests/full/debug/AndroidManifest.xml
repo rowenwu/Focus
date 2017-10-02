@@ -32,6 +32,15 @@
                 <action android:name="android.service.notification.NotificationListenerService" />
             </intent-filter>
         </service>
+
+        <activity
+            android:name="com.pk.example.CreateProfileActivity"
+            android:label="@string/title_activity_create_profile"
+            android:parentActivityName="com.pk.example.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pk.example.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

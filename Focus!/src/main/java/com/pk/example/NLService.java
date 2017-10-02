@@ -3,6 +3,7 @@ package com.pk.example;
 import android.annotation.TargetApi;
 import android.app.Notification;
 import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -417,4 +418,18 @@ public class NLService extends NotificationListenerService {
         }
         return result;
     }
+
+//    class Bin extends BroadcastReceiver {
+//
+//        @Override
+//        public void onReceive(Context context, Intent intent) {
+//
+//
+//            Log.i("intent ","intent "+intent.getExtras().toString());
+//
+//
+//            String temp = intent.getExtras().getString("info")+ "\n----------------------------------------------" + txtView.getText();
+//            txtView.setText(temp+"");
+//        }
+//    }
 }

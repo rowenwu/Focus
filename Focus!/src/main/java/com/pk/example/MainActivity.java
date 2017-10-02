@@ -91,6 +91,10 @@ public class MainActivity extends Activity {
         else if(v.getId() == R.id.btnPermission){
             toggleService(v);
         }
+        else if(v.getId() == R.id.btnCreateProfile){
+            Intent i = new Intent(this, CreateProfileActivity.class);
+            startActivity(i);
+        }
 
 
     }

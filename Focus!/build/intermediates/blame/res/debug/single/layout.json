@@ -20,6 +20,10 @@
         "source": "C:\\Users\\kathe\\.android\\build-cache\\46ace1a018cef848e9b5a1ea65d7d64977cc04c0\\output\\res\\layout\\abc_action_mode_bar.xml"
     },
     {
+        "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout\\activity_create_profile.xml",
+        "source": "C:\\Users\\kathe\\Focus\\Focus!\\src\\main\\res\\layout\\activity_create_profile.xml"
+    },
+    {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
         "source": "C:\\Users\\kathe\\.android\\build-cache\\46ace1a018cef848e9b5a1ea65d7d64977cc04c0\\output\\res\\layout\\select_dialog_multichoice_material.xml"
     },
@@ -112,6 +116,10 @@
         "source": "C:\\Users\\kathe\\.android\\build-cache\\46ace1a018cef848e9b5a1ea65d7d64977cc04c0\\output\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
     },
     {
+        "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout\\installed_app_list.xml",
+        "source": "C:\\Users\\kathe\\Focus\\Focus!\\src\\main\\res\\layout\\installed_app_list.xml"
+    },
+    {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
         "source": "C:\\Users\\kathe\\.android\\build-cache\\46ace1a018cef848e9b5a1ea65d7d64977cc04c0\\output\\res\\layout\\notification_template_part_chronometer.xml"
     },
@@ -146,6 +154,10 @@
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
         "source": "C:\\Users\\kathe\\.android\\build-cache\\46ace1a018cef848e9b5a1ea65d7d64977cc04c0\\output\\res\\layout\\abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout\\snippet_list_row.xml",
+        "source": "C:\\Users\\kathe\\Focus\\Focus!\\src\\main\\res\\layout\\snippet_list_row.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
