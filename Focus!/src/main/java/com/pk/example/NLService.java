@@ -7,6 +7,7 @@ import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Looper;
@@ -26,22 +27,30 @@ import android.widget.Toast;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 public class NLService extends NotificationListenerService {
 
     private String TAG = this.getClass().getSimpleName();
+    private AddProfileReceiver aReceiver;
+    private HashMap<String, Date> blockedApps;
 
     @Override
     public void onCreate() {
         super.onCreate();
-
+        aReceiver = new AddProfileReceiver();
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("com.pk.example.AddProfile");
+        registerReceiver(aReceiver,filter);
+        blockedApps = new HashMap<String, Date>();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-
+        unregisterReceiver(aReceiver);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -51,7 +60,8 @@ public class NLService extends NotificationListenerService {
         String statusBarNotificationKey = null;
         if (Build.VERSION.SDK_INT >= 20){
             statusBarNotificationKey = sbn.getKey();
-            cancelNotification(statusBarNotificationKey);
+//            if(blockedApps.get(sbn.getPackageName()) != null)
+                cancelNotification(statusBarNotificationKey);
         }
 
 
@@ -419,17 +429,26 @@ public class NLService extends NotificationListenerService {
         return result;
     }
 
-//    class Bin extends BroadcastReceiver {
-//
-//        @Override
-//        public void onReceive(Context context, Intent intent) {
-//
-//
-//            Log.i("intent ","intent "+intent.getExtras().toString());
-//
-//
-//            String temp = intent.getExtras().getString("info")+ "\n----------------------------------------------" + txtView.getText();
-//            txtView.setText(temp+"");
-//        }
-//    }
+    public void addProfile(String profile){
+        // get list of apps from database and add to blockedApps
+    }
+
+    public void addBlockedApp(String appPackage) {
+        blockedApps.put(appPackage, new Date());
+    }
+
+    class AddProfileReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log.i("intent ","intent "+intent.getExtras().toString());
+
+            String prof = intent.getStringExtra("profile");
+//            String prof = intent.getExtras().getString("profile");
+            addProfile(prof);
+
+            //test
+            addBlockedApp(prof);
+        }
+    }
 }

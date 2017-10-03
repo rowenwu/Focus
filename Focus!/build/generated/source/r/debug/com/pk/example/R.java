@@ -1829,13 +1829,14 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f0a0042;
         public static final int action_mode_bar_stub=0x7f0a0041;
         public static final int action_mode_close_button=0x7f0a0026;
-        public static final int action_settings=0x7f0a0069;
+        public static final int action_settings=0x7f0a006a;
         public static final int activity_chooser_view_content=0x7f0a0027;
         public static final int add=0x7f0a0013;
         public static final int alertTitle=0x7f0a0033;
         public static final int always=0x7f0a001d;
         public static final int app_icon=0x7f0a0059;
         public static final int app_name=0x7f0a0068;
+        public static final int app_paackage=0x7f0a0069;
         public static final int beginning=0x7f0a001a;
         public static final int bottom=0x7f0a0022;
         public static final int btnCreateNotify=0x7f0a0056;

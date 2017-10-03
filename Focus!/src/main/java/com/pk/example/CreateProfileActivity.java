@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -41,21 +42,24 @@ public class CreateProfileActivity extends ListActivity {
 
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
-//        super.onListItemClick(l, v, position, id);
-            getListView().setItemChecked(position, listadaptor.changeCheckedState(position));
-
-//        if(!getListView().isItemChecked(position))
-//            getListView().setItemChecked(position, true);
-//        else
-//            getListView().setItemChecked(position, false);
-
-
+        super.onListItemClick(l, v, position, id);
+        getListView().setItemChecked(position, listadaptor.changeCheckedState(position));
     }
 
 
     public void buttonClicked(View v){
-        // get list of app names
+        ArrayList<String> appPacks = listadaptor.getSelectedApps();
+        if(appPacks.size() > 0) {
+            Intent i = new Intent("android.broadcastreceiver.ReceiveProfile");
+            i.putExtra("profile", appPacks.get(0));
+            sendBroadcast(i);
 
+            Context context = getApplicationContext();
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(context, appPacks.get(0), duration);
+            toast.show();
+        }
     }
 
     private class LoadApplications extends AsyncTask<Void, Void, Void> {
