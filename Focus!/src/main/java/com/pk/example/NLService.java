@@ -60,7 +60,7 @@ public class NLService extends NotificationListenerService {
         String statusBarNotificationKey = null;
         if (Build.VERSION.SDK_INT >= 20){
             statusBarNotificationKey = sbn.getKey();
-//            if(blockedApps.get(sbn.getPackageName()) != null)
+            if(blockedApps.get(sbn.getPackageName()) != null)
                 cancelNotification(statusBarNotificationKey);
         }
 

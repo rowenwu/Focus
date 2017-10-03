@@ -50,7 +50,7 @@ public class CreateProfileActivity extends ListActivity {
     public void buttonClicked(View v){
         ArrayList<String> appPacks = listadaptor.getSelectedApps();
         if(appPacks.size() > 0) {
-            Intent i = new Intent("android.broadcastreceiver.ReceiveProfile");
+            Intent i = new Intent("com.pk.example.AddProfile");
             i.putExtra("profile", appPacks.get(0));
             sendBroadcast(i);
 
