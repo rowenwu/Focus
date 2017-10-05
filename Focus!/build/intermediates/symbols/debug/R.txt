@@ -680,10 +680,9 @@ int string accessibility_toast 0x7f050022
 int string action_settings 0x7f050023
 int string app_name 0x7f050024
 int string hello_world 0x7f050025
-int string large_text 0x7f050026
-int string notification_listener_not_found_detour 0x7f050027
+int string notification_listener_not_found_detour 0x7f050026
 int string status_bar_notification_info_overflow 0x7f050013
-int string title_activity_create_profile 0x7f050028
+int string title_activity_create_profile 0x7f050027
 int style AlertDialog_AppCompat 0x7f07008b
 int style AlertDialog_AppCompat_Light 0x7f07008c
 int style Animation_AppCompat_Dialog 0x7f07008d

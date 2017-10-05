@@ -29,22 +29,29 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 public class NLService extends NotificationListenerService {
+    static final String ADD_PROFILE = "com.pk.example.ADDPROFILE";
+    static final String REMOVE_PROFILE = "com.pk.example.REMOVEPROFILE";
+//    static final String START_SERVICE = "com.pk.example.STARTSERVICE";
+//    static final String STOP_SERVICE = "com.pk.example.STOPSERVICE";
+
 
     private String TAG = this.getClass().getSimpleName();
     private AddProfileReceiver aReceiver;
-    private HashMap<String, Date> blockedApps;
+    private HashMap<String, HashSet<String>> blockedApps;
 
     @Override
     public void onCreate() {
         super.onCreate();
         aReceiver = new AddProfileReceiver();
         IntentFilter filter = new IntentFilter();
-        filter.addAction("com.pk.example.AddProfile");
+        filter.addAction(ADD_PROFILE);
+        filter.addAction(REMOVE_PROFILE);
         registerReceiver(aReceiver,filter);
-        blockedApps = new HashMap<String, Date>();
+        blockedApps = new HashMap<String, HashSet<String>>();
     }
 
     @Override
@@ -430,11 +437,25 @@ public class NLService extends NotificationListenerService {
     }
 
     public void addProfile(String profile){
-        // get list of apps from database and add to blockedApps
+        // get profile information (start time, end time, list of apps) from database
+        // if current time < end time, add profile, add apps to appsBlocked or update set of profiles
+        // for list of apps, addBlockedApp
+
+        //test
+        addBlockedApp(profile, profile);
     }
 
-    public void addBlockedApp(String appPackage) {
-        blockedApps.put(appPackage, new Date());
+    public void addBlockedApp(String appPackage, String profile) {
+        HashSet<String> profiles = blockedApps.get(appPackage);
+        if (profiles != null){
+            profiles.add(profile);
+        }
+        else {
+            profiles = new HashSet<String>();
+            profiles.add(profile);
+        }
+        blockedApps.put(appPackage, profiles);
+
     }
 
     class AddProfileReceiver extends BroadcastReceiver {
@@ -443,12 +464,22 @@ public class NLService extends NotificationListenerService {
         public void onReceive(Context context, Intent intent) {
             Log.i("intent ","intent "+intent.getExtras().toString());
 
-            String prof = intent.getStringExtra("profile");
-//            String prof = intent.getExtras().getString("profile");
-            addProfile(prof);
+            switch(intent.getAction()){
+                case ADD_PROFILE:
+                    String prof = intent.getStringExtra("profile");
+                    addProfile(prof);
+                    break;
+                case REMOVE_PROFILE:
+                    // do something
+                    break;
+//                case START_SERVICE:
+//
+//                    break;
+//                case STOP_SERVICE:
+//
+//                    break;
+            }
 
-            //test
-            addBlockedApp(prof);
         }
     }
 }

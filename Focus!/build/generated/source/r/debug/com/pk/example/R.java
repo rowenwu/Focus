@@ -2013,10 +2013,9 @@ containing a value of this type.
         public static final int action_settings=0x7f050023;
         public static final int app_name=0x7f050024;
         public static final int hello_world=0x7f050025;
-        public static final int large_text=0x7f050026;
-        public static final int notification_listener_not_found_detour=0x7f050027;
+        public static final int notification_listener_not_found_detour=0x7f050026;
         public static final int status_bar_notification_info_overflow=0x7f050013;
-        public static final int title_activity_create_profile=0x7f050028;
+        public static final int title_activity_create_profile=0x7f050027;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f07008b;
@@ -2025,15 +2024,8 @@ containing a value of this type.
         public static final int Animation_AppCompat_DropDownUp=0x7f07008e;
         /**  API 11 theme customizations can go here. 
  API 14 theme customizations can go here. 
-
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        
          */
         public static final int AppBaseTheme=0x7f07000b;
-        /**  All customizations that are NOT specific to a particular API-level can go here. 
-         */
         public static final int AppTheme=0x7f07008f;
         public static final int Base_AlertDialog_AppCompat=0x7f070090;
         public static final int Base_AlertDialog_AppCompat_Light=0x7f070091;

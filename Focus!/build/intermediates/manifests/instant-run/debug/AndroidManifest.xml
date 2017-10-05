@@ -33,6 +33,14 @@
             </intent-filter>
         </service>
 
+        <!-- <service -->
+        <!-- android:name=".ProfileJobService" -->
+        <!-- android:label="ProfileJobService" -->
+        <!-- android:permission="android.permission.BIND_JOB_SERVICE" > -->
+
+
+        <!-- </service> -->
+
         <activity
             android:name="com.pk.example.CreateProfileActivity"
             android:label="@string/title_activity_create_profile"

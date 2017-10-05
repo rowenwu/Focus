@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:2:1-43:12
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:2:1-49:12
 	package
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:3:5-29
 	android:versionName
@@ -14,7 +14,7 @@ ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:2:1-43:12
 	xmlns:android
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:7:5-41:19
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:7:5-47:19
 MERGED from [com.android.support:support-v13:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\873e2f1af155fefdb37edae4bf1c944048e3dac1\output\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:cardview-v7:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\5322d05acdefeba41a488c0443e16d9a0292f498\output\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:appcompat-v7:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\46ace1a018cef848e9b5a1ea65d7d64977cc04c0\output\AndroidManifest.xml:25:5-20
@@ -62,19 +62,19 @@ ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:27:17-99
 	android:name
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:27:25-96
 activity#com.pk.example.CreateProfileActivity
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:33:9-40:20
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:39:9-46:20
 	android:label
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:35:13-66
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:41:13-66
 	android:parentActivityName
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:36:13-55
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:42:13-55
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:34:13-50
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:40:13-50
 meta-data#android.support.PARENT_ACTIVITY
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:37:13-39:63
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:43:13-45:63
 	android:value
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:39:17-60
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:45:17-60
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:38:17-63
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:44:17-63
 uses-sdk
 INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:support-v13:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\873e2f1af155fefdb37edae4bf1c944048e3dac1\output\AndroidManifest.xml:20:5-44
