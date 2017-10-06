@@ -42,7 +42,7 @@
         <!-- </service> -->
 
         <activity
-            android:name="com.pk.example.CreateProfileActivity"
+            android:name="com.pk.example.ProfileViewActivity"
             android:label="@string/title_activity_create_profile"
             android:parentActivityName="com.pk.example.MainActivity" >
             <meta-data

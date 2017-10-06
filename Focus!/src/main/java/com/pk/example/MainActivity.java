@@ -92,7 +92,7 @@ public class MainActivity extends Activity {
             toggleService(v);
         }
         else if(v.getId() == R.id.btnCreateProfile){
-            Intent i = new Intent(this, CreateProfileActivity.class);
+            Intent i = new Intent(this, ProfileViewActivity.class);
             startActivity(i);
         }
 

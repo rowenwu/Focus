@@ -21,7 +21,7 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class CreateProfileActivity extends ListActivity {
+public class ProfileViewActivity extends ListActivity {
     private PackageManager packageManager = null;
     private List<ApplicationInfo> applist = null;
     private AppAdapter listadaptor = null;
@@ -70,7 +70,7 @@ public class CreateProfileActivity extends ListActivity {
         protected Void doInBackground(Void... params) {
 //            applist = checkForLaunchIntent(packageManager.getInstalledApplications(PackageManager.GET_META_DATA));
             applist = packageManager.getInstalledApplications(PackageManager.GET_META_DATA);
-            listadaptor = new AppAdapter(CreateProfileActivity.this,
+            listadaptor = new AppAdapter(ProfileViewActivity.this,
                     R.layout.snippet_list_row, applist);
 
             return null;
@@ -90,7 +90,7 @@ public class CreateProfileActivity extends ListActivity {
 
         @Override
         protected void onPreExecute() {
-            progress = ProgressDialog.show(CreateProfileActivity.this, null,
+            progress = ProgressDialog.show(ProfileViewActivity.this, null,
                     "Loading application info...");
             super.onPreExecute();
         }

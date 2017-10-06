@@ -61,14 +61,14 @@ action#android.service.notification.NotificationListenerService
 ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:27:17-99
 	android:name
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:27:25-96
-activity#com.pk.example.CreateProfileActivity
+activity#com.pk.example.ProfileViewActivity
 ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:39:9-46:20
 	android:label
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:41:13-66
 	android:parentActivityName
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:42:13-55
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:40:13-50
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:40:13-48
 meta-data#android.support.PARENT_ACTIVITY
 ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:43:13-45:63
 	android:value

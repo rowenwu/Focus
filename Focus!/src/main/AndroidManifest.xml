@@ -37,7 +37,7 @@
         <!--</service>-->
 
         <activity
-            android:name=".CreateProfileActivity"
+            android:name=".ProfileViewActivity"
             android:label="@string/title_activity_create_profile"
             android:parentActivityName=".MainActivity">
             <meta-data
