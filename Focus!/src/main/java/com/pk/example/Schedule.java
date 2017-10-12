@@ -1,12 +1,12 @@
 package com.pk.example;
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
+//import android.arch.persistence.room.Entity;
+//import android.arch.persistence.room.PrimaryKey;
 
 import java.util.Date;
 
 public class Schedule {
-    @PrimaryKey
+//    @PrimaryKey
 //    int id;
     public String name;
     public String[] profiles;

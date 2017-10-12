@@ -97,11 +97,11 @@ public class MainActivity extends Activity {
             Intent i = new Intent(this, ProfileViewActivity.class);
             startActivity(i);
         }
-//        else if(v.getId() == R.id.btnSchedule){
-//            Schedule[] schedules = DummyDb.getAllSchedules();
+        else if(v.getId() == R.id.btnSchedule){
+            Schedule[] schedules = DummyDb.getAllSchedules();
 //            ProfileScheduler.turnOnSchedule(getApplicationContext(), schedules[0]);
-//            ProfileScheduler.createStartProfileAlarm(getApplicationContext(), "com.facebook.orca", new Date());
-//        }
+            ProfileScheduler.createStartProfileAlarm(getApplicationContext(), "com.facebook.orca", new Date());
+        }
 
 
     }

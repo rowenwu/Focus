@@ -1,0 +1,65 @@
+[33mcommit 77f591fb418584659c2f7d64cc754b94a0f06a9c[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Rowen Wu <kathertw@usc.edu>
+Date:   Wed Oct 11 22:22:51 2017 -0700
+
+    created ProfileScheduler - can schedule an alarm that sends a notification and blocks a profile
+
+[33mcommit fbe863b97f0732ea3713e26c709e35505cc28c2d[m
+Author: Rowen Wu <kathertw@usc.edu>
+Date:   Fri Oct 6 16:39:41 2017 -0700
+
+    refactored createprofileactivity to ProfileViewActivity
+
+[33mcommit 31a79e2fac43fe9719f34d07640ea544cfaf125d[m
+Author: Rowen Wu <kathertw@usc.edu>
+Date:   Wed Oct 4 19:37:54 2017 -0700
+
+    changed value of blocked apps to HashSet<String>
+
+[33mcommit 583b0d6a5202fea294b4b1e410a64b625266aa29[m
+Author: Rowen Wu <kathertw@usc.edu>
+Date:   Mon Oct 2 20:26:35 2017 -0700
+
+    nvm notification listener was working all along, AVD just needed to be restarted. not sure why. nlservice can now receive profile/add specific apps to block
+
+[33mcommit 842d952d46007d8733a84e1194c8fad18f82a976[m
+Author: Rowen Wu <kathertw@usc.edu>
+Date:   Mon Oct 2 19:06:19 2017 -0700
+
+    added AddProfileReceiver to NLService. notifications are no longer showing in main activity. AddProfileReceiver doesn't block any notifications
+
+[33mcommit 859e9ee295b435670b490c5dd089bc8a0e8832e8[m[33m ([m[1;32mtempbranch[m[33m)[m
+Author: Rowen Wu <kathertw@usc.edu>
+Date:   Mon Oct 2 01:14:19 2017 -0700
+
+    createprofileactivity multiple selection works
+
+[33mcommit 479252f20e1146ed595fbd44459595d42fbe7efe[m
+Author: Rowen Wu <kathertw@usc.edu>
+Date:   Mon Oct 2 00:29:20 2017 -0700
+
+    create profile activity allows multiple select, but not deselect
+
+[33mcommit f7760b86e783e361d9d4dd3c61623ecf72318552[m
+Author: Rowen Wu <kathertw@usc.edu>
+Date:   Sun Oct 1 23:33:26 2017 -0700
+
+    CreateProfileActivity allows single selection highlighted
+
+[33mcommit e3247e8eecfb4df63bc0b072affed526355f9345[m
+Author: Rowen Wu <kathertw@usc.edu>
+Date:   Sun Oct 1 21:30:18 2017 -0700
+
+    CreateProfileActivity added, displays list of apps
+
+[33mcommit a1458381357c968ad6b881c762a8603d16f0f912[m
+Author: Rowen Wu <kathertw@usc.edu>
+Date:   Sun Oct 1 17:46:59 2017 -0700
+
+    Delete README.md
+
+[33mcommit d059cfef8c1b98d46bb444769d67fc581c840139[m
+Author: Rowen Wu <kathertw@usc.edu>
+Date:   Sun Oct 1 17:45:17 2017 -0700
+
+    creates and blocks notifications

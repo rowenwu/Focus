@@ -1,11 +1,11 @@
 package com.pk.example;
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
+//import android.arch.persistence.room.Entity;
+//import android.arch.persistence.room.PrimaryKey;
 
 public class Profile {
 
-    @PrimaryKey
+//    @PrimaryKey
 //    int id;
     public String name;
     public String[] appsToBlock;
