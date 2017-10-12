@@ -51,7 +51,7 @@ public class ProfileViewActivity extends ListActivity {
         ArrayList<String> appPacks = listadaptor.getSelectedApps();
         if(appPacks.size() > 0) {
 
-            // test
+            // TEST CODE
             Intent i = new Intent(NLService.ADD_PROFILE);
             i.putExtra("profile", appPacks.get(0));
             sendBroadcast(i);

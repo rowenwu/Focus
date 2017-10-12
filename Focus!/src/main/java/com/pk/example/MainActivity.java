@@ -95,6 +95,9 @@ public class MainActivity extends Activity {
             Intent i = new Intent(this, ProfileViewActivity.class);
             startActivity(i);
         }
+        else if(v.getId() == R.id.btnSchedule){
+            ProfileScheduler.turnOnSchedule(getApplicationContext(), "schedule name");
+        }
 
 
     }

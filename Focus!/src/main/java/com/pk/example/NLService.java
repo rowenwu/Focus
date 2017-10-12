@@ -1,10 +1,11 @@
 package com.pk.example;
 
 import android.annotation.TargetApi;
+import android.app.AlarmManager;
 import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -13,9 +14,9 @@ import android.os.Build;
 import android.os.Looper;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.provider.Settings;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
+import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,35 +24,36 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RemoteViews;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
+import static java.security.AccessController.getContext;
+
 public class NLService extends NotificationListenerService {
     static final String ADD_PROFILE = "com.pk.example.ADDPROFILE";
     static final String REMOVE_PROFILE = "com.pk.example.REMOVEPROFILE";
-//    static final String START_SERVICE = "com.pk.example.STARTSERVICE";
-//    static final String STOP_SERVICE = "com.pk.example.STOPSERVICE";
-
+    static final String START_PROFILE_NOTIFICATION = " is now active and blocking your notifications.";
+    static final String STOP_PROFILE_NOTIFICATION = " is now inactive. Check your missed notifications.";
 
     private String TAG = this.getClass().getSimpleName();
-    private AddProfileReceiver aReceiver;
+    private SchedulingReceiver aReceiver;
     private HashMap<String, HashSet<String>> blockedApps;
+
 
     @Override
     public void onCreate() {
         super.onCreate();
-        aReceiver = new AddProfileReceiver();
+        aReceiver = new SchedulingReceiver();
         IntentFilter filter = new IntentFilter();
         filter.addAction(ADD_PROFILE);
         filter.addAction(REMOVE_PROFILE);
         registerReceiver(aReceiver,filter);
         blockedApps = new HashMap<String, HashSet<String>>();
+
     }
 
     @Override
@@ -441,8 +443,21 @@ public class NLService extends NotificationListenerService {
         // if current time < end time, add profile, add apps to appsBlocked or update set of profiles
         // for list of apps, addBlockedApp
 
+        sendNotification(profile + START_PROFILE_NOTIFICATION);
+
         //test
         addBlockedApp(profile, profile);
+    }
+
+    public void sendNotification(String message){
+        NotificationManager nManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        NotificationCompat.Builder ncomp = new NotificationCompat.Builder(this);
+        ncomp.setContentTitle("Focus!");
+        ncomp.setContentText(message);
+        ncomp.setTicker(message);
+        ncomp.setSmallIcon(R.drawable.ic_launcher);
+        ncomp.setAutoCancel(true);
+        nManager.notify((int)System.currentTimeMillis(),ncomp.build());
     }
 
     public void addBlockedApp(String appPackage, String profile) {
@@ -458,26 +473,22 @@ public class NLService extends NotificationListenerService {
 
     }
 
-    class AddProfileReceiver extends BroadcastReceiver {
+    // receives notice to start or stop profile from alarm
+    class SchedulingReceiver extends BroadcastReceiver {
 
         @Override
         public void onReceive(Context context, Intent intent) {
             Log.i("intent ","intent "+intent.getExtras().toString());
+            String prof = intent.getStringExtra("profile");
 
             switch(intent.getAction()){
                 case ADD_PROFILE:
-                    String prof = intent.getStringExtra("profile");
                     addProfile(prof);
                     break;
                 case REMOVE_PROFILE:
                     // do something
                     break;
-//                case START_SERVICE:
-//
-//                    break;
-//                case STOP_SERVICE:
-//
-//                    break;
+
             }
 
         }

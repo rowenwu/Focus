@@ -37,6 +37,17 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Schedule"
+        android:textAllCaps="true"
+        android:layout_below="@+id/btnCreateProfile"
+        android:id="@+id/btnSchedule"
+        android:onClick="buttonClicked"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"/>
 
 
     <ScrollView android:layout_width="match_parent"
