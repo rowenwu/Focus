@@ -441,6 +441,18 @@ public class NLService extends NotificationListenerService {
         return result;
     }
 
+
+    public void sendNotification(String message){
+        NotificationManager nManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        NotificationCompat.Builder ncomp = new NotificationCompat.Builder(this);
+        ncomp.setContentTitle("Focus!");
+        ncomp.setContentText(message);
+        ncomp.setTicker(message);
+        ncomp.setSmallIcon(R.drawable.ic_launcher);
+        ncomp.setAutoCancel(true);
+        nManager.notify((int)System.currentTimeMillis(),ncomp.build());
+    }
+
     public void addProfile(String profile){
         // get profile information (start time, end time, list of apps) from database
         // if current time < end time, add profile, add apps to appsBlocked or update set of profiles
@@ -453,17 +465,6 @@ public class NLService extends NotificationListenerService {
         }
         //test
 //        addBlockedApp(profile, profile);
-    }
-
-    public void sendNotification(String message){
-        NotificationManager nManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        NotificationCompat.Builder ncomp = new NotificationCompat.Builder(this);
-        ncomp.setContentTitle("Focus!");
-        ncomp.setContentText(message);
-        ncomp.setTicker(message);
-        ncomp.setSmallIcon(R.drawable.ic_launcher);
-        ncomp.setAutoCancel(true);
-        nManager.notify((int)System.currentTimeMillis(),ncomp.build());
     }
 
     public void addBlockedApp(String appPackage, String profile) {
@@ -479,14 +480,33 @@ public class NLService extends NotificationListenerService {
 
     }
 
-    public void addAlarmIntent(String profile, PendingIntent intent){
+    public void removeProfile(String profile){
+        sendNotification(profile + STOP_PROFILE_NOTIFICATION);
+        Profile prof = DummyDb.getProfile(profile);
+        for(int a = 0; a < prof.appsToBlock.length; a++){
+            removeBlockedApp(prof.appsToBlock[a], profile);
+//            addBlockedApp(prof.appsToBlock[a], profile);
+        }
+
+    }
+
+    public void removeBlockedApp(String appPackage, String profile){
+        HashSet<String> profiles = blockedApps.get(appPackage);
+        if (profiles != null){
+            profiles.remove(profile);
+        }
+        if(profiles.size() == 0)
+            blockedApps.remove(appPackage);
+    }
+
+    public void addAlarmIntent(String profile, PendingIntent pi){
         HashSet<PendingIntent> alarms = profileAlarmIntents.get(profile);
         if (alarms != null){
-            alarms.add(intent);
+            alarms.add(pi);
         }
         else {
             alarms = new HashSet<PendingIntent>();
-            alarms.add(intent);
+            alarms.add(pi);
         }
         profileAlarmIntents.put(profile, alarms);
     }
@@ -505,11 +525,12 @@ public class NLService extends NotificationListenerService {
                     addProfile(prof);
                     break;
                 case REMOVE_PROFILE:
-
-                    // do something
+                    removeProfile(prof);
                     break;
                 case ADD_PENDING_INTENT:
-                    // TODO get parcelable and add to profileAlarmIntent
+                    //  get parcelable and add to profileAlarmIntent
+                    PendingIntent pi = intent.getParcelableExtra("pendingIntent");
+                    addAlarmIntent(prof, pi);
                     break;
             }
 

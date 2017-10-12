@@ -46,8 +46,7 @@ public class ProfileScheduler {
             alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),alarmMgr.INTERVAL_DAY * 7,alarmIntent);
         else
             alarmMgr.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), alarmIntent);
-
-
-
     }
+
+
 }
