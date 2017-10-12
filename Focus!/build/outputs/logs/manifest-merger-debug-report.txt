@@ -21,6 +21,11 @@ MERGED from [com.android.support:appcompat-v7:24.0.0-alpha1] C:\Users\kathe\.and
 MERGED from [com.android.support:animated-vector-drawable:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\1966b4d9baabc3cbae51e857c7de5f8eb2877f6a\output\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-vector-drawable:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\f644d09edcd6cdafcccda817df0c481edc9d7aaa\output\AndroidManifest.xml:23:5-20
 MERGED from [com.android.support:support-v4:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\a345f7a28747acff03af05ddc7b23a4e4cb77722\output\AndroidManifest.xml:22:5-20
+MERGED from [android.arch.lifecycle:extensions:1.0.0-alpha9] C:\Users\kathe\.android\build-cache\ea92ac36ccb3d99666c57b213fcb4956737c3a49\output\AndroidManifest.xml:26:5-32:19
+MERGED from [com.android.support:support-fragment:26.0.0] C:\Users\kathe\.android\build-cache\25c3bcb7eeb93da1dfba321b16264e9625d5cace\output\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:26.0.0] C:\Users\kathe\.android\build-cache\501853ebfbe8eb3b536f50335cad019bf92e8387\output\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.0.0] C:\Users\kathe\.android\build-cache\adb7619af851817f4f7ee334769a84e41f6303d7\output\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:26.0.0] C:\Users\kathe\.android\build-cache\3350dd5687db9cbd4b17ffe5b652d122e57212c7\output\AndroidManifest.xml:25:5-29:19
 	android:label
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:10:9-41
 	android:allowBackup
@@ -83,6 +88,16 @@ MERGED from [com.android.support:appcompat-v7:24.0.0-alpha1] C:\Users\kathe\.and
 MERGED from [com.android.support:animated-vector-drawable:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\1966b4d9baabc3cbae51e857c7de5f8eb2877f6a\output\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\f644d09edcd6cdafcccda817df0c481edc9d7aaa\output\AndroidManifest.xml:21:5-43
 MERGED from [com.android.support:support-v4:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\a345f7a28747acff03af05ddc7b23a4e4cb77722\output\AndroidManifest.xml:20:5-43
+MERGED from [android.arch.lifecycle:extensions:1.0.0-alpha9] C:\Users\kathe\.android\build-cache\ea92ac36ccb3d99666c57b213fcb4956737c3a49\output\AndroidManifest.xml:22:5-24:41
+MERGED from [android.arch.lifecycle:runtime:1.0.0-alpha9] C:\Users\kathe\.android\build-cache\cd60218f202e333d8dbd19185561a39073c76f00\output\AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:support-fragment:26.0.0] C:\Users\kathe\.android\build-cache\25c3bcb7eeb93da1dfba321b16264e9625d5cace\output\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-ui:26.0.0] C:\Users\kathe\.android\build-cache\501853ebfbe8eb3b536f50335cad019bf92e8387\output\AndroidManifest.xml:21:5-23:58
+MERGED from [android.arch.persistence.room:runtime:1.0.0-alpha9] C:\Users\kathe\.android\build-cache\f70ac10c301a84242fae59c21e932126309bbf9b\output\AndroidManifest.xml:22:5-24:41
+MERGED from [android.arch.persistence.room:support-db-impl:1.0.0-alpha9] C:\Users\kathe\.android\build-cache\96270c0a81138c617649c1f7b255fae83179e188\output\AndroidManifest.xml:22:5-24:41
+MERGED from [android.arch.persistence.room:support-db:1.0.0-alpha9] C:\Users\kathe\.android\build-cache\012fa34d7ccf31fcb2f0059a5351b6c4cc23ee05\output\AndroidManifest.xml:22:5-24:41
+MERGED from [android.arch.core:runtime:1.0.0-alpha9] C:\Users\kathe\.android\build-cache\aaa23c610daa44ed13eb2761a0551f44b057dceb\output\AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:support-core-utils:26.0.0] C:\Users\kathe\.android\build-cache\adb7619af851817f4f7ee334769a84e41f6303d7\output\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:26.0.0] C:\Users\kathe\.android\build-cache\3350dd5687db9cbd4b17ffe5b652d122e57212c7\output\AndroidManifest.xml:21:5-23:58
 	tools:overrideLibrary
 		ADDED from [com.android.support:appcompat-v7:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\46ace1a018cef848e9b5a1ea65d7d64977cc04c0\output\AndroidManifest.xml:23:9-75
 	android:targetSdkVersion
@@ -91,3 +106,23 @@ MERGED from [com.android.support:support-v4:24.0.0-alpha1] C:\Users\kathe\.andro
 	android:minSdkVersion
 		INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml
+provider#android.arch.lifecycle.LifecycleRuntimeTrojanProvider
+ADDED from [android.arch.lifecycle:extensions:1.0.0-alpha9] C:\Users\kathe\.android\build-cache\ea92ac36ccb3d99666c57b213fcb4956737c3a49\output\AndroidManifest.xml:27:9-31:43
+	android:authorities
+		ADDED from [android.arch.lifecycle:extensions:1.0.0-alpha9] C:\Users\kathe\.android\build-cache\ea92ac36ccb3d99666c57b213fcb4956737c3a49\output\AndroidManifest.xml:29:13-68
+		INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml
+	android:multiprocess
+		ADDED from [android.arch.lifecycle:extensions:1.0.0-alpha9] C:\Users\kathe\.android\build-cache\ea92ac36ccb3d99666c57b213fcb4956737c3a49\output\AndroidManifest.xml:31:13-40
+	android:exported
+		ADDED from [android.arch.lifecycle:extensions:1.0.0-alpha9] C:\Users\kathe\.android\build-cache\ea92ac36ccb3d99666c57b213fcb4956737c3a49\output\AndroidManifest.xml:30:13-37
+	android:name
+		ADDED from [android.arch.lifecycle:extensions:1.0.0-alpha9] C:\Users\kathe\.android\build-cache\ea92ac36ccb3d99666c57b213fcb4956737c3a49\output\AndroidManifest.xml:28:13-81
+meta-data#android.support.VERSION
+ADDED from [com.android.support:support-fragment:26.0.0] C:\Users\kathe\.android\build-cache\25c3bcb7eeb93da1dfba321b16264e9625d5cace\output\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:26.0.0] C:\Users\kathe\.android\build-cache\501853ebfbe8eb3b536f50335cad019bf92e8387\output\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:26.0.0] C:\Users\kathe\.android\build-cache\adb7619af851817f4f7ee334769a84e41f6303d7\output\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:26.0.0] C:\Users\kathe\.android\build-cache\3350dd5687db9cbd4b17ffe5b652d122e57212c7\output\AndroidManifest.xml:26:9-28:38
+	android:value
+		ADDED from [com.android.support:support-fragment:26.0.0] C:\Users\kathe\.android\build-cache\25c3bcb7eeb93da1dfba321b16264e9625d5cace\output\AndroidManifest.xml:28:13-35
+	android:name
+		ADDED from [com.android.support:support-fragment:26.0.0] C:\Users\kathe\.android\build-cache\25c3bcb7eeb93da1dfba321b16264e9625d5cace\output\AndroidManifest.xml:27:13-51

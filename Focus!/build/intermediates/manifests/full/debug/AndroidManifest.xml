@@ -49,6 +49,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pk.example.MainActivity" />
         </activity>
+
+        <provider
+            android:name="android.arch.lifecycle.LifecycleRuntimeTrojanProvider"
+            android:authorities="com.pk.example.lifecycle-trojan"
+            android:exported="false"
+            android:multiprocess="true" />
+
+        <meta-data
+            android:name="android.support.VERSION"
+            android:value="26.0.0" />
     </application>
 
 </manifest>
