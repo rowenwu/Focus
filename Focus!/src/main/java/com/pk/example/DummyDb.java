@@ -15,17 +15,28 @@ public class DummyDb {
         return schedules;
     }
 
+    public static Profile getProfile(String name){
+        return makeFakeProfile(name);
+    }
+
+
+    //fake
+    public static Profile makeFakeProfile(String fakeyname){
+        String[] appsToBlock = {"com.facebook.orca"};
+        Profile profile = new Profile(fakeyname, appsToBlock);
+        return profile;
+    }
 
     // fake
     public static Schedule makeFakeSchedule(int minsFromNow){
-        String[] profiles = {"Profile"};
+        String[] profiles = {"ProfileName"};
 
         Calendar cal = Calendar.getInstance();
         long t= cal.getTimeInMillis();
         Date date =new Date(t + (minsFromNow * ONE_MINUTE_IN_MILLIS));
         Date[] startTimes = new Date[1];
         startTimes[0] = date;
-        return new Schedule("ScheduleName", profiles, startTimes, 120, false);
+        return new Schedule("ScheduleName", profiles, startTimes, 120, true);
     }
 
 }

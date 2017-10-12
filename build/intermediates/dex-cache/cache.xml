@@ -12,12 +12,84 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\kathe\.android\build-cache\be3da3e3b5639e557a8ee6807e83a1363ba1cf87\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f80ef3e88d53cd67f09ae860e9e95967108f5cb2">
+        <dex dex="C:\Users\kathe\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\classes_72abbeded286372c0023dea29820f63b1cc00edc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\kathe\Focus\Focus!\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="23fe32e29acd5a003aa858ee03c1aa8c3b03e996">
+        sha1="11a1a9e5ecddd0246bfefc191f3c92378b9783a0">
         <dex dex="C:\Users\kathe\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_3a43adc4a5265aa9bee6970b46752e7d485aef16\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\kathe\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="C:\Users\kathe\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.3.1_5a9688b405e70a49c4e425de32ce65bc48768487\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\kathe\.android\build-cache\bc40a76aba9587a3f8068aefefda6510e04b61ff\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="C:\Users\kathe\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3425bacc3eea1a92087d26b1bd76880a98c8c787\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\kathe\.gradle\caches\modules-2\files-2.1\android.arch.persistence.room\common\1.0.0-alpha1\4fb1be8519a8e9d931945beaee734dd7c1691462\common-1.0.0-alpha1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="4fb1be8519a8e9d931945beaee734dd7c1691462">
+        <dex dex="C:\Users\kathe\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\common-1.0.0-alpha1_f0568c03924d174d58ed34ad68265ccd55a8efec\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\kathe\.android\build-cache\67a24af2237774732acc8ad70a00ea7adbdfd882\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="C:\Users\kathe\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\classes_437741687f2a83494fd0455436aef788ac5c59f6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\kathe\.android\build-cache\477f911ef24a72392c325d2d29685c4b093f594f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="13b31fe5f2e97c9fa36b4716cf32c59afb5603b4">
+        <dex dex="C:\Users\kathe\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6344206552b89230ee52e9267c810c717febcdc1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\kathe\.android\build-cache\5318899595bd8946928910f8a8a18408abf1b819\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8aa1017a9d855f7071d9f47ae563f1dc45730b74">
+        <dex dex="C:\Users\kathe\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2cf8b1059e9511d77d5dfaa3836b84963b1b1745\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\kathe\.android\build-cache\8c9912b94348c5e9249e472a0755297acd72d188\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="bd57e6d90e63921172b30ca28af527267e6d213d">
+        <dex dex="C:\Users\kathe\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c69d4363f1826f6a105cb9465c9a385bac6e4791\classes.dex" />
     </item>
 
 </items>

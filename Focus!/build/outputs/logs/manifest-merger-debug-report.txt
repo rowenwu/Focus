@@ -21,6 +21,8 @@ MERGED from [com.android.support:appcompat-v7:24.0.0-alpha1] C:\Users\kathe\.and
 MERGED from [com.android.support:animated-vector-drawable:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\1966b4d9baabc3cbae51e857c7de5f8eb2877f6a\output\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-vector-drawable:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\f644d09edcd6cdafcccda817df0c481edc9d7aaa\output\AndroidManifest.xml:23:5-20
 MERGED from [com.android.support:support-v4:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\a345f7a28747acff03af05ddc7b23a4e4cb77722\output\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\kathe\.android\build-cache\67a24af2237774732acc8ad70a00ea7adbdfd882\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\kathe\.android\build-cache\bc40a76aba9587a3f8068aefefda6510e04b61ff\output\AndroidManifest.xml:29:5-20
 	android:label
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:10:9-41
 	android:allowBackup
@@ -83,6 +85,12 @@ MERGED from [com.android.support:appcompat-v7:24.0.0-alpha1] C:\Users\kathe\.and
 MERGED from [com.android.support:animated-vector-drawable:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\1966b4d9baabc3cbae51e857c7de5f8eb2877f6a\output\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\f644d09edcd6cdafcccda817df0c481edc9d7aaa\output\AndroidManifest.xml:21:5-43
 MERGED from [com.android.support:support-v4:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\a345f7a28747acff03af05ddc7b23a4e4cb77722\output\AndroidManifest.xml:20:5-43
+MERGED from [android.arch.persistence.room:runtime:1.0.0-alpha1] C:\Users\kathe\.android\build-cache\be3da3e3b5639e557a8ee6807e83a1363ba1cf87\output\AndroidManifest.xml:22:5-24:41
+MERGED from [android.arch.persistence.room:support-db-impl:1.0.0-alpha1] C:\Users\kathe\.android\build-cache\477f911ef24a72392c325d2d29685c4b093f594f\output\AndroidManifest.xml:22:5-24:41
+MERGED from [android.arch.persistence.room:support-db:1.0.0-alpha1] C:\Users\kathe\.android\build-cache\8c9912b94348c5e9249e472a0755297acd72d188\output\AndroidManifest.xml:22:5-24:41
+MERGED from [android.arch.core:core:1.0.0-alpha1] C:\Users\kathe\.android\build-cache\5318899595bd8946928910f8a8a18408abf1b819\output\AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\kathe\.android\build-cache\67a24af2237774732acc8ad70a00ea7adbdfd882\output\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\kathe\.android\build-cache\bc40a76aba9587a3f8068aefefda6510e04b61ff\output\AndroidManifest.xml:21:5-23:58
 	tools:overrideLibrary
 		ADDED from [com.android.support:appcompat-v7:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\46ace1a018cef848e9b5a1ea65d7d64977cc04c0\output\AndroidManifest.xml:23:9-75
 	android:targetSdkVersion
@@ -91,3 +99,10 @@ MERGED from [com.android.support:support-v4:24.0.0-alpha1] C:\Users\kathe\.andro
 	android:minSdkVersion
 		INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml
+meta-data#android.support.VERSION
+ADDED from [com.android.support:support-core-utils:25.3.1] C:\Users\kathe\.android\build-cache\67a24af2237774732acc8ad70a00ea7adbdfd882\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\kathe\.android\build-cache\bc40a76aba9587a3f8068aefefda6510e04b61ff\output\AndroidManifest.xml:25:5-27:34
+	android:value
+		ADDED from [com.android.support:support-core-utils:25.3.1] C:\Users\kathe\.android\build-cache\67a24af2237774732acc8ad70a00ea7adbdfd882\output\AndroidManifest.xml:27:9-31
+	android:name
+		ADDED from [com.android.support:support-core-utils:25.3.1] C:\Users\kathe\.android\build-cache\67a24af2237774732acc8ad70a00ea7adbdfd882\output\AndroidManifest.xml:26:9-47

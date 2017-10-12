@@ -38,10 +38,12 @@ public class NLService extends NotificationListenerService {
     static final String REMOVE_PROFILE = "com.pk.example.REMOVEPROFILE";
     static final String START_PROFILE_NOTIFICATION = " is now active and blocking your notifications.";
     static final String STOP_PROFILE_NOTIFICATION = " is now inactive. Check your missed notifications.";
+    static final String ADD_PENDING_INTENT = "com.pk.example.ADDPENDINGINTENT";
 
     private String TAG = this.getClass().getSimpleName();
     private SchedulingReceiver aReceiver;
     private HashMap<String, HashSet<String>> blockedApps;
+    private HashMap<String, HashSet<PendingIntent>> profileAlarmIntents;
 
 
     @Override
@@ -51,9 +53,10 @@ public class NLService extends NotificationListenerService {
         IntentFilter filter = new IntentFilter();
         filter.addAction(ADD_PROFILE);
         filter.addAction(REMOVE_PROFILE);
+        filter.addAction(ADD_PENDING_INTENT);
         registerReceiver(aReceiver,filter);
         blockedApps = new HashMap<String, HashSet<String>>();
-
+        profileAlarmIntents = new HashMap<String, HashSet<PendingIntent>>();
     }
 
     @Override
@@ -444,9 +447,12 @@ public class NLService extends NotificationListenerService {
         // for list of apps, addBlockedApp
 
         sendNotification(profile + START_PROFILE_NOTIFICATION);
-
+        Profile prof = DummyDb.getProfile(profile);
+        for(int a = 0; a < prof.appsToBlock.length; a++){
+            addBlockedApp(prof.appsToBlock[a], profile);
+        }
         //test
-        addBlockedApp(profile, profile);
+//        addBlockedApp(profile, profile);
     }
 
     public void sendNotification(String message){
@@ -473,12 +479,25 @@ public class NLService extends NotificationListenerService {
 
     }
 
+    public void addAlarmIntent(String profile, PendingIntent intent){
+        HashSet<PendingIntent> alarms = profileAlarmIntents.get(profile);
+        if (alarms != null){
+            alarms.add(intent);
+        }
+        else {
+            alarms = new HashSet<PendingIntent>();
+            alarms.add(intent);
+        }
+        profileAlarmIntents.put(profile, alarms);
+    }
+
     // receives notice to start or stop profile from alarm
     class SchedulingReceiver extends BroadcastReceiver {
 
         @Override
         public void onReceive(Context context, Intent intent) {
             Log.i("intent ","intent "+intent.getExtras().toString());
+
             String prof = intent.getStringExtra("profile");
 
             switch(intent.getAction()){
@@ -486,9 +505,12 @@ public class NLService extends NotificationListenerService {
                     addProfile(prof);
                     break;
                 case REMOVE_PROFILE:
+
                     // do something
                     break;
-
+                case ADD_PENDING_INTENT:
+                    // TODO get parcelable and add to profileAlarmIntent
+                    break;
             }
 
         }

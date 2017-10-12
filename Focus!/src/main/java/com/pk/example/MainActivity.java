@@ -99,8 +99,8 @@ public class MainActivity extends Activity {
         }
         else if(v.getId() == R.id.btnSchedule){
             Schedule[] schedules = DummyDb.getAllSchedules();
-//            ProfileScheduler.turnOnSchedule(getApplicationContext(), schedules[0]);
-            ProfileScheduler.createStartProfileAlarm(getApplicationContext(), "com.facebook.orca", new Date());
+            ProfileScheduler.turnOnSchedule(getApplicationContext(), schedules[0]);
+//            ProfileScheduler.createStartProfileAlarm(getApplicationContext(), "com.facebook.orca", new Date());
         }
 
 

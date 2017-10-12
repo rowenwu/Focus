@@ -9,6 +9,7 @@ public class Profile {
 //    int id;
     public String name;
     public String[] appsToBlock;
+    //public Schedule[] schedules;
 
     public Profile(String name, String[] appsToBlock){
         this.name = name;

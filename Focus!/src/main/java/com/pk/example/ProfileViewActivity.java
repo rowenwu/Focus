@@ -50,16 +50,18 @@ public class ProfileViewActivity extends ListActivity {
     public void buttonClicked(View v){
         ArrayList<String> appPacks = listadaptor.getSelectedApps();
         if(appPacks.size() > 0) {
+            //ADD PROFILE TO DB AND RETURN TO PROFILESACTIVITY
+
 
             // TEST CODE
-            Intent i = new Intent(NLService.ADD_PROFILE);
-            i.putExtra("profile", appPacks.get(0));
-            sendBroadcast(i);
-
-            Context context = getApplicationContext();
-            int duration = Toast.LENGTH_SHORT;
-            Toast toast = Toast.makeText(context, appPacks.get(0), duration);
-            toast.show();
+//            Intent i = new Intent(NLService.ADD_PROFILE);
+//            i.putExtra("profile", appPacks.get(0));
+//            sendBroadcast(i);
+//
+//            Context context = getApplicationContext();
+//            int duration = Toast.LENGTH_SHORT;
+//            Toast toast = Toast.makeText(context, appPacks.get(0), duration);
+//            toast.show();
         }
     }
 
