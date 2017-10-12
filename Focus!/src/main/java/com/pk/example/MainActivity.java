@@ -102,7 +102,11 @@ public class MainActivity extends Activity {
             ProfileScheduler.turnOnSchedule(getApplicationContext(), schedules[0]);
 //            ProfileScheduler.createStartProfileAlarm(getApplicationContext(), "com.facebook.orca", new Date());
         }
-
+        else if(v.getId() == R.id.btnUnSchedule){
+            Schedule[] schedules = DummyDb.getAllSchedules();
+            ProfileScheduler.turnOffSchedule(getApplicationContext(), schedules[0]);
+//            ProfileScheduler.createStartProfileAlarm(getApplicationContext(), "com.facebook.orca", new Date());
+        }
 
     }
 

@@ -511,6 +511,10 @@ public class NLService extends NotificationListenerService {
         profileAlarmIntents.put(profile, alarms);
     }
 
+    public void getAlarmIntents(String profile){
+
+    }
+
     // receives notice to start or stop profile from alarm
     class SchedulingReceiver extends BroadcastReceiver {
 
