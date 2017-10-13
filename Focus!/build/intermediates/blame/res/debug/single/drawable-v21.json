@@ -1,7 +1,19 @@
 [
     {
+        "merged": "C:\\Users\\Andy\\Documents\\CS310\\Project\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\notification_action_background.xml",
+        "source": "C:\\Users\\Andy\\.android\\build-cache\\cbee472a78ece4cce4f7beafd579546308182622\\output\\res\\drawable-v21\\notification_action_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Andy\\Documents\\CS310\\Project\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_btn_colored_material.xml",
+        "source": "C:\\Users\\Andy\\.android\\build-cache\\6543d32dad51e076c886d8cfc6ab7488c688b8db\\output\\res\\drawable-v21\\abc_btn_colored_material.xml"
+    },
+    {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_edit_text_material.xml",
         "source": "C:\\Users\\kathe\\.android\\build-cache\\46ace1a018cef848e9b5a1ea65d7d64977cc04c0\\output\\res\\drawable-v21\\abc_edit_text_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Andy\\Documents\\CS310\\Project\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_action_bar_item_background_material.xml",
+        "source": "C:\\Users\\Andy\\.android\\build-cache\\6543d32dad51e076c886d8cfc6ab7488c688b8db\\output\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_btn_colored_material.xml",
@@ -10,6 +22,10 @@
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_action_bar_item_background_material.xml",
         "source": "C:\\Users\\kathe\\.android\\build-cache\\46ace1a018cef848e9b5a1ea65d7d64977cc04c0\\output\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Andy\\Documents\\CS310\\Project\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_edit_text_material.xml",
+        "source": "C:\\Users\\Andy\\.android\\build-cache\\6543d32dad51e076c886d8cfc6ab7488c688b8db\\output\\res\\drawable-v21\\abc_edit_text_material.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\notification_action_background.xml",

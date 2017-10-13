@@ -1,108 +1,144 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:2:1-49:12
+ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:2:1-49:12
 	package
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:3:5-29
+		ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:3:5-29
 	android:versionName
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:5:5-30
-		INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:5:5-30
+		INJECTED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml
 	android:versionCode
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:4:5-28
-		INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:4:5-28
+		INJECTED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:2:11-69
+		ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:7:5-47:19
-MERGED from [com.android.support:support-v13:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\873e2f1af155fefdb37edae4bf1c944048e3dac1\output\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:cardview-v7:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\5322d05acdefeba41a488c0443e16d9a0292f498\output\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:appcompat-v7:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\46ace1a018cef848e9b5a1ea65d7d64977cc04c0\output\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:animated-vector-drawable:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\1966b4d9baabc3cbae51e857c7de5f8eb2877f6a\output\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:support-vector-drawable:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\f644d09edcd6cdafcccda817df0c481edc9d7aaa\output\AndroidManifest.xml:23:5-20
-MERGED from [com.android.support:support-v4:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\a345f7a28747acff03af05ddc7b23a4e4cb77722\output\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\kathe\.android\build-cache\67a24af2237774732acc8ad70a00ea7adbdfd882\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-compat:25.3.1] C:\Users\kathe\.android\build-cache\bc40a76aba9587a3f8068aefefda6510e04b61ff\output\AndroidManifest.xml:29:5-20
+ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:7:5-47:19
+MERGED from [com.android.support:support-v13:24.0.0-alpha1] C:\Users\Andy\.android\build-cache\5184d496a665faa5224a35776abe552d2b312ad7\output\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:cardview-v7:24.0.0-alpha1] C:\Users\Andy\.android\build-cache\2aefab0f871e8578d137864387498c7e52b682c6\output\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:appcompat-v7:24.0.0-alpha1] C:\Users\Andy\.android\build-cache\6543d32dad51e076c886d8cfc6ab7488c688b8db\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:24.0.0-alpha1] C:\Users\Andy\.android\build-cache\654ec76a14be5596b30afa9e6a99c76914d9cf9d\output\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:24.0.0-alpha1] C:\Users\Andy\.android\build-cache\913858c023d4694e6063ebd7bc01fc34e2b7d866\output\AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:support-v4:24.0.0-alpha1] C:\Users\Andy\.android\build-cache\8bfd9bab4973dde7b88b7493cad7efb8b14ce8f3\output\AndroidManifest.xml:22:5-20
+MERGED from [android.arch.lifecycle:extensions:1.0.0-beta2] C:\Users\Andy\.android\build-cache\bc524d6fdc9e694d7c827466de9adbb968ed19f6\output\AndroidManifest.xml:24:5-30:19
+MERGED from [android.arch.core:runtime:1.0.0-beta2] C:\Users\Andy\.android\build-cache\676ec0c69e6e860ab1e1193e1a55cd33dde06ecd\output\AndroidManifest.xml:24:5-28:19
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Andy\.android\build-cache\6203564979f2de7f3133ea29a952f0ee759e2e24\output\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Andy\.android\build-cache\0aec52206856b3a9315a59e37f5a89639a059364\output\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Andy\.android\build-cache\8742bf37d757b6dec212830023e2ee0132fe8858\output\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Andy\.android\build-cache\cbee472a78ece4cce4f7beafd579546308182622\output\AndroidManifest.xml:25:5-29:19
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Andy\.android\build-cache\00050ee7c38d837a42851177042a42f5f1814e65\output\AndroidManifest.xml:24:5-28:19
 	android:label
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:10:9-41
+		ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:10:9-41
 	android:allowBackup
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:8:9-35
+		ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:8:9-35
 	android:icon
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:9:9-45
+		ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:9:9-45
 	android:theme
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:11:9-40
+		ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:11:9-40
 activity#com.pk.example.MainActivity
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:12:9-20:20
+ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:12:9-20:20
 	android:screenOrientation
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:15:13-49
+		ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:15:13-49
 	android:label
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:14:13-45
+		ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:14:13-45
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:13:13-41
+		ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:13:13-41
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:16:13-19:29
+ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:16:13-19:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:17:17-69
+ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:17:17-69
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:17:25-66
+		ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:17:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:18:17-77
+ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:18:17-77
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:18:27-74
+		ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:18:27-74
 service#com.pk.example.NLService
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:22:9-29:19
+ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:22:9-29:19
 	android:label
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:24:13-45
+		ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:24:13-45
 	android:permission
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:25:13-87
+		ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:25:13-87
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:23:13-38
+		ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:23:13-38
 intent-filter#android.service.notification.NotificationListenerService
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:26:13-28:29
+ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:26:13-28:29
 action#android.service.notification.NotificationListenerService
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:27:17-99
+ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:27:17-99
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:27:25-96
+		ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:27:25-96
 activity#com.pk.example.ProfileViewActivity
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:39:9-46:20
+ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:39:9-46:20
 	android:label
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:41:13-66
+		ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:41:13-66
 	android:parentActivityName
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:42:13-55
+		ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:42:13-55
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:40:13-48
+		ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:40:13-48
 meta-data#android.support.PARENT_ACTIVITY
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:43:13-45:63
+ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:43:13-45:63
 	android:value
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:45:17-60
+		ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:45:17-60
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:44:17-63
+		ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:44:17-63
 uses-sdk
-INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [com.android.support:support-v13:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\873e2f1af155fefdb37edae4bf1c944048e3dac1\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cardview-v7:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\5322d05acdefeba41a488c0443e16d9a0292f498\output\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:appcompat-v7:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\46ace1a018cef848e9b5a1ea65d7d64977cc04c0\output\AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:animated-vector-drawable:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\1966b4d9baabc3cbae51e857c7de5f8eb2877f6a\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\f644d09edcd6cdafcccda817df0c481edc9d7aaa\output\AndroidManifest.xml:21:5-43
-MERGED from [com.android.support:support-v4:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\a345f7a28747acff03af05ddc7b23a4e4cb77722\output\AndroidManifest.xml:20:5-43
-MERGED from [android.arch.persistence.room:runtime:1.0.0-alpha1] C:\Users\kathe\.android\build-cache\be3da3e3b5639e557a8ee6807e83a1363ba1cf87\output\AndroidManifest.xml:22:5-24:41
-MERGED from [android.arch.persistence.room:support-db-impl:1.0.0-alpha1] C:\Users\kathe\.android\build-cache\477f911ef24a72392c325d2d29685c4b093f594f\output\AndroidManifest.xml:22:5-24:41
-MERGED from [android.arch.persistence.room:support-db:1.0.0-alpha1] C:\Users\kathe\.android\build-cache\8c9912b94348c5e9249e472a0755297acd72d188\output\AndroidManifest.xml:22:5-24:41
-MERGED from [android.arch.core:core:1.0.0-alpha1] C:\Users\kathe\.android\build-cache\5318899595bd8946928910f8a8a18408abf1b819\output\AndroidManifest.xml:22:5-24:41
-MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\kathe\.android\build-cache\67a24af2237774732acc8ad70a00ea7adbdfd882\output\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-compat:25.3.1] C:\Users\kathe\.android\build-cache\bc40a76aba9587a3f8068aefefda6510e04b61ff\output\AndroidManifest.xml:21:5-23:58
+INJECTED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:multidex:1.0.1] C:\Users\Andy\.android\build-cache\165eb11ad75744422c63c70b9ca350002be83cc9\output\AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:support-v13:24.0.0-alpha1] C:\Users\Andy\.android\build-cache\5184d496a665faa5224a35776abe552d2b312ad7\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:24.0.0-alpha1] C:\Users\Andy\.android\build-cache\2aefab0f871e8578d137864387498c7e52b682c6\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:appcompat-v7:24.0.0-alpha1] C:\Users\Andy\.android\build-cache\6543d32dad51e076c886d8cfc6ab7488c688b8db\output\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:24.0.0-alpha1] C:\Users\Andy\.android\build-cache\654ec76a14be5596b30afa9e6a99c76914d9cf9d\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:24.0.0-alpha1] C:\Users\Andy\.android\build-cache\913858c023d4694e6063ebd7bc01fc34e2b7d866\output\AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:support-v4:24.0.0-alpha1] C:\Users\Andy\.android\build-cache\8bfd9bab4973dde7b88b7493cad7efb8b14ce8f3\output\AndroidManifest.xml:20:5-43
+MERGED from [android.arch.persistence.room:runtime:1.0.0-alpha1] C:\Users\Andy\.android\build-cache\494428eb408d0e05a19afda3122009ff0f2fca88\output\AndroidManifest.xml:22:5-24:41
+MERGED from [android.arch.persistence.room:support-db-impl:1.0.0-alpha1] C:\Users\Andy\.android\build-cache\9bfdd27b1d6deaa076d3495aa3c7bbcf946f0fff\output\AndroidManifest.xml:22:5-24:41
+MERGED from [android.arch.persistence.room:support-db:1.0.0-alpha1] C:\Users\Andy\.android\build-cache\cb5aa2e3a44b93560a642aa09499881b92d877e3\output\AndroidManifest.xml:22:5-24:41
+MERGED from [android.arch.core:core:1.0.0-alpha1] C:\Users\Andy\.android\build-cache\80b9aaf21384ab367a0e54638faac493641b347e\output\AndroidManifest.xml:22:5-24:41
+MERGED from [android.arch.lifecycle:extensions:1.0.0-beta2] C:\Users\Andy\.android\build-cache\bc524d6fdc9e694d7c827466de9adbb968ed19f6\output\AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.core:runtime:1.0.0-beta2] C:\Users\Andy\.android\build-cache\676ec0c69e6e860ab1e1193e1a55cd33dde06ecd\output\AndroidManifest.xml:20:5-22:41
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Andy\.android\build-cache\6203564979f2de7f3133ea29a952f0ee759e2e24\output\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Andy\.android\build-cache\0aec52206856b3a9315a59e37f5a89639a059364\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Andy\.android\build-cache\8742bf37d757b6dec212830023e2ee0132fe8858\output\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Andy\.android\build-cache\cbee472a78ece4cce4f7beafd579546308182622\output\AndroidManifest.xml:21:5-23:58
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Andy\.android\build-cache\00050ee7c38d837a42851177042a42f5f1814e65\output\AndroidManifest.xml:20:5-22:41
 	tools:overrideLibrary
-		ADDED from [com.android.support:appcompat-v7:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\46ace1a018cef848e9b5a1ea65d7d64977cc04c0\output\AndroidManifest.xml:23:9-75
+		ADDED from [com.android.support:appcompat-v7:24.0.0-alpha1] C:\Users\Andy\.android\build-cache\6543d32dad51e076c886d8cfc6ab7488c688b8db\output\AndroidManifest.xml:23:9-75
 	android:targetSdkVersion
-		INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml
-meta-data#android.support.VERSION
-ADDED from [com.android.support:support-core-utils:25.3.1] C:\Users\kathe\.android\build-cache\67a24af2237774732acc8ad70a00ea7adbdfd882\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-compat:25.3.1] C:\Users\kathe\.android\build-cache\bc40a76aba9587a3f8068aefefda6510e04b61ff\output\AndroidManifest.xml:25:5-27:34
-	android:value
-		ADDED from [com.android.support:support-core-utils:25.3.1] C:\Users\kathe\.android\build-cache\67a24af2237774732acc8ad70a00ea7adbdfd882\output\AndroidManifest.xml:27:9-31
+		INJECTED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml
+provider#android.arch.lifecycle.LifecycleRuntimeTrojanProvider
+ADDED from [android.arch.lifecycle:extensions:1.0.0-beta2] C:\Users\Andy\.android\build-cache\bc524d6fdc9e694d7c827466de9adbb968ed19f6\output\AndroidManifest.xml:25:9-29:43
+	android:authorities
+		ADDED from [android.arch.lifecycle:extensions:1.0.0-beta2] C:\Users\Andy\.android\build-cache\bc524d6fdc9e694d7c827466de9adbb968ed19f6\output\AndroidManifest.xml:27:13-68
+		INJECTED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml
+	android:multiprocess
+		ADDED from [android.arch.lifecycle:extensions:1.0.0-beta2] C:\Users\Andy\.android\build-cache\bc524d6fdc9e694d7c827466de9adbb968ed19f6\output\AndroidManifest.xml:29:13-40
+	android:exported
+		ADDED from [android.arch.lifecycle:extensions:1.0.0-beta2] C:\Users\Andy\.android\build-cache\bc524d6fdc9e694d7c827466de9adbb968ed19f6\output\AndroidManifest.xml:28:13-37
 	android:name
-		ADDED from [com.android.support:support-core-utils:25.3.1] C:\Users\kathe\.android\build-cache\67a24af2237774732acc8ad70a00ea7adbdfd882\output\AndroidManifest.xml:26:9-47
+		ADDED from [android.arch.lifecycle:extensions:1.0.0-beta2] C:\Users\Andy\.android\build-cache\bc524d6fdc9e694d7c827466de9adbb968ed19f6\output\AndroidManifest.xml:26:13-81
+meta-data#android.arch.core.VERSION
+ADDED from [android.arch.core:runtime:1.0.0-beta2] C:\Users\Andy\.android\build-cache\676ec0c69e6e860ab1e1193e1a55cd33dde06ecd\output\AndroidManifest.xml:25:9-27:47
+	android:value
+		ADDED from [android.arch.core:runtime:1.0.0-beta2] C:\Users\Andy\.android\build-cache\676ec0c69e6e860ab1e1193e1a55cd33dde06ecd\output\AndroidManifest.xml:27:13-44
+	android:name
+		ADDED from [android.arch.core:runtime:1.0.0-beta2] C:\Users\Andy\.android\build-cache\676ec0c69e6e860ab1e1193e1a55cd33dde06ecd\output\AndroidManifest.xml:26:13-53
+meta-data#android.support.VERSION
+ADDED from [com.android.support:support-fragment:26.1.0] C:\Users\Andy\.android\build-cache\6203564979f2de7f3133ea29a952f0ee759e2e24\output\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Andy\.android\build-cache\0aec52206856b3a9315a59e37f5a89639a059364\output\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Andy\.android\build-cache\8742bf37d757b6dec212830023e2ee0132fe8858\output\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Andy\.android\build-cache\cbee472a78ece4cce4f7beafd579546308182622\output\AndroidManifest.xml:26:9-28:38
+	android:value
+		ADDED from [com.android.support:support-fragment:26.1.0] C:\Users\Andy\.android\build-cache\6203564979f2de7f3133ea29a952f0ee759e2e24\output\AndroidManifest.xml:28:13-35
+	android:name
+		ADDED from [com.android.support:support-fragment:26.1.0] C:\Users\Andy\.android\build-cache\6203564979f2de7f3133ea29a952f0ee759e2e24\output\AndroidManifest.xml:27:13-51
+meta-data#android.arch.lifecycle.VERSION
+ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Andy\.android\build-cache\00050ee7c38d837a42851177042a42f5f1814e65\output\AndroidManifest.xml:25:9-27:47
+	android:value
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Andy\.android\build-cache\00050ee7c38d837a42851177042a42f5f1814e65\output\AndroidManifest.xml:27:13-44
+	android:name
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Andy\.android\build-cache\00050ee7c38d837a42851177042a42f5f1814e65\output\AndroidManifest.xml:26:13-58

@@ -4,8 +4,24 @@
         "source": "C:\\Users\\kathe\\.android\\build-cache\\46ace1a018cef848e9b5a1ea65d7d64977cc04c0\\output\\res\\anim\\abc_fade_out.xml"
     },
     {
+        "merged": "C:\\Users\\Andy\\Documents\\CS310\\Project\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
+        "source": "C:\\Users\\Andy\\.android\\build-cache\\6543d32dad51e076c886d8cfc6ab7488c688b8db\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "C:\\Users\\Andy\\Documents\\CS310\\Project\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_exit.xml",
+        "source": "C:\\Users\\Andy\\.android\\build-cache\\6543d32dad51e076c886d8cfc6ab7488c688b8db\\output\\res\\anim\\abc_popup_exit.xml"
+    },
+    {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
         "source": "C:\\Users\\kathe\\.android\\build-cache\\46ace1a018cef848e9b5a1ea65d7d64977cc04c0\\output\\res\\anim\\abc_slide_out_top.xml"
+    },
+    {
+        "merged": "C:\\Users\\Andy\\Documents\\CS310\\Project\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
+        "source": "C:\\Users\\Andy\\.android\\build-cache\\6543d32dad51e076c886d8cfc6ab7488c688b8db\\output\\res\\anim\\abc_slide_in_top.xml"
+    },
+    {
+        "merged": "C:\\Users\\Andy\\Documents\\CS310\\Project\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_in.xml",
+        "source": "C:\\Users\\Andy\\.android\\build-cache\\6543d32dad51e076c886d8cfc6ab7488c688b8db\\output\\res\\anim\\abc_fade_in.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
@@ -32,11 +48,35 @@
         "source": "C:\\Users\\kathe\\.android\\build-cache\\46ace1a018cef848e9b5a1ea65d7d64977cc04c0\\output\\res\\anim\\abc_slide_in_bottom.xml"
     },
     {
+        "merged": "C:\\Users\\Andy\\Documents\\CS310\\Project\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_enter.xml",
+        "source": "C:\\Users\\Andy\\.android\\build-cache\\6543d32dad51e076c886d8cfc6ab7488c688b8db\\output\\res\\anim\\abc_popup_enter.xml"
+    },
+    {
+        "merged": "C:\\Users\\Andy\\Documents\\CS310\\Project\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_out.xml",
+        "source": "C:\\Users\\Andy\\.android\\build-cache\\6543d32dad51e076c886d8cfc6ab7488c688b8db\\output\\res\\anim\\abc_fade_out.xml"
+    },
+    {
+        "merged": "C:\\Users\\Andy\\Documents\\CS310\\Project\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
+        "source": "C:\\Users\\Andy\\.android\\build-cache\\6543d32dad51e076c886d8cfc6ab7488c688b8db\\output\\res\\anim\\abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "C:\\Users\\Andy\\Documents\\CS310\\Project\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",
+        "source": "C:\\Users\\Andy\\.android\\build-cache\\6543d32dad51e076c886d8cfc6ab7488c688b8db\\output\\res\\anim\\abc_slide_out_bottom.xml"
+    },
+    {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_enter.xml",
         "source": "C:\\Users\\kathe\\.android\\build-cache\\46ace1a018cef848e9b5a1ea65d7d64977cc04c0\\output\\res\\anim\\abc_popup_enter.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_exit.xml",
         "source": "C:\\Users\\kathe\\.android\\build-cache\\46ace1a018cef848e9b5a1ea65d7d64977cc04c0\\output\\res\\anim\\abc_popup_exit.xml"
+    },
+    {
+        "merged": "C:\\Users\\Andy\\Documents\\CS310\\Project\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
+        "source": "C:\\Users\\Andy\\.android\\build-cache\\6543d32dad51e076c886d8cfc6ab7488c688b8db\\output\\res\\anim\\abc_slide_out_top.xml"
+    },
+    {
+        "merged": "C:\\Users\\Andy\\Documents\\CS310\\Project\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\anim\\abc_grow_fade_in_from_bottom.xml",
+        "source": "C:\\Users\\Andy\\.android\\build-cache\\6543d32dad51e076c886d8cfc6ab7488c688b8db\\output\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
     }
 ]
