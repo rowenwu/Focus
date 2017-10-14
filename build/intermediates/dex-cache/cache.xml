@@ -3,15 +3,6 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\Andy\.android\build-cache\5184d496a665faa5224a35776abe552d2b312ad7\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="c449a8b23f9b989a814220af893445b382a0b50d">
-        <dex dex="C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\classes_d27bfe23a438de30072bc183e4d8aca2cac0320a\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Andy\.android\build-cache\9bfdd27b1d6deaa076d3495aa3c7bbcf946f0fff\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -30,33 +21,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Andy\.android\build-cache\9079d29a86e5c21ac8200bc3b4065e6c18cfa8d4\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
-        <dex dex="C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5b5bfe36366a5b84df21e4c28ece1b59544b664d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Andy\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
-        <dex dex="C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.3.1_de74667dc6eef8d291a67135c2c43e9e436648a6\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Andy\.android\build-cache\80b9aaf21384ab367a0e54638faac493641b347e\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="8aa1017a9d855f7071d9f47ae563f1dc45730b74">
-        <dex dex="C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\classes_82bf18d37716034ad8f592fed6ee0d8a8e16d554\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Andy\.android\build-cache\2aefab0f871e8578d137864387498c7e52b682c6\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -66,21 +30,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Andy\.android\build-cache\6543d32dad51e076c886d8cfc6ab7488c688b8db\output\jars\classes.jar"
+        jar="C:\Users\Andy\.android\build-cache\6203564979f2de7f3133ea29a952f0ee759e2e24\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
-        sha1="9684c95278dc45a142d7de3db9e7e39aa520e1e0">
-        <dex dex="C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f38d4546e22123dfddbe27389e75d8f681a55140\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Andy\.android\build-cache\5184d496a665faa5224a35776abe552d2b312ad7\output\jars\libs\internal_impl-24.0.0-alpha1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="ba75da866b3d975ca7a9fbdbcd61de67932e0052">
-        <dex dex="C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0-alpha1_032498eccece9ef1e597e29c732d61d1964d33df\classes.dex" />
+        sha1="7efef32744ca4a436492d5cf28c08698cc2af256">
+        <dex dex="C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9e60f1ed37d75ae28e33d691cc0360d79f69f555\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -93,30 +48,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Andy\.android\build-cache\500019955f0882dfc52a6db93e2da72ea872353a\output\jars\classes.jar"
+        jar="C:\Users\Andy\.gradle\caches\modules-2\files-2.1\android.arch.lifecycle\common\1.0.2\3cf2ddb6fd27236f2c81ea160f416867ae68e638\common-1.0.2.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
-        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
-        <dex dex="C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9177b9339e4126b6e6b15062650c9c77b88286f8\classes.dex" />
+        sha1="3cf2ddb6fd27236f2c81ea160f416867ae68e638">
+        <dex dex="C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\common-1.0.2_18de338b8bdcaf8fc0b3920d5d5c134f68733839\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="C:\Users\Andy\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
+        is-multidex="true"
+        jar="C:\Users\Andy\.android\build-cache\cbee472a78ece4cce4f7beafd579546308182622\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
-        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
-        <dex dex="C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\build\intermediates\pre-dexed\debug\support-annotations-25.3.1_de74667dc6eef8d291a67135c2c43e9e436648a6.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Andy\.android\build-cache\80b9aaf21384ab367a0e54638faac493641b347e\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="8aa1017a9d855f7071d9f47ae563f1dc45730b74">
-        <dex dex="C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\build\intermediates\pre-dexed\debug\classes_82bf18d37716034ad8f592fed6ee0d8a8e16d554.jar" />
+        sha1="2442771a5590dd4eb4bce00c2e9dca9e22e4c963">
+        <dex dex="C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\classes_db4799124a2b91e430d114f1c27e0151324bcb40\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -126,6 +72,15 @@
         revision="25.0.0"
         sha1="f80ef3e88d53cd67f09ae860e9e95967108f5cb2">
         <dex dex="C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c4a320fda51fab0fb0ecf2e601d28f2d9f4fea99\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Andy\.android\build-cache\8742bf37d757b6dec212830023e2ee0132fe8858\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="233f60a165ae622c8b36731502ebbda0f65e1930">
+        <dex dex="C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ee5d75e65b2f1bf1180c358bf0c6b406e5d3c4b0\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -147,6 +102,105 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Andy\.android\build-cache\00050ee7c38d837a42851177042a42f5f1814e65\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b62fdc4cfef174c1e456014195c83fa7de7dc041">
+        <dex dex="C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\classes_80b6ed048fd4109568435a95c9bc60da8a59f8e1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Andy\.android\build-cache\5184d496a665faa5224a35776abe552d2b312ad7\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c449a8b23f9b989a814220af893445b382a0b50d">
+        <dex dex="C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\classes_d27bfe23a438de30072bc183e4d8aca2cac0320a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Andy\.android\build-cache\0aec52206856b3a9315a59e37f5a89639a059364\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="508f50705b4fde51a16259f29c854201a3044516">
+        <dex dex="C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6e9d973687bffdbe798ac1ef80a520555cac7d6d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Andy\.android\build-cache\80b9aaf21384ab367a0e54638faac493641b347e\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8aa1017a9d855f7071d9f47ae563f1dc45730b74">
+        <dex dex="C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\classes_82bf18d37716034ad8f592fed6ee0d8a8e16d554\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Andy\.android\build-cache\6543d32dad51e076c886d8cfc6ab7488c688b8db\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9684c95278dc45a142d7de3db9e7e39aa520e1e0">
+        <dex dex="C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f38d4546e22123dfddbe27389e75d8f681a55140\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Andy\.android\build-cache\5184d496a665faa5224a35776abe552d2b312ad7\output\jars\libs\internal_impl-24.0.0-alpha1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ba75da866b3d975ca7a9fbdbcd61de67932e0052">
+        <dex dex="C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0-alpha1_032498eccece9ef1e597e29c732d61d1964d33df\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Andy\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\build\intermediates\pre-dexed\debug\support-annotations-25.3.1_de74667dc6eef8d291a67135c2c43e9e436648a6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Andy\.android\build-cache\80b9aaf21384ab367a0e54638faac493641b347e\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8aa1017a9d855f7071d9f47ae563f1dc45730b74">
+        <dex dex="C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\build\intermediates\pre-dexed\debug\classes_82bf18d37716034ad8f592fed6ee0d8a8e16d554.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Andy\.android\build-cache\676ec0c69e6e860ab1e1193e1a55cd33dde06ecd\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f530c82ce3415cff874dfd6801a7bde8bb12522b">
+        <dex dex="C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ee43ddfab842bd0dfa01c7eea993b5728e0a9435\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Andy\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.4\695b63d702f505b9b916e02272e3b6381bade7f\gson-2.4.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0695b63d702f505b9b916e02272e3b6381bade7f">
+        <dex dex="C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.4_0a78adc7f657c7aea6edfd3c97cdd10e63d544ca\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Andy\.gradle\caches\modules-2\files-2.1\com.android.support\support-annotations\26.1.0\814258103cf26a15fcc26ecce35f5b7d24b73f8\support-annotations-26.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0814258103cf26a15fcc26ecce35f5b7d24b73f8">
+        <dex dex="C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-26.1.0_ab87fa6aa8daa0691f598ba12b0ff1811b1f4253\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Andy\.android\build-cache\8bfd9bab4973dde7b88b7493cad7efb8b14ce8f3\output\jars\libs\internal_impl-24.0.0-alpha1.jar"
         jumboMode="false"
         optimize="true"
@@ -162,6 +216,15 @@
         revision="25.0.0"
         sha1="4fb1be8519a8e9d931945beaee734dd7c1691462">
         <dex dex="C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\common-1.0.0-alpha1_70ebb3b214a7c92108f182b42a4ecd103d763fa6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Andy\.gradle\caches\modules-2\files-2.1\android.arch.core\common\1.0.0\a2d487452376193fc8c103dd2b9bd5f2b1b44563\common-1.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a2d487452376193fc8c103dd2b9bd5f2b1b44563">
+        <dex dex="C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\common-1.0.0_93ca6754698c5a7b0cb716b516ca9b58d11fe9e8\classes.dex" />
     </item>
     <item
         is-multidex="false"
@@ -189,6 +252,15 @@
         revision="25.0.0"
         sha1="4fb1be8519a8e9d931945beaee734dd7c1691462">
         <dex dex="C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\build\intermediates\pre-dexed\debug\common-1.0.0-alpha1_70ebb3b214a7c92108f182b42a4ecd103d763fa6.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Andy\.android\build-cache\bc524d6fdc9e694d7c827466de9adbb968ed19f6\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="646efe44fe1bb6e7882efe1f72976ad5cc228ab6">
+        <dex dex="C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4863515ad2b22e7a2c77d0e957e18c7946b6705c\classes.dex" />
     </item>
     <item
         is-multidex="true"

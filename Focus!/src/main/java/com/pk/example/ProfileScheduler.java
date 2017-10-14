@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -15,10 +16,10 @@ public class ProfileScheduler {
     public static void turnOnSchedule(Context context, Schedule schedule) {
         //get schedule time and profiles from database
 
-        Date[] startTimes = schedule.startTimes;
-        for (int j = 0; j < schedule.profiles.length; j++)
-            for (int i = 0; i < startTimes.length; i++) {
-                createStartProfileAlarm(context, schedule.profiles[j], startTimes[i], schedule.repeatWeekly);
+        ArrayList<Date> startTimes = schedule.getStartTimes();
+        for (int j = 0; j < schedule.getProfiles().size(); j++)
+            for (int i = 0; i < startTimes.size(); i++) {
+                createStartProfileAlarm(context, schedule.getProfiles().get(j), startTimes.get(i), schedule.getRepeatWeekly());
                 //create end profile alarm
             }
     }
@@ -52,9 +53,9 @@ public class ProfileScheduler {
     public static void turnOffSchedule(Context context, Schedule schedule) {
         //get schedule time and profiles from database
 
-        Date[] startTimes = schedule.startTimes;
-        for (int j = 0; j < schedule.profiles.length; j++)
-            for (int i = 0; i < startTimes.length; i++){
+        ArrayList<Date> startTimes = schedule.getStartTimes();
+        for (int j = 0; j < schedule.getProfiles().size(); j++)
+            for (int i = 0; i < startTimes.size(); i++){
                 // send intent to NLService to invoke removeAlarm on all the pending intents
             }
 //                removeCreateProfileAlarm(context, schedule.profiles[j]);

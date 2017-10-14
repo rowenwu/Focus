@@ -11,68 +11,64 @@ import java.util.Date;
 public class MinNotificationEntity extends MinNotification {
 
     @PrimaryKey(autoGenerate = true)
-    private int id;
-
-    public String appName;
-
-    public String notificationContext;
-
-    public String appIcon;
-
-    public Date date;
+    private int _id;
+    private String _appName;
+    private String _notificationContext;
+    private String _appIcon;
+    private Date _date;
 
     @Override
     public int getId() {
-        return id;
+        return _id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this._id = id;
     }
 
     @Override
     public String getAppName() {
-        return appName;
+        return _appName;
     }
 
     public void setAppName(String appName) {
-        this.appName = appName;
+        this._appName = appName;
     }
 
     @Override
     public String getNotificationContext() {
-        return notificationContext;
+        return _notificationContext;
     }
 
     public void setNotificationContext(String notificationContext) {
-        this.notificationContext = notificationContext;
+        this._notificationContext = notificationContext;
     }
 
     @Override
     public String getAppIcon() {
-        return appIcon;
+        return _appIcon;
     }
 
     public void setAppIcon(String appIcon) {
-        this.appIcon = appIcon;
+        this._appIcon = appIcon;
     }
 
     @Override
     public Date getDate() {
-        return date;
+        return _date;
     }
 
     public void setDate(Date date) {
-        this.date = date;
+        this._date = date;
     }
 
     public MinNotificationEntity() {
     }
 
     public MinNotificationEntity(MinNotification minNotification) {
-        this.appName = minNotification.getAppName();
-        this.notificationContext = minNotification.getNotificationContext();
-        this.appIcon = minNotification.getAppIcon();
-        this.date = minNotification.getDate();
+        this._appName = minNotification.getAppName();
+        this._notificationContext = minNotification.getNotificationContext();
+        this._appIcon = minNotification.getAppIcon();
+        this._date = minNotification.getDate();
     }
 }

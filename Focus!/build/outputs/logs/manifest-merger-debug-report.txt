@@ -84,7 +84,6 @@ ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidMa
 		ADDED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml:44:17-63
 uses-sdk
 INJECTED from C:\Users\Andy\Documents\CS310\Project\Focus\Focus!\src\main\AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [com.android.support:multidex:1.0.1] C:\Users\Andy\.android\build-cache\165eb11ad75744422c63c70b9ca350002be83cc9\output\AndroidManifest.xml:18:5-42
 MERGED from [com.android.support:support-v13:24.0.0-alpha1] C:\Users\Andy\.android\build-cache\5184d496a665faa5224a35776abe552d2b312ad7\output\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:cardview-v7:24.0.0-alpha1] C:\Users\Andy\.android\build-cache\2aefab0f871e8578d137864387498c7e52b682c6\output\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:appcompat-v7:24.0.0-alpha1] C:\Users\Andy\.android\build-cache\6543d32dad51e076c886d8cfc6ab7488c688b8db\output\AndroidManifest.xml:21:5-23:78

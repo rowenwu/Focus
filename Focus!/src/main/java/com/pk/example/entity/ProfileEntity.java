@@ -5,38 +5,39 @@ import com.pk.example.Profile;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
+import java.util.ArrayList;
+
 @Entity
 public class ProfileEntity extends Profile {
 
     @PrimaryKey
-    public String name;
-
-    public String[] appsToBlock;
+    private String _name;
+    private ArrayList<String> _appsToBlock;
 
     @Override
     public String getName() {
-        return name;
+        return _name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this._name = name;
     }
 
     @Override
-    public String[] getAppsToBlock() {
-        return appsToBlock;
+    public ArrayList<String> getAppsToBlock() {
+        return _appsToBlock;
     }
 
-    public void setAppsToBlock(String[] appsToBlock) {
-        this.appsToBlock = appsToBlock;
+    public void setAppsToBlock(ArrayList<String> appsToBlock) {
+        this._appsToBlock = appsToBlock;
     }
 
     public ProfileEntity(){
     }
 
     public ProfileEntity(Profile profile){
-        this.name = profile.getName();
-        this.appsToBlock = profile.getAppsToBlock();
+        this._name = profile.getName();
+        this._appsToBlock = profile.getAppsToBlock();
     }
 
 }

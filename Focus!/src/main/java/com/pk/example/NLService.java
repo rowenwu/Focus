@@ -460,8 +460,8 @@ public class NLService extends NotificationListenerService {
 
         sendNotification(profile + START_PROFILE_NOTIFICATION);
         Profile prof = DummyDb.getProfile(profile);
-        for(int a = 0; a < prof.appsToBlock.length; a++){
-            addBlockedApp(prof.appsToBlock[a], profile);
+        for(int a = 0; a < prof.getAppsToBlock().size(); a++){
+            addBlockedApp(prof.getAppsToBlock().get(a), profile);
         }
         //test
 //        addBlockedApp(profile, profile);
@@ -483,8 +483,8 @@ public class NLService extends NotificationListenerService {
     public void removeProfile(String profile){
         sendNotification(profile + STOP_PROFILE_NOTIFICATION);
         Profile prof = DummyDb.getProfile(profile);
-        for(int a = 0; a < prof.appsToBlock.length; a++){
-            removeBlockedApp(prof.appsToBlock[a], profile);
+        for(int a = 0; a < prof.getAppsToBlock().size(); a++){
+            removeBlockedApp(prof.getAppsToBlock().get(a), profile);
 //            addBlockedApp(prof.appsToBlock[a], profile);
         }
 

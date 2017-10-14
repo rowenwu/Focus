@@ -1,26 +1,18 @@
 package com.pk.example;
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
 
 import java.util.Date;
 
-@Entity
+
 public class MinNotification {
 
-    @PrimaryKey(autoGenerate = true)
     private int id;
-
-    public String appName;
-
-    public String notificationContext;
-
-    public String appIcon;
-
-    public Date date;
+    private String appName;
+    private String notificationContext;
+    private String appIcon;
+    private Date date;
 
     public MinNotification() {
-
     }
 
     public int getId() {

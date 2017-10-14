@@ -1,5 +1,8 @@
 package com.pk.example.dao;
 
+import android.arch.persistence.room.Dao;
 
-public class MinNotificationDao {
+@Dao
+public interface MinNotificationDao {
+
 }

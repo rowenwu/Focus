@@ -8,12 +8,12 @@
         "source": "C:\\Users\\kathe\\.android\\build-cache\\46ace1a018cef848e9b5a1ea65d7d64977cc04c0\\output\\res\\layout\\abc_action_bar_up_container.xml"
     },
     {
-        "merged": "C:\\Users\\Andy\\Documents\\CS310\\Project\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
-        "source": "C:\\Users\\Andy\\.android\\build-cache\\6543d32dad51e076c886d8cfc6ab7488c688b8db\\output\\res\\layout\\abc_select_dialog_material.xml"
-    },
-    {
         "merged": "C:\\Users\\Andy\\Documents\\CS310\\Project\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout\\installed_app_list.xml",
         "source": "C:\\Users\\Andy\\Documents\\CS310\\Project\\Focus\\Focus!\\src\\main\\res\\layout\\installed_app_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\Andy\\Documents\\CS310\\Project\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
+        "source": "C:\\Users\\Andy\\.android\\build-cache\\6543d32dad51e076c886d8cfc6ab7488c688b8db\\output\\res\\layout\\abc_select_dialog_material.xml"
     },
     {
         "merged": "C:\\Users\\Andy\\Documents\\CS310\\Project\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
