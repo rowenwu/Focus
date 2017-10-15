@@ -31,7 +31,7 @@ public class ProfileScheduler {
             }
     }
 
-    // create the alarm to add or remove a profile later
+    // NEED TO CREATE DIFFERENT PENDING INTENT IDS AND STORE THEM IN NLSERVICE
     public static PendingIntent createAlarm(Context context, String profile, Date date, int addHr, int addMin, boolean repeat, String intentAction) {
         //create alarms - pendingintents
 
