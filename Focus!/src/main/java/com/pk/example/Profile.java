@@ -1,19 +1,31 @@
 package com.pk.example;
 
-//import android.arch.persistence.room.Entity;
-//import android.arch.persistence.room.PrimaryKey;
+import java.util.ArrayList;
 
 public class Profile {
 
-//    @PrimaryKey
-//    int id;
-    public String name;
-    public String[] appsToBlock;
+
+    private String name;
+
+    private ArrayList<String> appsToBlock;
+
     //public Schedule[] schedules;
 
-    public Profile(String name, String[] appsToBlock){
+    public Profile(){
+
+    }
+
+    public Profile(String name, ArrayList<String> appsToBlock){
         this.name = name;
         this.appsToBlock = appsToBlock;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public ArrayList<String> getAppsToBlock() {
+        return appsToBlock;
     }
 
 }

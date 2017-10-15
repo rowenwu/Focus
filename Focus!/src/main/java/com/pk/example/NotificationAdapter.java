@@ -1,9 +1,7 @@
 //package com.pk.example;
-//import java.util.ArrayList;
+//
 //import java.util.List;
 //import android.content.Context;
-//import android.content.pm.ApplicationInfo;
-//import android.content.pm.PackageManager;
 //import android.view.LayoutInflater;
 //import android.view.View;
 //import android.view.ViewGroup;
@@ -11,18 +9,17 @@
 //import android.widget.ImageView;
 //import android.widget.TextView;
 //
-//import android.widget.ArrayAdapter;
 //
 ///**
 // * Created by Andy on 10/6/2017.
 // */
 //
-//public class NotificationAdapter extends ArrayAdapter<Notification> {
-//    private List<Notification> notificationList = null;
+//public class NotificationAdapter extends ArrayAdapter<MinNotification> {
+//    private List<MinNotification> notificationList = null;
 //    private Context context;
 //
 //    public NotificationAdapter(Context context, int textViewResourceId,
-//                               List<Notification> notificationList) {
+//                               List<MinNotification> notificationList) {
 //        super(context, textViewResourceId, notificationList);
 //        this.context = context;
 //        this.notificationList = notificationList;
@@ -34,7 +31,7 @@
 //    }
 //
 //    @Override
-//    public Notification getItem(int position) {
+//    public MinNotification getItem(int position) {
 //        return ((null != notificationList) ? notificationList.get(position) : null);
 //    }
 //
@@ -47,7 +44,7 @@
 //            view = layoutInflater.inflate(R.layout.notification_list_row, null);
 //        }
 //
-//        Notification notifcation = notificationList.get(position);
+//        MinNotification notifcation = notificationList.get(position);
 //        if (null != notifcation) {
 //            TextView appName = (TextView) view.findViewById(R.id.app_name);
 //            TextView notificationContext = (TextView) view.findViewById(R.id.notifcation_context);

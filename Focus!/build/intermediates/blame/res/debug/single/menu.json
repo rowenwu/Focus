@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\Andy\\Documents\\CS310\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
+        "source": "C:\\Users\\Andy\\Documents\\CS310\\Focus\\Focus!\\src\\main\\res\\menu\\main.xml"
+    },
+    {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
         "source": "C:\\Users\\kathe\\Focus\\Focus!\\src\\main\\res\\menu\\main.xml"
     }

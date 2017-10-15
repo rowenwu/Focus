@@ -4,6 +4,22 @@
         "source": "C:\\Users\\kathe\\.android\\build-cache\\3350dd5687db9cbd4b17ffe5b652d122e57212c7\\output\\res\\layout-v21\\notification_template_custom_big.xml"
     },
     {
+        "merged": "C:\\Users\\Andy\\Documents\\CS310\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_custom_big.xml",
+        "source": "C:\\Users\\Andy\\.android\\build-cache\\cbee472a78ece4cce4f7beafd579546308182622\\output\\res\\layout-v21\\notification_template_custom_big.xml"
+    },
+    {
+        "merged": "C:\\Users\\Andy\\Documents\\CS310\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\Andy\\.android\\build-cache\\cbee472a78ece4cce4f7beafd579546308182622\\output\\res\\layout-v21\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "C:\\Users\\Andy\\Documents\\CS310\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\Andy\\.android\\build-cache\\cbee472a78ece4cce4f7beafd579546308182622\\output\\res\\layout-v21\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "C:\\Users\\Andy\\Documents\\CS310\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action.xml",
+        "source": "C:\\Users\\Andy\\.android\\build-cache\\cbee472a78ece4cce4f7beafd579546308182622\\output\\res\\layout-v21\\notification_action.xml"
+    },
+    {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action_tombstone.xml",
         "source": "C:\\Users\\kathe\\.android\\build-cache\\3350dd5687db9cbd4b17ffe5b652d122e57212c7\\output\\res\\layout-v21\\notification_action_tombstone.xml"
     },
