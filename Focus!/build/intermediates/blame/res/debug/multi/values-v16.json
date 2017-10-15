@@ -1,29 +1,5 @@
 [
     {
-        "outputFile": "C:\\Users\\Andy\\Documents\\CS310\\Project\\Focus\\Focus!\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endColumn": 65,
-                    "endOffset": 116
-                },
-                "from": {
-                    "file": "C:\\Users\\Andy\\.android\\build-cache\\cbee472a78ece4cce4f7beafd579546308182622\\output\\res\\values-v16\\values-v16.xml",
-                    "position": {
-                        "startLine": 2,
-                        "startColumn": 4,
-                        "startOffset": 55,
-                        "endColumn": 65,
-                        "endOffset": 116
-                    }
-                }
-            }
-        ]
-    },
-    {
         "outputFile": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
         "map": [
             {

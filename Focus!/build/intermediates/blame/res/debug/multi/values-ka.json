@@ -22,29 +22,5 @@
                 }
             }
         ]
-    },
-    {
-        "outputFile": "C:\\Users\\Andy\\Documents\\CS310\\Project\\Focus\\Focus!\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ka\\values-ka.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endColumn": 100,
-                    "endOffset": 151
-                },
-                "from": {
-                    "file": "C:\\Users\\Andy\\.android\\build-cache\\cbee472a78ece4cce4f7beafd579546308182622\\output\\res\\values-ka\\values-ka.xml",
-                    "position": {
-                        "startLine": 2,
-                        "startColumn": 4,
-                        "startOffset": 55,
-                        "endColumn": 100,
-                        "endOffset": 151
-                    }
-                }
-            }
-        ]
     }
 ]
