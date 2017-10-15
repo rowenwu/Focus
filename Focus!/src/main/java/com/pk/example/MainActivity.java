@@ -16,8 +16,6 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Date;
-
 public class MainActivity extends Activity {
 
     public TextView txtView;
@@ -99,13 +97,11 @@ public class MainActivity extends Activity {
         }
         else if(v.getId() == R.id.btnSchedule){
             Schedule[] schedules = DummyDb.getAllSchedules();
-            ProfileScheduler.turnOnSchedule(getApplicationContext(), schedules[0]);
-//            ProfileScheduler.createStartProfileAlarm(getApplicationContext(), "com.facebook.orca", new Date());
+            ProfileScheduler.enableSchedule(getApplicationContext(), schedules[0]);
         }
         else if(v.getId() == R.id.btnUnSchedule){
             Schedule[] schedules = DummyDb.getAllSchedules();
-            ProfileScheduler.turnOffSchedule(getApplicationContext(), schedules[0]);
-//            ProfileScheduler.createStartProfileAlarm(getApplicationContext(), "com.facebook.orca", new Date());
+            ProfileScheduler.disableSchedule(getApplicationContext(), schedules[0]);
         }
 
     }

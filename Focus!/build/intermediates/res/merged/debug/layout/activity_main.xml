@@ -51,7 +51,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Schedule"
+        android:text="Unschedule"
         android:textAllCaps="true"
         android:layout_below="@+id/btnSchedule"
         android:id="@+id/btnUnSchedule"

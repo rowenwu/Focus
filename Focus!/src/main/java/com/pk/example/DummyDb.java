@@ -36,7 +36,7 @@ public class DummyDb {
         Date date =new Date(t + (minsFromNow * ONE_MINUTE_IN_MILLIS));
         Date[] startTimes = new Date[1];
         startTimes[0] = date;
-        return new Schedule("ScheduleName", profiles, startTimes, 120, true);
+        return new Schedule("ScheduleName", profiles, startTimes, 0, 2, true);
     }
 
 }

@@ -6,22 +6,22 @@
     density="420dpi"
     format="10"
     plugin-version="2.3.3"
-    timestamp="1507836712385"
+    timestamp="1508030564882"
     token="-5505029584218215959"
     verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="3907" />
+        duration="1842" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="95" />
+        duration="22" />
     <task
         name="verifier"
-        duration="48" />
+        duration="8" />
 
     <artifact
         location="C:\Users\kathe\Focus\Focus!\build\intermediates\split-apk\debug\slices\slice_2.apk"
@@ -62,7 +62,7 @@
 
     <build
         build-mode="FULL"
-        timestamp="1507836712385"
+        timestamp="1508030564882"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\kathe\Focus\Focus!\build\intermediates\split-apk\debug\slices\slice_2.apk"

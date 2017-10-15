@@ -12,34 +12,36 @@ public class ProfileScheduler {
 
     private static AlarmManager alarmMgr;
 
-    public static void turnOnSchedule(Context context, Schedule schedule) {
+    //enable schedule to become active later
+    public static void enableSchedule(Context context, Schedule schedule) {
         //get schedule time and profiles from database
 
         Date[] startTimes = schedule.startTimes;
         for (int j = 0; j < schedule.profiles.length; j++)
             for (int i = 0; i < startTimes.length; i++) {
-                createStartProfileAlarm(context, schedule.profiles[j], startTimes[i], schedule.repeatWeekly);
-                //create end profile alarm
+                // send the intent to NLService in case we need to cancel it later
+                Intent hasPendingIntent;
+                hasPendingIntent = new Intent(NLService.ADD_SCHEDULE_PENDING_INTENT);
+                hasPendingIntent.putExtra("name", schedule.name);
+                hasPendingIntent.putExtra("startIntent",
+                        createAlarm(context, schedule.profiles[j], startTimes[i], 0, 0, schedule.repeatWeekly, NLService.ADD_PROFILE));
+                hasPendingIntent.putExtra("endIntent",
+                        createAlarm(context, schedule.profiles[j], startTimes[i], schedule.durationHr, schedule.durationMin, schedule.repeatWeekly, NLService.REMOVE_PROFILE));
+                context.sendBroadcast(hasPendingIntent);
             }
     }
 
     // NEED TO CREATE DIFFERENT PENDING INTENT IDS AND STORE THEM IN NLSERVICE
-    public static void createStartProfileAlarm(Context context, String profile, Date date, boolean repeat) {
-        //create alarms - pendingintents and pass to nlservice
+    public static PendingIntent createAlarm(Context context, String profile, Date date, int addHr, int addMin, boolean repeat, String intentAction) {
+        //create alarms - pendingintents
 
         alarmMgr = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        Intent i = new Intent(NLService.ADD_PROFILE);
-        i.putExtra("profile", profile);
+        Intent i = new Intent(intentAction);
+        i.putExtra("name", profile);
         PendingIntent alarmIntent = PendingIntent.getBroadcast(context, (int) System.currentTimeMillis(), i, 0);
-
-        // send the intent to NLService in case we need to cancel it later
-        Intent hasPendingIntent;
-        hasPendingIntent = new Intent(Intent.ACTION_SENDTO);
-        hasPendingIntent.putExtra("profile", profile);
-        hasPendingIntent.putExtra("pendingIntent", alarmIntent);
-        context.sendBroadcast(hasPendingIntent);
-
         Calendar calendar = Calendar.getInstance(); // creates a new calendar instance
+        calendar.add(Calendar.HOUR_OF_DAY, addHr);
+        calendar.add(Calendar.MINUTE, addMin);
         calendar.setTime(date);
 
         if (repeat)
@@ -47,17 +49,24 @@ public class ProfileScheduler {
             alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), alarmMgr.INTERVAL_DAY * 7, alarmIntent);
         else
             alarmMgr.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), alarmIntent);
+
+        return alarmIntent;
     }
 
-    public static void turnOffSchedule(Context context, Schedule schedule) {
+    // disable schedule that's not currently active
+    public static void disableSchedule(Context context, Schedule schedule) {
         //get schedule time and profiles from database
 
         Date[] startTimes = schedule.startTimes;
         for (int j = 0; j < schedule.profiles.length; j++)
             for (int i = 0; i < startTimes.length; i++){
                 // send intent to NLService to invoke removeAlarm on all the pending intents
+                Intent hasPendingIntent;
+                hasPendingIntent = new Intent(NLService.CANCEL_ALARM_INTENTS);
+                hasPendingIntent.putExtra("name", schedule.name);
+                context.sendBroadcast(hasPendingIntent);
+
             }
-//                removeCreateProfileAlarm(context, schedule.profiles[j]);
 
     }
 
@@ -68,4 +77,30 @@ public class ProfileScheduler {
             alarmMgr.cancel(pi);
         }
     }
+
+    //randomly turn off a schedule while it is active
+    public static void turnOffSchedule(Context context, String schedule){
+        // tell nlservice to stop blocking profiles
+        // tell nlservice to remove pending intents for future alarms
+    }
+
+    //randomly turn on a profile - will either be on for 10 hours or whenever a user turns it off
+    public static void turnOnProfile(Context context, String profile){
+        Intent i;
+        i = new Intent(NLService.ADD_PROFILE);
+        i.putExtra("name", profile);
+        context.sendBroadcast(i);
+    }
+
+    //randomly turn off a profile
+    public static void turnOffProfile(Context context, String profile){
+        // send intent to cancel NLService end profile pendingintent
+        Intent i;
+        i = new Intent(NLService.REMOVE_PROFILE);
+        i.putExtra("name", profile);
+        context.sendBroadcast(i);
+
+    }
+
+
 }
