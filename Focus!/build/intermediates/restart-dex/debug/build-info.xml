@@ -6,26 +6,29 @@
     density="420dpi"
     format="10"
     plugin-version="2.3.3"
-    timestamp="1508032017822"
+    timestamp="1508054014730"
     token="-5505029584218215959"
     verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="3044" />
+        duration="3730" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="76" />
+        duration="488" />
     <task
         name="verifier"
-        duration="56" />
+        duration="240" />
 
     <artifact
         location="C:\Users\kathe\Focus\Focus!\build\intermediates\split-apk\debug\slices\slice_2.apk"
         type="SPLIT" />
+    <artifact
+        location="C:\Users\kathe\Focus\Focus!\build\outputs\apk\Focus!-debug.apk"
+        type="SPLIT_MAIN" />
     <artifact
         location="C:\Users\kathe\Focus\Focus!\build\intermediates\split-apk\debug\dep\dependencies.apk"
         type="SPLIT" />
@@ -56,17 +59,17 @@
     <artifact
         location="C:\Users\kathe\Focus\Focus!\build\intermediates\split-apk\debug\slices\slice_3.apk"
         type="SPLIT" />
-    <artifact
-        location="C:\Users\kathe\Focus\Focus!\build\outputs\apk\Focus!-debug.apk"
-        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1508032017822"
+        timestamp="1508054014730"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\kathe\Focus\Focus!\build\intermediates\split-apk\debug\slices\slice_2.apk"
             type="SPLIT" />
+        <artifact
+            location="C:\Users\kathe\Focus\Focus!\build\outputs\apk\Focus!-debug.apk"
+            type="SPLIT_MAIN" />
         <artifact
             location="C:\Users\kathe\Focus\Focus!\build\intermediates\split-apk\debug\dep\dependencies.apk"
             type="SPLIT" />
@@ -97,9 +100,6 @@
         <artifact
             location="C:\Users\kathe\Focus\Focus!\build\intermediates\split-apk\debug\slices\slice_3.apk"
             type="SPLIT" />
-        <artifact
-            location="C:\Users\kathe\Focus\Focus!\build\outputs\apk\Focus!-debug.apk"
-            type="SPLIT_MAIN" />
     </build>
 
 </instant-run>
