@@ -15,8 +15,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.support.v7.widget.Toolbar;
+import android.support.v7.app.AppCompatActivity;
 
-public class MainActivity extends Activity {
+
+public class MainActivity extends AppCompatActivity {
 
     public TextView txtView;
     private NotificationReceiver nReceiver;
@@ -30,6 +33,8 @@ public class MainActivity extends Activity {
         IntentFilter filter = new IntentFilter();
         filter.addAction("com.pk.example.NOTIFICATION_LISTENER_EXAMPLE");
         registerReceiver(nReceiver,filter);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
     }
 
     @Override
