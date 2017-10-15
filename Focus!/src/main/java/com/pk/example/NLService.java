@@ -463,7 +463,8 @@ public class NLService extends NotificationListenerService {
         // if current time < end time, add profile, add apps to appsBlocked or update set of profiles
         // for list of apps, addBlockedApp
 
-        //ADD PROFILE TO ACTIVE PROFILES LIST
+        //TODO ADD PROFILE TO ACTIVE PROFILES LIST
+        //TODO IF PROFILE IS ALREADY ON ACTIVE PROFILES LIST THEN RETURN
 
         sendNotification(profile + START_PROFILE_NOTIFICATION);
         Profile prof = DummyDb.getProfile(profile);
@@ -484,7 +485,8 @@ public class NLService extends NotificationListenerService {
     }
 
     public void removeProfile(String profile){
-        //REMOVE PROFILE FROM ACTIVE PROFILES LIST
+        //TODO CHECK PROFILE IS ON ACTIVE PROFILES LIST, IF NOT RETURN
+        //TODO REMOVE PROFILE FROM ACTIVE PROFILES LIST
         sendNotification(profile + STOP_PROFILE_NOTIFICATION);
         Profile prof = DummyDb.getProfile(profile);
         for(int a = 0; a < prof.appsToBlock.length; a++){

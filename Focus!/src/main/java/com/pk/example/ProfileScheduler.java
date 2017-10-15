@@ -40,9 +40,9 @@ public class ProfileScheduler {
         i.putExtra("name", profile);
         PendingIntent alarmIntent = PendingIntent.getBroadcast(context, (int) System.currentTimeMillis(), i, 0);
         Calendar calendar = Calendar.getInstance(); // creates a new calendar instance
+        calendar.setTime(date);
         calendar.add(Calendar.HOUR_OF_DAY, addHr);
         calendar.add(Calendar.MINUTE, addMin);
-        calendar.setTime(date);
 
         if (repeat)
             //creates a weekly repeating alarm
@@ -53,9 +53,11 @@ public class ProfileScheduler {
         return alarmIntent;
     }
 
-    // disable schedule that's not currently active
+    // disable schedule
     public static void disableSchedule(Context context, Schedule schedule) {
         //get schedule time and profiles from database
+
+        // TODO if schedule is active: remove profiles
 
         Date[] startTimes = schedule.startTimes;
         for (int j = 0; j < schedule.profiles.length; j++)
@@ -76,12 +78,6 @@ public class ProfileScheduler {
         if (alarmMgr!= null) {
             alarmMgr.cancel(pi);
         }
-    }
-
-    //randomly turn off a schedule while it is active
-    public static void turnOffSchedule(Context context, String schedule){
-        // tell nlservice to stop blocking profiles
-        // tell nlservice to remove pending intents for future alarms
     }
 
     //randomly turn on a profile - will either be on for 10 hours or whenever a user turns it off
