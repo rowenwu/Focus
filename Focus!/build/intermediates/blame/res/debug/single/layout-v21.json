@@ -1,18 +1,26 @@
 [
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_custom_big.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\cbca9b8822939f1ebf2a34fa9f627ba5f4eeac24\\output\\res\\layout-v21\\notification_template_custom_big.xml"
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\e4d955c96bf10472390d5ac5085a84214b9a20e2\\output\\res\\layout-v21\\notification_template_custom_big.xml"
     },
     {
-        "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action_tombstone.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\cbca9b8822939f1ebf2a34fa9f627ba5f4eeac24\\output\\res\\layout-v21\\notification_action_tombstone.xml"
+        "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout-v21\\bottom_navigation_item.xml",
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\45b54c63c28664743104691ed543291dc82a4800\\output\\res\\layout-v21\\bottom_navigation_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout-v21\\bottom_navigation_small_item.xml",
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\45b54c63c28664743104691ed543291dc82a4800\\output\\res\\layout-v21\\bottom_navigation_small_item.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_icon_group.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\cbca9b8822939f1ebf2a34fa9f627ba5f4eeac24\\output\\res\\layout-v21\\notification_template_icon_group.xml"
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\e4d955c96bf10472390d5ac5085a84214b9a20e2\\output\\res\\layout-v21\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\e4d955c96bf10472390d5ac5085a84214b9a20e2\\output\\res\\layout-v21\\notification_action_tombstone.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\cbca9b8822939f1ebf2a34fa9f627ba5f4eeac24\\output\\res\\layout-v21\\notification_action.xml"
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\e4d955c96bf10472390d5ac5085a84214b9a20e2\\output\\res\\layout-v21\\notification_action.xml"
     }
 ]

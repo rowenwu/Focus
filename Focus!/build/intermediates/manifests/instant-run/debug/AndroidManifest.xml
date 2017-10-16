@@ -49,6 +49,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pk.example.MainActivity" />
         </activity>
+        <activity
+            android:name="com.pk.example.TabbedActivity"
+            android:label="@string/title_activity_tabbed"
+            android:parentActivityName="com.pk.example.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pk.example.MainActivity" />
+        </activity>
 
         <provider
             android:name="android.arch.lifecycle.LifecycleRuntimeTrojanProvider"

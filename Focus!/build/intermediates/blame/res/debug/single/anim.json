@@ -1,42 +1,66 @@
 [
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_out.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\46ace1a018cef848e9b5a1ea65d7d64977cc04c0\\output\\res\\anim\\abc_fade_out.xml"
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\e4d955c96bf10472390d5ac5085a84214b9a20e2\\output\\res\\anim\\abc_fade_out.xml"
+    },
+    {
+        "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\anim\\design_snackbar_out.xml",
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\d17ad5a6428e6512191ee4e2e1dc6f161a483498\\output\\res\\anim\\design_snackbar_out.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\46ace1a018cef848e9b5a1ea65d7d64977cc04c0\\output\\res\\anim\\abc_slide_out_top.xml"
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\e4d955c96bf10472390d5ac5085a84214b9a20e2\\output\\res\\anim\\abc_slide_out_top.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\46ace1a018cef848e9b5a1ea65d7d64977cc04c0\\output\\res\\anim\\abc_slide_in_top.xml"
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\e4d955c96bf10472390d5ac5085a84214b9a20e2\\output\\res\\anim\\abc_slide_in_top.xml"
+    },
+    {
+        "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\anim\\design_fab_out.xml",
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\d17ad5a6428e6512191ee4e2e1dc6f161a483498\\output\\res\\anim\\design_fab_out.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\anim\\abc_grow_fade_in_from_bottom.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\46ace1a018cef848e9b5a1ea65d7d64977cc04c0\\output\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\e4d955c96bf10472390d5ac5085a84214b9a20e2\\output\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_in.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\46ace1a018cef848e9b5a1ea65d7d64977cc04c0\\output\\res\\anim\\abc_fade_in.xml"
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\e4d955c96bf10472390d5ac5085a84214b9a20e2\\output\\res\\anim\\abc_fade_in.xml"
+    },
+    {
+        "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\anim\\design_bottom_sheet_slide_in.xml",
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\d17ad5a6428e6512191ee4e2e1dc6f161a483498\\output\\res\\anim\\design_bottom_sheet_slide_in.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\46ace1a018cef848e9b5a1ea65d7d64977cc04c0\\output\\res\\anim\\abc_slide_out_bottom.xml"
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\e4d955c96bf10472390d5ac5085a84214b9a20e2\\output\\res\\anim\\abc_slide_out_bottom.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\46ace1a018cef848e9b5a1ea65d7d64977cc04c0\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\e4d955c96bf10472390d5ac5085a84214b9a20e2\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\46ace1a018cef848e9b5a1ea65d7d64977cc04c0\\output\\res\\anim\\abc_slide_in_bottom.xml"
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\e4d955c96bf10472390d5ac5085a84214b9a20e2\\output\\res\\anim\\abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\anim\\design_snackbar_in.xml",
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\d17ad5a6428e6512191ee4e2e1dc6f161a483498\\output\\res\\anim\\design_snackbar_in.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_enter.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\46ace1a018cef848e9b5a1ea65d7d64977cc04c0\\output\\res\\anim\\abc_popup_enter.xml"
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\e4d955c96bf10472390d5ac5085a84214b9a20e2\\output\\res\\anim\\abc_popup_enter.xml"
+    },
+    {
+        "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\anim\\design_fab_in.xml",
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\d17ad5a6428e6512191ee4e2e1dc6f161a483498\\output\\res\\anim\\design_fab_in.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_exit.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\46ace1a018cef848e9b5a1ea65d7d64977cc04c0\\output\\res\\anim\\abc_popup_exit.xml"
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\e4d955c96bf10472390d5ac5085a84214b9a20e2\\output\\res\\anim\\abc_popup_exit.xml"
+    },
+    {
+        "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\anim\\design_bottom_sheet_slide_out.xml",
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\d17ad5a6428e6512191ee4e2e1dc6f161a483498\\output\\res\\anim\\design_bottom_sheet_slide_out.xml"
     }
 ]

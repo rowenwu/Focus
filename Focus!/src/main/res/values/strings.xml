@@ -9,6 +9,12 @@
     <string name="accessibility_not_found_detour"><![CDATA[Go to \'Accessibility\' > \'NotificationListener\']]></string>
     <string name="accessibility_service_blocked">%s might be blocking Notification Listener from accessing your notifications. Please disable it from the accessibility menu.</string>
     <string name="title_activity_create_profile">Create Profile</string>
+    <string name="title_activity_tabbed">TabbedActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="profiles_tab">Profiles</string>
+    <string name="schedules_tab">Schedules</string>
+    <string name="notifications_tab">Notifications</string>
+
 
 
 </resources>

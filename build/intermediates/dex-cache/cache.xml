@@ -3,24 +3,6 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\kathe\.android\build-cache\477f911ef24a72392c325d2d29685c4b093f594f\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="13b31fe5f2e97c9fa36b4716cf32c59afb5603b4">
-        <dex dex="C:\Users\kathe\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6344206552b89230ee52e9267c810c717febcdc1\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\kathe\.android\build-cache\8c9912b94348c5e9249e472a0755297acd72d188\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="bd57e6d90e63921172b30ca28af527267e6d213d">
-        <dex dex="C:\Users\kathe\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c69d4363f1826f6a105cb9465c9a385bac6e4791\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\kathe\Focus\Focus!\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
@@ -30,21 +12,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\kathe\.android\build-cache\be3da3e3b5639e557a8ee6807e83a1363ba1cf87\output\jars\classes.jar"
+        jar="C:\Users\kathe\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="f80ef3e88d53cd67f09ae860e9e95967108f5cb2">
-        <dex dex="C:\Users\kathe\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\classes_72abbeded286372c0023dea29820f63b1cc00edc\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\kathe\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.4\695b63d702f505b9b916e02272e3b6381bade7f\gson-2.4.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="0695b63d702f505b9b916e02272e3b6381bade7f">
-        <dex dex="C:\Users\kathe\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.4_aff46765806beb5d97f98f5db670857999956836\classes.dex" />
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="C:\Users\kathe\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\constraint-layout-solver-1.0.2_9be20ddff63b490d6712288807473d27dd0f3168\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -52,26 +25,17 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="882c5e4c6f39c65b9dea978cc2ed4b7eb6cff6c4">
+        sha1="cd87e4f826247f7f9041afbd316f5c394f6edb12">
         <dex dex="C:\Users\kathe\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_3a43adc4a5265aa9bee6970b46752e7d485aef16\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\kathe\.gradle\caches\modules-2\files-2.1\android.arch.persistence.room\common\1.0.0-alpha1\4fb1be8519a8e9d931945beaee734dd7c1691462\common-1.0.0-alpha1.jar"
+        jar="C:\Users\kathe\.android\build-cache\44e05fe309abb136e97b74cddaef7f35546ef3b3\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="4fb1be8519a8e9d931945beaee734dd7c1691462">
-        <dex dex="C:\Users\kathe\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\common-1.0.0-alpha1_f0568c03924d174d58ed34ad68265ccd55a8efec\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\kathe\.android\build-cache\5318899595bd8946928910f8a8a18408abf1b819\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="8aa1017a9d855f7071d9f47ae563f1dc45730b74">
-        <dex dex="C:\Users\kathe\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2cf8b1059e9511d77d5dfaa3836b84963b1b1745\classes.dex" />
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="C:\Users\kathe\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\classes_394297169cf494554596e6af80bd72095350c013\classes.dex" />
     </item>
 
 </items>

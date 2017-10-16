@@ -88,6 +88,10 @@ public class MainActivity extends Activity {
             ncomp.setAutoCancel(true);
             nManager.notify((int)System.currentTimeMillis(),ncomp.build());
         }
+        else if(v.getId() == R.id.btnNavigation){
+            Intent i = new Intent(this, TabbedActivity.class);
+            startActivity(i);
+        }
         else if(v.getId() == R.id.btnPermission){
             toggleService(v);
         }
