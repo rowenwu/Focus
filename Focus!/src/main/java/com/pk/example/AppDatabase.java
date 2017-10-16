@@ -21,9 +21,16 @@ import com.pk.example.entity.CurrentNotificationListEntity;
 @TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
 
+    private static AppDatabase INSTANCE;
 
-//    public abstract AppDatabase getAppDatabase(Context context);
-
+    public static AppDatabase getDatabase(Context context) {
+        if (INSTANCE == null) {
+            INSTANCE =
+                    Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "db")
+                            .build();
+        }
+        return INSTANCE;
+    }
     public abstract MinNotificationDao minNotificationDao();
 
     public abstract ProfileDao profileDao();
