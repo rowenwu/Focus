@@ -805,7 +805,7 @@ int id action_menu_presenter 0x7f0b0003
 int id action_mode_bar 0x7f0b006c
 int id action_mode_bar_stub 0x7f0b006b
 int id action_mode_close_button 0x7f0b0051
-int id action_settings 0x7f0b00b6
+int id action_settings 0x7f0b00b5
 int id action_text 0x7f0b00a1
 int id actions 0x7f0b00b2
 int id activity_chooser_view_content 0x7f0b0052
@@ -880,7 +880,6 @@ int id ifRoom 0x7f0b004a
 int id image 0x7f0b0054
 int id info 0x7f0b00af
 int id italic 0x7f0b0045
-int id itemTextView 0x7f0b00b5
 int id item_touch_helper_previous_elevation 0x7f0b0005
 int id largeLabel 0x7f0b0091
 int id left 0x7f0b0037
@@ -1042,12 +1041,11 @@ int layout notification_template_media 0x7f03003c
 int layout notification_template_media_custom 0x7f03003d
 int layout notification_template_part_chronometer 0x7f03003e
 int layout notification_template_part_time 0x7f03003f
-int layout recycler_item 0x7f030040
-int layout select_dialog_item_material 0x7f030041
-int layout select_dialog_multichoice_material 0x7f030042
-int layout select_dialog_singlechoice_material 0x7f030043
-int layout snippet_list_row 0x7f030044
-int layout support_simple_spinner_dropdown_item 0x7f030045
+int layout select_dialog_item_material 0x7f030040
+int layout select_dialog_multichoice_material 0x7f030041
+int layout select_dialog_singlechoice_material 0x7f030042
+int layout snippet_list_row 0x7f030043
+int layout support_simple_spinner_dropdown_item 0x7f030044
 int menu main 0x7f0c0000
 int menu menu_tabbed 0x7f0c0001
 int string abc_action_bar_home_description 0x7f050000

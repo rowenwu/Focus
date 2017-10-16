@@ -3,7 +3,7 @@ package com.pk.example.entity;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
-import com.pk.example.base.Profile;
+import com.pk.example.Profile;
 
 import java.util.ArrayList;
 

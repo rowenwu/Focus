@@ -1,12 +1,10 @@
 package com.pk.example;
 
 
-import com.pk.example.base.Profile;
-import com.pk.example.base.Schedule;
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class DummyDb {
     static final long ONE_MINUTE_IN_MILLIS=60000;//millisecs

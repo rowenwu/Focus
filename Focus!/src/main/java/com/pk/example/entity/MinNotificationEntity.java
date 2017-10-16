@@ -3,7 +3,6 @@ package com.pk.example.entity;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
-
 import com.pk.example.MinNotification;
 
 import java.util.Date;
