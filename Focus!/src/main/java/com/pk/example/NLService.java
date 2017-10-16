@@ -468,8 +468,8 @@ public class NLService extends NotificationListenerService {
 
         sendNotification(profile + START_PROFILE_NOTIFICATION);
         Profile prof = DummyDb.getProfile(profile);
-        for(int a = 0; a < prof.appsToBlock.length; a++){
-            addBlockedApp(prof.appsToBlock[a], profile);
+        for(int a = 0; a < prof.getAppsToBlock().size(); a++){
+            addBlockedApp(prof.appsToBlock.get(a), profile);
         }
 
     }
@@ -489,8 +489,8 @@ public class NLService extends NotificationListenerService {
         //TODO REMOVE PROFILE FROM ACTIVE PROFILES LIST
         sendNotification(profile + STOP_PROFILE_NOTIFICATION);
         Profile prof = DummyDb.getProfile(profile);
-        for(int a = 0; a < prof.appsToBlock.length; a++){
-            removeBlockedApp(prof.appsToBlock[a], profile);
+        for(int a = 0; a < prof.getAppsToBlock().size(); a++){
+            addBlockedApp(prof.appsToBlock.get(a), profile);
         }
 
         HashSet<PendingIntent> alarms = profileAlarmIntents.get(profile);

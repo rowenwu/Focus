@@ -5,88 +5,84 @@ import android.arch.persistence.room.PrimaryKey;
 
 import com.pk.example.Schedule;
 
+import java.util.ArrayList;
 import java.util.Date;
 
-@Entity
-public class ScheduleEntity extends Schedule{
+@Entity(tableName = "schedules")
+public class ScheduleEntity extends Schedule {
 
     @PrimaryKey
-    public String name;
-
-    public String[] profiles;
-
-    public Date[] startTimes;
-
-    public int durationHr; // number of hours
-
-    public int durationMin; //number of minutes
-
-    public boolean repeatWeekly;
+    private String _name;
+    private ArrayList<String> _profiles;
+    private ArrayList<Date> _startTimes;
+    private int _durationHr; // number of hours
+    private int _durationMin; //number of minutes
+    private boolean _repeatWeekly;
 
     @Override
     public String getName() {
-        return name;
+        return _name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this._name = name;
     }
 
     @Override
-    public String[] getProfiles() {
-        return profiles;
+    public ArrayList<String> getProfiles() {
+        return _profiles;
     }
 
-    public void setProfiles(String[] profiles) {
-        this.profiles = profiles;
+    public void setProfiles(ArrayList<String> profiles) {
+        this._profiles = profiles;
     }
 
     @Override
-    public Date[] getStartTimes() {
-        return startTimes;
+    public ArrayList<Date> getStartTimes() {
+        return _startTimes;
     }
 
-    public void setStartTimes(Date[] startTimes) {
-        this.startTimes = startTimes;
+    public void setStartTimes(ArrayList<Date> startTimes) {
+        this._startTimes = startTimes;
     }
 
     @Override
     public int getDurationHr() {
-        return durationHr;
+        return _durationHr;
+    }
+
+    public void setDurationHr(int durationHr) {
+        this._durationHr = durationHr;
     }
 
     @Override
     public int getDurationMin(){
-        return durationMin;
+        return _durationMin;
     }
 
-    public void setDurationHr(int durationHr) {
-        this.durationHr = durationHr;
-    }
-
-    public void setDurationMin(int setDurationMin) {
-        this.durationHr = setDurationMin;
+    public void setDurationMin(int durationMin) {
+        this._durationMin = durationMin;
     }
 
     @Override
     public boolean getRepeatWeekly() {
-        return repeatWeekly;
+        return _repeatWeekly;
     }
 
     public void setRepeatWeekly(boolean repeatWeekly) {
-        this.repeatWeekly = repeatWeekly;
+        this._repeatWeekly = repeatWeekly;
     }
 
-    public ScheduleEntity(){
+    public ScheduleEntity () {
+
     }
 
-    public ScheduleEntity(Schedule schedule) {
-        this.name = schedule.getName();
-        this.profiles = schedule.getProfiles();
-        this.startTimes = schedule.getStartTimes();
-        this.durationHr = schedule.getDurationHr();
-        this.durationMin = schedule.getDurationMin();
-        this.repeatWeekly = schedule.getRepeatWeekly();
+    public ScheduleEntity (Schedule schedule){
+        this._name = schedule.getName();
+        this._profiles = schedule.getProfiles();
+        this._startTimes = schedule.getStartTimes();
+        this._durationHr = schedule.getDurationHr();
+        this._durationMin = schedule.getDurationMin();
+        this._repeatWeekly = schedule.getRepeatWeekly();
     }
-
 }

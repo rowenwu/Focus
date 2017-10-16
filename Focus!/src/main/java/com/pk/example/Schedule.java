@@ -1,26 +1,27 @@
 package com.pk.example;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Schedule {
 
-    public String name;
+    private String name;
 
-    public String[] profiles;
+    private ArrayList<String> profiles;
 
-    public Date[] startTimes;
+    private ArrayList<Date> startTimes;
 
-    public int durationHr; // number of hours
+    private int durationHr; // number of hours
 
-    public int durationMin; //number of minutes
+    private int durationMin; //number of minutes
 
-    public boolean repeatWeekly;
+    private boolean repeatWeekly;
 
     public Schedule() {
 
     }
 
-    public Schedule(String name, String[] profiles, Date[] startTimes, int durationHr, int durationMin, boolean repeatWeekly){
+    public Schedule(String name, ArrayList<String> profiles, ArrayList<Date> startTimes, int durationHr, int durationMin, boolean repeatWeekly){
         this.name = name;
         this.profiles = profiles;
         this.startTimes = startTimes;
@@ -33,12 +34,12 @@ public class Schedule {
         return name;
     }
 
-    public String[] getProfiles() {
+    public ArrayList<String> getProfiles() {
         return profiles;
     }
 
 
-    public Date[] getStartTimes() {
+    public ArrayList<Date> getStartTimes() {
         return startTimes;
     }
 

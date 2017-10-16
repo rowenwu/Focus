@@ -1,6 +1,7 @@
 package com.pk.example;
 
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -22,21 +23,23 @@ public class DummyDb {
 
     //fake
     public static Profile makeFakeProfile(String fakeyname){
-        String[] appsToBlock = {"com.facebook.orca"};
+        ArrayList<String> appsToBlock = new ArrayList<>();
+        appsToBlock.add("com.facebook.orca");
         Profile profile = new Profile(fakeyname, appsToBlock);
         return profile;
     }
 
     // fake
     public static Schedule makeFakeSchedule(int minsFromNow){
-        String[] profiles = {"ProfileName"};
+        ArrayList<String> profiles = new ArrayList<>();
+        profiles.add("ProfileName");
 
         Calendar cal = Calendar.getInstance();
         long t= cal.getTimeInMillis();
         Date date =new Date(t + (minsFromNow * ONE_MINUTE_IN_MILLIS));
-        Date[] startTimes = new Date[1];
-        startTimes[0] = date;
-        return new Schedule("ScheduleName", profiles, startTimes, 0, 2, true);
+        ArrayList<Date> startTimes = new ArrayList<>();
+        startTimes.add(date);
+        return new Schedule("ScheduleName", profiles, startTimes, 0, 120, true);
     }
 
 }

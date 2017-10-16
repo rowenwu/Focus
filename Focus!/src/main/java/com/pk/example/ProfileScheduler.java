@@ -5,6 +5,8 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -16,17 +18,18 @@ public class ProfileScheduler {
     public static void enableSchedule(Context context, Schedule schedule) {
         //get schedule time and profiles from database
 
-        Date[] startTimes = schedule.startTimes;
-        for (int j = 0; j < schedule.profiles.length; j++)
-            for (int i = 0; i < startTimes.length; i++) {
+        ArrayList<String> profiles = schedule.getProfiles();
+        ArrayList<Date> startTimes = schedule.getStartTimes();
+        for (int j = 0; j < profiles.size(); j++)
+            for (int i = 0; i < startTimes.size(); i++) {
                 // send the intent to NLService in case we need to cancel it later
                 Intent hasPendingIntent;
                 hasPendingIntent = new Intent(NLService.ADD_SCHEDULE_PENDING_INTENT);
-                hasPendingIntent.putExtra("name", schedule.name);
+                hasPendingIntent.putExtra("name", schedule.getName());
                 hasPendingIntent.putExtra("startIntent",
-                        createAlarm(context, schedule.profiles[j], startTimes[i], 0, 0, schedule.repeatWeekly, NLService.ADD_PROFILE));
+                        createAlarm(context, profiles.get(j), startTimes.get(i), 0, 0, schedule.getRepeatWeekly(), NLService.ADD_PROFILE));
                 hasPendingIntent.putExtra("endIntent",
-                        createAlarm(context, schedule.profiles[j], startTimes[i], schedule.durationHr, schedule.durationMin, schedule.repeatWeekly, NLService.REMOVE_PROFILE));
+                        createAlarm(context, profiles.get(j), startTimes.get(i), schedule.getDurationHr(), schedule.getDurationMin(), schedule.getRepeatWeekly(), NLService.REMOVE_PROFILE));
                 context.sendBroadcast(hasPendingIntent);
             }
     }
@@ -59,16 +62,10 @@ public class ProfileScheduler {
 
         // TODO if schedule is active: remove profiles
 
-        Date[] startTimes = schedule.startTimes;
-        for (int j = 0; j < schedule.profiles.length; j++)
-            for (int i = 0; i < startTimes.length; i++){
-                // send intent to NLService to invoke removeAlarm on all the pending intents
-                Intent hasPendingIntent;
-                hasPendingIntent = new Intent(NLService.CANCEL_ALARM_INTENTS);
-                hasPendingIntent.putExtra("name", schedule.name);
-                context.sendBroadcast(hasPendingIntent);
-
-            }
+        Intent hasPendingIntent;
+        hasPendingIntent = new Intent(NLService.CANCEL_ALARM_INTENTS);
+        hasPendingIntent.putExtra("name", schedule.getName());
+        context.sendBroadcast(hasPendingIntent);
 
     }
 
