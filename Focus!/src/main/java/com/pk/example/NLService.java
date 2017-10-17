@@ -24,9 +24,11 @@ import android.view.ViewGroup;
 import android.widget.RemoteViews;
 import android.widget.TextView;
 
+import com.pk.example.dao.CurrentNotificationListDao;
 import com.pk.example.dao.ProfileDao;
 
 import java.lang.reflect.Field;
+import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -50,6 +52,7 @@ public class NLService extends NotificationListenerService {
     private HashMap<String, HashSet<PendingIntent>> scheduleAlarmIntents;
     private HashMap<String, HashSet<PendingIntent>> profileAlarmIntents;
     private ProfileDao profileDao;
+    private CurrentNotificationListDao crnDao;
 
 
 
@@ -490,6 +493,11 @@ public class NLService extends NotificationListenerService {
     public void removeProfile(String profile){
         //TODO CHECK PROFILE IS ON ACTIVE PROFILES LIST, IF NOT RETURN
         //TODO REMOVE PROFILE FROM ACTIVE PROFILES LIST
+
+
+        //TODO GET NOTIFICATIONS FROM THIS PROFILE AND MAKE IT THE PREVIOUS NOTIFICATIONS LIST
+//        ArrayList<MinNotification> notifications = crnDao.loadAllCurrNotificationsSync();
+
         sendNotification(profile + STOP_PROFILE_NOTIFICATION);
         Profile prof = DummyDb.getProfile(profile);
         for(int a = 0; a < prof.getAppsToBlock().size(); a++){
