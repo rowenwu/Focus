@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Mon Oct 16 23:59:07 PDT 2017
+#Tue Oct 17 00:06:49 PDT 2017
 210.set=ANDROID_RESOURCE
 14.set=ANDROID_RESOURCE
 180.file=C\:\\Users\\kathe\\Focus\\Focus\!\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable\\design_bottom_navigation_item_background.xml
