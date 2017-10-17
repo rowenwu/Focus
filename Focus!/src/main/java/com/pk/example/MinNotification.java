@@ -1,5 +1,7 @@
 package com.pk.example;
 
+import android.graphics.Bitmap;
+
 import java.util.Date;
 
 public class MinNotification {
@@ -10,7 +12,7 @@ public class MinNotification {
 
     public String notificationContext;
 
-    public String appIcon;
+    //public Bitmap appIcon;
 
     public Date date;
 
@@ -30,10 +32,10 @@ public class MinNotification {
         return notificationContext;
     }
 
-    public String getAppIcon() {
+   /* public Bitmap getAppIcon() {
         return appIcon;
     }
-
+*/
     public Date getDate() {
         return date;
     }

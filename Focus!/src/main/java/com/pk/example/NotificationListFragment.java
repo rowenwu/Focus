@@ -8,6 +8,7 @@ import android.app.Fragment;
 import android.app.ListActivity;
 import android.app.ListFragment;
 import android.app.ProgressDialog;
+import android.arch.lifecycle.LiveData;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -25,7 +26,7 @@ public class NotificationListFragment extends Fragment {
 
     private NotificationAdapter notificationAdapter;
     RecyclerView recyclerView;
-    private ArrayList<MinNotificationEntity> notificationList;
+    private LiveData<List<MinNotificationEntity>> notificationList;
 
 
     @Override
@@ -44,7 +45,9 @@ public class NotificationListFragment extends Fragment {
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(llm);
 
-        notificationList = new ArrayList<MinNotificationEntity>();
+        AppDatabase appDatabase = AppDatabase.getDatabase(getActivity().getApplication());
+
+        notificationList = appDatabase.previousNotificationListDao().loadAllPrevNotifications();
 
         notificationAdapter = new NotificationAdapter(notificationList);
         recyclerView.setAdapter(notificationAdapter);

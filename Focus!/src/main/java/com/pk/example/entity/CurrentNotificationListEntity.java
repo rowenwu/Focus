@@ -9,6 +9,7 @@ import android.arch.persistence.room.PrimaryKey;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity(tableName = "curr_notifications")
 public class CurrentNotificationListEntity {
@@ -20,7 +21,6 @@ public class CurrentNotificationListEntity {
     private ArrayList<MinNotification> notificationList;
 
     public CurrentNotificationListEntity() {
-        notificationList = new ArrayList<>();
     }
 
     public int getId(){

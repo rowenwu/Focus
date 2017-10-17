@@ -1,7 +1,11 @@
 package com.pk.example;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import android.arch.lifecycle.LiveData;
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,53 +13,52 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.pk.example.entity.MinNotificationEntity;
+import com.pk.example.entity.ScheduleEntity;
 
-/**
- * Created by Andy on 10/6/2017.
- */
+public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.ListItemViewHolder> {
 
-public class NotificationAdapter extends ArrayAdapter<MinNotification> {
-    private List<MinNotification> notificationList = null;
+    private LiveData<List<MinNotificationEntity>> notificationList;
     private Context context;
 
-    public NotificationAdapter(Context context, int textViewResourceId,
-                               List<MinNotification> notificationList) {
-        super(context, textViewResourceId, notificationList);
-        this.context = context;
+    public NotificationAdapter(LiveData<List<MinNotificationEntity>> notificationList) {
         this.notificationList = notificationList;
     }
 
     @Override
-    public int getCount() {
-        return ((null != notificationList) ? notificationList.size() : 0);
+    public ListItemViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+        View itemView = LayoutInflater.
+                from(viewGroup.getContext()).
+                inflate(R.layout.notification_list_row, viewGroup, false);
+        return new ListItemViewHolder(itemView);
     }
 
     @Override
-    public MinNotification getItem(int position) {
-        return ((null != notificationList) ? notificationList.get(position) : null);
+    public void onBindViewHolder(final ListItemViewHolder holder, int position) {
+        MinNotificationEntity minNotificationEntity = notificationList.getValue().get(position);
+        holder.appName.setText(minNotificationEntity.getAppName());
+        holder.notificationContext.setText(minNotificationEntity.getNotificationContext());
+        holder.timeAndDate.setText(minNotificationEntity.getDate().toLocaleString().substring(0, 11));
+        //holder.iconview.setImageBitmap(minNotificationEntity.getAppIcon());
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        View view = convertView;
-        if (null == view) {
-            LayoutInflater layoutInflater = (LayoutInflater) context
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = layoutInflater.inflate(R.layout.notification_list_row, null);
-        }
+    public int getItemCount() {
+        return notificationList.getValue().size();
+    }
 
-        MinNotification notifcation = notificationList.get(position);
-        if (null != notifcation) {
-            TextView appName = (TextView) view.findViewById(R.id.app_name);
-            TextView notificationContext = (TextView) view.findViewById(R.id.notifcation_context);
-            TextView timeAndDate =(TextView) view.findViewById(R.id.time_and_date);
-            ImageView iconview = (ImageView) view.findViewById(R.id.app_icon);
+    public final static class ListItemViewHolder extends RecyclerView.ViewHolder {
+        private TextView appName;
+        private TextView notificationContext;
+        private TextView timeAndDate;
+        private ImageView iconview;
 
-            //still need to set info
-            //appName.setText(applicationInfo.loadLabel(packageManager));
-            //packageName.setText(applicationInfo.packageName);
-            //iconview.setImageDrawable(applicationInfo.loadIcon(packageManager));
+        ListItemViewHolder(View view) {
+            super(view);
+            appName = (TextView) view.findViewById(R.id.app_name);
+            notificationContext = (TextView) view.findViewById(R.id.notifcation_context);
+            timeAndDate = (TextView) view.findViewById(R.id.time_and_date);
+            iconview = (ImageView) view.findViewById(R.id.app_icon);
         }
-        return view;
     }
 }

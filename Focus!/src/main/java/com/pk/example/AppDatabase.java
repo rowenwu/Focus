@@ -7,7 +7,7 @@ import android.arch.persistence.room.TypeConverters;
 import android.content.Context;
 
 import com.pk.example.dao.CurrentNotificationListDao;
-import com.pk.example.dao.MinNotificationDao;
+//import com.pk.example.dao.MinNotificationDao;
 import com.pk.example.dao.PreviousNotificationListDao;
 import com.pk.example.dao.ProfileDao;
 import com.pk.example.dao.ScheduleDao;
@@ -31,7 +31,7 @@ public abstract class AppDatabase extends RoomDatabase {
         }
         return INSTANCE;
     }
-    public abstract MinNotificationDao minNotificationDao();
+    //public abstract MinNotificationDao minNotificationDao();
 
     public abstract ProfileDao profileDao();
 
