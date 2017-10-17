@@ -11,6 +11,7 @@ import com.pk.example.dao.ProfileDao;
 import com.pk.example.entity.ProfileEntity;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -28,13 +29,11 @@ public class ProfileListActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_list);
         getActionBar().setDisplayHomeAsUpEnabled(true);
-        db = AppDatabase.getDatabase(getApplicationContext());
 
-        profileList = db.profileDao().loadAllProfilesAsync();
 
 
         new LoadProfiles().execute();
-        ListView listView = getListView();
+//        ListView listView = getListView();
         //listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
     }
 
@@ -43,6 +42,16 @@ public class ProfileListActivity extends ListActivity {
 
         @Override
         protected Void doInBackground(Void... params) {
+
+            db = AppDatabase.getDatabase(getApplicationContext());
+            profileList = db.profileDao().loadAllProfilesAsync();
+            if (profileList.size()==0) {
+                //create a fake schedule to insert
+                //if no schedules in db
+                ProfileEntity fakeProfile = new ProfileEntity(new Profile("class profile", new ArrayList<>( Arrays.asList("Buenos Aires", "Córdoba", "La Plata")), false));
+                db.profileDao().insert(fakeProfile);
+                profileList = db.profileDao().loadAllProfilesAsync();
+            }
 
             profileListAdapter = new ProfileListAdapter(ProfileListActivity.this,
                     R.layout.profile_list_row, profileList);

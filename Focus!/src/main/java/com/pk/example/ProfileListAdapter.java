@@ -48,7 +48,7 @@ public class ProfileListAdapter extends ArrayAdapter<ProfileEntity> {
 
         ProfileEntity profileEntity = profileList.get(position);
         if (null != profileEntity) {
-            TextView profileContext = (TextView) view.findViewById(R.id.profile_list_item_context);
+            TextView profileContext = (TextView) view.findViewById(R.id.profile_list_content);
 
             profileContext.setText(profileEntity.getName());
             //still need to set info

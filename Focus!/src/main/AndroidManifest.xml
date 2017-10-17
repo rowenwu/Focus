@@ -45,6 +45,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pk.example.MainActivity" />
         </activity>
+        <activity
+            android:name=".ProfileListActivity"
+            android:label="View Profiles"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pk.example.MainActivity" />
+        </activity>
         <!-- <activity -->
         <!-- android:name=".TabbedActivity" -->
         <!-- android:label="@string/title_activity_tabbed" -->
