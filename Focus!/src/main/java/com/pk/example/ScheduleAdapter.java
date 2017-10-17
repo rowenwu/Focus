@@ -39,7 +39,7 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
         if (null == view) {
             LayoutInflater layoutInflater = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = layoutInflater.inflate(R.layout.notification_list_row, null);
+            view = layoutInflater.inflate(R.layout.schedule_list_row, null);
         }
 
         ScheduleEntity schedule = scheduleEntities.get(position);
@@ -49,7 +49,7 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
 //            TextView timeAndDate =(TextView) view.findViewById(R.id.time_and_date);
 //            ImageView iconview = (ImageView) view.findViewById(R.id.app_icon);
 
-//            scheduleName.setText(schedule.getName());
+            scheduleName.setText(schedule.getName());
             //still need to set info
             //appName.setText(applicationInfo.loadLabel(packageManager));
             //packageName.setText(applicationInfo.packageName);
