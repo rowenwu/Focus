@@ -39,7 +39,7 @@ public class ProfileViewActivity extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        flag = String.valueOf(getIntent().getStringExtra("Flag"));
+        flag = String.valueOf(getIntent().getStringExtra("flag"));
 
         // create profile mode
         if (flag.equals("create")) {
