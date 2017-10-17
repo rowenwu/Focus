@@ -21,6 +21,10 @@ public interface ScheduleDao {
     @Query("SELECT * FROM schedules")
     LiveData<List<ScheduleEntity>> loadAllSchedules();
 
+    //get all schedule
+    @Query("SELECT * FROM schedules")
+    List<ScheduleEntity> loadAllSchedulesSync();
+
     /*
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAll(List<ScheduleEntity> schedules);

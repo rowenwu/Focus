@@ -26,6 +26,7 @@ import android.widget.TextView;
 
 import com.pk.example.dao.CurrentNotificationListDao;
 import com.pk.example.dao.ProfileDao;
+import com.pk.example.entity.CurrentNotificationListEntity;
 
 import java.lang.reflect.Field;
 import java.util.AbstractList;
@@ -473,10 +474,10 @@ public class NLService extends NotificationListenerService {
 
         sendNotification(profile + START_PROFILE_NOTIFICATION);
 //        Profile prof = DummyDb.getProfile(profile);
-        Profile prof = profileDao.loadProfileSync(profile);
-        for(int a = 0; a < prof.getAppsToBlock().size(); a++){
-            addBlockedApp(prof.appsToBlock.get(a), profile);
-        }
+//        Profile prof = profileDao.loadProfileSync(profile);
+//        for(int a = 0; a < prof.getAppsToBlock().size(); a++){
+//            addBlockedApp(prof.appsToBlock.get(a), profile);
+//        }
 
     }
 
@@ -496,7 +497,7 @@ public class NLService extends NotificationListenerService {
 
 
         //TODO GET NOTIFICATIONS FROM THIS PROFILE AND MAKE IT THE PREVIOUS NOTIFICATIONS LIST
-//        ArrayList<MinNotification> notifications = crnDao.loadAllCurrNotificationsSync();
+//        CurrentNotificationListEntity currs = crnDao.loadCurrvNotificationSync()
 
         sendNotification(profile + STOP_PROFILE_NOTIFICATION);
         Profile prof = DummyDb.getProfile(profile);
