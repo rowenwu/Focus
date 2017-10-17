@@ -53,6 +53,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pk.example.MainActivity" />
         </activity>
+        <activity
+            android:name=".ScheduleListActivity"
+            android:label="@string/title_activity_schedule_list"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pk.example.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

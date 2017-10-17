@@ -18,6 +18,9 @@ public interface ProfileDao {
     @Query("SELECT * FROM profiles")
     LiveData<List<ProfileEntity>> loadAllProfiles();
 
+    @Query("SELECT _name FROM profiles")
+    List<String> loadAllProfileNamesAsync();
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAll(List<ProfileEntity> profiles);
 

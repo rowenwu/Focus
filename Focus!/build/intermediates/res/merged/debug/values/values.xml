@@ -757,6 +757,7 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="title_activity_create_profile">Create Profile</string>
+    <string name="title_activity_schedule_list">ScheduleListActivity</string>
     <string name="title_activity_tabbed">TabbedActivity</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>

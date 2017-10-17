@@ -57,6 +57,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pk.example.MainActivity" />
         </activity>
+        <activity
+            android:name="com.pk.example.ScheduleListActivity"
+            android:label="@string/title_activity_schedule_list"
+            android:parentActivityName="com.pk.example.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pk.example.MainActivity" />
+        </activity>
 
         <provider
             android:name="android.arch.lifecycle.LifecycleRuntimeTrojanProvider"
