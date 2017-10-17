@@ -17,7 +17,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Main Navigation"
+        android:text="Schedule List"
         android:textAllCaps="true"
         android:layout_below="@+id/btnPermission"
         android:id="@+id/btnNavigation"
@@ -37,6 +37,19 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create Schedule"
+        android:textAllCaps="true"
+        android:layout_below="@+id/btnPermission"
+        android:id="@+id/btnCreateSchedule"
+        android:onClick="buttonClicked"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"/>
+
 
     <Button
         android:layout_width="match_parent"

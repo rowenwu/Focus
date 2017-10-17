@@ -12,6 +12,10 @@
         "source": "C:\\Users\\kathe\\.android\\build-cache\\e4d955c96bf10472390d5ac5085a84214b9a20e2\\output\\res\\layout\\abc_action_bar_up_container.xml"
     },
     {
+        "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout\\activity_schedule_list2.xml",
+        "source": "C:\\Users\\kathe\\Focus\\Focus!\\src\\main\\res\\layout\\activity_schedule_list2.xml"
+    },
+    {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout\\activity_create_profile.xml",
         "source": "C:\\Users\\kathe\\Focus\\Focus!\\src\\main\\res\\layout\\activity_create_profile.xml"
     },
@@ -236,6 +240,10 @@
         "source": "C:\\Users\\kathe\\.android\\build-cache\\e4d955c96bf10472390d5ac5085a84214b9a20e2\\output\\res\\layout\\notification_template_media_custom.xml"
     },
     {
+        "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout\\activity_schedule_view.xml",
+        "source": "C:\\Users\\kathe\\Focus\\Focus!\\src\\main\\res\\layout\\activity_schedule_view.xml"
+    },
+    {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout\\installed_app_list.xml",
         "source": "C:\\Users\\kathe\\Focus\\Focus!\\src\\main\\res\\layout\\installed_app_list.xml"
     },
@@ -274,6 +282,10 @@
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout\\snippet_list_row.xml",
         "source": "C:\\Users\\kathe\\Focus\\Focus!\\src\\main\\res\\layout\\snippet_list_row.xml"
+    },
+    {
+        "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout\\schedule_list_row.xml",
+        "source": "C:\\Users\\kathe\\Focus\\Focus!\\src\\main\\res\\layout\\schedule_list_row.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout\\activity_notification_list.xml",
