@@ -20,7 +20,7 @@ public interface ProfileDao {
     @Query("SELECT * FROM profiles")
     LiveData<List<ProfileEntity>> loadAllProfiles();
 
-    @Query("SELECT _active FROM profiles WHERE _active=true ")
+    @Query("SELECT * FROM profiles WHERE _active = 1 ")
     LiveData<List<ProfileEntity>> loadActiveProfiles();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
