@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "a3f5d2333aaec89f61b630c2948710b4",
+    "identityHash": "ae77c627ded38e471f7ab74ff512c371",
     "entities": [
       {
         "tableName": "min_notifications",
@@ -70,7 +70,7 @@
       },
       {
         "tableName": "profiles",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`name` TEXT, `appsToBlock` TEXT, `_name` TEXT, `_appsToBlock` TEXT, PRIMARY KEY(`_name`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`name` TEXT, `appsToBlock` TEXT, `active` INTEGER, `_name` TEXT, `_appsToBlock` TEXT, `_active` INTEGER, PRIMARY KEY(`_name`))",
         "fields": [
           {
             "fieldPath": "name",
@@ -83,6 +83,11 @@
             "affinity": "TEXT"
           },
           {
+            "fieldPath": "active",
+            "columnName": "active",
+            "affinity": "INTEGER"
+          },
+          {
             "fieldPath": "_name",
             "columnName": "_name",
             "affinity": "TEXT"
@@ -91,6 +96,11 @@
             "fieldPath": "_appsToBlock",
             "columnName": "_appsToBlock",
             "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "_active",
+            "columnName": "_active",
+            "affinity": "INTEGER"
           }
         ],
         "primaryKey": {
@@ -227,7 +237,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"a3f5d2333aaec89f61b630c2948710b4\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"ae77c627ded38e471f7ab74ff512c371\")"
     ]
   }
 }

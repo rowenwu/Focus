@@ -25,7 +25,7 @@ public class DummyDb {
     public static Profile makeFakeProfile(String fakeyname){
         ArrayList<String> appsToBlock = new ArrayList<>();
         appsToBlock.add("com.facebook.orca");
-        Profile profile = new Profile(fakeyname, appsToBlock);
+        Profile profile = new Profile(fakeyname, appsToBlock, true);
         return profile;
     }
 
