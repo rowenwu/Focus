@@ -71,7 +71,7 @@
         </activity>
         <activity
             android:name=".ScheduleViewActivity"
-            android:label="@string/title_activity_schedule_view"
+            android:label="Schedule"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

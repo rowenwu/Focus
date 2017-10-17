@@ -1,4 +1,21 @@
-//package com.pk.example;
+
+
+package com.pk.example;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.EditText;
+import android.widget.ListView;
+
+import com.pk.example.entity.ProfileEntity;
+
+public class ScheduleViewActivity extends Activity {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+}
 //
 //import android.graphics.RectF;
 //import android.os.Bundle;

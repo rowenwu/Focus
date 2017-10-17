@@ -98,7 +98,7 @@ ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:64:9-71:20
 activity#com.pk.example.ScheduleViewActivity
 ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:72:9-79:20
 	android:label
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:74:13-65
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:74:13-37
 	android:parentActivityName
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:75:13-55
 	android:name
