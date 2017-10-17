@@ -48,7 +48,7 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
 //            TextView timeAndDate =(TextView) view.findViewById(R.id.time_and_date);
 //            ImageView iconview = (ImageView) view.findViewById(R.id.app_icon);
 
-            scheduleName.setText(schedule.getName());
+//            scheduleName.setText(schedule.getName());
             //still need to set info
             //appName.setText(applicationInfo.loadLabel(packageManager));
             //packageName.setText(applicationInfo.packageName);
