@@ -9,15 +9,18 @@ public class Profile {
 
     public ArrayList<String> appsToBlock;
 
+    public boolean active;
+
     //public Schedule[] schedules;
 
     public Profile(){
 
     }
 
-    public Profile(String name, ArrayList<String> appsToBlock){
+    public Profile(String name, ArrayList<String> appsToBlock, boolean active){
         this.name = name;
         this.appsToBlock = appsToBlock;
+        this.active = active;
     }
 
     public String getName() {
@@ -26,6 +29,10 @@ public class Profile {
 
     public ArrayList<String> getAppsToBlock() {
         return appsToBlock;
+    }
+
+    public boolean getActive() {
+        return active;
     }
 
 }
