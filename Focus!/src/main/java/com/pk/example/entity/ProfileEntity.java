@@ -13,7 +13,6 @@ public class ProfileEntity extends Profile {
     @PrimaryKey
     private String _name;
     private ArrayList<String> _appsToBlock;
-    private boolean _active;
 
     @Override
     public String getName() {
@@ -32,11 +31,6 @@ public class ProfileEntity extends Profile {
     public void setAppsToBlock(ArrayList<String> appsToBlock) {
         this._appsToBlock = appsToBlock;
     }
-
-    @Override
-    public boolean getActive() {return _active;}
-
-    public void setActive(boolean active) { this._active = active;}
 
     public ProfileEntity(){
     }

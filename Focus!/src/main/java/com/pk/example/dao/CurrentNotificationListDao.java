@@ -21,9 +21,6 @@ public interface CurrentNotificationListDao {
     @Query("SELECT * FROM curr_notifications")
     LiveData<List<CurrentNotificationListEntity>> loadAllCurrNotifications();
 
-    @Query("SELECT * FROM curr_notifications")
-    List<CurrentNotificationListEntity> loadAllCurrNotificationsSync();
-
     //Insert multiple notifcation
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAll(List<CurrentNotificationListEntity> currNotifications);

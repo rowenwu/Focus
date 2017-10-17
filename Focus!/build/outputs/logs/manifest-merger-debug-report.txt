@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:2:1-66:12
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:2:1-58:12
 	package
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:3:5-29
 	android:versionName
@@ -14,7 +14,7 @@ ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:2:1-66:12
 	xmlns:android
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:7:5-64:19
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:7:5-56:19
 MERGED from [com.android.support:support-v13:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\873e2f1af155fefdb37edae4bf1c944048e3dac1\output\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:cardview-v7:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\5322d05acdefeba41a488c0443e16d9a0292f498\output\AndroidManifest.xml:22:5-20
 MERGED from [android.arch.lifecycle:extensions:1.0.0-beta2] C:\Users\kathe\.android\build-cache\84c6c5a8259d7f05ff5bba674e6d1bd715153e72\output\AndroidManifest.xml:24:5-30:19
@@ -95,14 +95,6 @@ ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:48:9-55:20
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:51:13-55
 	android:name
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:49:13-43
-activity#com.pk.example.ScheduleListActivity
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:56:9-63:20
-	android:label
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:58:13-65
-	android:parentActivityName
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:59:13-55
-	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:57:13-49
 uses-sdk
 INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [android.arch.persistence.room:runtime:1.0.0-alpha1] C:\Users\kathe\.android\build-cache\be3da3e3b5639e557a8ee6807e83a1363ba1cf87\output\AndroidManifest.xml:22:5-24:41
