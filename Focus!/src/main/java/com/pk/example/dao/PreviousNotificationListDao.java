@@ -1,5 +1,6 @@
 package com.pk.example.dao;
 
+import android.app.Notification;
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
@@ -27,4 +28,12 @@ public interface PreviousNotificationListDao {
 
     @Query("select * from prev_notifications where id = :prevNotificationID")
     PreviousNotificationListEntity loadPrevNotificationSync(int prevNotificationID);
+
+    //insert a new notification
+    @Insert
+    public void insert(PreviousNotificationListEntity previousNotificationListEntity);
+
+    //delete all notifications
+    @Query("DELETE FROM curr_notifications")
+    public void deleteAll();
 }
