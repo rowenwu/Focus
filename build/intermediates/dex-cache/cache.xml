@@ -25,8 +25,17 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="c67c94e4bf4b476bc40bc626ac3f53a8d26bbb98">
+        sha1="43150d6b0bbcbd561a018e6db987a9687a56c0c5">
         <dex dex="C:\Users\kathe\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_3a43adc4a5265aa9bee6970b46752e7d485aef16\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\kathe\.android\build-cache\104db9b3691f1f0f3d4d3e5aa23701ce2b30d111\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="393eb85d65baa2c3702efdf699832498f8b51bf1">
+        <dex dex="C:\Users\kathe\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\classes_61088edaf62a145cbd2c445f2e525358b937f59f\classes.dex" />
     </item>
     <item
         is-multidex="true"

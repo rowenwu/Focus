@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:2:1-74:12
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:2:1-82:12
 	package
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:3:5-29
 	android:versionName
@@ -14,25 +14,25 @@ ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:2:1-74:12
 	xmlns:android
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:7:5-72:19
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:7:5-80:19
 MERGED from [com.android.support:support-v13:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\873e2f1af155fefdb37edae4bf1c944048e3dac1\output\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:cardview-v7:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\5322d05acdefeba41a488c0443e16d9a0292f498\output\AndroidManifest.xml:22:5-20
 MERGED from [android.arch.lifecycle:extensions:1.0.0-beta2] C:\Users\kathe\.android\build-cache\84c6c5a8259d7f05ff5bba674e6d1bd715153e72\output\AndroidManifest.xml:24:5-30:19
 MERGED from [android.arch.core:runtime:1.0.0-beta2] C:\Users\kathe\.android\build-cache\0e9cf3ae173e4d8bb9e96f889c87a623f2216a04\output\AndroidManifest.xml:24:5-28:19
 MERGED from [com.aurelhubert:ahbottomnavigation:2.0.4] C:\Users\kathe\.android\build-cache\45b54c63c28664743104691ed543291dc82a4800\output\AndroidManifest.xml:11:5-20
 MERGED from [com.android.support:design:25.0.0] C:\Users\kathe\.android\build-cache\d17ad5a6428e6512191ee4e2e1dc6f161a483498\output\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:appcompat-v7:25.0.0] C:\Users\kathe\.android\build-cache\e4d955c96bf10472390d5ac5085a84214b9a20e2\output\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:animated-vector-drawable:25.0.0] C:\Users\kathe\.android\build-cache\01dffbf7f35b55f090dd5a2bdfd7df620e00c763\output\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:support-vector-drawable:25.0.0] C:\Users\kathe\.android\build-cache\2ba0183eaa52c865cd15626e47f0759e10d91049\output\AndroidManifest.xml:23:5-20
 MERGED from [com.android.support:transition:25.0.0] C:\Users\kathe\.android\build-cache\d1b16f128097390603012ca22a2935d40d6d20b5\output\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\kathe\.android\build-cache\44e05fe309abb136e97b74cddaef7f35546ef3b3\output\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:appcompat-v7:25.0.0] C:\Users\kathe\.android\build-cache\e4d955c96bf10472390d5ac5085a84214b9a20e2\output\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-v4:25.0.0] C:\Users\kathe\.android\build-cache\7d28e66b7ec262030ef5bb8005c42b335e12912e\output\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-media-compat:25.0.0] C:\Users\kathe\.android\build-cache\84bbef11cdce56ade4bce21839e6206580579de4\output\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\kathe\.android\build-cache\ebf5fca98de41a843738fcaea56f70ccc190fc1b\output\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\kathe\.android\build-cache\419e8bd8a5f5528250f919f5366c50aa9480a361\output\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\kathe\.android\build-cache\03696fea800f56170f4521b33d6c9858b5abaf9e\output\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:animated-vector-drawable:25.0.0] C:\Users\kathe\.android\build-cache\01dffbf7f35b55f090dd5a2bdfd7df620e00c763\output\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:25.0.0] C:\Users\kathe\.android\build-cache\2ba0183eaa52c865cd15626e47f0759e10d91049\output\AndroidManifest.xml:23:5-20
 MERGED from [com.android.support:support-compat:26.1.0] C:\Users\kathe\.android\build-cache\cbca9b8822939f1ebf2a34fa9f627ba5f4eeac24\output\AndroidManifest.xml:25:5-29:19
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\kathe\.android\build-cache\d201643c70c08a190660cbf349e4619292f5e7a0\output\AndroidManifest.xml:24:5-28:19
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\kathe\.android\build-cache\44e05fe309abb136e97b74cddaef7f35546ef3b3\output\AndroidManifest.xml:9:5-20
 	android:label
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:10:9-41
 	android:allowBackup
@@ -95,6 +95,14 @@ ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:64:9-71:20
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:67:13-55
 	android:name
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:65:13-49
+activity#com.pk.example.ScheduleViewActivity
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:72:9-79:20
+	android:label
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:74:13-65
+	android:parentActivityName
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:75:13-55
+	android:name
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:73:13-49
 uses-sdk
 INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [android.arch.persistence.room:runtime:1.0.0-alpha1] C:\Users\kathe\.android\build-cache\be3da3e3b5639e557a8ee6807e83a1363ba1cf87\output\AndroidManifest.xml:22:5-24:41
@@ -107,19 +115,20 @@ MERGED from [android.arch.lifecycle:extensions:1.0.0-beta2] C:\Users\kathe\.andr
 MERGED from [android.arch.core:runtime:1.0.0-beta2] C:\Users\kathe\.android\build-cache\0e9cf3ae173e4d8bb9e96f889c87a623f2216a04\output\AndroidManifest.xml:20:5-22:41
 MERGED from [com.aurelhubert:ahbottomnavigation:2.0.4] C:\Users\kathe\.android\build-cache\45b54c63c28664743104691ed543291dc82a4800\output\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:design:25.0.0] C:\Users\kathe\.android\build-cache\d17ad5a6428e6512191ee4e2e1dc6f161a483498\output\AndroidManifest.xml:21:5-23:62
-MERGED from [com.android.support:appcompat-v7:25.0.0] C:\Users\kathe\.android\build-cache\e4d955c96bf10472390d5ac5085a84214b9a20e2\output\AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:animated-vector-drawable:25.0.0] C:\Users\kathe\.android\build-cache\01dffbf7f35b55f090dd5a2bdfd7df620e00c763\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:25.0.0] C:\Users\kathe\.android\build-cache\2ba0183eaa52c865cd15626e47f0759e10d91049\output\AndroidManifest.xml:21:5-43
 MERGED from [com.android.support:recyclerview-v7:25.0.0] C:\Users\kathe\.android\build-cache\25089aab910ab7887bd6831fe698067f611d83e7\output\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:transition:25.0.0] C:\Users\kathe\.android\build-cache\d1b16f128097390603012ca22a2935d40d6d20b5\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\kathe\.android\build-cache\44e05fe309abb136e97b74cddaef7f35546ef3b3\output\AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.alamkanak:android-week-view:1.2.6] C:\Users\kathe\.android\build-cache\104db9b3691f1f0f3d4d3e5aa23701ce2b30d111\output\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:appcompat-v7:25.0.0] C:\Users\kathe\.android\build-cache\e4d955c96bf10472390d5ac5085a84214b9a20e2\output\AndroidManifest.xml:21:5-23:78
 MERGED from [com.android.support:support-v4:25.0.0] C:\Users\kathe\.android\build-cache\7d28e66b7ec262030ef5bb8005c42b335e12912e\output\AndroidManifest.xml:21:5-23:54
 MERGED from [com.android.support:support-media-compat:25.0.0] C:\Users\kathe\.android\build-cache\84bbef11cdce56ade4bce21839e6206580579de4\output\AndroidManifest.xml:21:5-23:63
 MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\kathe\.android\build-cache\ebf5fca98de41a843738fcaea56f70ccc190fc1b\output\AndroidManifest.xml:21:5-23:60
 MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\kathe\.android\build-cache\419e8bd8a5f5528250f919f5366c50aa9480a361\output\AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\kathe\.android\build-cache\03696fea800f56170f4521b33d6c9858b5abaf9e\output\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:animated-vector-drawable:25.0.0] C:\Users\kathe\.android\build-cache\01dffbf7f35b55f090dd5a2bdfd7df620e00c763\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.0.0] C:\Users\kathe\.android\build-cache\2ba0183eaa52c865cd15626e47f0759e10d91049\output\AndroidManifest.xml:21:5-43
 MERGED from [com.android.support:support-compat:26.1.0] C:\Users\kathe\.android\build-cache\cbca9b8822939f1ebf2a34fa9f627ba5f4eeac24\output\AndroidManifest.xml:21:5-23:58
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\kathe\.android\build-cache\d201643c70c08a190660cbf349e4619292f5e7a0\output\AndroidManifest.xml:20:5-22:41
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\kathe\.android\build-cache\44e05fe309abb136e97b74cddaef7f35546ef3b3\output\AndroidManifest.xml:5:5-7:41
 	tools:overrideLibrary
 		ADDED from [com.android.support:design:25.0.0] C:\Users\kathe\.android\build-cache\d17ad5a6428e6512191ee4e2e1dc6f161a483498\output\AndroidManifest.xml:23:9-59
 	android:targetSdkVersion

@@ -1,11 +1,11 @@
 [
     {
-        "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg_low.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\e4d955c96bf10472390d5ac5085a84214b9a20e2\\output\\res\\drawable\\notification_bg_low.xml"
-    },
-    {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_internal_bg.xml",
         "source": "C:\\Users\\kathe\\.android\\build-cache\\e4d955c96bf10472390d5ac5085a84214b9a20e2\\output\\res\\drawable\\abc_cab_background_internal_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg_low.xml",
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\e4d955c96bf10472390d5ac5085a84214b9a20e2\\output\\res\\drawable\\notification_bg_low.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\drawable\\design_ic_visibility.xml",

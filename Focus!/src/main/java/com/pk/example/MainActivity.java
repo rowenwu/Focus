@@ -95,6 +95,11 @@ public class MainActivity extends Activity {
         else if(v.getId() == R.id.btnPermission){
             toggleService(v);
         }
+        else if(v.getId() == R.id.btnCreateSchedule){
+//            Intent i = new Intent(this, ScheduleViewActivity.class);
+//            i.putExtra("flag", "create");
+//            startActivity(i);
+        }
         else if(v.getId() == R.id.btnCreateProfile){
             Intent i = new Intent(this, ProfileViewActivity.class);
             i.putExtra("flag", "create");

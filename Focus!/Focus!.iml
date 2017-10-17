@@ -133,6 +133,7 @@
     <orderEntry type="library" exported="" name="common-1.0.2" level="project" />
     <orderEntry type="library" exported="" name="multidex-1.0.1" level="project" />
     <orderEntry type="library" exported="" name="common-1.0.0" level="project" />
+    <orderEntry type="library" exported="" name="android-week-view-1.2.6" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-25.0.0" level="project" />
     <orderEntry type="library" exported="" name="support-vector-drawable-25.0.0" level="project" />
     <orderEntry type="library" exported="" name="runtime-1.0.0-beta2" level="project" />
