@@ -21,15 +21,16 @@ public class ProfileListActivity extends ListActivity {
 
     private List<ProfileEntity> profileList = null;
     private ProfileListAdapter profileListAdapter = null;
-    private ProfileDao profileDao;
+    private AppDatabase db;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_list);
         getActionBar().setDisplayHomeAsUpEnabled(true);
+        db = AppDatabase.getDatabase(getApplicationContext());
 
-        profileList = profileDao.loadAllProfilesAsync();
+        profileList = db.profileDao().loadAllProfilesAsync();
 
 
         new LoadProfiles().execute();
@@ -45,6 +46,9 @@ public class ProfileListActivity extends ListActivity {
 
             profileListAdapter = new ProfileListAdapter(ProfileListActivity.this,
                     R.layout.profile_list_row, profileList);
+            db = AppDatabase.getDatabase(getApplicationContext());
+
+            profileList = db.profileDao().loadAllProfilesAsync();
             return null;
         }
 
