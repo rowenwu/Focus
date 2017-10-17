@@ -16,26 +16,33 @@ import java.util.List;
 
 @Dao
 public interface ScheduleDao {
+
+    //get all schedule
     @Query("SELECT * FROM schedules")
     LiveData<List<ScheduleEntity>> loadAllSchedules();
 
+    /*
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void insertAll(List<ScheduleEntity> schedules);
+    */
+
+    //insert a new schedule
     @Insert
     void insert(ScheduleEntity schedule);
 
-//    @Insert(onConflict = OnConflictStrategy.REPLACE)
-//    void insertAll(List<ScheduleEntity> schedules);
-
-    @Update
-    void update(ScheduleEntity schedule);
-
+    //delete a schedule
     @Delete
     void delete(ScheduleEntity schedule);
 
+    //update a profile
+    @Update
+    void update(ScheduleEntity schedule);
+
+    //get a schedule
     @Query("select * from schedules where _name = :scheduleName")
     LiveData<ScheduleEntity> loadSchedule(String scheduleName);
 
     @Query("select * from schedules where _name = :scheduleName")
     ScheduleEntity loadScheduleSync(String scheduleName);
-
 
 }

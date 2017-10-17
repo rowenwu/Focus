@@ -24,4 +24,6 @@ public interface MinNotificationDao {
 
     @Query("select * from min_notifications where _id = :minNotificationID")
     MinNotificationEntity loadMinNotificationASync(int minNotificationID);
+
+
 }
