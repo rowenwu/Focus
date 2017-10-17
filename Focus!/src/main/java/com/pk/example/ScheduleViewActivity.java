@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.TimePicker;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -45,6 +46,7 @@ public class ScheduleViewActivity extends Activity{
 
         }
     }
+    //DATE CANT BE PAST
 
     public void buttonClicked(View v) {
 
@@ -69,6 +71,7 @@ public class ScheduleViewActivity extends Activity{
                         }
                     }, mYear, mMonth, mDay);
             datePickerDialog.show();
+
         }
         if (v == btnTimePicker) {
 
@@ -89,6 +92,7 @@ public class ScheduleViewActivity extends Activity{
                         }
                     }, mHour, mMinute, false);
             timePickerDialog.show();
+
         }
     }
 }
