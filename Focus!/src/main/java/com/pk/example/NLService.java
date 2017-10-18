@@ -491,14 +491,14 @@ public class NLService extends NotificationListenerService {
         //TODO IF PROFILE IS ALREADY ON ACTIVE PROFILES LIST THEN RETURN
 
         //TODO ADD PROFILE TO ACTIVE PROFILES LIST
-        profileToAdd = profile;
+//        profileToAdd = profile;
         sendNotification(profile + START_PROFILE_NOTIFICATION);
 //        new AddProfile().execute();
 //        Profile prof = DummyDb.getProfile(profile);
-//        ProfileEntity prof = db.profileDao().loadProfileSync(profile);
-//        for(int a = 0; a < prof.getAppsToBlock().size(); a++){
-//            addBlockedApp(prof.appsToBlock.get(a), profile);
-//        }
+        ProfileEntity prof = db.profileDao().loadProfileSync(profile);
+        for(int a = 0; a < prof.getAppsToBlock().size(); a++){
+            addBlockedApp(prof.appsToBlock.get(a), profile);
+        }
 
     }
 
@@ -521,7 +521,13 @@ public class NLService extends NotificationListenerService {
         profileToRemove = profile;
 //        new RemoveProfile().execute();
 
-
+        List<MinNotificationEntity> notifs = db.minNotificationDao().loadMinNotificationsFromProfileSync(profile);
+        db.previousNotificationListDao().deleteAll();
+        for(MinNotificationEntity not: notifs){
+            PreviousNotificationListEntity prevList = new PreviousNotificationListEntity();
+            prevList.addNotification(not);
+            db.previousNotificationListDao().insert(prevList);
+        }
 
         sendNotification(profile + STOP_PROFILE_NOTIFICATION);
 //        Profile prof = DummyDb.getProfile(profile);
