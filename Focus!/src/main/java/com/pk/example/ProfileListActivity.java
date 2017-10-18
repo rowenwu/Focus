@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.sax.StartElementListener;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.pk.example.dao.ProfileDao;
 import com.pk.example.entity.ProfileEntity;
@@ -23,6 +24,8 @@ public class ProfileListActivity extends ListActivity {
     private List<ProfileEntity> profileList = null;
     private ProfileListAdapter profileListAdapter = null;
     private AppDatabase db;
+    TextView textView;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,11 +34,16 @@ public class ProfileListActivity extends ListActivity {
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
 
+        textView=(TextView)findViewById(R.id.textView);
 
         new LoadProfiles().execute();
 //        ListView listView = getListView();
         //listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
     }
+
+//    public void setEmptyState(){
+//        textView.setText("No profiles to display.");
+//    }
 
     private class LoadProfiles extends AsyncTask<Void, Void, Void> {
         private ProgressDialog progress = null;
@@ -46,20 +54,24 @@ public class ProfileListActivity extends ListActivity {
             db = AppDatabase.getDatabase(getApplicationContext());
             profileList = db.profileDao().loadAllProfilesAsync();
             if (profileList.size()==0) {
+//                setEmptyState();
                 //create a fake schedule to insert
                 //if no schedules in db
-                ProfileEntity fakeProfile = new ProfileEntity(new Profile("There are no profiles to display.", new ArrayList<>( Arrays.asList("Buenos Aires", "Córdoba", "La Plata")), false));
+//                ProfileEntity fakeProfile = new ProfileEntity(new Profile("There are no profiles to display.", new ArrayList<>( Arrays.asList("Buenos Aires", "Córdoba", "La Plata")), false));
 //                db.profileDao().insert(fakeProfile);
 //                profileList = db.profileDao().loadAllProfilesAsync();
-                profileList.add(fakeProfile);
+//                profileList.add(fakeProfile);
             }
+            else {
 
-            profileListAdapter = new ProfileListAdapter(ProfileListActivity.this,
-                    R.layout.schedule_list_row, profileList);
-            db = AppDatabase.getDatabase(getApplicationContext());
+                profileListAdapter = new ProfileListAdapter(ProfileListActivity.this,
+                        R.layout.schedule_list_row, profileList);
+                db = AppDatabase.getDatabase(getApplicationContext());
 
-            profileList = db.profileDao().loadAllProfilesAsync();
+                profileList = db.profileDao().loadAllProfilesAsync();
+            }
             return null;
+
         }
 
 

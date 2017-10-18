@@ -111,16 +111,16 @@ public class ScheduleListActivity extends ListActivity {
             if (scheduleEntityList.size()==0) {
                 //create a fake schedule to insert
                 //if no schedules in db
-                ScheduleEntity fakeSchedule = new ScheduleEntity(DummyDb.makeFakeSchedule("There are no schedules to display.", 5));
+//                ScheduleEntity fakeSchedule = new ScheduleEntity(DummyDb.makeFakeSchedule("There are no schedules to display.", 5));
 
-                scheduleEntityList.add(fakeSchedule);
+//                scheduleEntityList.add(fakeSchedule);
 //                database.scheduleDao().insert(fakeSchedule);
 //                scheduleEntityList = database.scheduleDao().loadAllSchedulesSync();
             }
-
-            listadaptor = new ScheduleAdapter(ScheduleListActivity.this,
-                    R.layout.snippet_list_row, scheduleEntityList);
-
+            else {
+                listadaptor = new ScheduleAdapter(ScheduleListActivity.this,
+                        R.layout.snippet_list_row, scheduleEntityList);
+            }
 
             return null;
         }

@@ -20,6 +20,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -39,6 +40,7 @@ public class ScheduleViewActivity extends ListActivity{
     private int mYear, mMonth, mDay, mHour, mMinute;
     ListAdapter listadaptor = null;
     private AppDatabase db;
+    TextView textView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,6 +54,7 @@ public class ScheduleViewActivity extends ListActivity{
             btnTimePicker=(Button)findViewById(R.id.btn_time);
             txtDate=(EditText)findViewById(R.id.in_date);
             txtTime=(EditText)findViewById(R.id.in_time);
+            textView=(TextView)findViewById(R.id.textView);
 
             new LoadProfiles().execute();
             ListView listView = getListView();
@@ -123,9 +126,10 @@ public class ScheduleViewActivity extends ListActivity{
             db = AppDatabase.getDatabase(getApplicationContext());
             profileList = db.profileDao().loadAllProfilesAsync();
             if (profileList.size()==0) {
-                profileList.add(new ProfileEntity(new Profile("No profiles to add.", new ArrayList<>( Arrays.asList("Buenos Aires", "Córdoba", "La Plata")), false)));
+//                profileList.add(new ProfileEntity(new Profile("No profiles to add.", new ArrayList<>( Arrays.asList("Buenos Aires", "Córdoba", "La Plata")), false)));
 //                return null;
             }
+
 //            applist = packageManager.getInstalledApplications(PackageManager.GET_META_DATA);
             listadaptor = new ListAdapter(ScheduleViewActivity.this,
                     R.layout.schedule_list_row, profileList);

@@ -1,4 +1,4 @@
-#Tue Oct 17 19:41:18 PDT 2017
+#Tue Oct 17 20:09:55 PDT 2017
 base.0=C\:\\Users\\kathe\\Focus\\Focus\!\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_3a43adc4a5265aa9bee6970b46752e7d485aef16
 renamed.1=classes.dex
 renamed.0=classes2.dex
