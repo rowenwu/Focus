@@ -48,6 +48,7 @@ public class ScheduleViewActivity extends ListActivity{
     private Calendar dateChosen = null;
     CheckBox repeatWeeklyBox;
     private AppDatabase database;
+    ScheduleEntity scheduleInsert;
 
 
     @Override
@@ -198,12 +199,13 @@ public class ScheduleViewActivity extends ListActivity{
                 profiles = listadaptor.getSelectedApps();
             Boolean repeatWeekly = repeatWeeklyBox.isChecked();
 
-            ScheduleEntity scheduleInsert = new ScheduleEntity(new Schedule(pname, profiles, startTimes, durationHours, durationMins, repeatWeekly, true));
+             scheduleInsert = new ScheduleEntity(new Schedule(pname, profiles, startTimes, durationHours, durationMins, repeatWeekly, true));
 
             // crashes
 //                database.scheduleDao().insert(fakeSchedule);
 
 //            database.scheduleDao().insert(scheduleInsert);
+            new InsertSchedule().execute();
 
             // notify user
             Toast toast = Toast.makeText(getApplicationContext(),
@@ -257,7 +259,50 @@ public class ScheduleViewActivity extends ListActivity{
         @Override
         protected void onPreExecute() {
             progress = ProgressDialog.show(ScheduleViewActivity.this, null,
-                    "Loading application info...");
+                    "Loading profile info...");
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+        }
+    }
+
+    private class InsertSchedule extends AsyncTask<Void, Void, Void> {
+        private ProgressDialog progress = null;
+
+        @Override
+        protected Void doInBackground(Void... params) {
+//            applist = checkForLaunchIntent(packageManager.getInstalledApplications(PackageManager.GET_META_DATA));
+//            applist = packageManager.getInstalledApplications(PackageManager.GET_META_DATA);
+//
+
+            // crashes
+//                database.scheduleDao().insert(fakeSchedule);
+
+            database.scheduleDao().insert(scheduleInsert);
+
+
+
+            return null;
+        }
+
+        @Override
+        protected void onCancelled() {
+            super.onCancelled();
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            progress.dismiss();
+            super.onPostExecute(result);
+        }
+
+        @Override
+        protected void onPreExecute() {
+            progress = ProgressDialog.show(ScheduleViewActivity.this, null,
+                    "Saving");
             super.onPreExecute();
         }
 
@@ -267,6 +312,8 @@ public class ScheduleViewActivity extends ListActivity{
         }
     }
 }
+
+
 //
 //import android.graphics.RectF;
 //import android.os.Bundle;
