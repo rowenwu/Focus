@@ -38,6 +38,8 @@ public class ProfileViewActivity extends ListActivity {
     private String flag;
     private ProfileEntity profileEntity; // for edit/delete
     private ProfileDao profileDao;
+    ProfileEntity profileInsert;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -125,7 +127,8 @@ public class ProfileViewActivity extends ListActivity {
 
 
             // crashing??????????
-//            ProfileEntity newProfile = new ProfileEntity(new Profile(pname, appPacks, true));
+            new InsertProfile().execute();
+            profileInsert = new ProfileEntity(new Profile(pname, appPacks, true));
 //                db.profileDao().insert(newProfile);
 //                profileList = db.profileDao().loadAllProfilesAsync();
 
@@ -165,11 +168,11 @@ public class ProfileViewActivity extends ListActivity {
             // update profile and return to profile list view
 
             // update name/apps
-            profileEntity.setName(pname);
-            profileEntity.setAppsToBlock(appPacks);
-
-            // update in database
-            profileDao.update(profileEntity);
+//            profileEntity.setName(pname);
+//            profileEntity.setAppsToBlock(appPacks);
+//
+//            // update in database
+//            profileDao.update(profileEntity);
 
             // notify user
             Toast toast = Toast.makeText(getApplicationContext(),
@@ -231,6 +234,49 @@ public class ProfileViewActivity extends ListActivity {
         protected void onPreExecute() {
             progress = ProgressDialog.show(ProfileViewActivity.this, null,
                     "Loading application info...");
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+        }
+    }
+
+    private class InsertProfile extends AsyncTask<Void, Void, Void> {
+        private ProgressDialog progress = null;
+
+        @Override
+        protected Void doInBackground(Void... params) {
+//            applist = checkForLaunchIntent(packageManager.getInstalledApplications(PackageManager.GET_META_DATA));
+//            applist = packageManager.getInstalledApplications(PackageManager.GET_META_DATA);
+//
+
+            // crashes
+//                database.scheduleDao().insert(fakeSchedule);
+
+            db.profileDao().insert(profileInsert);
+
+
+
+            return null;
+        }
+
+        @Override
+        protected void onCancelled() {
+            super.onCancelled();
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            progress.dismiss();
+            super.onPostExecute(result);
+        }
+
+        @Override
+        protected void onPreExecute() {
+            progress = ProgressDialog.show(ProfileViewActivity.this, null,
+                    "Saving");
             super.onPreExecute();
         }
 

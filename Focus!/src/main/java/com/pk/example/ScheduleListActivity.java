@@ -62,9 +62,7 @@ public class ScheduleListActivity extends ListActivity {
 
     }
 
-    public void howManySchedules(View v){
 
-    }
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
 //        super.onListItemClick(l, v, position, id);
