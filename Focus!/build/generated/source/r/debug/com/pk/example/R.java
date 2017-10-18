@@ -3679,7 +3679,7 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f0b0075;
         public static final int action_mode_bar_stub=0x7f0b0074;
         public static final int action_mode_close_button=0x7f0b005a;
-        public static final int action_settings=0x7f0b00cc;
+        public static final int action_settings=0x7f0b00cd;
         public static final int action_text=0x7f0b00b5;
         public static final int actions=0x7f0b00c6;
         public static final int activity_chooser_view_content=0x7f0b005b;
@@ -3854,6 +3854,7 @@ containing a value of this type.
         public static final int time_and_date=0x7f0b00b8;
         public static final int title=0x7f0b000d;
         public static final int title_template=0x7f0b0065;
+        public static final int toggBtn=0x7f0b00cc;
         public static final int top=0x7f0b003a;
         public static final int topPanel=0x7f0b0064;
         public static final int touch_outside=0x7f0b00a6;

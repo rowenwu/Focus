@@ -2,10 +2,12 @@ package com.pk.example;
 
 import java.util.List;
 import android.content.Context;
+import android.support.v7.widget.SwitchCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,6 +17,8 @@ import com.pk.example.entity.ScheduleEntity;
 public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
     private List<ScheduleEntity> scheduleEntities = null;
     private Context context;
+    SwitchCompat switchCompat;
+
 
     public ScheduleAdapter(Context context, int textViewResourceId,
                                List<ScheduleEntity> scheduleEntities) {
@@ -50,6 +54,8 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
 //            ImageView iconview = (ImageView) view.findViewById(R.id.app_icon);
 
             scheduleName.setText(schedule.getName());
+
+
             //still need to set info
             //appName.setText(applicationInfo.loadLabel(packageManager));
             //packageName.setText(applicationInfo.packageName);
