@@ -53,30 +53,32 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
 
         schedule = scheduleEntities.get(position);
         if (null != schedule) {
-            final TextView scheduleName = (TextView) view.findViewById(R.id.name);
+            TextView profileContext = (TextView) view.findViewById(R.id.name);
+            profileContext.setText(schedule.getName());
             b = (ToggleButton) view.findViewById(R.id.toggBtn);
 
-            scheduleName.setText(schedule.getName());
-            b.setOnClickListener(new View.OnClickListener()
-            {
-                @Override
-                public void onClick(View v)
-                {
-                    if (b.isChecked()) {
-                        ProfileScheduler.enableSchedule(context, getItem(position));
-                        //TODO UPDATE SCHEDULE IS ENABLED IN DATABASE
-//                        schedule.setIsEnabled(true);
-//                        database.scheduleDao().update(schedule);
+            if(schedule.getName().equals("There are no schedules to display.")){
+                ((ViewGroup) b.getParent()).removeView(b);
 
-
-                    } else {
-                        ProfileScheduler.disableSchedule(context, getItem(position));
-//                        schedule.setIsEnabled(false);
-//                        database.scheduleDao().update(schedule);
+            }
+            else {
+                b.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (b.isChecked()) {
+                            ProfileScheduler.turnOnProfile(context, getItem(position).getName());
+                            //                        profileEntity.setActive(true);
+                            //                        database.profileDao().update(profileEntity);
+                            //
+                            //TODO UPDATE PROFILE IS active IN DATABASE
+                        } else {
+                            ProfileScheduler.turnOffProfile(context, getItem(position).getName());
+                            //                        profileEntity.setActive(false);
+                            //                        database.profileDao().update(profileEntity);
+                        }
                     }
-                }
-            });
-
+                });
+            }
 
             //still need to set info
             //appName.setText(applicationInfo.loadLabel(packageManager));

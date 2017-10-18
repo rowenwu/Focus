@@ -56,26 +56,31 @@ public class ProfileListAdapter extends ArrayAdapter<ProfileEntity> {
         profileEntity = profileList.get(position);
         if (null != profileEntity) {
             TextView profileContext = (TextView) view.findViewById(R.id.name);
-            b = (ToggleButton) view.findViewById(R.id.toggBtn);
             profileContext.setText(profileEntity.getName());
-            b.setOnClickListener(new View.OnClickListener()
-            {
-                @Override
-                public void onClick(View v)
-                {
-                    if (b.isChecked()) {
-                        ProfileScheduler.turnOnProfile(context, getItem(position).getName());
-//                        profileEntity.setActive(true);
-//                        database.profileDao().update(profileEntity);
+            b = (ToggleButton) view.findViewById(R.id.toggBtn);
 
-                        //TODO UPDATE PROFILE IS active IN DATABASE
-                    } else {
-                        ProfileScheduler.turnOffProfile(context, getItem(position).getName());
-//                        profileEntity.setActive(false);
-//                        database.profileDao().update(profileEntity);
+            if(profileEntity.getName().equals("There are no profiles to display.")){
+                ((ViewGroup) b.getParent()).removeView(b);
+
+            }
+            else {
+                b.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (b.isChecked()) {
+                            ProfileScheduler.turnOnProfile(context, getItem(position).getName());
+                            //                        profileEntity.setActive(true);
+                            //                        database.profileDao().update(profileEntity);
+                            //
+                            //TODO UPDATE PROFILE IS active IN DATABASE
+                        } else {
+                            ProfileScheduler.turnOffProfile(context, getItem(position).getName());
+                            //                        profileEntity.setActive(false);
+                            //                        database.profileDao().update(profileEntity);
+                        }
                     }
-                }
-            });
+                });
+            }
             //still need to set info
             //appName.setText(applicationInfo.loadLabel(packageManager));
             //packageName.setText(applicationInfo.packageName);
