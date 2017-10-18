@@ -66,9 +66,9 @@ public class ProfileListActivity extends ListActivity {
                 //create a fake schedule to insert
                 //if no schedules in db
                 ProfileEntity fakeProfile = new ProfileEntity(new Profile("There are no profiles to display.", new ArrayList<>( Arrays.asList("Buenos Aires", "Córdoba", "La Plata")), false));
-                db.profileDao().insert(fakeProfile);
+//                db.profileDao().insert(fakeProfile);
 //                profileList = db.profileDao().loadAllProfilesAsync();
-//                profileList.add(fakeProfile);
+                profileList.add(fakeProfile);
             }
 //            else {
 

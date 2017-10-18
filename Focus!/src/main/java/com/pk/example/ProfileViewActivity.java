@@ -1,6 +1,7 @@
 package com.pk.example;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import android.app.AlertDialog;
 import android.app.ListActivity;
@@ -31,6 +32,8 @@ public class ProfileViewActivity extends ListActivity {
     private PackageManager packageManager = null;
     private List<ApplicationInfo> applist = null;
     private AppAdapter listadaptor = null;
+
+    private AppDatabase db;
 
     private String flag;
     private ProfileEntity profileEntity; // for edit/delete
@@ -109,14 +112,21 @@ public class ProfileViewActivity extends ListActivity {
             // add profile to db, return to ProfileListActivity
 
             // create new profile entity (add this with profiledao)
-            ProfileEntity newProfileEntity = new ProfileEntity();
+//            ProfileEntity newProfileEntity = new ProfileEntity();
+//
+//            // set profile name and apps to block
+//            newProfileEntity.setName(pname);
+//            newProfileEntity.setAppsToBlock(appPacks);
+//
+//            // add to database
+//            profileDao.insert(newProfileEntity);
 
-            // set profile name and apps to block
-            newProfileEntity.setName(pname);
-            newProfileEntity.setAppsToBlock(appPacks);
+            db = AppDatabase.getDatabase(getApplicationContext());
 
-            // add to database
-            profileDao.insert(newProfileEntity);
+
+            ProfileEntity newProfile = new ProfileEntity(new Profile(pname, appPacks, true));
+                db.profileDao().insert(newProfile);
+//                profileList = db.profileDao().loadAllProfilesAsync();
 
             // notify user
             Toast toast = Toast.makeText(getApplicationContext(),

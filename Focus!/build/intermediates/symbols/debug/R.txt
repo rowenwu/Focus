@@ -866,12 +866,12 @@ int id bottom_navigation_small_container 0x7f0b00a2
 int id bottom_navigation_small_item_icon 0x7f0b00a3
 int id bottom_navigation_small_item_title 0x7f0b00a4
 int id btnAllProfiles 0x7f0b008d
-int id btnCreateNotify 0x7f0b008e
+int id btnCreateNotify 0x7f0b008f
 int id btnCreateProfile 0x7f0b008a
 int id btnDeleteProfile 0x7f0b0092
 int id btnListNotify 0x7f0b0090
 int id btnNavigation 0x7f0b008c
-int id btnNotificationList 0x7f0b008f
+int id btnNotificationList 0x7f0b008e
 int id btnPermission 0x7f0b008b
 int id btnSaveProfile 0x7f0b0091
 int id btnToast 0x7f0b0093

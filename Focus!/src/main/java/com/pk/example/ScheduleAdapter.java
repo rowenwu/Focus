@@ -62,6 +62,9 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
 
             }
             else {
+                if(schedule.getIsEnabled()){
+                    b.setEnabled(true);
+                }
                 b.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

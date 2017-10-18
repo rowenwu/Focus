@@ -37,6 +37,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"/>
+    <Button android:layout_height="wrap_content" android:layout_width="match_parent" android:onClick="buttonClicked" android:id="@+id/btnNotificationList" android:text="Notifications" android:layout_alignParentRight="true" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" android:layout_below="@+id/btnPermission" android:textAllCaps="true"/>
 
     <Button
             android:layout_width="match_parent"
@@ -50,7 +51,6 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"/>
 
-    <Button android:layout_height="wrap_content" android:layout_width="match_parent" android:onClick="buttonClicked" android:id="@+id/btnNotificationList" android:text="Notifications" android:layout_alignParentRight="true" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" android:layout_below="@+id/btnPermission" android:textAllCaps="true"/>
     <!--<Button-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="wrap_content"-->

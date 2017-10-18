@@ -3704,12 +3704,12 @@ containing a value of this type.
         public static final int bottom_navigation_small_item_icon=0x7f0b00a3;
         public static final int bottom_navigation_small_item_title=0x7f0b00a4;
         public static final int btnAllProfiles=0x7f0b008d;
-        public static final int btnCreateNotify=0x7f0b008e;
+        public static final int btnCreateNotify=0x7f0b008f;
         public static final int btnCreateProfile=0x7f0b008a;
         public static final int btnDeleteProfile=0x7f0b0092;
         public static final int btnListNotify=0x7f0b0090;
         public static final int btnNavigation=0x7f0b008c;
-        public static final int btnNotificationList=0x7f0b008f;
+        public static final int btnNotificationList=0x7f0b008e;
         public static final int btnPermission=0x7f0b008b;
         public static final int btnSaveProfile=0x7f0b0091;
         public static final int btnToast=0x7f0b0093;

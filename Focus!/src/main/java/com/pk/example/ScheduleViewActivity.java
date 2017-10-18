@@ -204,11 +204,11 @@ public class ScheduleViewActivity extends ListActivity{
 //                scheduleEntityList.add(fakeSchedule);
 //                database.scheduleDao().insert(fakeSchedule);
 
-            database.scheduleDao().insert(scheduleInsert);
+//            database.scheduleDao().insert(scheduleInsert);
 
             // notify user
             Toast toast = Toast.makeText(getApplicationContext(),
-                    "Profile created", Toast.LENGTH_SHORT);
+                    "Schedule created", Toast.LENGTH_SHORT);
             toast.show();
 
             // TODO return to ProfileListActivity
