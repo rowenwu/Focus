@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:2:1-82:12
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:2:1-90:12
 	package
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:3:5-29
 	android:versionName
@@ -14,7 +14,7 @@ ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:2:1-82:12
 	xmlns:android
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:7:5-80:19
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:7:5-88:19
 MERGED from [com.android.support:support-v13:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\873e2f1af155fefdb37edae4bf1c944048e3dac1\output\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:cardview-v7:24.0.0-alpha1] C:\Users\kathe\.android\build-cache\5322d05acdefeba41a488c0443e16d9a0292f498\output\AndroidManifest.xml:22:5-20
 MERGED from [android.arch.lifecycle:extensions:1.0.0-beta2] C:\Users\kathe\.android\build-cache\84c6c5a8259d7f05ff5bba674e6d1bd715153e72\output\AndroidManifest.xml:24:5-30:19
@@ -95,14 +95,22 @@ ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:64:9-71:20
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:67:13-55
 	android:name
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:65:13-49
-activity#com.pk.example.ScheduleViewActivity
+activity#com.pk.example.ProfileListActivity
 ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:72:9-79:20
 	android:label
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:74:13-37
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:74:13-42
 	android:parentActivityName
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:75:13-55
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:73:13-49
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:73:13-48
+activity#com.pk.example.ScheduleViewActivity
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:80:9-87:20
+	android:label
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:82:13-37
+	android:parentActivityName
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:83:13-55
+	android:name
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:81:13-49
 uses-sdk
 INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [android.arch.persistence.room:runtime:1.0.0-alpha1] C:\Users\kathe\.android\build-cache\be3da3e3b5639e557a8ee6807e83a1363ba1cf87\output\AndroidManifest.xml:22:5-24:41

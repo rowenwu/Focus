@@ -4,6 +4,10 @@ package com.pk.example;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.app.ListActivity;
+import android.app.ProgressDialog;
+import android.content.pm.PackageManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
@@ -21,14 +25,21 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.List;
 
-public class ScheduleViewActivity extends Activity{
+public class ScheduleViewActivity extends ListActivity{
     private String flag;
     private ScheduleEntity scheduleEntity; // for edit/delete
+    private List<ProfileEntity> profileList;
     Button btnDatePicker, btnTimePicker;
     EditText txtDate, txtTime;
     private int mYear, mMonth, mDay, mHour, mMinute;
+    ListAdapter listadaptor = null;
+    private AppDatabase db;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +53,9 @@ public class ScheduleViewActivity extends Activity{
             txtDate=(EditText)findViewById(R.id.in_date);
             txtTime=(EditText)findViewById(R.id.in_time);
 
-
+            new LoadProfiles().execute();
+            ListView listView = getListView();
+            listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
         }
     }
@@ -93,6 +106,55 @@ public class ScheduleViewActivity extends Activity{
                     }, mHour, mMinute, false);
             timePickerDialog.show();
 
+        }
+    }
+
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+        getListView().setItemChecked(position, listadaptor.changeCheckedState(position));
+    }
+
+    private class LoadProfiles extends AsyncTask<Void, Void, Void> {
+        private ProgressDialog progress = null;
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            db = AppDatabase.getDatabase(getApplicationContext());
+            profileList = db.profileDao().loadAllProfilesAsync();
+            if (profileList.size()==0) {
+                profileList.add(new ProfileEntity(new Profile("No profiles to add.", new ArrayList<>( Arrays.asList("Buenos Aires", "Córdoba", "La Plata")), false)));
+//                return null;
+            }
+//            applist = packageManager.getInstalledApplications(PackageManager.GET_META_DATA);
+            listadaptor = new ListAdapter(ScheduleViewActivity.this,
+                    R.layout.schedule_list_row, profileList);
+
+            return null;
+        }
+
+        @Override
+        protected void onCancelled() {
+            super.onCancelled();
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            setListAdapter(listadaptor);
+            progress.dismiss();
+            super.onPostExecute(result);
+        }
+
+        @Override
+        protected void onPreExecute() {
+            progress = ProgressDialog.show(ScheduleViewActivity.this, null,
+                    "Loading application info...");
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
         }
     }
 }

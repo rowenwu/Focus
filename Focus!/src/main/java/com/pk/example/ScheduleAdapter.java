@@ -44,7 +44,7 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
 
         ScheduleEntity schedule = scheduleEntities.get(position);
         if (null != schedule) {
-            TextView scheduleName = (TextView) view.findViewById(R.id.scheduleName);
+            TextView scheduleName = (TextView) view.findViewById(R.id.name);
 //            TextView notificationContext = (TextView) view.findViewById(R.id.notifcation_context);
 //            TextView timeAndDate =(TextView) view.findViewById(R.id.time_and_date);
 //            ImageView iconview = (ImageView) view.findViewById(R.id.app_icon);

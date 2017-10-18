@@ -113,6 +113,11 @@ public class MainActivity extends Activity {
             Schedule[] schedules = DummyDb.getAllSchedules();
             ProfileScheduler.disableSchedule(getApplicationContext(), schedules[0]);
         }
+        else if(v.getId() == R.id.btnAllProfiles){
+            Intent i = new Intent(this, ProfileListActivity.class);
+            i.putExtra("flag","create");
+            startActivity(i);
+        }
 
     }
 

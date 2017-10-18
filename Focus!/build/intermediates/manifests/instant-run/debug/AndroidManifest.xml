@@ -74,6 +74,14 @@
                 android:value="com.pk.example.MainActivity" />
         </activity>
         <activity
+            android:name="com.pk.example.ProfileListActivity"
+            android:label="View Profiles"
+            android:parentActivityName="com.pk.example.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pk.example.MainActivity" />
+        </activity>
+        <activity
             android:name="com.pk.example.ScheduleViewActivity"
             android:label="Schedule"
             android:parentActivityName="com.pk.example.MainActivity" >

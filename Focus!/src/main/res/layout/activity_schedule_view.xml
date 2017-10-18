@@ -19,6 +19,7 @@
         android:id="@+id/textView"
         />
 
+
     <EditText
         android:id="@+id/editTextProfileName"
         android:layout_width="match_parent"
@@ -26,23 +27,75 @@
         android:ems="10"
         android:inputType="text"
         android:text="" />
-    <EditText
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/in_date"
-        android:layout_marginTop="82dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
-    <Button
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/in_date"
+            android:layout_marginTop="82dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            android:text="SELECT DATE"
+            android:id="@+id/btn_date"
+            android:onClick="buttonClicked"
+        android:layout_alignBottom="@+id/in_date"
+        android:layout_toRightOf="@+id/in_date"
+        android:layout_toEndOf="@+id/in_date" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/in_time"
+            android:layout_marginTop="82dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            android:text="SELECT TIME"
+            android:id="@+id/btn_time"
+            android:onClick="buttonClicked"
+            android:layout_alignBottom="@+id/in_time"
+            android:layout_toRightOf="@+id/in_time"
+            android:layout_toEndOf="@+id/in_time" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAllCaps="true"
-        android:text="SELECT DATE"
-        android:id="@+id/btn_date"
-        android:onClick="buttonClicked"
+        android:paddingTop="20dp"
+        android:paddingBottom="10dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Profiles"
+        android:id="@+id/profilesTextView"
         />
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
     <!--<Button-->
         <!--android:layout_width="wrap_content"-->
         <!--android:layout_height="wrap_content"-->
@@ -52,21 +105,6 @@
         <!--android:layout_toRightOf="@+id/in_date"-->
         <!--android:layout_toEndOf="@+id/in_date" />-->
 
-    <EditText
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/in_time"
-        android:layout_below="@+id/in_date"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAllCaps="true"
-        android:text="SELECT TIME"
-        android:id="@+id/btn_time"
-        android:onClick="buttonClicked"/>
 
     <!--<Button-->
         <!--android:layout_width="wrap_content"-->

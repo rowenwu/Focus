@@ -112,8 +112,10 @@ public class ScheduleListActivity extends ListActivity {
                 //create a fake schedule to insert
                 //if no schedules in db
                 ScheduleEntity fakeSchedule = new ScheduleEntity(DummyDb.makeFakeSchedule("There are no schedules to display.", 5));
-                database.scheduleDao().insert(fakeSchedule);
-                scheduleEntityList = database.scheduleDao().loadAllSchedulesSync();
+
+                scheduleEntityList.add(fakeSchedule);
+//                database.scheduleDao().insert(fakeSchedule);
+//                scheduleEntityList = database.scheduleDao().loadAllSchedulesSync();
             }
 
             listadaptor = new ScheduleAdapter(ScheduleListActivity.this,
