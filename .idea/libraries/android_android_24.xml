@@ -4,6 +4,13 @@
       <root url="jar://$USER_HOME$/AppData/Local/Android/sdk/platforms/android-24/android.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/Focus!/build/generated/source/apt/debug" />
+      <root url="file://$PROJECT_DIR$/Focus!/build/generated/source/buildConfig/androidTest/debug" />
+      <root url="file://$PROJECT_DIR$/Focus!/build/generated/source/buildConfig/debug" />
+      <root url="file://$PROJECT_DIR$/Focus!/build/generated/source/r/androidTest/debug" />
+      <root url="file://$PROJECT_DIR$/Focus!/build/generated/source/r/debug" />
+      <root url="file://$PROJECT_DIR$/Focus!/src/main/java" />
+    </SOURCES>
   </library>
 </component>

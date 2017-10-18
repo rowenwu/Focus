@@ -89,14 +89,20 @@ public class MainActivity extends Activity {
             nManager.notify((int)System.currentTimeMillis(),ncomp.build());
         }
         else if(v.getId() == R.id.btnNavigation){
-            Intent i = new Intent(this, TabbedActivity.class);
+            Intent i = new Intent(this, ScheduleListActivity.class);
             startActivity(i);
         }
         else if(v.getId() == R.id.btnPermission){
             toggleService(v);
         }
+        else if(v.getId() == R.id.btnCreateSchedule){
+//            Intent i = new Intent(this, ScheduleViewActivity.class);
+//            i.putExtra("flag", "create");
+//            startActivity(i);
+        }
         else if(v.getId() == R.id.btnCreateProfile){
             Intent i = new Intent(this, ProfileViewActivity.class);
+            i.putExtra("flag", "create");
             startActivity(i);
         }
         else if(v.getId() == R.id.btnSchedule){
@@ -106,6 +112,10 @@ public class MainActivity extends Activity {
         else if(v.getId() == R.id.btnUnSchedule){
             Schedule[] schedules = DummyDb.getAllSchedules();
             ProfileScheduler.disableSchedule(getApplicationContext(), schedules[0]);
+        }
+        else if(v.getId() == R.id.btnNotificationList){
+            Intent i = new Intent(this, NotificationListActivity.class);
+            startActivity(i);
         }
 
     }

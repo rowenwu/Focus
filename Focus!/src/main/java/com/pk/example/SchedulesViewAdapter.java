@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.pk.example.entity.ScheduleEntity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SchedulesViewAdapter extends RecyclerView.Adapter<SchedulesViewAdapter.RecyclerViewHolder> {
@@ -15,7 +16,7 @@ public class SchedulesViewAdapter extends RecyclerView.Adapter<SchedulesViewAdap
     private List<ScheduleEntity> scheduleEntityList;
     private View.OnLongClickListener longClickListener;
 
-    public SchedulesViewAdapter(List<ScheduleEntity> scheduleEntityList, View.OnLongClickListener longClickListener) {
+    public SchedulesViewAdapter(ArrayList<ScheduleEntity> scheduleEntityList, View.OnLongClickListener longClickListener) {
         this.scheduleEntityList = scheduleEntityList;
         this.longClickListener = longClickListener;
     }

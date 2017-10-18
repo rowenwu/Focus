@@ -6,6 +6,7 @@ import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
+import android.arch.persistence.room.Update;
 
 
 import com.pk.example.MinNotification;
@@ -21,14 +22,14 @@ import java.util.List;
 @Dao
 public interface PreviousNotificationListDao {
     @Query("SELECT * FROM prev_notifications")
-    LiveData<List<MinNotificationEntity>> loadAllPrevNotifications();
+    List<PreviousNotificationListEntity> loadAllPrevNotifications();
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertAll(List<MinNotificationEntity> prevNotifications);
-
-    //insert a new notification
+    //insert a new notification list entity
     @Insert
     public void insert(PreviousNotificationListEntity previousNotificationListEntity);
+
+    @Update
+    public void update(PreviousNotificationListEntity previousNotificationListEntity);
 
     //delete all notifications
     @Query("DELETE FROM curr_notifications")

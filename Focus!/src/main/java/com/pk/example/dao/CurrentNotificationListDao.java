@@ -20,8 +20,12 @@ import java.util.List;
 @Dao
 public interface CurrentNotificationListDao {
     @Query("SELECT * FROM curr_notifications")
-    LiveData<List<MinNotificationEntity>> loadAllCurrNotifications();
+    CurrentNotificationListEntity loadAllCurrNotifications();
 
+    @Query("SELECT * FROM curr_notifications")
+    CurrentNotificationListEntity loadAllCurrNotificationsSync();
+
+    //Insert multiple notifcation
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAll(List<MinNotificationEntity> currNotifications);
 

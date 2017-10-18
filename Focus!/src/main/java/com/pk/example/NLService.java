@@ -24,7 +24,12 @@ import android.view.ViewGroup;
 import android.widget.RemoteViews;
 import android.widget.TextView;
 
+import com.pk.example.dao.CurrentNotificationListDao;
+import com.pk.example.dao.ProfileDao;
+import com.pk.example.entity.CurrentNotificationListEntity;
+
 import java.lang.reflect.Field;
+import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -47,6 +52,8 @@ public class NLService extends NotificationListenerService {
     //store these separately so that when a schedule/profile is disabled/turned off, we can cancel the right pending intents
     private HashMap<String, HashSet<PendingIntent>> scheduleAlarmIntents;
     private HashMap<String, HashSet<PendingIntent>> profileAlarmIntents;
+    private ProfileDao profileDao;
+    private CurrentNotificationListDao crnDao;
 
 
 
@@ -460,17 +467,17 @@ public class NLService extends NotificationListenerService {
 
     public void addProfile(String profile){
         // get profile information (start time, end time, list of apps) from database
-        // if current time < end time, add profile, add apps to appsBlocked or update set of profiles
         // for list of apps, addBlockedApp
-
-        //TODO ADD PROFILE TO ACTIVE PROFILES LIST
         //TODO IF PROFILE IS ALREADY ON ACTIVE PROFILES LIST THEN RETURN
 
+        //TODO ADD PROFILE TO ACTIVE PROFILES LIST
+
         sendNotification(profile + START_PROFILE_NOTIFICATION);
-        Profile prof = DummyDb.getProfile(profile);
-        for(int a = 0; a < prof.getAppsToBlock().size(); a++){
-            addBlockedApp(prof.appsToBlock.get(a), profile);
-        }
+//        Profile prof = DummyDb.getProfile(profile);
+//        Profile prof = profileDao.loadProfileSync(profile);
+//        for(int a = 0; a < prof.getAppsToBlock().size(); a++){
+//            addBlockedApp(prof.appsToBlock.get(a), profile);
+//        }
 
     }
 
@@ -487,6 +494,11 @@ public class NLService extends NotificationListenerService {
     public void removeProfile(String profile){
         //TODO CHECK PROFILE IS ON ACTIVE PROFILES LIST, IF NOT RETURN
         //TODO REMOVE PROFILE FROM ACTIVE PROFILES LIST
+
+
+        //TODO GET NOTIFICATIONS FROM THIS PROFILE AND MAKE IT THE PREVIOUS NOTIFICATIONS LIST
+//        CurrentNotificationListEntity currs = crnDao.loadCurrvNotificationSync()
+
         sendNotification(profile + STOP_PROFILE_NOTIFICATION);
         Profile prof = DummyDb.getProfile(profile);
         for(int a = 0; a < prof.getAppsToBlock().size(); a++){

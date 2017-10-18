@@ -3,10 +3,13 @@ package com.pk.example;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import android.arch.persistence.room.TypeConverter;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.pk.example.entity.MinNotificationEntity;
+import com.pk.example.entity.PreviousNotificationListEntity;
 
 
 public class Converters {
@@ -57,18 +60,31 @@ public class Converters {
 
     //converters for minnotification lists
     @TypeConverter
-    public static ArrayList<MinNotification> fromArrayListNotification (String value) {
-        Type listType = new TypeToken<ArrayList<MinNotification>>() {
+    public static List<MinNotificationEntity> fromArrayListNotification (String value) {
+        Type listType = new TypeToken<List<MinNotificationEntity>>() {
         }.getType();
         return new Gson().fromJson(value, listType);
     }
 
     @TypeConverter
-    public static String fromNotificationArrayList(ArrayList<MinNotification> list) {
+    public static String fromNotificationArrayList(List<MinNotificationEntity> list) {
         Gson gson = new Gson();
         String json = gson.toJson(list);
         return json;
     }
 
+    //converters for minnotification lists
+    @TypeConverter
+    public static List<MinNotificationEntity> fromArrayListPreviousNotification (String value) {
+        Type listType = new TypeToken<List<PreviousNotificationListEntity>>() {
+        }.getType();
+        return new Gson().fromJson(value, listType);
+    }
 
+    @TypeConverter
+    public static String fromPreviousNotificationArrayList(List<PreviousNotificationListEntity> list) {
+        Gson gson = new Gson();
+        String json = gson.toJson(list);
+        return json;
+    }
 }

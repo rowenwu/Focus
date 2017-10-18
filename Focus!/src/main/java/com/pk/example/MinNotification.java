@@ -20,6 +20,12 @@ public class MinNotification {
 
     }
 
+    public MinNotification(String appName, String notificationContext, Date date) {
+        this.appName = appName;
+        this.notificationContext = notificationContext;
+        this .date = date;
+    }
+
     public int getId() {
         return id;
     }

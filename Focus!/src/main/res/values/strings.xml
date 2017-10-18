@@ -14,7 +14,8 @@
     <string name="profiles_tab">Profiles</string>
     <string name="schedules_tab">Schedules</string>
     <string name="notifications_tab">Notifications</string>
-
+    <string name="title_activity_schedule_list">ScheduleListActivity</string>
+    <string name="title_activity_schedule_view">ScheduleViewActivity</string>
 
 
 </resources>

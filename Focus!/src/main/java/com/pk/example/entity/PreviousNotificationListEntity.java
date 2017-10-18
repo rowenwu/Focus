@@ -5,9 +5,15 @@ import com.pk.example.Profile;
 
 import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
 @Entity(tableName = "prev_notifications")
 public class PreviousNotificationListEntity {
@@ -16,10 +22,10 @@ public class PreviousNotificationListEntity {
     private int id;
 
     //    @Embedded
-    private ArrayList<MinNotification> notificationList;
+    private List<MinNotificationEntity> notificationList;
 
     public PreviousNotificationListEntity() {
-
+        notificationList = new ArrayList<MinNotificationEntity>();
     }
 
     public int getId() {
@@ -30,11 +36,16 @@ public class PreviousNotificationListEntity {
         this.id = id;
     }
 
-    public ArrayList<MinNotification> getNotificationList() {
+    public List<MinNotificationEntity> getNotificationList() {
         return notificationList;
     }
 
-    public void setNotificationList(ArrayList<MinNotification> notificationList) {
+    public void setNotificationList(List<MinNotificationEntity> notificationList) {
         this.notificationList = notificationList;
     }
+
+    public void addNotification(MinNotificationEntity minNotification) {
+        notificationList.add(minNotification);
+    }
+
 }

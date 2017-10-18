@@ -5,6 +5,7 @@ import com.pk.example.Profile;
 
 import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
 import java.lang.reflect.Array;
@@ -18,7 +19,7 @@ public class CurrentNotificationListEntity {
     private int id;
 
     //    @Embedded
-    private ArrayList<MinNotification> notificationList;
+    private List<MinNotificationEntity> notificationList;
 
     public CurrentNotificationListEntity() {
     }
@@ -31,11 +32,11 @@ public class CurrentNotificationListEntity {
         this.id = id;
     }
 
-    public ArrayList<MinNotification> getNotificationList(){
+    public List<MinNotificationEntity> getNotificationList(){
         return notificationList;
     }
 
-    public void setNotificationList(ArrayList<MinNotification> notificationList) {
+    public void setNotificationList(List<MinNotificationEntity> notificationList) {
         this.notificationList = notificationList;
     }
 }

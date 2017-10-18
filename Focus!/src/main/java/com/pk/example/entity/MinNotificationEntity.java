@@ -73,4 +73,5 @@ public class MinNotificationEntity extends MinNotification {
         //this._appIcon = minNotification.getAppIcon();
         this._date = minNotification.getDate();
     }
+
 }

@@ -39,7 +39,7 @@ public class ProfileViewActivity extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        flag = String.valueOf(getIntent().getStringExtra("Flag"));
+        flag = String.valueOf(getIntent().getStringExtra("flag"));
 
         // create profile mode
         if (flag.equals("create")) {
@@ -74,6 +74,7 @@ public class ProfileViewActivity extends ListActivity {
                     listView.setItemChecked(i, true);
                 }
             }
+
         }
     }
 
@@ -124,6 +125,7 @@ public class ProfileViewActivity extends ListActivity {
 
             // TODO return to ProfileListActivity
 
+
         }
     }
 
@@ -162,6 +164,12 @@ public class ProfileViewActivity extends ListActivity {
                     "Profile updated", Toast.LENGTH_SHORT);
             toast.show();
 
+            //TODO if active, update NLService
+//            if(profileEntity.getActive()){
+//                ProfileScheduler.turnOffProfile(this, pname);
+//                ProfileScheduler.turnOnProfile(this, pname);
+//            }
+
             // TODO return to profile list view
         }
     }
@@ -175,6 +183,11 @@ public class ProfileViewActivity extends ListActivity {
                 "Profile deleted", Toast.LENGTH_SHORT);
         toast.show();
 
+
+        // TODO if active, remove from NLService
+//            if(profileEntity.getActive()){
+//                ProfileScheduler.turnOffProfile(this, pname);
+//            }
         // TODO return to profile list view
     }
 

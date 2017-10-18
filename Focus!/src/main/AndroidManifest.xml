@@ -45,9 +45,41 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pk.example.MainActivity" />
         </activity>
+        <!-- <activity -->
+        <!-- android:name=".TabbedActivity" -->
+        <!-- android:label="@string/title_activity_tabbed" -->
+        <!-- android:parentActivityName=".MainActivity"> -->
+        <!-- <meta-data -->
+        <!-- android:name="android.support.PARENT_ACTIVITY" -->
+        <!-- android:value="com.pk.example.MainActivity" /> -->
+        <!-- </activity> -->
+        <!-- <activity -->
+        <!-- android:name=".ScheduleListActivity" -->
+        <!-- android:label="@string/title_activity_schedule_list" -->
+        <!-- android:parentActivityName=".MainActivity"> -->
+        <!-- <meta-data -->
+        <!-- android:name="android.support.PARENT_ACTIVITY" -->
+        <!-- android:value="com.pk.example.MainActivity" /> -->
+        <!-- </activity> -->
         <activity
-            android:name=".TabbedActivity"
-            android:label="@string/title_activity_tabbed"
+            android:name=".ScheduleListActivity"
+            android:label="@string/title_activity_schedule_list"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pk.example.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ScheduleViewActivity"
+            android:label="@string/title_activity_schedule_view"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pk.example.MainActivity" />
+        </activity>
+        <activity
+            android:name=".NotificationListActivity"
+            android:label="NotificationListActivity"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

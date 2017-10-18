@@ -25,6 +25,8 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public static AppDatabase getDatabase(Context context) {
         if (INSTANCE == null) {
+            // Reset the database to have new data on every run.
+            context.deleteDatabase("db");
             INSTANCE =
                     Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "db")
                             .build();

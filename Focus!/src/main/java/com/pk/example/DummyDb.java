@@ -1,10 +1,15 @@
 package com.pk.example;
 
 
+import com.pk.example.entity.ScheduleEntity;
+
+import java.util.AbstractCollection;
+import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 public class DummyDb {
     static final long ONE_MINUTE_IN_MILLIS=60000;//millisecs
@@ -15,6 +20,14 @@ public class DummyDb {
         schedules[0] = makeFakeSchedule(2);
         return schedules;
     }
+//
+//    public static AbstractList<Schedule> getAllScheduleEntities(){
+//        // create array with one fake schedule, set two mins from now
+//        List<Schedule> schedules = new List<Schedule>();
+//        schedules.add(new ScheduleEntity(makeFakeSchedule(3)));
+//        return schedules;
+//    }
+
 
     public static Profile getProfile(String name){
         return makeFakeProfile(name);
@@ -25,7 +38,7 @@ public class DummyDb {
     public static Profile makeFakeProfile(String fakeyname){
         ArrayList<String> appsToBlock = new ArrayList<>();
         appsToBlock.add("com.facebook.orca");
-        Profile profile = new Profile(fakeyname, appsToBlock);
+        Profile profile = new Profile(fakeyname, appsToBlock, true);
         return profile;
     }
 
@@ -42,4 +55,16 @@ public class DummyDb {
         return new Schedule("ScheduleName", profiles, startTimes, 0, 120, true);
     }
 
+    // fake
+    public static Schedule makeFakeSchedule(String name, int minsFromNow){
+        ArrayList<String> profiles = new ArrayList<>();
+        profiles.add("ProfileName");
+
+        Calendar cal = Calendar.getInstance();
+        long t= cal.getTimeInMillis();
+        Date date =new Date(t + (minsFromNow * ONE_MINUTE_IN_MILLIS));
+        ArrayList<Date> startTimes = new ArrayList<>();
+        startTimes.add(date);
+        return new Schedule(name, profiles, startTimes, 0, 120, true);
+    }
 }
