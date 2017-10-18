@@ -84,18 +84,20 @@ public class NLService extends NotificationListenerService {
         String statusBarNotificationKey = null;
         if (Build.VERSION.SDK_INT >= 20){
             statusBarNotificationKey = sbn.getKey();
-            if(blockedApps.get(sbn.getPackageName()) != null)
+            if(blockedApps.get(sbn.getPackageName()) != null) {
                 cancelNotification(statusBarNotificationKey);
+                handleActionAdd(sbn.getNotification(),
+                        sbn.getPackageName(),
+                        sbn.getTag(),
+                        sbn.getId(),
+                        statusBarNotificationKey,
+                        getApplicationContext(),
+                        "listener");
+            }
         }
 
 
-        handleActionAdd(sbn.getNotification(),
-                sbn.getPackageName(),
-                sbn.getTag(),
-                sbn.getId(),
-                statusBarNotificationKey,
-                getApplicationContext(),
-                "listener");
+
     }
 
     @Override
@@ -103,6 +105,7 @@ public class NLService extends NotificationListenerService {
         Log.i(TAG,"********** onNOtificationRemoved");
 
     }
+
 
     public void handleActionAdd(Notification notification, String packageName, String tag, int id, String key, Context context, String src) {
 
@@ -202,6 +205,13 @@ public class NLService extends NotificationListenerService {
         intent.putExtra("title", title);
         intent.putExtra("text", text);
         intent.putExtra("action", notification.contentIntent);
+
+        HashSet<String> profiles = blockedApps.get(packageName);
+        for(String prof: profiles){
+//            MinNotification notif = new MinNotification()
+
+        }
+
 
         if (Build.VERSION.SDK_INT >= 11)
             intent.putExtra("iconLarge", notification.largeIcon);

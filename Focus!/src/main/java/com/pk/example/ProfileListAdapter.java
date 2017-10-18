@@ -64,6 +64,9 @@ public class ProfileListAdapter extends ArrayAdapter<ProfileEntity> {
 
             }
             else {
+                if(profileEntity.getActive()){
+                    b.setEnabled(true);
+                }
                 b.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

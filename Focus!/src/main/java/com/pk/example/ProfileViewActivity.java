@@ -124,8 +124,9 @@ public class ProfileViewActivity extends ListActivity {
             db = AppDatabase.getDatabase(getApplicationContext());
 
 
-            ProfileEntity newProfile = new ProfileEntity(new Profile(pname, appPacks, true));
-                db.profileDao().insert(newProfile);
+            // crashing??????????
+//            ProfileEntity newProfile = new ProfileEntity(new Profile(pname, appPacks, true));
+//                db.profileDao().insert(newProfile);
 //                profileList = db.profileDao().loadAllProfilesAsync();
 
             // notify user
@@ -134,7 +135,8 @@ public class ProfileViewActivity extends ListActivity {
             toast.show();
 
             // TODO return to ProfileListActivity
-
+            Intent i = new Intent(this, ProfileListActivity.class);
+            startActivity(i);
 
         }
     }
