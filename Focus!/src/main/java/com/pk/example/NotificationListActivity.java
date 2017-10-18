@@ -61,17 +61,17 @@ public class NotificationListActivity extends ListActivity {
             previousNotificationListEntityList = database.previousNotificationListDao().loadAllPrevNotifications();
             if (previousNotificationListEntityList.size()==0) {
 //                //create a fake notification list entity
-//                PreviousNotificationListEntity fakePreviousNotificationListEntity = new PreviousNotificationListEntity();
+                PreviousNotificationListEntity fakePreviousNotificationListEntity = new PreviousNotificationListEntity();
 //                //create date object
-//                Date date = Calendar.getInstance().getTime();
+                Date date = Calendar.getInstance().getTime();
 //                //create a fake notification entity
-//                MinNotificationEntity fakeNotification = new MinNotificationEntity(new MinNotification("fake", "This notification is to show test", date));
+                MinNotificationEntity fakeNotification = new MinNotificationEntity(new MinNotification("", "There are no notifications to display", date));
 //                //add the notification entity to the notification list entity
-//                fakePreviousNotificationListEntity.addNotification(fakeNotification);
+                fakePreviousNotificationListEntity.addNotification(fakeNotification);
 //                //insert the list entity into the datebase
-//                database.previousNotificationListDao().insert(fakePreviousNotificationListEntity);
+                database.previousNotificationListDao().insert(fakePreviousNotificationListEntity);
 //                //retrieve the new list of notificationlist entityes from database
-//                previousNotificationListEntityList = database.previousNotificationListDao().loadAllPrevNotifications();
+                previousNotificationListEntityList = database.previousNotificationListDao().loadAllPrevNotifications();
             }
             else {
 
@@ -80,11 +80,11 @@ public class NotificationListActivity extends ListActivity {
                     minNotificationEntityList.add(previousNotificationListEntityList.get(0).getNotification());
                 }
 
-                listadaptor = new NotificationAdapter(NotificationListActivity.this,
-                        R.layout.notification_list_row, minNotificationEntityList);
+
             }
 
-
+            listadaptor = new NotificationAdapter(NotificationListActivity.this,
+                    R.layout.notification_list_row, minNotificationEntityList);
 
 
             //if there is no previousNotificationList yet create one
