@@ -38,7 +38,7 @@ public interface ScheduleDao {
     @Delete
     void delete(ScheduleEntity schedule);
 
-    //update a schedule
+    //update a profile
     @Update
     void update(ScheduleEntity schedule);
 

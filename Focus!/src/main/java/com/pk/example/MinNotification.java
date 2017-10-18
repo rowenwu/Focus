@@ -38,10 +38,10 @@ public class MinNotification {
         return notificationContext;
     }
 
-   /* public Bitmap getAppIcon() {
-        return appIcon;
-    }
-*/
+    /* public Bitmap getAppIcon() {
+         return appIcon;
+     }
+ */
     public Date getDate() {
         return date;
     }

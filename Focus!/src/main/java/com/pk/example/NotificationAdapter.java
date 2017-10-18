@@ -47,12 +47,12 @@ public class NotificationAdapter extends ArrayAdapter<MinNotificationEntity> {
         if (null != minNotification) {
             TextView appName = (TextView) view.findViewById(R.id.app_name);
             TextView notificationContext = (TextView) view.findViewById(R.id.notifcation_context);
-           // TextView timeAndDate = (TextView) view.findViewById(R.id.time_and_date);
-           // ImageView iconview = (ImageView) view.findViewById(R.id.app_icon);
+            TextView timeAndDate = (TextView) view.findViewById(R.id.time_and_date);
+            // ImageView iconview = (ImageView) view.findViewById(R.id.app_icon);
 
             appName.setText(minNotification.getAppName());
             notificationContext.setText(minNotification.getNotificationContext());
-           // timeAndDate.setText(minNotification.getDate().toLocaleString().substring(0, 11));
+            timeAndDate.setText(minNotification.getDate().toLocaleString().substring(0, 11));
             //holder.iconview.setImageBitmap(minNotificationEntity.getAppIcon());
         }
         return view;

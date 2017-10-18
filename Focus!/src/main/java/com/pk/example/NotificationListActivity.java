@@ -40,8 +40,6 @@ public class NotificationListActivity extends ListActivity {
     private PackageManager packageManager = null;
     private NotificationAdapter listadaptor = null;
 
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         //creates view
@@ -57,31 +55,55 @@ public class NotificationListActivity extends ListActivity {
 
         @Override
         protected Void doInBackground(Void... params) {
-            Log.i("startBackground", "startBackground");
             //get database
             database = AppDatabase.getDatabase(getApplicationContext());
-            //get the list of previousNotificationListEntity
+            //get the list of previousNotificationListEntity(which each stores a notification)
             previousNotificationListEntityList = database.previousNotificationListDao().loadAllPrevNotifications();
-            //if there is no previousNotificationList yet create one
             if (previousNotificationListEntityList.size()==0) {
-                //create a fake notification to insert
-                //if no notification in db
+                //create a fake notification list entity
                 PreviousNotificationListEntity fakePreviousNotificationListEntity = new PreviousNotificationListEntity();
-                //create a fake minNotificaiton to add to the list
+                //create date object
                 Date date = Calendar.getInstance().getTime();
+                //create a fake notification entity
                 MinNotificationEntity fakeNotification = new MinNotificationEntity(new MinNotification("fake", "This notification is to show test", date));
-
-                //minNotificationEntityList.add(fakeNotification);
-
-
-
-                //add the fake minNotification to the previousNotificationList
+                //add the notification entity to the notification list entity
                 fakePreviousNotificationListEntity.addNotification(fakeNotification);
-                //add the list
+                //insert the list entity into the datebase
                 database.previousNotificationListDao().insert(fakePreviousNotificationListEntity);
-                //get the list back
+                //retrieve the new list of notificationlist entityes from database
                 previousNotificationListEntityList = database.previousNotificationListDao().loadAllPrevNotifications();
             }
+
+            //add all the notifications into the list
+            for(int i =0; i < previousNotificationListEntityList.size(); i++) {
+                minNotificationEntityList.add(previousNotificationListEntityList.get(0).getNotification());
+            }
+
+
+
+
+
+
+            //if there is no previousNotificationList yet create one
+//            if (previousNotificationListEntityList.size()==0) {
+//                //create a fake notification to insert
+//                //if no notification in db
+//                PreviousNotificationListEntity fakePreviousNotificationListEntity = new PreviousNotificationListEntity();
+//                //create a fake minNotificaiton to add to the list
+//                Date date = Calendar.getInstance().getTime();
+//                MinNotificationEntity fakeNotification = new MinNotificationEntity(new MinNotification("fake", "This notification is to show test", date));
+//
+//                //minNotificationEntityList.add(fakeNotification);
+//
+//
+//
+//                //add the fake minNotification to the previousNotificationList
+//                fakePreviousNotificationListEntity.addNotification(fakeNotification);
+//                //add the list
+//                database.previousNotificationListDao().insert(fakePreviousNotificationListEntity);
+//                //get the list back
+//                previousNotificationListEntityList = database.previousNotificationListDao().loadAllPrevNotifications();
+//            }
 
             //minNotificationEntityList =  previousNotificationListEntityList.get(0).getNotificationList();
 

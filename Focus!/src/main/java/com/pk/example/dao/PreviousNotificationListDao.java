@@ -26,12 +26,12 @@ public interface PreviousNotificationListDao {
 
     //insert a new notification list entity
     @Insert
-    public void insert(PreviousNotificationListEntity previousNotificationListEntity);
+    void insert(PreviousNotificationListEntity previousNotificationListEntity);
 
     @Update
-    public void update(PreviousNotificationListEntity previousNotificationListEntity);
+    void update(PreviousNotificationListEntity previousNotificationListEntity);
 
     //delete all notifications
     @Query("DELETE FROM curr_notifications")
-    public void deleteAll();
+    void deleteAll();
 }

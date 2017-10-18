@@ -17,10 +17,22 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Schedule List"
+        android:text="All Schedules"
         android:textAllCaps="true"
         android:layout_below="@+id/btnPermission"
         android:id="@+id/btnNavigation"
+        android:onClick="buttonClicked"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="All Profiles"
+        android:textAllCaps="true"
+        android:layout_below="@+id/btnPermission"
+        android:id="@+id/btnAllProfiles"
         android:onClick="buttonClicked"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -89,7 +101,7 @@
         android:layout_height="wrap_content"
         android:text="Notification List"
         android:textAllCaps="true"
-        android:layout_below="@+id/btnSchedule"
+        android:layout_below="@+id/btnPermission"
         android:id="@+id/btnNotificationList"
         android:onClick="buttonClicked"
         android:layout_alignParentTop="true"

@@ -5,6 +5,7 @@ import com.pk.example.Profile;
 
 import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
@@ -19,23 +20,27 @@ import java.util.ListIterator;
 public class PreviousNotificationListEntity {
 
     @PrimaryKey
-    private int id;
+    private int listId;
 
-    //    @Embedded
-    private List<MinNotificationEntity> notificationList;
+    //@Embedded
+    //private MinNotificationEntity notificationList;
+
+    @Embedded
+    private MinNotificationEntity notification;
 
     public PreviousNotificationListEntity() {
-        notificationList = new ArrayList<MinNotificationEntity>();
+        //notificationList = new ArrayList<MinNotificationEntity>();
     }
 
-    public int getId() {
-        return id;
+    public int getListId() {
+        return listId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setListId(int id) {
+        this.listId = id;
     }
 
+    /*
     public List<MinNotificationEntity> getNotificationList() {
         return notificationList;
     }
@@ -47,5 +52,16 @@ public class PreviousNotificationListEntity {
     public void addNotification(MinNotificationEntity minNotification) {
         notificationList.add(minNotification);
     }
+*/
+    public MinNotificationEntity getNotification() {
+        return notification;
+    }
 
+    public void setNotification(MinNotificationEntity notification) {
+        this.notification = notification;
+    }
+
+    public void addNotification(MinNotificationEntity minNotification) {
+        this.notification = minNotification;
+    }
 }

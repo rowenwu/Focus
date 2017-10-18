@@ -44,10 +44,10 @@
         <activity
             android:name="com.pk.example.ProfileViewActivity"
             android:label="@string/title_activity_create_profile"
-            android:parentActivityName="com.pk.example.MainActivity" >
+            android:parentActivityName="com.pk.example.ProfileListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.pk.example.MainActivity" />
+                android:value="com.pk.example.ProfileListActivity" />
         </activity>
         <!-- <activity -->
         <!-- android:name=".TabbedActivity" -->
@@ -74,20 +74,28 @@
                 android:value="com.pk.example.MainActivity" />
         </activity>
         <activity
-            android:name="com.pk.example.ScheduleViewActivity"
-            android:label="@string/title_activity_schedule_view"
+            android:name="com.pk.example.ProfileListActivity"
+            android:label="View Profiles"
             android:parentActivityName="com.pk.example.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pk.example.MainActivity" />
         </activity>
         <activity
+            android:name="com.pk.example.ScheduleViewActivity"
+            android:label="Schedule"
+            android:parentActivityName="com.pk.example.ScheduleListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pk.example.ScheduleListActivity" />
+        </activity>
+        <activity
             android:name="com.pk.example.NotificationListActivity"
-            android:label="NotificationListActivity"
+            android:label="Notification List"
             android:parentActivityName="com.pk.example.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.pk.example.MainActivity" />
+                android:value="com.pk.example.ScheduleListActivity" />
         </activity>
 
         <provider

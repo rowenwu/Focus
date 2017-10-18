@@ -7,7 +7,7 @@ import android.arch.persistence.room.TypeConverters;
 import android.content.Context;
 
 import com.pk.example.dao.CurrentNotificationListDao;
-//import com.pk.example.dao.MinNotificationDao;
+import com.pk.example.dao.MinNotificationDao;
 import com.pk.example.dao.PreviousNotificationListDao;
 import com.pk.example.dao.ProfileDao;
 import com.pk.example.dao.ScheduleDao;
@@ -17,7 +17,7 @@ import com.pk.example.entity.ScheduleEntity;
 import com.pk.example.entity.PreviousNotificationListEntity;
 import com.pk.example.entity.CurrentNotificationListEntity;
 
-@Database(entities = {MinNotificationEntity.class, ProfileEntity.class, ScheduleEntity.class, PreviousNotificationListEntity.class, CurrentNotificationListEntity.class}, version = 1)
+@Database(entities = {MinNotificationEntity.class, ProfileEntity.class, ScheduleEntity.class, PreviousNotificationListEntity.class, CurrentNotificationListEntity.class}, version = 2)
 @TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
 
@@ -25,15 +25,13 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public static AppDatabase getDatabase(Context context) {
         if (INSTANCE == null) {
-            // Reset the database to have new data on every run.
-            context.deleteDatabase("db");
             INSTANCE =
                     Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "db")
                             .build();
         }
         return INSTANCE;
     }
-    //public abstract MinNotificationDao minNotificationDao();
+    public abstract MinNotificationDao minNotificationDao();
 
     public abstract ProfileDao profileDao();
 

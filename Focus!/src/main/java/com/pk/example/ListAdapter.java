@@ -12,29 +12,29 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class AppAdapter extends ArrayAdapter<ApplicationInfo> {
-    private List<ApplicationInfo> appsList = null;
+import com.pk.example.entity.ProfileEntity;
+
+public class ListAdapter extends ArrayAdapter<ProfileEntity> {
+    private List<ProfileEntity> profiles = null;
     private Context context;
-    private PackageManager packageManager;
     private boolean[] checkedState = null;
 
-    public AppAdapter(Context context, int textViewResourceId,
-                              List<ApplicationInfo> appsList) {
+    public ListAdapter(Context context, int textViewResourceId,
+                      List<ProfileEntity> appsList) {
         super(context, textViewResourceId, appsList);
         this.context = context;
-        this.appsList = appsList;
+        this.profiles = appsList;
         checkedState = new boolean[appsList.size()];
-        packageManager = context.getPackageManager();
     }
 
     @Override
     public int getCount() {
-        return ((null != appsList) ? appsList.size() : 0);
+        return ((null != profiles) ? profiles.size() : 0);
     }
 
     @Override
-    public ApplicationInfo getItem(int position) {
-        return ((null != appsList) ? appsList.get(position) : null);
+    public ProfileEntity getItem(int position) {
+        return ((null != profiles) ? profiles.get(position) : null);
     }
 
     public boolean changeCheckedState(int position){
@@ -43,9 +43,9 @@ public class AppAdapter extends ArrayAdapter<ApplicationInfo> {
 
     public ArrayList<String> getSelectedApps(){
         ArrayList<String> appPackages = new ArrayList<String>();
-        for(int i = 0; i < appsList.size(); i++){
+        for(int i = 0; i < profiles.size(); i++){
             if(checkedState[i])
-                appPackages.add(appsList.get(i).packageName);
+                appPackages.add(profiles.get(i).getName());
         }
         return appPackages;
     }
@@ -61,18 +61,17 @@ public class AppAdapter extends ArrayAdapter<ApplicationInfo> {
         if (null == view) {
             LayoutInflater layoutInflater = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = layoutInflater.inflate(R.layout.snippet_list_row, null);
+            view = layoutInflater.inflate(R.layout.profile_list_row, null);
         }
 
-        ApplicationInfo applicationInfo = appsList.get(position);
+        String applicationInfo = profiles.get(position).getName();
         if (null != applicationInfo) {
-            TextView appName = (TextView) view.findViewById(R.id.app_name);
+            TextView appName = (TextView) view.findViewById(R.id.profile_list_content);
 //            TextView packageName = (TextView) view.findViewById(R.id.app_paackage);
-            ImageView iconview = (ImageView) view.findViewById(R.id.app_icon);
+//            ImageView iconview = (ImageView) view.findViewById(R.id.app_icon);
 
-            appName.setText(applicationInfo.loadLabel(packageManager));
+            appName.setText(applicationInfo);
 //            packageName.setText(applicationInfo.packageName);
-            iconview.setImageDrawable(applicationInfo.loadIcon(packageManager));
         }
         return view;
     }

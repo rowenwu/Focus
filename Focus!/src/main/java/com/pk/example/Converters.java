@@ -75,14 +75,14 @@ public class Converters {
 
     //converters for minnotification lists
     @TypeConverter
-    public static List<MinNotificationEntity> fromArrayListPreviousNotification (String value) {
+    public static List<PreviousNotificationListEntity> fromListPreviousNotification (String value) {
         Type listType = new TypeToken<List<PreviousNotificationListEntity>>() {
         }.getType();
         return new Gson().fromJson(value, listType);
     }
 
     @TypeConverter
-    public static String fromPreviousNotificationArrayList(List<PreviousNotificationListEntity> list) {
+    public static String fromPreviousNotificationList(List<PreviousNotificationListEntity> list) {
         Gson gson = new Gson();
         String json = gson.toJson(list);
         return json;
