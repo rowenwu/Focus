@@ -5,6 +5,8 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 
+import com.pk.example.entity.ScheduleEntity;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -15,7 +17,7 @@ public class ProfileScheduler {
     private static AlarmManager alarmMgr;
 
     //enable schedule to become active later
-    public static void enableSchedule(Context context, Schedule schedule) {
+    public static void enableSchedule(Context context, ScheduleEntity schedule) {
         //get schedule time and profiles from database
 
         ArrayList<String> profiles = schedule.getProfiles();

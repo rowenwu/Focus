@@ -6,22 +6,22 @@
     density="420dpi"
     format="10"
     plugin-version="2.3.3"
-    timestamp="1508307607849"
+    timestamp="1508311435081"
     token="-5505029584218215959"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="5097" />
+        duration="6442" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="92" />
+        duration="24" />
     <task
         name="verifier"
-        duration="43" />
+        duration="5" />
 
     <artifact
         location="C:\Users\kathe\Focus\Focus!\build\intermediates\split-apk\debug\slices\slice_2.apk"
@@ -70,22 +70,22 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1508306559604"
+        timestamp="1508311357968"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="C:\Users\kathe\Focus\Focus!\build\intermediates\split-apk\debug\slices\slice_1.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\kathe\Focus\Focus!\build\intermediates\split-apk\debug\slices\slice_4.apk"
-            type="SPLIT" />
-        <artifact
             location="C:\Users\kathe\Focus\Focus!\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\kathe\Focus\Focus!\build\intermediates\split-apk\debug\slices\slice_5.apk"
+            location="C:\Users\kathe\Focus\Focus!\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\kathe\Focus\Focus!\build\intermediates\split-apk\debug\slices\slice_7.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\kathe\Focus\Focus!\build\intermediates\split-apk\debug\slices\slice_5.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\kathe\Focus\Focus!\build\outputs\apk\Focus!-debug.apk"
@@ -93,7 +93,7 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1508307607849"
+        timestamp="1508311435081"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="C:\Users\kathe\Focus\Focus!\build\intermediates\split-apk\debug\slices\slice_2.apk"

@@ -95,24 +95,24 @@ public class MainActivity extends Activity {
         else if(v.getId() == R.id.btnPermission){
             toggleService(v);
         }
-        else if(v.getId() == R.id.btnCreateSchedule){
+//        else if(v.getId() == R.id.btnCreateSchedule){
 //            Intent i = new Intent(this, ScheduleViewActivity.class);
 //            i.putExtra("flag", "create");
 //            startActivity(i);
-        }
-        else if(v.getId() == R.id.btnCreateProfile){
-            Intent i = new Intent(this, ProfileViewActivity.class);
-            i.putExtra("flag", "create");
-            startActivity(i);
-        }
-        else if(v.getId() == R.id.btnSchedule){
-            Schedule[] schedules = DummyDb.getAllSchedules();
-            ProfileScheduler.enableSchedule(getApplicationContext(), schedules[0]);
-        }
-        else if(v.getId() == R.id.btnUnSchedule){
-            Schedule[] schedules = DummyDb.getAllSchedules();
-            ProfileScheduler.disableSchedule(getApplicationContext(), schedules[0]);
-        }
+//        }
+//        else if(v.getId() == R.id.btnCreateProfile){
+//            Intent i = new Intent(this, ProfileViewActivity.class);
+//            i.putExtra("flag", "create");
+//            startActivity(i);
+//        }
+//        else if(v.getId() == R.id.btnSchedule){
+//            Schedule[] schedules = DummyDb.getAllSchedules();
+//            ProfileScheduler.enableSchedule(getApplicationContext(), schedules[0]);
+//        }
+//        else if(v.getId() == R.id.btnUnSchedule){
+//            Schedule[] schedules = DummyDb.getAllSchedules();
+//            ProfileScheduler.disableSchedule(getApplicationContext(), schedules[0]);
+//        }
         else if(v.getId() == R.id.btnAllProfiles){
             Intent i = new Intent(this, ProfileListActivity.class);
             i.putExtra("flag","create");

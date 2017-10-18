@@ -17,7 +17,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="All Schedules"
+        android:text="Schedules"
         android:textAllCaps="true"
         android:layout_below="@+id/btnPermission"
         android:id="@+id/btnNavigation"
@@ -29,7 +29,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="All Profiles"
+        android:text="Profiles"
         android:textAllCaps="true"
         android:layout_below="@+id/btnPermission"
         android:id="@+id/btnAllProfiles"
@@ -50,52 +50,52 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Create Schedule"
-        android:textAllCaps="true"
-        android:layout_below="@+id/btnPermission"
-        android:id="@+id/btnCreateSchedule"
-        android:onClick="buttonClicked"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"/>
+    <!--<Button-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Create Schedule"-->
+        <!--android:textAllCaps="true"-->
+        <!--android:layout_below="@+id/btnPermission"-->
+        <!--android:id="@+id/btnCreateSchedule"-->
+        <!--android:onClick="buttonClicked"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentRight="true"/>-->
 
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Create Profile"
-        android:textAllCaps="true"
-        android:layout_below="@+id/btnCreateNotify"
-        android:id="@+id/btnCreateProfile"
-        android:onClick="buttonClicked"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Schedule"
-        android:textAllCaps="true"
-        android:layout_below="@+id/btnCreateProfile"
-        android:id="@+id/btnSchedule"
-        android:onClick="buttonClicked"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Unschedule"
-        android:textAllCaps="true"
-        android:layout_below="@+id/btnSchedule"
-        android:id="@+id/btnUnSchedule"
-        android:onClick="buttonClicked"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"/>
+    <!--<Button-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Create Profile"-->
+        <!--android:textAllCaps="true"-->
+        <!--android:layout_below="@+id/btnCreateNotify"-->
+        <!--android:id="@+id/btnCreateProfile"-->
+        <!--android:onClick="buttonClicked"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentRight="true"/>-->
+    <!--<Button-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Schedule"-->
+        <!--android:textAllCaps="true"-->
+        <!--android:layout_below="@+id/btnCreateProfile"-->
+        <!--android:id="@+id/btnSchedule"-->
+        <!--android:onClick="buttonClicked"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentRight="true"/>-->
+    <!--<Button-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Unschedule"-->
+        <!--android:textAllCaps="true"-->
+        <!--android:layout_below="@+id/btnSchedule"-->
+        <!--android:id="@+id/btnUnSchedule"-->
+        <!--android:onClick="buttonClicked"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentRight="true"/>-->
 
 
     <ScrollView android:layout_width="match_parent"

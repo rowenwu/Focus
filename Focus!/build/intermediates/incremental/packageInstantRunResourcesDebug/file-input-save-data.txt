@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Tue Oct 17 23:02:50 PDT 2017
+#Wed Oct 18 00:22:46 PDT 2017
 210.set=ANDROID_RESOURCE
 14.set=ANDROID_RESOURCE
 180.file=C\:\\Users\\kathe\\Focus\\Focus\!\\build\\intermediates\\res\\resources-debug.ap_\\res\\anim-v21\\design_bottom_sheet_slide_in.xml

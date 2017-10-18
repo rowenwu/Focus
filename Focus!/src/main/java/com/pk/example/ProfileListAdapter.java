@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import com.pk.example.entity.ProfileEntity;
 
@@ -19,6 +20,8 @@ import java.util.List;
 public class ProfileListAdapter extends ArrayAdapter<ProfileEntity> {
     private List<ProfileEntity> profileList = null;
     private Context context;
+    ToggleButton b;
+
 
     public ProfileListAdapter(Context context, int textViewResourceId,
                               List<ProfileEntity> profileList) {
@@ -38,7 +41,7 @@ public class ProfileListAdapter extends ArrayAdapter<ProfileEntity> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         View view = convertView;
         if (null == view) {
             LayoutInflater layoutInflater = (LayoutInflater) context
@@ -49,8 +52,23 @@ public class ProfileListAdapter extends ArrayAdapter<ProfileEntity> {
         ProfileEntity profileEntity = profileList.get(position);
         if (null != profileEntity) {
             TextView profileContext = (TextView) view.findViewById(R.id.name);
-
+            b = (ToggleButton) view.findViewById(R.id.toggBtn);
             profileContext.setText(profileEntity.getName());
+
+            b.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    if (b.isChecked()) {
+                        ProfileScheduler.turnOnProfile(context, getItem(position).getName());
+                        //TODO UPDATE PROFILE IS active IN DATABASE
+                    } else {
+                        ProfileScheduler.turnOffProfile(context, getItem(position).getName());
+
+                    }
+                }
+            });
             //still need to set info
             //appName.setText(applicationInfo.loadLabel(packageManager));
             //packageName.setText(applicationInfo.packageName);

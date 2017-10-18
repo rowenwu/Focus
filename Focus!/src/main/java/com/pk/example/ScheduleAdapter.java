@@ -11,6 +11,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.pk.example.entity.ScheduleEntity;
 
@@ -18,6 +19,7 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
     private List<ScheduleEntity> scheduleEntities = null;
     private Context context;
     SwitchCompat switchCompat;
+    ToggleButton b;
 
 
     public ScheduleAdapter(Context context, int textViewResourceId,
@@ -38,7 +40,7 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         View view = convertView;
         if (null == view) {
             LayoutInflater layoutInflater = (LayoutInflater) context
@@ -49,11 +51,23 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
         ScheduleEntity schedule = scheduleEntities.get(position);
         if (null != schedule) {
             TextView scheduleName = (TextView) view.findViewById(R.id.name);
-//            TextView notificationContext = (TextView) view.findViewById(R.id.notifcation_context);
-//            TextView timeAndDate =(TextView) view.findViewById(R.id.time_and_date);
-//            ImageView iconview = (ImageView) view.findViewById(R.id.app_icon);
+            b = (ToggleButton) view.findViewById(R.id.toggBtn);
 
             scheduleName.setText(schedule.getName());
+            b.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    if (b.isChecked()) {
+                        ProfileScheduler.enableSchedule(context, getItem(position));
+                        //TODO UPDATE SCHEDULE IS ENABLED IN DATABASE
+                    } else {
+                        ProfileScheduler.disableSchedule(context, getItem(position));
+
+                    }
+                }
+            });
 
 
             //still need to set info

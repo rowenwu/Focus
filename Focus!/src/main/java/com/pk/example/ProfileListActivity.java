@@ -65,19 +65,19 @@ public class ProfileListActivity extends ListActivity {
 //                setEmptyState();
                 //create a fake schedule to insert
                 //if no schedules in db
-//                ProfileEntity fakeProfile = new ProfileEntity(new Profile("There are no profiles to display.", new ArrayList<>( Arrays.asList("Buenos Aires", "Córdoba", "La Plata")), false));
-//                db.profileDao().insert(fakeProfile);
-//                profileList = db.profileDao().loadAllProfilesAsync();
-//                profileList.add(fakeProfile);
+                ProfileEntity fakeProfile = new ProfileEntity(new Profile("There are no profiles to display.", new ArrayList<>( Arrays.asList("Buenos Aires", "Córdoba", "La Plata")), false));
+                db.profileDao().insert(fakeProfile);
+                profileList = db.profileDao().loadAllProfilesAsync();
+                profileList.add(fakeProfile);
             }
-            else {
+//            else {
 
                 profileListAdapter = new ProfileListAdapter(ProfileListActivity.this,
                         R.layout.schedule_list_row, profileList);
                 db = AppDatabase.getDatabase(getApplicationContext());
 
                 profileList = db.profileDao().loadAllProfilesAsync();
-            }
+//            }
             return null;
 
         }
