@@ -40,10 +40,10 @@
         <activity
             android:name=".ProfileViewActivity"
             android:label="@string/title_activity_create_profile"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".ProfileListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.pk.example.MainActivity" />
+                android:value="com.pk.example.ProfileListActivity" />
         </activity>
         <!-- <activity -->
         <!-- android:name=".TabbedActivity" -->
@@ -80,10 +80,10 @@
         <activity
             android:name=".ScheduleViewActivity"
             android:label="Schedule"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".ScheduleListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.pk.example.MainActivity" />
+                android:value="com.pk.example.ScheduleListActivity" />
         </activity>
     </application>
 

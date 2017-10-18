@@ -61,12 +61,12 @@ public class ListAdapter extends ArrayAdapter<ProfileEntity> {
         if (null == view) {
             LayoutInflater layoutInflater = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = layoutInflater.inflate(R.layout.schedule_list_row, null);
+            view = layoutInflater.inflate(R.layout.profile_list_row, null);
         }
 
         String applicationInfo = profiles.get(position).getName();
         if (null != applicationInfo) {
-            TextView appName = (TextView) view.findViewById(R.id.name);
+            TextView appName = (TextView) view.findViewById(R.id.profile_list_content);
 //            TextView packageName = (TextView) view.findViewById(R.id.app_paackage);
 //            ImageView iconview = (ImageView) view.findViewById(R.id.app_icon);
 

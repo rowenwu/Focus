@@ -2,9 +2,11 @@ package com.pk.example;
 
 import android.app.ListActivity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.sax.StartElementListener;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -45,6 +47,12 @@ public class ProfileListActivity extends ListActivity {
 //        textView.setText("No profiles to display.");
 //    }
 
+    public void buttonClicked(View v) {
+        Intent i = new Intent(this, ProfileViewActivity.class);
+        i.putExtra("flag", "create");
+        startActivity(i);
+
+    }
     private class LoadProfiles extends AsyncTask<Void, Void, Void> {
         private ProgressDialog progress = null;
 
