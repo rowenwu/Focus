@@ -52,7 +52,7 @@ public class DummyDb {
         Date date =new Date(t + (minsFromNow * ONE_MINUTE_IN_MILLIS));
         ArrayList<Date> startTimes = new ArrayList<>();
         startTimes.add(date);
-        return new Schedule("ScheduleName", profiles, startTimes, 0, 120, true);
+        return new Schedule("ScheduleName", profiles, startTimes, 0, 120, true, true);
     }
 
     // fake
@@ -65,6 +65,6 @@ public class DummyDb {
         Date date =new Date(t + (minsFromNow * ONE_MINUTE_IN_MILLIS));
         ArrayList<Date> startTimes = new ArrayList<>();
         startTimes.add(date);
-        return new Schedule(name, profiles, startTimes, 0, 120, true);
+        return new Schedule(name, profiles, startTimes, 0, 120, true, true);
     }
 }

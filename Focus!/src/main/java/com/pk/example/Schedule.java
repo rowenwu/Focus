@@ -17,17 +17,20 @@ public class Schedule {
 
     private boolean repeatWeekly;
 
+    private boolean isEnabled;
+
     public Schedule() {
 
     }
 
-    public Schedule(String name, ArrayList<String> profiles, ArrayList<Date> startTimes, int durationHr, int durationMin, boolean repeatWeekly){
+    public Schedule(String name, ArrayList<String> profiles, ArrayList<Date> startTimes, int durationHr, int durationMin, boolean repeatWeekly, boolean isEnabled){
         this.name = name;
         this.profiles = profiles;
         this.startTimes = startTimes;
         this.durationHr = durationHr;
         this.durationMin = durationMin;
         this.repeatWeekly = repeatWeekly;
+        this.isEnabled = isEnabled;
     }
 
     public String getName() {
@@ -55,5 +58,10 @@ public class Schedule {
     public boolean getRepeatWeekly() {
         return repeatWeekly;
     }
+
+    public boolean getIsEnabled() {
+        return isEnabled;
+    }
+
 
 }

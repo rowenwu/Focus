@@ -20,13 +20,16 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
     private Context context;
     SwitchCompat switchCompat;
     ToggleButton b;
-
+    ScheduleEntity schedule;
+    private AppDatabase database;
 
     public ScheduleAdapter(Context context, int textViewResourceId,
                                List<ScheduleEntity> scheduleEntities) {
         super(context, textViewResourceId, scheduleEntities);
         this.context = context;
         this.scheduleEntities = scheduleEntities;
+        database = AppDatabase.getDatabase(context);
+
     }
 
     @Override
@@ -48,9 +51,9 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
             view = layoutInflater.inflate(R.layout.schedule_list_row, null);
         }
 
-        ScheduleEntity schedule = scheduleEntities.get(position);
+        schedule = scheduleEntities.get(position);
         if (null != schedule) {
-            TextView scheduleName = (TextView) view.findViewById(R.id.name);
+            final TextView scheduleName = (TextView) view.findViewById(R.id.name);
             b = (ToggleButton) view.findViewById(R.id.toggBtn);
 
             scheduleName.setText(schedule.getName());
@@ -62,9 +65,14 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
                     if (b.isChecked()) {
                         ProfileScheduler.enableSchedule(context, getItem(position));
                         //TODO UPDATE SCHEDULE IS ENABLED IN DATABASE
+//                        schedule.setIsEnabled(true);
+//                        database.scheduleDao().update(schedule);
+
+
                     } else {
                         ProfileScheduler.disableSchedule(context, getItem(position));
-
+//                        schedule.setIsEnabled(false);
+//                        database.scheduleDao().update(schedule);
                     }
                 }
             });

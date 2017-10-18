@@ -198,7 +198,7 @@ public class ScheduleViewActivity extends ListActivity{
                 profiles = listadaptor.getSelectedApps();
             Boolean repeatWeekly = repeatWeeklyBox.isChecked();
 
-            ScheduleEntity scheduleInsert = new ScheduleEntity(new Schedule(pname, profiles, startTimes, durationHours, durationMins, repeatWeekly));
+            ScheduleEntity scheduleInsert = new ScheduleEntity(new Schedule(pname, profiles, startTimes, durationHours, durationMins, repeatWeekly, true));
 //            ScheduleEntity fakeSchedule = new ScheduleEntity(DummyDb.makeFakeSchedule("There are no schedules to display.", 5));
 //            List<ScheduleEntity> scheduleEntityList = database.scheduleDao().loadAllSchedulesSync();
 //                scheduleEntityList.add(fakeSchedule);

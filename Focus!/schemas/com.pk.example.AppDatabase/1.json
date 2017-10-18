@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "ae77c627ded38e471f7ab74ff512c371",
+    "identityHash": "1727d25c26a0ccda774bf1bbd5ce1a24",
     "entities": [
       {
         "tableName": "min_notifications",
@@ -114,7 +114,7 @@
       },
       {
         "tableName": "schedules",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`_name` TEXT, `_profiles` TEXT, `_startTimes` TEXT, `_durationHr` INTEGER, `_durationMin` INTEGER, `_repeatWeekly` INTEGER, `name` TEXT, `profiles` TEXT, `startTimes` TEXT, `durationHr` INTEGER, `durationMin` INTEGER, `repeatWeekly` INTEGER, PRIMARY KEY(`_name`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`_name` TEXT, `_profiles` TEXT, `_startTimes` TEXT, `_durationHr` INTEGER, `_durationMin` INTEGER, `_repeatWeekly` INTEGER, `_isEnabled` INTEGER, `name` TEXT, `profiles` TEXT, `startTimes` TEXT, `durationHr` INTEGER, `durationMin` INTEGER, `repeatWeekly` INTEGER, `isEnabled` INTEGER, PRIMARY KEY(`_name`))",
         "fields": [
           {
             "fieldPath": "_name",
@@ -147,6 +147,11 @@
             "affinity": "INTEGER"
           },
           {
+            "fieldPath": "_isEnabled",
+            "columnName": "_isEnabled",
+            "affinity": "INTEGER"
+          },
+          {
             "fieldPath": "name",
             "columnName": "name",
             "affinity": "TEXT"
@@ -174,6 +179,11 @@
           {
             "fieldPath": "repeatWeekly",
             "columnName": "repeatWeekly",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "isEnabled",
+            "columnName": "isEnabled",
             "affinity": "INTEGER"
           }
         ],
@@ -237,7 +247,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"ae77c627ded38e471f7ab74ff512c371\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"1727d25c26a0ccda774bf1bbd5ce1a24\")"
     ]
   }
 }
