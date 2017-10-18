@@ -6,11 +6,15 @@ import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
+import android.arch.persistence.room.Update;
 
 
+import com.pk.example.MinNotification;
+import com.pk.example.entity.MinNotificationEntity;
 import com.pk.example.entity.PreviousNotificationListEntity;
 import com.pk.example.entity.ScheduleEntity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -18,22 +22,16 @@ import java.util.List;
 @Dao
 public interface PreviousNotificationListDao {
     @Query("SELECT * FROM prev_notifications")
-    LiveData<List<PreviousNotificationListEntity>> loadAllPrevNotifications();
+    List<PreviousNotificationListEntity> loadAllPrevNotifications();
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertAll(List<PreviousNotificationListEntity> prevNotifications);
-
-    @Query("select * from prev_notifications where id = :prevNotificationID")
-    LiveData<PreviousNotificationListEntity> loadPrevNotification(int prevNotificationID);
-
-    @Query("select * from prev_notifications where id = :prevNotificationID")
-    PreviousNotificationListEntity loadPrevNotificationSync(int prevNotificationID);
-
-    //insert a new notification
+    //insert a new notification list entity
     @Insert
-    public void insert(PreviousNotificationListEntity previousNotificationListEntity);
+    void insert(PreviousNotificationListEntity previousNotificationListEntity);
+
+    @Update
+    void update(PreviousNotificationListEntity previousNotificationListEntity);
 
     //delete all notifications
     @Query("DELETE FROM curr_notifications")
-    public void deleteAll();
+    void deleteAll();
 }

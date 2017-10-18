@@ -5,37 +5,38 @@ import com.pk.example.Profile;
 
 import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity(tableName = "curr_notifications")
 public class CurrentNotificationListEntity {
 
     @PrimaryKey
-    private int id;
+    private int _listId;
 
-    //    @Embedded
-    private ArrayList<MinNotification> notificationList;
+    @Embedded
+    private MinNotificationEntity _notification;
 
     public CurrentNotificationListEntity() {
-        notificationList = new ArrayList<>();
     }
 
-    public int getId(){
-        return id;
+    public int getListId(){
+        return _listId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setListId(int id) {
+        this._listId = id;
     }
 
-    public ArrayList<MinNotification> getNotificationList(){
-        return notificationList;
+    public MinNotificationEntity getNotification(){
+        return _notification;
     }
 
-    public void setNotificationList(ArrayList<MinNotification> notificationList) {
-        this.notificationList = notificationList;
+    public void setNotification(MinNotificationEntity notification) {
+        this._notification = notification;
     }
 }

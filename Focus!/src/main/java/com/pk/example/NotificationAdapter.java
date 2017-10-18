@@ -8,31 +8,30 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.pk.example.entity.MinNotificationEntity;
+import com.pk.example.entity.ScheduleEntity;
 
-/**
- * Created by Andy on 10/6/2017.
- */
-
-public class NotificationAdapter extends ArrayAdapter<MinNotification> {
-    private List<MinNotification> notificationList = null;
+public class NotificationAdapter extends ArrayAdapter<MinNotificationEntity> {
+    private List<MinNotificationEntity> minNotificationEntities = null;
     private Context context;
 
     public NotificationAdapter(Context context, int textViewResourceId,
-                               List<MinNotification> notificationList) {
-        super(context, textViewResourceId, notificationList);
+                               List<MinNotificationEntity> minNotificationEntities) {
+        super(context, textViewResourceId, minNotificationEntities);
         this.context = context;
-        this.notificationList = notificationList;
+        this.minNotificationEntities = minNotificationEntities;
     }
 
     @Override
     public int getCount() {
-        return ((null != notificationList) ? notificationList.size() : 0);
+        return ((null != minNotificationEntities) ? minNotificationEntities.size() : 0);
     }
 
     @Override
-    public MinNotification getItem(int position) {
-        return ((null != notificationList) ? notificationList.get(position) : null);
+    public MinNotificationEntity getItem(int position) {
+        return ((null != minNotificationEntities) ? minNotificationEntities.get(position) : null);
     }
 
     @Override
@@ -44,17 +43,17 @@ public class NotificationAdapter extends ArrayAdapter<MinNotification> {
             view = layoutInflater.inflate(R.layout.notification_list_row, null);
         }
 
-        MinNotification notifcation = notificationList.get(position);
-        if (null != notifcation) {
+        MinNotificationEntity minNotification = minNotificationEntities.get(position);
+        if (null != minNotification) {
             TextView appName = (TextView) view.findViewById(R.id.app_name);
             TextView notificationContext = (TextView) view.findViewById(R.id.notifcation_context);
-            TextView timeAndDate =(TextView) view.findViewById(R.id.time_and_date);
-            ImageView iconview = (ImageView) view.findViewById(R.id.app_icon);
+            TextView timeAndDate = (TextView) view.findViewById(R.id.time_and_date);
+            // ImageView iconview = (ImageView) view.findViewById(R.id.app_icon);
 
-            //still need to set info
-            //appName.setText(applicationInfo.loadLabel(packageManager));
-            //packageName.setText(applicationInfo.packageName);
-            //iconview.setImageDrawable(applicationInfo.loadIcon(packageManager));
+            appName.setText(minNotification.getAppName());
+            notificationContext.setText(minNotification.getNotificationContext());
+            timeAndDate.setText(minNotification.getDate().toLocaleString().substring(0, 11));
+            //holder.iconview.setImageBitmap(minNotificationEntity.getAppIcon());
         }
         return view;
     }

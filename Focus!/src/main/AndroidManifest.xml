@@ -85,6 +85,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pk.example.ScheduleListActivity" />
         </activity>
+        <activity android:label="Notification List" android:name=".NotificationListActivity" android:parentActivityName=".MainActivity">
+
+        <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.pk.example.ScheduleListActivity"/>
+
+    </activity>
     </application>
 
 </manifest>

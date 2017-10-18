@@ -1,12 +1,19 @@
 package com.pk.example.entity;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
+import android.graphics.Bitmap;
 
 import com.pk.example.MinNotification;
 
 import java.util.Date;
 
+/*
+@Entity(tableName = "min_notifications", foreignKeys = @ForeignKey(entity = PreviousNotificationListEntity.class,
+        parentColumns = "id",
+        childColumns = "_id"))
+*/
 @Entity(tableName = "min_notifications")
 public class MinNotificationEntity extends MinNotification {
 
@@ -14,7 +21,7 @@ public class MinNotificationEntity extends MinNotification {
     private int _id;
     private String _appName;
     private String _notificationContext;
-    private String _appIcon;
+    // private Bitmap _appIcon;
     private Date _date;
 
     @Override
@@ -43,16 +50,16 @@ public class MinNotificationEntity extends MinNotification {
     public void setNotificationContext(String notificationContext) {
         this._notificationContext = notificationContext;
     }
+    /*
+        @Override
+        public Bitmap getAppIcon() {
+            return _appIcon;
+        }
 
-    @Override
-    public String getAppIcon() {
-        return _appIcon;
-    }
-
-    public void setAppIcon(String appIcon) {
-        this._appIcon = appIcon;
-    }
-
+        public void setAppIcon(Bitmap appIcon) {
+            this._appIcon = appIcon;
+        }
+    */
     @Override
     public Date getDate() {
         return _date;
@@ -66,9 +73,11 @@ public class MinNotificationEntity extends MinNotification {
     }
 
     public MinNotificationEntity(MinNotification minNotification) {
+        this._id = minNotification.getId();
         this._appName = minNotification.getAppName();
         this._notificationContext = minNotification.getNotificationContext();
-        this._appIcon = minNotification.getAppIcon();
+        //this._appIcon = minNotification.getAppIcon();
         this._date = minNotification.getDate();
     }
+
 }

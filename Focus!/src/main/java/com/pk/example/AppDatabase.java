@@ -17,7 +17,7 @@ import com.pk.example.entity.ScheduleEntity;
 import com.pk.example.entity.PreviousNotificationListEntity;
 import com.pk.example.entity.CurrentNotificationListEntity;
 
-@Database(entities = {MinNotificationEntity.class, ProfileEntity.class, ScheduleEntity.class, PreviousNotificationListEntity.class, CurrentNotificationListEntity.class}, version = 1)
+@Database(entities = {MinNotificationEntity.class, ProfileEntity.class, ScheduleEntity.class, PreviousNotificationListEntity.class, CurrentNotificationListEntity.class}, version = 2)
 @TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
 

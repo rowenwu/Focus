@@ -118,6 +118,10 @@ public class MainActivity extends Activity {
             i.putExtra("flag","create");
             startActivity(i);
         }
+        else if(v.getId() == R.id.btnNotificationList){
+            Intent i = new Intent(this, NotificationListActivity.class);
+            startActivity(i);
+        }
 
     }
 

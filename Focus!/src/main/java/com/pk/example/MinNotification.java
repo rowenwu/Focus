@@ -1,5 +1,7 @@
 package com.pk.example;
 
+import android.graphics.Bitmap;
+
 import java.util.Date;
 
 public class MinNotification {
@@ -10,12 +12,18 @@ public class MinNotification {
 
     public String notificationContext;
 
-    public String appIcon;
+    //public Bitmap appIcon;
 
     public Date date;
 
     public MinNotification() {
 
+    }
+
+    public MinNotification(String appName, String notificationContext, Date date) {
+        this.appName = appName;
+        this.notificationContext = notificationContext;
+        this .date = date;
     }
 
     public int getId() {
@@ -30,10 +38,10 @@ public class MinNotification {
         return notificationContext;
     }
 
-    public String getAppIcon() {
-        return appIcon;
-    }
-
+    /* public Bitmap getAppIcon() {
+         return appIcon;
+     }
+ */
     public Date getDate() {
         return date;
     }
