@@ -44,6 +44,7 @@ public class ProfileListAdapter extends ArrayAdapter<ProfileEntity> {
         return ((null != profileList) ? profileList.get(position) : null);
     }
 
+
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         View view = convertView;

@@ -7,6 +7,7 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 
+import com.pk.example.MinNotification;
 import com.pk.example.entity.MinNotificationEntity;
 
 import java.util.List;
@@ -15,6 +16,9 @@ import java.util.List;
 public interface MinNotificationDao {
     @Query("SELECT * FROM min_notifications")
     LiveData<List<MinNotificationEntity>> loadAllMinNotifications();
+
+    @Insert
+    void insert(MinNotificationEntity minNotification);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAll(List<MinNotificationEntity> minNotifications);
@@ -25,5 +29,7 @@ public interface MinNotificationDao {
     @Query("select * from min_notifications where _id = :minNotificationID")
     MinNotificationEntity loadMinNotificationASync(int minNotificationID);
 
+    @Query("select * from min_notifications where _profileName = :profileName")
+    List<MinNotificationEntity> loadMinNotificationsFromProfileSync(String profileName);
 
 }

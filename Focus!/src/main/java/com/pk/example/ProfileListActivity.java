@@ -53,6 +53,17 @@ public class ProfileListActivity extends ListActivity {
         startActivity(i);
 
     }
+
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+//        v.setSelected(true);
+        Intent i = new Intent(this, ProfileViewActivity.class);
+        i.putExtra("flag", "edit");
+        i.putExtra("name", profileListAdapter.getItem(position).getName());
+        startActivity(i);
+    }
+
     private class LoadProfiles extends AsyncTask<Void, Void, Void> {
         private ProgressDialog progress = null;
 

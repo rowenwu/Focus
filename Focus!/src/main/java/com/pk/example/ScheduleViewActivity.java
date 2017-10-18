@@ -49,6 +49,7 @@ public class ScheduleViewActivity extends ListActivity{
     CheckBox repeatWeeklyBox;
     private AppDatabase database;
     ScheduleEntity scheduleInsert;
+    CheckBox[] dayOfWeekBoxes;
 
 
     @Override
@@ -66,7 +67,15 @@ public class ScheduleViewActivity extends ListActivity{
             txtDate=(EditText)findViewById(R.id.in_date);
             txtTime=(EditText)findViewById(R.id.in_time);
             txtDuration=(EditText)findViewById(R.id.in_duration);
-            repeatWeeklyBox = (CheckBox)findViewById(R.id.simpleCheckBox);
+//            repeatWeeklyBox = (CheckBox)findViewById(R.id.repeatWeeklyBox);
+//            repeatWeeklyBox = (CheckBox)findViewById(R.id.repeatWeeklyBox);
+//            repeatWeeklyBox = (CheckBox)findViewById(R.id.repeatWeeklyBox);
+//            repeatWeeklyBox = (CheckBox)findViewById(R.id.repeatWeeklyBox);
+//            repeatWeeklyBox = (CheckBox)findViewById(R.id.repeatWeeklyBox);
+//            repeatWeeklyBox = (CheckBox)findViewById(R.id.repeatWeeklyBox);
+
+
+
             textView=(TextView)findViewById(R.id.textView);
 
             new LoadProfiles().execute();

@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 3,
-    "identityHash": "130f0b5f6db97abfdddeed116b90365c",
+    "identityHash": "4bbef50111c978078da6c994cc6ff089",
     "entities": [
       {
         "tableName": "min_notifications",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`appName` TEXT, `notificationContext` TEXT, `date` INTEGER, `_id` INTEGER PRIMARY KEY AUTOINCREMENT, `_appName` TEXT, `_notificationContext` TEXT, `_date` INTEGER, `id` INTEGER)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`appName` TEXT, `notificationContext` TEXT, `date` INTEGER, `profileName` TEXT, `_id` INTEGER PRIMARY KEY AUTOINCREMENT, `_appName` TEXT, `_notificationContext` TEXT, `_date` INTEGER, `_profileName` TEXT, `id` INTEGER)",
         "fields": [
           {
             "fieldPath": "appName",
@@ -22,6 +22,11 @@
             "fieldPath": "date",
             "columnName": "date",
             "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "profileName",
+            "columnName": "profileName",
+            "affinity": "TEXT"
           },
           {
             "fieldPath": "_id",
@@ -42,6 +47,11 @@
             "fieldPath": "_date",
             "columnName": "_date",
             "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "_profileName",
+            "columnName": "_profileName",
+            "affinity": "TEXT"
           },
           {
             "fieldPath": "id",
@@ -188,7 +198,7 @@
       },
       {
         "tableName": "prev_notifications",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`listId` INTEGER, `appName` TEXT, `notificationContext` TEXT, `date` INTEGER, `_id` INTEGER, `_appName` TEXT, `_notificationContext` TEXT, `_date` INTEGER, `id` INTEGER, PRIMARY KEY(`listId`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`listId` INTEGER, `appName` TEXT, `notificationContext` TEXT, `date` INTEGER, `profileName` TEXT, `_id` INTEGER, `_appName` TEXT, `_notificationContext` TEXT, `_date` INTEGER, `_profileName` TEXT, `id` INTEGER, PRIMARY KEY(`listId`))",
         "fields": [
           {
             "fieldPath": "listId",
@@ -211,6 +221,11 @@
             "affinity": "INTEGER"
           },
           {
+            "fieldPath": "notification.profileName",
+            "columnName": "profileName",
+            "affinity": "TEXT"
+          },
+          {
             "fieldPath": "notification._id",
             "columnName": "_id",
             "affinity": "INTEGER"
@@ -231,6 +246,11 @@
             "affinity": "INTEGER"
           },
           {
+            "fieldPath": "notification._profileName",
+            "columnName": "_profileName",
+            "affinity": "TEXT"
+          },
+          {
             "fieldPath": "notification.id",
             "columnName": "id",
             "affinity": "INTEGER"
@@ -247,7 +267,7 @@
       },
       {
         "tableName": "curr_notifications",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`_listId` INTEGER, `appName` TEXT, `notificationContext` TEXT, `date` INTEGER, `_id` INTEGER, `_appName` TEXT, `_notificationContext` TEXT, `_date` INTEGER, `id` INTEGER, PRIMARY KEY(`_listId`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`_listId` INTEGER, `appName` TEXT, `notificationContext` TEXT, `date` INTEGER, `profileName` TEXT, `_id` INTEGER, `_appName` TEXT, `_notificationContext` TEXT, `_date` INTEGER, `_profileName` TEXT, `id` INTEGER, PRIMARY KEY(`_listId`))",
         "fields": [
           {
             "fieldPath": "_listId",
@@ -270,6 +290,11 @@
             "affinity": "INTEGER"
           },
           {
+            "fieldPath": "_notification.profileName",
+            "columnName": "profileName",
+            "affinity": "TEXT"
+          },
+          {
             "fieldPath": "_notification._id",
             "columnName": "_id",
             "affinity": "INTEGER"
@@ -290,6 +315,11 @@
             "affinity": "INTEGER"
           },
           {
+            "fieldPath": "_notification._profileName",
+            "columnName": "_profileName",
+            "affinity": "TEXT"
+          },
+          {
             "fieldPath": "_notification.id",
             "columnName": "id",
             "affinity": "INTEGER"
@@ -307,7 +337,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"130f0b5f6db97abfdddeed116b90365c\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"4bbef50111c978078da6c994cc6ff089\")"
     ]
   }
 }

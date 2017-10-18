@@ -65,7 +65,7 @@ public class NotificationListActivity extends ListActivity {
 //                //create date object
                 Date date = Calendar.getInstance().getTime();
 //                //create a fake notification entity
-                MinNotificationEntity fakeNotification = new MinNotificationEntity(new MinNotification("", "There are no notifications to display", date));
+                MinNotificationEntity fakeNotification = new MinNotificationEntity(new MinNotification("", "There are no notifications to display", date, ""));
 //                //add the notification entity to the notification list entity
                 fakePreviousNotificationListEntity.addNotification(fakeNotification);
 //                //insert the list entity into the datebase

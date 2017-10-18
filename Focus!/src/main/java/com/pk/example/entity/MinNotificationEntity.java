@@ -23,6 +23,7 @@ public class MinNotificationEntity extends MinNotification {
     private String _notificationContext;
     // private Bitmap _appIcon;
     private Date _date;
+    private String _profileName;
 
     @Override
     public int getId() {
@@ -41,6 +42,16 @@ public class MinNotificationEntity extends MinNotification {
     public void setAppName(String appName) {
         this._appName = appName;
     }
+
+    @Override
+    public String getProfileName() {
+        return _profileName;
+    }
+
+    public void setProfileName(String profileName) {
+        this._profileName = profileName;
+    }
+
 
     @Override
     public String getNotificationContext() {

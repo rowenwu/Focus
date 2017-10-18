@@ -32,6 +32,7 @@ public class ProfileViewActivity extends ListActivity {
     private PackageManager packageManager = null;
     private List<ApplicationInfo> applist = null;
     private AppAdapter listadaptor = null;
+    private String name;
 
     private AppDatabase db;
 
@@ -44,6 +45,8 @@ public class ProfileViewActivity extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        db = AppDatabase.getDatabase(getApplicationContext());
+
         flag = String.valueOf(getIntent().getStringExtra("flag"));
 
         // create profile mode
@@ -54,12 +57,12 @@ public class ProfileViewActivity extends ListActivity {
             packageManager = getPackageManager();
 
             new LoadApplications().execute();
-            ListView listView = getListView();
-            listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+
         }
         // edit/delete profile mode
         else if (flag.equals("edit")) {
-            profileEntity = (ProfileEntity) getIntent().getSerializableExtra("profile");
+            name = getIntent().getStringExtra("name");
+//            profileEntity = (ProfileEntity) getIntent().getSerializableExtra("profile");
             setContentView(R.layout.activity_create_profile);
             getActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -71,16 +74,21 @@ public class ProfileViewActivity extends ListActivity {
 
             // populate editTextProfileName with current profile name
             EditText profileName = (EditText) findViewById(R.id.editTextProfileName);
-            profileName.setText(profileEntity.getName());
+//            profileName.setText(profileEntity.getName());
+            profileName.setText(name);
 
+            // NEED TO DO THIS IN THE ASYNC LOADAPPLICATIONS
             // select apps in app list that are currently in profile
-            for (int i = 0; i < applist.size(); i++) {
-                if (profileEntity.getAppsToBlock().contains(applist.get(i).packageName)) {
-                    listView.setItemChecked(i, true);
-                }
-            }
+//            for (int i = 0; i < applist.size(); i++) {
+//                if (profileEntity.getAppsToBlock().contains(applist.get(i).packageName)) {
+//                    listView.setItemChecked(i, true);
+//                }
+//            }
 
         }
+
+        ListView listView = getListView();
+        listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
     }
 
     @Override
@@ -123,7 +131,6 @@ public class ProfileViewActivity extends ListActivity {
 //            // add to database
 //            profileDao.insert(newProfileEntity);
 
-            db = AppDatabase.getDatabase(getApplicationContext());
 
 
             // crashing??????????
@@ -211,6 +218,10 @@ public class ProfileViewActivity extends ListActivity {
 
         @Override
         protected Void doInBackground(Void... params) {
+            if(name != null) {
+                profileEntity = db.profileDao().loadProfileSync(name);
+            }
+
             applist = packageManager.getInstalledApplications(PackageManager.GET_META_DATA);
             listadaptor = new AppAdapter(ProfileViewActivity.this,
                     R.layout.snippet_list_row, applist);
@@ -233,7 +244,7 @@ public class ProfileViewActivity extends ListActivity {
         @Override
         protected void onPreExecute() {
             progress = ProgressDialog.show(ProfileViewActivity.this, null,
-                    "Loading application info...");
+                    "Loading profile...");
             super.onPreExecute();
         }
 
