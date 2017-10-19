@@ -17,7 +17,8 @@ import com.pk.example.entity.ScheduleEntity;
 import com.pk.example.entity.PreviousNotificationListEntity;
 import com.pk.example.entity.CurrentNotificationListEntity;
 
-@Database(entities = {MinNotificationEntity.class, ProfileEntity.class, ScheduleEntity.class, PreviousNotificationListEntity.class, CurrentNotificationListEntity.class}, version = 3)
+@Database(entities = {MinNotificationEntity.class, ProfileEntity.class, ScheduleEntity.class,
+        PreviousNotificationListEntity.class, CurrentNotificationListEntity.class}, version = 6)
 @TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
 
@@ -25,6 +26,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public static AppDatabase getDatabase(Context context) {
         if (INSTANCE == null) {
+            context.deleteDatabase("db");
             INSTANCE =
                     Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "db")
                             .allowMainThreadQueries()

@@ -2,6 +2,7 @@ package com.pk.example.dao;
 
 import android.app.Notification;
 import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.MutableLiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
@@ -34,4 +35,8 @@ public interface PreviousNotificationListDao {
     //delete all notifications
     @Query("DELETE FROM curr_notifications")
     void deleteAll();
+
+    //async tasks
+    @Query("SELECT * FROM prev_notifications")
+    LiveData<List<PreviousNotificationListEntity>> loadAllPrevNotificationsAsync();
 }

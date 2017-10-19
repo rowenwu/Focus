@@ -59,9 +59,11 @@ public class PreviousNotificationListEntity {
 
     public void setNotification(MinNotificationEntity notification) {
         this.notification = notification;
+        this.listId = notification.getId();
     }
 
     public void addNotification(MinNotificationEntity minNotification) {
         this.notification = minNotification;
+        this.listId = minNotification.getId();
     }
 }

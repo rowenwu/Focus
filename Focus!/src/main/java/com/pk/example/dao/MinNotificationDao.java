@@ -3,12 +3,14 @@ package com.pk.example.dao;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
+import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 
 import com.pk.example.MinNotification;
 import com.pk.example.entity.MinNotificationEntity;
+import com.pk.example.entity.ProfileEntity;
 
 import java.util.List;
 
@@ -16,6 +18,9 @@ import java.util.List;
 public interface MinNotificationDao {
     @Query("SELECT * FROM min_notifications")
     LiveData<List<MinNotificationEntity>> loadAllMinNotifications();
+
+    @Delete
+    void delete(MinNotificationEntity minNotification);
 
     @Insert
     void insert(MinNotificationEntity minNotification);

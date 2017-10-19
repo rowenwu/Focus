@@ -50,6 +50,7 @@ public class ScheduleViewActivity extends ListActivity{
     private AppDatabase database;
     ScheduleEntity scheduleInsert;
     CheckBox[] dayOfWeekBoxes;
+    int[] daysOfWeek = {Calendar.SUNDAY, Calendar.MONDAY, Calendar.TUESDAY, Calendar.WEDNESDAY, Calendar.THURSDAY, Calendar.FRIDAY, Calendar.SATURDAY};
 
 
     @Override
@@ -58,29 +59,31 @@ public class ScheduleViewActivity extends ListActivity{
         flag = String.valueOf(getIntent().getStringExtra("flag"));
         database = AppDatabase.getDatabase(getApplicationContext());
 
+        repeatWeeklyBox =(CheckBox)findViewById(R.id.repeatWeeklyBox);
+        btnDatePicker=(Button)findViewById(R.id.btn_date);
+        btnTimePicker=(Button)findViewById(R.id.btn_time);
+        txtDate=(EditText)findViewById(R.id.in_date);
+        txtTime=(EditText)findViewById(R.id.in_time);
+        txtDuration=(EditText)findViewById(R.id.in_duration);
+        setContentView(R.layout.activity_schedule_view);
 
+        textView=(TextView)findViewById(R.id.textView);
+
+        new LoadProfiles().execute();
+        ListView listView = getListView();
+        listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         // create profile mode
+//            dayOfWeekBoxes[0] = (CheckBox)findViewById(R.id.checkSun);
+//            dayOfWeekBoxes[1] = (CheckBox)findViewById(R.id.checkMon);
+//            dayOfWeekBoxes[2] = (CheckBox)findViewById(R.id.checkTues);
+//            dayOfWeekBoxes[3] = (CheckBox)findViewById(R.id.checkWed);
+//            dayOfWeekBoxes[4] = (CheckBox)findViewById(R.id.checkThurs);
+//            dayOfWeekBoxes[5] = (CheckBox)findViewById(R.id.checkFri);
+//            dayOfWeekBoxes[5] = (CheckBox)findViewById(R.id.checkSat);
+
         if (flag.equals("create")) {
-            setContentView(R.layout.activity_schedule_view);
-            btnDatePicker=(Button)findViewById(R.id.btn_date);
-            btnTimePicker=(Button)findViewById(R.id.btn_time);
-            txtDate=(EditText)findViewById(R.id.in_date);
-            txtTime=(EditText)findViewById(R.id.in_time);
-            txtDuration=(EditText)findViewById(R.id.in_duration);
-//            repeatWeeklyBox = (CheckBox)findViewById(R.id.repeatWeeklyBox);
-//            repeatWeeklyBox = (CheckBox)findViewById(R.id.repeatWeeklyBox);
-//            repeatWeeklyBox = (CheckBox)findViewById(R.id.repeatWeeklyBox);
-//            repeatWeeklyBox = (CheckBox)findViewById(R.id.repeatWeeklyBox);
-//            repeatWeeklyBox = (CheckBox)findViewById(R.id.repeatWeeklyBox);
-//            repeatWeeklyBox = (CheckBox)findViewById(R.id.repeatWeeklyBox);
 
 
-
-            textView=(TextView)findViewById(R.id.textView);
-
-            new LoadProfiles().execute();
-            ListView listView = getListView();
-            listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
         }
     }
