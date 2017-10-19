@@ -55,76 +55,9 @@ public class NotificationListActivity extends ListActivity {
 
         minNotificationEntityList = new ArrayList<MinNotificationEntity>();
 
-        minNotificationListLive = new MutableLiveData<List<MinNotificationEntity>>();
-        previousNotiticationListEntityListLive = new MutableLiveData<List<PreviousNotificationListEntity>>();
-
-        //live data test
-        database = AppDatabase.getDatabase(getApplicationContext());
-
-
-        //get the list of previousNotificationListEntity(which each stores a notification)
-        previousNotificationListEntityList = database.previousNotificationListDao().loadAllPrevNotifications();
-        if (previousNotificationListEntityList.size() == 0) {
-            //create a fake notification list entity
-            PreviousNotificationListEntity fakePreviousNotificationListEntity = new PreviousNotificationListEntity();
-            //create date object
-            Date date = Calendar.getInstance().getTime();
-            //create a fake notification entity
-            MinNotificationEntity fakeNotification = new MinNotificationEntity(new MinNotification("", "There are no notifications to display", date, ""));
-            //add the notification entity to the notification list entity
-            fakePreviousNotificationListEntity.addNotification(fakeNotification);
-            //insert the list entity into the datebase
-            database.previousNotificationListDao().insert(fakePreviousNotificationListEntity);
-            //retrieve the new list of notificationlist entityes from database
-            previousNotificationListEntityList = database.previousNotificationListDao().loadAllPrevNotifications();
-        }
-
-        //add all the notifications into the list
-        for (int i = 0; i < previousNotificationListEntityList.size(); i++) {
-            minNotificationEntityList.add(previousNotificationListEntityList.get(i).getNotification());
-        }
-
         new LoadApplications().execute();
 
 
-
-//
-//        //previousNotiticationListEntityListLive.postValue(database.previousNotificationListDao().loadAllPrevNotifications());
-//        //if(previousNotiticationListEntityListLive.getValue() == null) {
-//            PreviousNotificationListEntity fakePrevLive = new PreviousNotificationListEntity();
-//            Date date = Calendar.getInstance().getTime();
-//            //create a fake notification entity
-//            MinNotificationEntity fakeNotification = new MinNotificationEntity(new MinNotification("", "There are no notifications to display", date, ""));
-//            fakePrevLive.addNotification(fakeNotification);
-//            database.previousNotificationListDao().insert(fakePrevLive);
-//
-//        new Handler(Looper.getMainLooper()).post(new Runnable () {
-//            @Override
-//            public void run () {
-//                previousNotiticationListEntityListLive.setValue(database.previousNotificationListDao().loadAllPrevNotifications());
-//
-//            }
-//        });
-//
-//        runOnUiThread(new Runnable() {
-//            @Override
-//            public void run() {
-//                previousNotiticationListEntityListLive.setValue(database.previousNotificationListDao().loadAllPrevNotifications());
-//            }
-//        });
-//
-//        //previousNotiticationListEntityListLive.postValue(database.previousNotificationListDao().loadAllPrevNotifications());
-//
-//        //}
-//        //add all the notifications into the list
-//        for (int i = 0; i < previousNotiticationListEntityListLive.getValue().size(); i++) {
-//            minNotificationEntityList.add(previousNotiticationListEntityListLive.getValue().get(i).getNotification());
-//        }
-//
-//        listadaptor = new NotificationAdapter(NotificationListActivity.this,
-//                R.layout.notification_list_row, minNotificationListLive.getValue());
-//        //new LoadApplications().execute();
-//    }
 
     }
     private class LoadApplications extends AsyncTask<Void, Void, Void> {
@@ -133,28 +66,28 @@ public class NotificationListActivity extends ListActivity {
         @Override
         protected Void doInBackground(Void... params) {
             //get database
-//            database = AppDatabase.getDatabase(getApplicationContext());
+            database = AppDatabase.getDatabase(getApplicationContext());
 //            //get the list of previousNotificationListEntity(which each stores a notification)
-//            previousNotificationListEntityList = database.previousNotificationListDao().loadAllPrevNotifications();
+            previousNotificationListEntityList = database.previousNotificationListDao().loadAllPrevNotifications();
 //            if (previousNotificationListEntityList.size()==0) {
 //                //create a fake notification list entity
-//                PreviousNotificationListEntity fakePreviousNotificationListEntity = new PreviousNotificationListEntity();
+                PreviousNotificationListEntity fakePreviousNotificationListEntity = new PreviousNotificationListEntity();
 //                //create date object
-//                Date date = Calendar.getInstance().getTime();
+                Date date = Calendar.getInstance().getTime();
 //                //create a fake notification entity
-//                MinNotificationEntity fakeNotification = new MinNotificationEntity(new MinNotification("", "There are no notifications to display", date, ""));
+                MinNotificationEntity fakeNotification = new MinNotificationEntity(new MinNotification("", "There are no notifications to display", date, ""));
 //                //add the notification entity to the notification list entity
-//                fakePreviousNotificationListEntity.addNotification(fakeNotification);
+                fakePreviousNotificationListEntity.addNotification(fakeNotification);
 //                //insert the list entity into the datebase
-//                database.previousNotificationListDao().insert(fakePreviousNotificationListEntity);
+                database.previousNotificationListDao().insert(fakePreviousNotificationListEntity);
 //                //retrieve the new list of notificationlist entityes from database
-//                previousNotificationListEntityList = database.previousNotificationListDao().loadAllPrevNotifications();
+                previousNotificationListEntityList = database.previousNotificationListDao().loadAllPrevNotifications();
 //            }
 //
 //            //add all the notifications into the list
-//            for (int i = 0; i < previousNotificationListEntityList.size(); i++) {
-//                minNotificationEntityList.add(previousNotificationListEntityList.get(i).getNotification());
-//            }
+            for (int i = 0; i < previousNotificationListEntityList.size(); i++) {
+                minNotificationEntityList.add(previousNotificationListEntityList.get(i).getNotification());
+            }
 
 
             listadaptor = new NotificationAdapter(NotificationListActivity.this,
