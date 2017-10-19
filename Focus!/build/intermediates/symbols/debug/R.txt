@@ -963,7 +963,6 @@ int id profilesTextView 0x7f0b009b
 int id progress_circular 0x7f0b0008
 int id progress_horizontal 0x7f0b0009
 int id radio 0x7f0b0071
-int id repeatWeeklyBox 0x7f0b009a
 int id right 0x7f0b0038
 int id right_icon 0x7f0b00c6
 int id right_side 0x7f0b00c1
@@ -990,6 +989,7 @@ int id shortcut 0x7f0b0070
 int id showCustom 0x7f0b0020
 int id showHome 0x7f0b0021
 int id showTitle 0x7f0b0022
+int id simpleCheckBox 0x7f0b009a
 int id smallLabel 0x7f0b00a5
 int id snackbar_action 0x7f0b00aa
 int id snackbar_text 0x7f0b00a9

@@ -3801,7 +3801,6 @@ containing a value of this type.
         public static final int progress_circular=0x7f0b0008;
         public static final int progress_horizontal=0x7f0b0009;
         public static final int radio=0x7f0b0071;
-        public static final int repeatWeeklyBox=0x7f0b009a;
         public static final int right=0x7f0b0038;
         public static final int right_icon=0x7f0b00c6;
         public static final int right_side=0x7f0b00c1;
@@ -3828,6 +3827,7 @@ containing a value of this type.
         public static final int showCustom=0x7f0b0020;
         public static final int showHome=0x7f0b0021;
         public static final int showTitle=0x7f0b0022;
+        public static final int simpleCheckBox=0x7f0b009a;
         public static final int smallLabel=0x7f0b00a5;
         public static final int snackbar_action=0x7f0b00aa;
         public static final int snackbar_text=0x7f0b00a9;

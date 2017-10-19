@@ -107,67 +107,13 @@
 
     </RelativeLayout>
 
-    <!--<RelativeLayout-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content">-->
-    <!--<CheckBox-->
-        <!--android:id="@+id/checkSun"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="SUN"/>-->
-
-    <!--<CheckBox-->
-        <!--android:id="@+id/checkMon"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_toRightOf="@+id/checkSun"-->
-
-        <!--android:text="MON"/>-->
-    <!--<CheckBox-->
-        <!--android:id="@+id/checkTues"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_toRightOf="@+id/checkMon"-->
-        <!--android:text="TUES"/>-->
-    <!--<CheckBox-->
-        <!--android:id="@+id/checkWed"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_toRightOf="@+id/checkTues"-->
-
-        <!--android:text="WED"/>-->
-    <!--<CheckBox-->
-        <!--android:id="@+id/checkThurs"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_toRightOf="@+id/checkWed"-->
-
-        <!--android:text="THUR"/>-->
-
-
-    <!--</RelativeLayout>-->
-    <!--<RelativeLayout-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content">-->
-    <!--<CheckBox-->
-        <!--android:id="@+id/checkFri"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="FRI"/>-->
-    <!--<CheckBox-->
-        <!--android:id="@+id/checkSat"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_toRightOf="@+id/checkFri"-->
-        <!--android:text="SAT"/>-->
-
-    <!--</RelativeLayout>-->
 
     <CheckBox
-        android:id="@+id/repeatWeeklyBox"
+        android:id="@+id/simpleCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Repeat Weekly"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
