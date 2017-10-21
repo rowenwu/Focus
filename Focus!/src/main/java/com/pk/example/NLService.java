@@ -517,6 +517,7 @@ public class NLService extends NotificationListenerService {
         //TODO CHECK PROFILE IS ON ACTIVE PROFILES LIST, IF NOT RETURN
         //TODO REMOVE PROFILE FROM ACTIVE PROFILES LIST
 
+        sendNotification(profile + STOP_PROFILE_NOTIFICATION);
 
         // GET NOTIFICATIONS FROM THIS PROFILE AND MAKE IT THE PREVIOUS NOTIFICATIONS LIST
         profileToRemove = profile;
@@ -533,19 +534,18 @@ public class NLService extends NotificationListenerService {
 //        }
 //
 //        ProfileEntity prof = db.profileDao().loadProfileSync(profile);
-//        sendNotification(profile + STOP_PROFILE_NOTIFICATION);
 ////        Profile prof = DummyDb.getProfile(profile);
 //        for(int a = 0; a < prof.getAppsToBlock().size(); a++){
 //            removeBlockedApp(prof.appsToBlock.get(a), profile);
 //        }
 //
-//        HashSet<PendingIntent> alarms = profileAlarmIntents.get(profile);
-//        if (alarms != null) {
-//            for (PendingIntent temp : alarms) {
-//                ProfileScheduler.removeAlarm(getApplicationContext(), temp);
-//            }
-//            profileAlarmIntents.remove(profile);
-//        }
+        HashSet<PendingIntent> alarms = profileAlarmIntents.get(profile);
+        if (alarms != null) {
+            for (PendingIntent temp : alarms) {
+                ProfileScheduler.removeAlarm(getApplicationContext(), temp);
+            }
+            profileAlarmIntents.remove(profile);
+        }
 
     }
 
