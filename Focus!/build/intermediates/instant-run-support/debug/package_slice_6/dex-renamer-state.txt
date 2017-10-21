@@ -1,4 +1,4 @@
-#Wed Oct 18 20:31:54 PDT 2017
+#Sat Oct 21 16:21:56 PDT 2017
 base.0=C\:\\Users\\kathe\\Focus\\Focus\!\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_6
 renamed.0=classes.dex
 file.0=C\:\\Users\\kathe\\Focus\\Focus\!\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_6\\classes.dex

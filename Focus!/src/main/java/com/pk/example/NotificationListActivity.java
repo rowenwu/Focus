@@ -69,7 +69,7 @@ public class NotificationListActivity extends ListActivity {
             database = AppDatabase.getDatabase(getApplicationContext());
 //            //get the list of previousNotificationListEntity(which each stores a notification)
             previousNotificationListEntityList = database.previousNotificationListDao().loadAllPrevNotifications();
-//            if (previousNotificationListEntityList.size()==0) {
+            if (previousNotificationListEntityList.size()==0) {
 //                //create a fake notification list entity
                 PreviousNotificationListEntity fakePreviousNotificationListEntity = new PreviousNotificationListEntity();
 //                //create date object
@@ -82,7 +82,7 @@ public class NotificationListActivity extends ListActivity {
                 database.previousNotificationListDao().insert(fakePreviousNotificationListEntity);
 //                //retrieve the new list of notificationlist entityes from database
                 previousNotificationListEntityList = database.previousNotificationListDao().loadAllPrevNotifications();
-//            }
+            }
 //
 //            //add all the notifications into the list
             for (int i = 0; i < previousNotificationListEntityList.size(); i++) {
