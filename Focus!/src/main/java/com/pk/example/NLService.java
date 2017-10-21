@@ -58,8 +58,8 @@ public class NLService extends NotificationListenerService {
     //store these separately so that when a schedule/profile is disabled/turned off, we can cancel the right pending intents
     private HashMap<String, HashSet<PendingIntent>> scheduleAlarmIntents;
     private HashMap<String, HashSet<PendingIntent>> profileAlarmIntents;
-    String profileToAdd;
-    String profileToRemove;
+//    String profileToAdd;
+//    String profileToRemove;
 
     private AppDatabase db;
 
@@ -493,7 +493,7 @@ public class NLService extends NotificationListenerService {
         //TODO ADD PROFILE TO ACTIVE PROFILES LIST
 //        profileToAdd = profile;
         sendNotification(profile + START_PROFILE_NOTIFICATION);
-//        new AddProfile().execute();
+        new AddProfile(profile).execute();
 //        Profile prof = DummyDb.getProfile(profile);
 //
 //        ProfileEntity prof = db.profileDao().loadProfileSync(profile);
@@ -520,8 +520,8 @@ public class NLService extends NotificationListenerService {
         sendNotification(profile + STOP_PROFILE_NOTIFICATION);
 
         // GET NOTIFICATIONS FROM THIS PROFILE AND MAKE IT THE PREVIOUS NOTIFICATIONS LIST
-        profileToRemove = profile;
-//        new RemoveProfile().execute();
+//        profileToRemove = profile;
+        new RemoveProfile(profile).execute();
 //
 //        List<MinNotificationEntity> notifs = db.minNotificationDao().loadMinNotificationsFromProfileSync(profile);
 //        db.previousNotificationListDao().deleteAll();
@@ -627,38 +627,50 @@ public class NLService extends NotificationListenerService {
     }
 
     private class AddProfile extends AsyncTask<Void, Void, Void> {
-        private ProgressDialog progress = null;
+        private String profileName;
 
-//        public AddProfile
+        public AddProfile(String profile){
+            super();
+            profileName = profile;
+        }
 
         @Override
         protected Void doInBackground(Void... params) {
-            ProfileEntity prof = db.profileDao().loadProfileSync(profileToAdd);
-            for(int a = 0; a < prof.getAppsToBlock().size(); a++){
-                addBlockedApp(prof.appsToBlock.get(a), profileToAdd);
+            ProfileEntity prof = db.profileDao().loadProfileSync(profileName);
+            for(int a = 0; a < prof.getAppsToBlock().size(); a++) {
+                addBlockedApp(prof.appsToBlock.get(a), profileName);
             }
 
             //change isActive to true
-            //
+
 
             return null;
         }
     }
 
     private class RemoveProfile extends AsyncTask<Void, Void, Void> {
+        private String profileName;
+
+        public RemoveProfile(String profile){
+            super();
+            profileName = profile;
+        }
 
         @Override
         protected Void doInBackground(Void... params) {
 //            db.scheduleDao().insert(scheduleInsert);
 
-            List<MinNotificationEntity> notifs = db.minNotificationDao().loadMinNotificationsFromProfileSync(profileToRemove);
+            List<MinNotificationEntity> notifs = db.minNotificationDao().loadMinNotificationsFromProfileSync(profileName);
             db.previousNotificationListDao().deleteAll();
             for(MinNotificationEntity not: notifs){
                 PreviousNotificationListEntity prevList = new PreviousNotificationListEntity();
                 prevList.addNotification(not);
                 db.previousNotificationListDao().insert(prevList);
             }
-
+            ProfileEntity prof = db.profileDao().loadProfileSync(profileName);
+            for(int a = 0; a < prof.getAppsToBlock().size(); a++){
+                removeBlockedApp(prof.appsToBlock.get(a), profileName);
+            }
             return null;
         }
 
