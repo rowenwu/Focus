@@ -28,7 +28,7 @@ public class MainActivity extends Activity {
         txtView = (TextView) findViewById(R.id.textView);
         nReceiver = new NotificationReceiver();
         IntentFilter filter = new IntentFilter();
-        filter.addAction("com.pk.example.NOTIFICATION_LISTENER_EXAMPLE");
+        filter.addAction("com.pk.example.INSERT_NOTIFICATION");
         registerReceiver(nReceiver,filter);
     }
 

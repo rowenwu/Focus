@@ -43,8 +43,8 @@ public class NotificationListActivity extends ListActivity {
     private PackageManager packageManager = null;
     private NotificationAdapter listadaptor = null;
 
-    private MutableLiveData<List<PreviousNotificationListEntity>> previousNotiticationListEntityListLive;
-    private MutableLiveData<List<MinNotificationEntity>> minNotificationListLive;
+//    private MutableLiveData<List<PreviousNotificationListEntity>> previousNotiticationListEntityListLive;
+//    private MutableLiveData<List<MinNotificationEntity>> minNotificationListLive;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

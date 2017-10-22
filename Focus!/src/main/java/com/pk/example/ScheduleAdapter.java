@@ -2,6 +2,7 @@ package com.pk.example;
 
 import java.util.List;
 import android.content.Context;
+import android.os.AsyncTask;
 import android.support.v7.widget.SwitchCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.pk.example.entity.MinNotificationEntity;
+import com.pk.example.entity.PreviousNotificationListEntity;
+import com.pk.example.entity.ProfileEntity;
 import com.pk.example.entity.ScheduleEntity;
 
 public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
@@ -20,7 +24,6 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
     private Context context;
     SwitchCompat switchCompat;
     ToggleButton b;
-    ScheduleEntity schedule;
     private AppDatabase database;
 
     public ScheduleAdapter(Context context, int textViewResourceId,
@@ -51,7 +54,7 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
             view = layoutInflater.inflate(R.layout.schedule_list_row, null);
         }
 
-        schedule = scheduleEntities.get(position);
+        final ScheduleEntity schedule = scheduleEntities.get(position);
         if (null != schedule) {
             TextView profileContext = (TextView) view.findViewById(R.id.name);
             profileContext.setText(schedule.getName());
@@ -63,22 +66,20 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
             }
             else {
                 if(schedule.getIsEnabled()){
-                    b.setEnabled(true);
+                    b.setChecked(true);
                 }
                 b.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         if (b.isChecked()) {
-                            ProfileScheduler.turnOnProfile(context, getItem(position).getName());
-                            //                        profileEntity.setActive(true);
-                            //                        database.profileDao().update(profileEntity);
-                            //
-                            //TODO UPDATE PROFILE IS active IN DATABASE
+                            ProfileScheduler.enableSchedule(context, getItem(position));
+                            schedule.setIsEnabled(true);
                         } else {
-                            ProfileScheduler.turnOffProfile(context, getItem(position).getName());
-                            //                        profileEntity.setActive(false);
-                            //                        database.profileDao().update(profileEntity);
+                            ProfileScheduler.disableSchedule(context, getItem(position));
+                            schedule.setIsEnabled(false);
                         }
+                        new UpdateSchedule(schedule).execute();
+
                     }
                 });
             }
@@ -90,4 +91,20 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
         }
         return view;
     }
+
+    private class UpdateSchedule extends AsyncTask<Void, Void, Void> {
+        private ScheduleEntity schedule;
+
+        public UpdateSchedule(ScheduleEntity schedule ){
+            super();
+            this.schedule = schedule;
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            database.scheduleDao().update(schedule);
+            return null;
+        }
+    }
+
 }
