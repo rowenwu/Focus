@@ -22,6 +22,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.pk.example.dao.ProfileDao;
@@ -47,7 +48,7 @@ public class ProfileViewActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         db = AppDatabase.getDatabase(getApplicationContext());
 
-        flag = String.valueOf(getIntent().getStringExtra("flag"));
+        flag = getIntent().getStringExtra("flag");
 
         // create profile mode
         if (flag.equals("create")) {
@@ -62,10 +63,8 @@ public class ProfileViewActivity extends ListActivity {
         // edit/delete profile mode
         else if (flag.equals("edit")) {
             name = getIntent().getStringExtra("name");
-//            profileEntity = (ProfileEntity) getIntent().getSerializableExtra("profile");
             setContentView(R.layout.activity_create_profile);
             getActionBar().setDisplayHomeAsUpEnabled(true);
-
             packageManager = getPackageManager();
 
             new LoadApplications().execute();
@@ -74,17 +73,27 @@ public class ProfileViewActivity extends ListActivity {
 
             // populate editTextProfileName with current profile name
             EditText profileName = (EditText) findViewById(R.id.editTextProfileName);
-//            profileName.setText(profileEntity.getName());
             profileName.setText(name);
 
-            // NEED TO DO THIS IN THE ASYNC LOADAPPLICATIONS
             // select apps in app list that are currently in profile
-//            for (int i = 0; i < applist.size(); i++) {
-//                if (profileEntity.getAppsToBlock().contains(applist.get(i).packageName)) {
-//                    listView.setItemChecked(i, true);
-//                }
-//            }
+            for (int i = 0; i < applist.size(); i++) {
+                if (profileEntity.getAppsToBlock().contains(applist.get(i).packageName)) {
+                    listView.setItemChecked(i, true);
+                }
+            }
 
+        }
+        // view profile mode
+        else if (flag.equals("view")) {
+            name = getIntent().getStringExtra("name");
+            setContentView(R.layout.activity_profile_view);
+            getActionBar().setDisplayHomeAsUpEnabled(true);
+            packageManager = getPackageManager();
+
+            TextView profileName = (TextView) findViewById(R.id.profileNameTextView);
+            profileName.setText(name);
+
+            // TODO populate listview with apps currently in profile
         }
 
         ListView listView = getListView();
@@ -174,13 +183,6 @@ public class ProfileViewActivity extends ListActivity {
         else {
             // update profile and return to profile list view
 
-            // update name/apps
-//            profileEntity.setName(pname);
-//            profileEntity.setAppsToBlock(appPacks);
-//
-//            // update in database
-//            profileDao.update(profileEntity);
-
             // notify user
             Toast toast = Toast.makeText(getApplicationContext(),
                     "Profile updated", Toast.LENGTH_SHORT);
@@ -220,6 +222,8 @@ public class ProfileViewActivity extends ListActivity {
         protected Void doInBackground(Void... params) {
             if(name != null) {
                 profileEntity = db.profileDao().loadProfileSync(name);
+
+
             }
 
             applist = packageManager.getInstalledApplications(PackageManager.GET_META_DATA);
@@ -259,16 +263,8 @@ public class ProfileViewActivity extends ListActivity {
 
         @Override
         protected Void doInBackground(Void... params) {
-//            applist = checkForLaunchIntent(packageManager.getInstalledApplications(PackageManager.GET_META_DATA));
-//            applist = packageManager.getInstalledApplications(PackageManager.GET_META_DATA);
-//
-
-            // crashes
-//                database.scheduleDao().insert(fakeSchedule);
 
             db.profileDao().insert(profileInsert);
-
-
 
             return null;
         }
