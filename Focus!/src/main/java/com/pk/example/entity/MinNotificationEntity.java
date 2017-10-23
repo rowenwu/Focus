@@ -89,6 +89,7 @@ public class MinNotificationEntity extends MinNotification {
         this._notificationContext = minNotification.getNotificationContext();
         //this._appIcon = minNotification.getAppIcon();
         this._date = minNotification.getDate();
+        this._profileName = minNotification.getProfileName();
     }
 
 }

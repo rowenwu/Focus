@@ -1,4 +1,4 @@
-#Mon Oct 16 23:11:29 PDT 2017
+#Mon Oct 23 14:31:55 PDT 2017
 file.9=C\:\\Users\\kathe\\Focus\\Focus\!\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\common-1.0.2_96d8802d2468622ac00ff1fd704a2d5e00221891\\classes.dex
 base.10=C\:\\Users\\kathe\\Focus\\Focus\!\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_f5069680f270c5e44f52028f900c77703cabae4a
 file.8=C\:\\Users\\kathe\\Focus\\Focus\!\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\internal_impl-25.0.0_65425bec877f6eff880db61e9be3cf822c32df0a\\classes.dex

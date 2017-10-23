@@ -67,14 +67,16 @@ public class NotificationListActivity extends ListActivity {
         protected Void doInBackground(Void... params) {
             //get database
             database = AppDatabase.getDatabase(getApplicationContext());
+
+
+
+
 //            //get the list of previousNotificationListEntity(which each stores a notification)
             previousNotificationListEntityList = database.previousNotificationListDao().loadAllPrevNotifications();
             if (previousNotificationListEntityList.size()==0) {
 //                //create a fake notification list entity
                 PreviousNotificationListEntity fakePreviousNotificationListEntity = new PreviousNotificationListEntity();
-//                //create date object
                 Date date = Calendar.getInstance().getTime();
-//                //create a fake notification entity
                 MinNotificationEntity fakeNotification = new MinNotificationEntity(new MinNotification("", "There are no notifications to display", date, ""));
 //                //add the notification entity to the notification list entity
                 fakePreviousNotificationListEntity.addNotification(fakeNotification);
@@ -92,32 +94,6 @@ public class NotificationListActivity extends ListActivity {
 
             listadaptor = new NotificationAdapter(NotificationListActivity.this,
                     R.layout.notification_list_row, minNotificationEntityList);
-
-
-            //if there is no previousNotificationList yet create one
-//            if (previousNotificationListEntityList.size()==0) {
-//                //create a fake notification to insert
-//                //if no notification in db
-//                PreviousNotificationListEntity fakePreviousNotificationListEntity = new PreviousNotificationListEntity();
-//                //create a fake minNotificaiton to add to the list
-//                Date date = Calendar.getInstance().getTime();
-//                MinNotificationEntity fakeNotification = new MinNotificationEntity(new MinNotification("fake", "This notification is to show test", date));
-//
-//                //minNotificationEntityList.add(fakeNotification);
-//
-//
-//
-//                //add the fake minNotification to the previousNotificationList
-//                fakePreviousNotificationListEntity.addNotification(fakeNotification);
-//                //add the list
-//                database.previousNotificationListDao().insert(fakePreviousNotificationListEntity);
-//                //get the list back
-//                previousNotificationListEntityList = database.previousNotificationListDao().loadAllPrevNotifications();
-//            }
-
-            //minNotificationEntityList =  previousNotificationListEntityList.get(0).getNotificationList();
-
-
 
             return null;
         }
@@ -137,7 +113,7 @@ public class NotificationListActivity extends ListActivity {
         @Override
         protected void onPreExecute() {
             progress = ProgressDialog.show(NotificationListActivity.this, null,
-                    "Loading application info...");
+                    "Loading notifications...");
             super.onPreExecute();
         }
 

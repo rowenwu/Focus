@@ -79,6 +79,11 @@ public class NLService extends NotificationListenerService {
         filter.addAction(ADD_SCHEDULE_PENDING_INTENT);
         registerReceiver(aReceiver,filter);
         blockedApps = new HashMap<String, ArrayList<String>>();
+
+        //test
+        ArrayList<String> profnames = new ArrayList<String>();
+        profnames.add("profile");
+        blockedApps.put("com.pk.example", profnames);
         scheduleAlarmIntents = new HashMap<String, HashSet<PendingIntent>>();
         profileAlarmIntents = new HashMap<String, HashSet<PendingIntent>>();
     }
@@ -213,17 +218,25 @@ public class NLService extends NotificationListenerService {
         final Intent intent = new  Intent("com.pk.example.INSERT_NOTIFICATION");
         // Make an intent
 
-        intent.putExtra("packageName", packageName);
-        intent.putExtra("title", title);
-        intent.putExtra("text", text);
+//        intent.putExtra("packageName", packageName);
+//        intent.putExtra("title", title);
+//        intent.putExtra("text", text);
         intent.putExtra("action", notification.contentIntent);
 
         ArrayList<String> profiles = blockedApps.get(packageName);
-//        for(String prof: profiles){
-            //need to add profile
-//            MinNotificationEntity notif = new MinNotificationEntity(new MinNotification(packageName, title + " --- " + text, new Date(), prof));
-//            db.minNotificationDao().insert(notif);
-//        }
+        if(profiles != null) {
+            for (String prof : profiles) {
+                //need to add profile
+                MinNotificationEntity notif = new MinNotificationEntity(new MinNotification(packageName, title + " --- " + text, new Date(), prof));
+//                new InsertNotification(notif).execute();
+                //            db.minNotificationDao().insert(notif);
+            }
+        }
+        //TESTING PURPOSES
+        else {
+            profiles = new ArrayList<String>();
+            profiles.add("profile");
+        }
 
 
         if (Build.VERSION.SDK_INT >= 11)
@@ -613,6 +626,7 @@ public class NLService extends NotificationListenerService {
             switch(intent.getAction()){
                 case ADD_PROFILE:
                     addProfile(name);
+//                    new AddProfile(name).execute();
                     break;
                 case REMOVE_PROFILE:
                     removeProfile(name);
@@ -636,22 +650,28 @@ public class NLService extends NotificationListenerService {
         }
     }
 
-    public class AddProfileThread implements Runnable {
-        String profileName;
-        public AddProfileThread(String profile) {
-            profileName = profile;
+
+    private class InsertNotification extends AsyncTask<Void, Void, Void> {
+        private MinNotificationEntity notification;
+
+        public InsertNotification(MinNotificationEntity notification){
+            super();
+            this.notification = notification;
         }
 
-        public void run() {
-            ProfileEntity prof = db.profileDao().loadProfileSync(profileName);
-            for(int a = 0; a < prof.getAppsToBlock().size(); a++) {
-                addBlockedApp(prof.appsToBlock.get(a), profileName);
+        @Override
+        protected Void doInBackground(Void... params) {
+            db.minNotificationDao().insert(notification);
+            List<MinNotificationEntity> notifs = db.minNotificationDao().loadMinNotificationsFromProfileSync("profile");
+            db.previousNotificationListDao().deleteAll();
+            for(MinNotificationEntity not: notifs){
+                PreviousNotificationListEntity prevList = new PreviousNotificationListEntity();
+                prevList.addNotification(not);
+                db.previousNotificationListDao().insert(prevList);
             }
-            //change isActive to true
-
+            return null;
         }
     }
-
 
     private class AddProfile extends AsyncTask<Void, Void, Void> {
         private String profileName;
@@ -669,8 +689,6 @@ public class NLService extends NotificationListenerService {
             }
 
             //change isActive to true
-
-
             return null;
         }
     }

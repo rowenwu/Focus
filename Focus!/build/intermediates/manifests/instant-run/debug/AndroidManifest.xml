@@ -89,12 +89,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pk.example.ScheduleListActivity" />
         </activity>
-        <!-- <receiver android:name=".NotificationReceiver" > -->
-        <!-- <intent-filter> -->
-        <!-- <action android:name="com.pk.example.INSERT_NOTIFICATION" > -->
-        <!-- </action> -->
-        <!-- </intent-filter> -->
-        <!-- </receiver> -->
+
+        <receiver android:name="com.pk.example.NotificationReceiver" >
+            <intent-filter>
+                <action android:name="com.pk.example.INSERT_NOTIFICATION" >
+                </action>
+            </intent-filter>
+        </receiver>
+
         <activity
             android:name="com.pk.example.NotificationListActivity"
             android:label="Notification List"

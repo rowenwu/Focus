@@ -111,6 +111,16 @@ ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:80:9-87:20
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:83:13-63
 	android:name
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:81:13-49
+receiver#com.pk.example.NotificationReceiver
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:88:9-93:20
+	android:name
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:88:19-55
+intent-filter#com.pk.example.INSERT_NOTIFICATION
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:89:13-92:29
+action#com.pk.example.INSERT_NOTIFICATION
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:90:17-91:26
+	android:name
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:90:25-74
 activity#com.pk.example.NotificationListActivity
 ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:94:9-101:20
 	android:label
