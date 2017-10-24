@@ -9,6 +9,7 @@ import android.sax.StartElementListener;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.pk.example.dao.ProfileDao;
 import com.pk.example.entity.ProfileEntity;
@@ -27,7 +28,7 @@ public class ProfileListActivity extends ListActivity {
     private ProfileListAdapter profileListAdapter = null;
     private AppDatabase db;
     TextView textView;
-
+    //ListView profileListView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,35 +36,29 @@ public class ProfileListActivity extends ListActivity {
         setContentView(R.layout.activity_profile_list);
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
-
+        ListView profileListView = getListView();
         textView=(TextView)findViewById(R.id.textView);
 
         new LoadProfiles().execute();
-//        ListView listView = getListView();
-        //listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
     }
-
-//    public void setEmptyState(){
-//        textView.setText("No profiles to display.");
-//    }
 
     public void buttonClicked(View v) {
-        Intent i = new Intent(this, ProfileViewActivity.class);
+        Intent i = new Intent(getApplicationContext(), ProfileViewActivity.class);
         i.putExtra("flag", "create");
         startActivity(i);
-
     }
 
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
 
-//    @Override
-//    protected void onListItemClick(ListView l, View v, int position, long id) {
-//        super.onListItemClick(l, v, position, id);
-////        v.setSelected(true);
-//        Intent i = new Intent(this, ProfileViewActivity.class);
-//        i.putExtra("flag", "edit");
-//        i.putExtra("name", profileListAdapter.getItem(position).getName());
-//        startActivity(i);
-//    }
+        Intent i = new Intent(getApplicationContext(), ProfileViewActivity.class);
+        i.putExtra("flag", "view");
+        i.putExtra("name", profileListAdapter.getItem(position).getName());
+
+        startActivity(i);
+    }
+
 
     private class LoadProfiles extends AsyncTask<Void, Void, Void> {
         private ProgressDialog progress = null;
@@ -73,21 +68,17 @@ public class ProfileListActivity extends ListActivity {
 
             db = AppDatabase.getDatabase(getApplicationContext());
             profileList = db.profileDao().loadAllProfilesAsync();
+
+            //create a fake schedule to insert if no schedules in db
             if (profileList.size()==0) {
-//                setEmptyState();
-                //create a fake schedule to insert
-                //if no schedules in db
-                ProfileEntity fakeProfile = new ProfileEntity(new Profile("There are no profiles to display.", new ArrayList<>( Arrays.asList("Buenos Aires", "Córdoba", "La Plata")), false));
-//                db.profileDao().insert(fakeProfile);
-//                profileList = db.profileDao().loadAllProfilesAsync();
+                ProfileEntity fakeProfile = new ProfileEntity(new Profile("There are no profiles to display.",
+                        new ArrayList<>( Arrays.asList("Buenos Aires", "Córdoba", "La Plata")), false));
                 profileList.add(fakeProfile);
             }
-//            else {
 
-                profileListAdapter = new ProfileListAdapter(ProfileListActivity.this,
-                        R.layout.schedule_list_row, profileList);
+            profileListAdapter = new ProfileListAdapter(ProfileListActivity.this,
+                    R.layout.schedule_list_row, profileList);
 
-//            }
             return null;
 
         }
