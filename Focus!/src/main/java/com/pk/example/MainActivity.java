@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.NotificationManager;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -15,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+import static com.pk.example.NLService.INSERT_NOTIFICATION;
 
 public class MainActivity extends Activity {
 
@@ -28,8 +30,15 @@ public class MainActivity extends Activity {
         txtView = (TextView) findViewById(R.id.textView);
         nReceiver = new NotificationReceiver();
         IntentFilter filter = new IntentFilter();
-        filter.addAction("com.pk.example.NOTIFICATION_LISTENER_EXAMPLE");
+        filter.addAction(NLService.INSERT_NOTIFICATION);
         registerReceiver(nReceiver,filter);
+
+        ComponentName cn = new ComponentName(getApplicationContext(), NLService.class);
+        String flat = Settings.Secure.getString(getApplicationContext().getContentResolver(), "enabled_notification_listeners");
+        final boolean enabled = flat != null && flat.contains(cn.flattenToString());
+        if(!enabled){
+            toggleService();
+        }
     }
 
     @Override
@@ -38,7 +47,7 @@ public class MainActivity extends Activity {
         unregisterReceiver(nReceiver);
     }
 
-    public void toggleService(View view) {
+    public void toggleService() {
         if (Build.VERSION.SDK_INT >= 18)
             gotoNotifyservice(this);
         else
@@ -92,26 +101,8 @@ public class MainActivity extends Activity {
             Intent i = new Intent(this, ScheduleListActivity.class);
             startActivity(i);
         }
-        else if(v.getId() == R.id.btnPermission){
-            toggleService(v);
-        }
-//        else if(v.getId() == R.id.btnCreateSchedule){
-//            Intent i = new Intent(this, ScheduleViewActivity.class);
-//            i.putExtra("flag", "create");
-//            startActivity(i);
-//        }
-//        else if(v.getId() == R.id.btnCreateProfile){
-//            Intent i = new Intent(this, ProfileViewActivity.class);
-//            i.putExtra("flag", "create");
-//            startActivity(i);
-//        }
-//        else if(v.getId() == R.id.btnSchedule){
-//            Schedule[] schedules = DummyDb.getAllSchedules();
-//            ProfileScheduler.enableSchedule(getApplicationContext(), schedules[0]);
-//        }
-//        else if(v.getId() == R.id.btnUnSchedule){
-//            Schedule[] schedules = DummyDb.getAllSchedules();
-//            ProfileScheduler.disableSchedule(getApplicationContext(), schedules[0]);
+//        else if(v.getId() == R.id.btnPermission){
+//            toggleService(v);
 //        }
         else if(v.getId() == R.id.btnAllProfiles){
             Intent i = new Intent(this, ProfileListActivity.class);

@@ -85,11 +85,22 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pk.example.ScheduleListActivity" />
         </activity>
-        <activity android:label="Notification List" android:name=".NotificationListActivity" android:parentActivityName=".MainActivity">
-
-        <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.pk.example.ScheduleListActivity"/>
-
-    </activity>
+        <receiver android:name=".NotificationReceiver" >
+            <intent-filter>
+                <action android:name="com.pk.example.INSERTNOTIFICATION"/>
+                <action android:name="com.pk.example.ADDPROFILE"/>
+                <action android:name="com.pk.example.REMOVEPROFILE" />
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <activity
+            android:label="Notification List"
+            android:name=".NotificationListActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pk.example.ScheduleListActivity"/>
+        </activity>
     </application>
 
 </manifest>

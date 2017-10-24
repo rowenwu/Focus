@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class MinNotification {
 
-    private int id;
+//    private int id;
 
     public String appName;
 
@@ -29,9 +29,9 @@ public class MinNotification {
         this.profileName = profileName;
     }
 
-    public int getId() {
-        return id;
-    }
+//    public int getId() {
+//        return id;
+//    }
 
     public String getAppName() {
         return appName;

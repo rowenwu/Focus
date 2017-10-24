@@ -60,6 +60,7 @@ public class ProfileListActivity extends ListActivity {
         startActivity(i);
     }
 
+
     private class LoadProfiles extends AsyncTask<Void, Void, Void> {
         private ProgressDialog progress = null;
 
@@ -108,5 +109,7 @@ public class ProfileListActivity extends ListActivity {
             super.onProgressUpdate(values);
         }
     }
+
+
 }
 
