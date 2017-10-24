@@ -29,6 +29,8 @@ public class ProfileScheduler {
                 Intent hasPendingIntent;
                 hasPendingIntent = new Intent(NLService.ADD_SCHEDULE_PENDING_INTENT);
                 hasPendingIntent.putExtra("name", schedule.getName());
+
+                //TODO ADD APPS TO BLOCK TO INTENT
                 hasPendingIntent.putExtra("startIntent",
                         createAlarm(context, profiles.get(j), startTimes.get(i), 0, 0, schedule.getRepeatWeekly(), NLService.ADD_PROFILE));
                 hasPendingIntent.putExtra("endIntent",

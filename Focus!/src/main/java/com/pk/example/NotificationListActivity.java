@@ -68,16 +68,17 @@ public class NotificationListActivity extends ListActivity {
 //            listadaptor = new NotificationAdapter(NotificationListActivity.this,
 //                    R.layout.notification_list_row, nots);
 
-            database.prevNotificationDao().deleteAll();
-            List<MinNotificationEntity> minNotifs = database.minNotificationDao().loadMinNotificationsFromProfileSync("profile");
-            for(MinNotificationEntity notif: minNotifs){
-                MinNotification mn = new MinNotification(notif.getAppName(), notif.getNotificationContext(), notif.getDate(), notif.getProfileName());
-                database.prevNotificationDao().insert(new PrevNotificationEntity(mn));
-            }
+//            database.prevNotificationDao().deleteAll();
+//            List<MinNotificationEntity> minNotifs = database.minNotificationDao().loadMinNotificationsFromProfileSync("profile");
+//            for(MinNotificationEntity notif: minNotifs){
+//                MinNotification mn = new MinNotification(notif.getAppName(), notif.getNotificationContext(), notif.getDate(), notif.getProfileName());
+//                database.prevNotificationDao().insert(new PrevNotificationEntity(mn));
+//            }
 
             List<PrevNotificationEntity> notifs = database.prevNotificationDao().loadAllPrevNotificationsSync();
             if (notifs == null || notifs.size()==0) {
-                database.prevNotificationDao().insert(new PrevNotificationEntity(new MinNotification("", "There are no notifications to display", new Date(), "")));
+                database.prevNotificationDao().insert(new PrevNotificationEntity(new MinNotification("There are no notifications to display", "", new Date(), "")));
+                notifs = database.prevNotificationDao().loadAllPrevNotificationsSync();
             }
 
 

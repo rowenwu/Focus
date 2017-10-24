@@ -78,30 +78,27 @@ public class ProfileListAdapter extends ArrayAdapter<ProfileEntity> {
                             ProfileScheduler.turnOffProfile(context, getItem(position));
                             profileEntity.setActive(false);
                         }
-                        new UpdateProfile(profileEntity).execute();
+//                        new UpdateProfile(profileEntity).execute();
                     }
                 });
             }
-            //still need to set info
-            //appName.setText(applicationInfo.loadLabel(packageManager));
-            //packageName.setText(applicationInfo.packageName);
-            //iconview.setImageDrawable(applicationInfo.loadIcon(packageManager));
+
         }
         return view;
     }
 
-    private class UpdateProfile extends AsyncTask<Void, Void, Void> {
-        private ProfileEntity profile;
-
-        public UpdateProfile(ProfileEntity profile ){
-            super();
-            this.profile = profile;
-        }
-
-        @Override
-        protected Void doInBackground(Void... params) {
-            database.profileDao().update(profile);
-            return null;
-        }
-    }
+//    private class UpdateProfile extends AsyncTask<Void, Void, Void> {
+//        private ProfileEntity profile;
+//
+//        public UpdateProfile(ProfileEntity profile ){
+//            super();
+//            this.profile = profile;
+//        }
+//
+//        @Override
+//        protected Void doInBackground(Void... params) {
+//            database.profileDao().update(profile);
+//            return null;
+//        }
+//    }
 }

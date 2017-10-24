@@ -92,8 +92,11 @@
 
         <receiver android:name="com.pk.example.NotificationReceiver" >
             <intent-filter>
-                <action android:name="com.pk.example.INSERT_NOTIFICATION" >
-                </action>
+                <action android:name="com.pk.example.INSERT_NOTIFICATION" />
+                <action android:name="com.pk.example.ADD_PROFILE" />
+                <action android:name="com.pk.example.REMOVE_PROFILE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
 

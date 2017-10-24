@@ -44,6 +44,7 @@ import java.util.List;
 import java.util.concurrent.Executor;
 
 public class NLService extends NotificationListenerService {
+    //INTENT ACTIONS
     static final String ADD_PROFILE = "com.pk.example.ADDPROFILE";
     static final String REMOVE_PROFILE = "com.pk.example.REMOVEPROFILE";
     static final String START_PROFILE_NOTIFICATION = " is now active and blocking your notifications.";
@@ -51,6 +52,7 @@ public class NLService extends NotificationListenerService {
     static final String ADD_SCHEDULE_PENDING_INTENT = "com.pk.example.ADDSCHEDULEPENDINGINTENT";
     static final String ADD_PROFILE_PENDING_INTENT = "com.pk.example.ADDPROFILEPENDINGINTENT";
     static final String CANCEL_ALARM_INTENTS = "com.pk.example.CANCELALARMINTENTS";
+    static final String INSERT_NOTIFICATION = "com.pk.example.INSERT_NOTIFICATION";
 
 
     private String TAG = this.getClass().getSimpleName();
@@ -81,9 +83,9 @@ public class NLService extends NotificationListenerService {
         blockedApps = new HashMap<String, ArrayList<String>>();
 
         //test
-        ArrayList<String> profnames = new ArrayList<String>();
-        profnames.add("profile");
-        blockedApps.put("com.pk.example", profnames);
+//        ArrayList<String> profnames = new ArrayList<String>();
+//        profnames.add("profile");
+//        blockedApps.put("com.pk.example", profnames);
         scheduleAlarmIntents = new HashMap<String, HashSet<PendingIntent>>();
         profileAlarmIntents = new HashMap<String, HashSet<PendingIntent>>();
     }
@@ -103,9 +105,11 @@ public class NLService extends NotificationListenerService {
             statusBarNotificationKey = sbn.getKey();
             if(blockedApps.get(sbn.getPackageName()) != null) {
                 cancelNotification(statusBarNotificationKey);
-            //handleactionadd
+
+                //handleactionadd
             }
         }
+
 
         handleActionAdd(sbn.getNotification(),
                 sbn.getPackageName(),
@@ -114,7 +118,6 @@ public class NLService extends NotificationListenerService {
                 statusBarNotificationKey,
                 getApplicationContext(),
                 "listener");
-
     }
 
     @Override
@@ -229,7 +232,7 @@ public class NLService extends NotificationListenerService {
             profiles.add("profile");
         }
 
-        final Intent intent = new  Intent("com.pk.example.INSERT_NOTIFICATION");
+        final Intent intent = new  Intent(INSERT_NOTIFICATION);
         // Make an intent
 
         intent.putExtra("packageName", packageName);
@@ -507,23 +510,15 @@ public class NLService extends NotificationListenerService {
         nManager.notify((int)System.currentTimeMillis(),ncomp.build());
     }
 
-    public void addProfile(String profile){
+    public void addProfile(String profile, ArrayList<String> appsToBlock){
         // get profile information (start time, end time, list of apps) from database
         // for list of apps, addBlockedApp
-        //TODO IF PROFILE IS ALREADY ON ACTIVE PROFILES LIST THEN RETURN
-
         //TODO ADD PROFILE TO ACTIVE PROFILES LIST
         sendNotification(profile + START_PROFILE_NOTIFICATION);
 
-//        Runnable r = new AddProfileThread(profile);
-//        new Thread(r).start();
-//        new AddProfile(profile).execute();
-//        Profile prof = DummyDb.getProfile(profile);
-//
-//        ProfileEntity prof = db.profileDao().loadProfileSync(profile);
-//        for(int a = 0; a < prof.getAppsToBlock().size(); a++){
-//            addBlockedApp(prof.appsToBlock.get(a), profile);
-//        }
+        for(int a = 0; a < appsToBlock.size(); a++){
+            addBlockedApp(appsToBlock.get(a), profile);
+        }
 
     }
 
@@ -537,40 +532,15 @@ public class NLService extends NotificationListenerService {
 
     }
 
-    public void removeProfile(String profile){
-        //TODO CHECK PROFILE IS ON ACTIVE PROFILES LIST, IF NOT RETURN
-        //TODO REMOVE PROFILE FROM ACTIVE PROFILES LIST
-
+    public void removeProfile(String profile, ArrayList<String> appsToBlock){
         sendNotification(profile + STOP_PROFILE_NOTIFICATION);
 
-        // GET NOTIFICATIONS FROM THIS PROFILE AND MAKE IT THE PREVIOUS NOTIFICATIONS LIST
-//        profileToRemove = profile;
-//        new RemoveProfile(profile).execute();
-//
-//        List<MinNotificationEntity> notifs = db.minNotificationDao().loadMinNotificationsFromProfileSync(profile);
-//        db.previousNotificationListDao().deleteAll();
-//        for(MinNotificationEntity not: notifs){
-//            PreviousNotificationListEntity prevList = new PreviousNotificationListEntity();
-//            prevList.addNotification(not);
-//            db.previousNotificationListDao().insert(prevList);
-//            //need a delete for min
-//            db.minNotificationDao().delete(not);
-//        }
-//
-//        ProfileEntity prof = db.profileDao().loadProfileSync(profile);
-////        Profile prof = DummyDb.getProfile(profile);
-//        for(int a = 0; a < prof.getAppsToBlock().size(); a++){
-//            removeBlockedApp(prof.appsToBlock.get(a), profile);
-//        }
-//
-        HashSet<PendingIntent> alarms = profileAlarmIntents.get(profile);
-        if (alarms != null) {
-            for (PendingIntent temp : alarms) {
-                ProfileScheduler.removeAlarm(getApplicationContext(), temp);
-            }
-            profileAlarmIntents.remove(profile);
-        }
+        //might not be necessary
+        cancelProfileAlarmIntents(profile);
 
+        for(int a = 0; a < appsToBlock.size(); a++){
+            removeBlockedApp(appsToBlock.get(a), profile);
+        }
     }
 
     public void removeBlockedApp(String appPackage, String profile){
@@ -611,7 +581,13 @@ public class NLService extends NotificationListenerService {
         }
     }
     public void cancelProfileAlarmIntents(String profile){
-
+        HashSet<PendingIntent> alarms = profileAlarmIntents.get(profile);
+        if (alarms != null) {
+            for (PendingIntent temp : alarms) {
+                ProfileScheduler.removeAlarm(getApplicationContext(), temp);
+            }
+            profileAlarmIntents.remove(profile);
+        }
     }
 
     // receives notice to start or stop profile from alarm
@@ -626,11 +602,10 @@ public class NLService extends NotificationListenerService {
 
             switch(intent.getAction()){
                 case ADD_PROFILE:
-                    addProfile(name);
-//                    new AddProfile(name).execute();
+                    addProfile(name, intent.getStringArrayListExtra("apps"));
                     break;
                 case REMOVE_PROFILE:
-                    removeProfile(name);
+                    removeProfile(name, intent.getStringArrayListExtra("apps"));
                     break;
                 case ADD_SCHEDULE_PENDING_INTENT:
                     //  get parcelable and add to profileAlarmIntent
@@ -653,25 +628,25 @@ public class NLService extends NotificationListenerService {
 
 
 
-    private class AddProfile extends AsyncTask<Void, Void, Void> {
-        private String profileName;
-
-        public AddProfile(String profile){
-            super();
-            profileName = profile;
-        }
-
-        @Override
-        protected Void doInBackground(Void... params) {
-            ProfileEntity prof = db.profileDao().loadProfileSync(profileName);
-            for(int a = 0; a < prof.getAppsToBlock().size(); a++) {
-                addBlockedApp(prof.appsToBlock.get(a), profileName);
-            }
-
-            //change isActive to true
-            return null;
-        }
-    }
+//    private class AddProfile extends AsyncTask<Void, Void, Void> {
+//        private String profileName;
+//
+//        public AddProfile(String profile){
+//            super();
+//            profileName = profile;
+//        }
+//
+//        @Override
+//        protected Void doInBackground(Void... params) {
+//            ProfileEntity prof = db.profileDao().loadProfileSync(profileName);
+//            for(int a = 0; a < prof.getAppsToBlock().size(); a++) {
+//                addBlockedApp(prof.appsToBlock.get(a), profileName);
+//            }
+//
+//            //change isActive to true
+//            return null;
+//        }
+//    }
 //
 //    private class RemoveProfile extends AsyncTask<Void, Void, Void> {
 //        private String profileName;
