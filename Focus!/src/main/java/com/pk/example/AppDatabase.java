@@ -6,19 +6,17 @@ import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.TypeConverters;
 import android.content.Context;
 
-import com.pk.example.dao.CurrentNotificationListDao;
 import com.pk.example.dao.MinNotificationDao;
-import com.pk.example.dao.PreviousNotificationListDao;
+import com.pk.example.dao.PrevNotificationDao;
 import com.pk.example.dao.ProfileDao;
 import com.pk.example.dao.ScheduleDao;
 import com.pk.example.entity.MinNotificationEntity;
+import com.pk.example.entity.PrevNotificationEntity;
 import com.pk.example.entity.ProfileEntity;
 import com.pk.example.entity.ScheduleEntity;
-import com.pk.example.entity.PreviousNotificationListEntity;
-import com.pk.example.entity.CurrentNotificationListEntity;
 
 @Database(entities = {MinNotificationEntity.class, ProfileEntity.class, ScheduleEntity.class,
-        PreviousNotificationListEntity.class, CurrentNotificationListEntity.class}, version = 7)
+        PrevNotificationEntity.class}, version = 11)
 @TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
 
@@ -40,7 +38,9 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public abstract ScheduleDao scheduleDao();
 
-    public abstract CurrentNotificationListDao currentNotificationListDao();
+    public abstract PrevNotificationDao prevNotificationDao();
 
-    public abstract PreviousNotificationListDao previousNotificationListDao();
+//    public abstract CurrentNotificationListDao currentNotificationListDao();
+
+//    public abstract PreviousNotificationListDao previousNotificationListDao();
 }

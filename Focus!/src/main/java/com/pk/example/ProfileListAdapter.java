@@ -72,10 +72,10 @@ public class ProfileListAdapter extends ArrayAdapter<ProfileEntity> {
                     @Override
                     public void onClick(View v) {
                         if (b.isChecked()) {
-                            ProfileScheduler.turnOnProfile(context, getItem(position).getName());
+                            ProfileScheduler.turnOnProfile(context, getItem(position));
                             profileEntity.setActive(true);
                         } else {
-                            ProfileScheduler.turnOffProfile(context, getItem(position).getName());
+                            ProfileScheduler.turnOffProfile(context, getItem(position));
                             profileEntity.setActive(false);
                         }
                         new UpdateProfile(profileEntity).execute();

@@ -25,7 +25,6 @@ public class MinNotificationEntity extends MinNotification {
     private Date _date;
     private String _profileName;
 
-    @Override
     public int getId() {
         return _id;
     }
@@ -84,7 +83,6 @@ public class MinNotificationEntity extends MinNotification {
     }
 
     public MinNotificationEntity(MinNotification minNotification) {
-        this._id = minNotification.getId();
         this._appName = minNotification.getAppName();
         this._notificationContext = minNotification.getNotificationContext();
         //this._appIcon = minNotification.getAppIcon();

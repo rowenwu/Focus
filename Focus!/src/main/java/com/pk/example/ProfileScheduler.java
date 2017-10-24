@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 
+import com.pk.example.entity.ProfileEntity;
 import com.pk.example.entity.ScheduleEntity;
 
 import java.lang.reflect.Array;
@@ -80,19 +81,21 @@ public class ProfileScheduler {
     }
 
     //randomly turn on a profile - will either be on for 10 hours or whenever a user turns it off
-    public static void turnOnProfile(Context context, String profile){
+    public static void turnOnProfile(Context context, ProfileEntity profile){
         Intent i;
         i = new Intent(NLService.ADD_PROFILE);
-        i.putExtra("name", profile);
+        i.putExtra("name", profile.getName());
+        i.putStringArrayListExtra("apps", profile.getAppsToBlock());
         context.sendBroadcast(i);
     }
 
     //randomly turn off a profile
-    public static void turnOffProfile(Context context, String profile){
+    public static void turnOffProfile(Context context, ProfileEntity profile){
         // send intent to cancel NLService end profile pendingintent
         Intent i;
         i = new Intent(NLService.REMOVE_PROFILE);
-        i.putExtra("name", profile);
+        i.putExtra("name", profile.getName());
+        i.putStringArrayListExtra("apps", profile.getAppsToBlock());
         context.sendBroadcast(i);
 
     }

@@ -214,15 +214,6 @@ public class NLService extends NotificationListenerService {
                 }
             }
         }
-
-        final Intent intent = new  Intent("com.pk.example.INSERT_NOTIFICATION");
-        // Make an intent
-
-//        intent.putExtra("packageName", packageName);
-//        intent.putExtra("title", title);
-//        intent.putExtra("text", text);
-        intent.putExtra("action", notification.contentIntent);
-
         ArrayList<String> profiles = blockedApps.get(packageName);
         if(profiles != null) {
             for (String prof : profiles) {
@@ -237,6 +228,17 @@ public class NLService extends NotificationListenerService {
             profiles = new ArrayList<String>();
             profiles.add("profile");
         }
+
+        final Intent intent = new  Intent("com.pk.example.INSERT_NOTIFICATION");
+        // Make an intent
+
+        intent.putExtra("packageName", packageName);
+        intent.putExtra("title", title);
+        intent.putExtra("text", text);
+        intent.putExtra("action", notification.contentIntent);
+        intent.putStringArrayListExtra("profiles", profiles);
+
+
 
 
         if (Build.VERSION.SDK_INT >= 11)
@@ -299,10 +301,9 @@ public class NLService extends NotificationListenerService {
 
         Log.i("intent ","intent "+intent.getExtras().toString());
         intent.putExtra("info",intent.getExtras().toString());
-        intent.putExtra("packageName", packageName);
-        intent.putExtra("title", title);
-        intent.putExtra("text", text);
-        intent.putStringArrayListExtra("profiles", profiles);
+//        intent.putExtra("packageName", packageName);
+//        intent.putExtra("title", title);
+//        intent.putExtra("text", text);
 
         sendBroadcast(intent);
     }
@@ -651,27 +652,6 @@ public class NLService extends NotificationListenerService {
     }
 
 
-    private class InsertNotification extends AsyncTask<Void, Void, Void> {
-        private MinNotificationEntity notification;
-
-        public InsertNotification(MinNotificationEntity notification){
-            super();
-            this.notification = notification;
-        }
-
-        @Override
-        protected Void doInBackground(Void... params) {
-            db.minNotificationDao().insert(notification);
-            List<MinNotificationEntity> notifs = db.minNotificationDao().loadMinNotificationsFromProfileSync("profile");
-            db.previousNotificationListDao().deleteAll();
-            for(MinNotificationEntity not: notifs){
-                PreviousNotificationListEntity prevList = new PreviousNotificationListEntity();
-                prevList.addNotification(not);
-                db.previousNotificationListDao().insert(prevList);
-            }
-            return null;
-        }
-    }
 
     private class AddProfile extends AsyncTask<Void, Void, Void> {
         private String profileName;
@@ -692,34 +672,34 @@ public class NLService extends NotificationListenerService {
             return null;
         }
     }
-
-    private class RemoveProfile extends AsyncTask<Void, Void, Void> {
-        private String profileName;
-
-        public RemoveProfile(String profile){
-            super();
-            profileName = profile;
-        }
-
-        @Override
-        protected Void doInBackground(Void... params) {
-//            db.scheduleDao().insert(scheduleInsert);
-
-            List<MinNotificationEntity> notifs = db.minNotificationDao().loadMinNotificationsFromProfileSync(profileName);
-            db.previousNotificationListDao().deleteAll();
-            for(MinNotificationEntity not: notifs){
-                PreviousNotificationListEntity prevList = new PreviousNotificationListEntity();
-                prevList.addNotification(not);
-                db.previousNotificationListDao().insert(prevList);
-            }
-            ProfileEntity prof = db.profileDao().loadProfileSync(profileName);
-            for(int a = 0; a < prof.getAppsToBlock().size(); a++){
-                removeBlockedApp(prof.appsToBlock.get(a), profileName);
-            }
-            return null;
-        }
-
-
-    }
+//
+//    private class RemoveProfile extends AsyncTask<Void, Void, Void> {
+//        private String profileName;
+//
+//        public RemoveProfile(String profile){
+//            super();
+//            profileName = profile;
+//        }
+//
+//        @Override
+//        protected Void doInBackground(Void... params) {
+////            db.scheduleDao().insert(scheduleInsert);
+//
+//            List<MinNotificationEntity> notifs = db.minNotificationDao().loadMinNotificationsFromProfileSync(profileName);
+//            db.previousNotificationListDao().deleteAll();
+//            for(MinNotificationEntity not: notifs){
+//                PreviousNotificationListEntity prevList = new PreviousNotificationListEntity();
+//                prevList.addNotification(not);
+//                db.previousNotificationListDao().insert(prevList);
+//            }
+//            ProfileEntity prof = db.profileDao().loadProfileSync(profileName);
+//            for(int a = 0; a < prof.getAppsToBlock().size(); a++){
+//                removeBlockedApp(prof.appsToBlock.get(a), profileName);
+//            }
+//            return null;
+//        }
+//
+//
+//    }
 
 }

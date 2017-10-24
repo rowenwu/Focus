@@ -28,23 +28,18 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.pk.example.dao.PreviousNotificationListDao;
 import com.pk.example.dao.ScheduleDao;
 import com.pk.example.entity.MinNotificationEntity;
+import com.pk.example.entity.PrevNotificationEntity;
 import com.pk.example.entity.PreviousNotificationListEntity;
 import com.pk.example.entity.ScheduleEntity;
 
 public class NotificationListActivity extends ListActivity {
 
-    private PreviousNotificationListDao previousNotificationListDao;
     private AppDatabase database;
-    private List<PreviousNotificationListEntity> previousNotificationListEntityList;
-    private List<MinNotificationEntity> minNotificationEntityList = null;
+
     private PackageManager packageManager = null;
     private NotificationAdapter listadaptor = null;
-
-//    private MutableLiveData<List<PreviousNotificationListEntity>> previousNotiticationListEntityListLive;
-//    private MutableLiveData<List<MinNotificationEntity>> minNotificationListLive;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,7 +48,7 @@ public class NotificationListActivity extends ListActivity {
         setContentView(R.layout.activity_notification_list);
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
-        minNotificationEntityList = new ArrayList<MinNotificationEntity>();
+//        minNotificationEntityList = new ArrayList<MinNotificationEntity>();
 
         new LoadApplications().execute();
 
@@ -68,32 +63,26 @@ public class NotificationListActivity extends ListActivity {
             //get database
             database = AppDatabase.getDatabase(getApplicationContext());
 
+            //test if notifications are in minnotificationlist
+//            List<MinNotificationEntity> nots = database.minNotificationDao().loadMinNotificationsFromProfileSync("profile");
+//            listadaptor = new NotificationAdapter(NotificationListActivity.this,
+//                    R.layout.notification_list_row, nots);
 
-
-
-//            //get the list of previousNotificationListEntity(which each stores a notification)
-            previousNotificationListEntityList = database.previousNotificationListDao().loadAllPrevNotifications();
-            if (previousNotificationListEntityList.size()==0) {
-//                //create a fake notification list entity
-                PreviousNotificationListEntity fakePreviousNotificationListEntity = new PreviousNotificationListEntity();
-                Date date = Calendar.getInstance().getTime();
-                MinNotificationEntity fakeNotification = new MinNotificationEntity(new MinNotification("", "There are no notifications to display", date, ""));
-//                //add the notification entity to the notification list entity
-                fakePreviousNotificationListEntity.addNotification(fakeNotification);
-//                //insert the list entity into the datebase
-                database.previousNotificationListDao().insert(fakePreviousNotificationListEntity);
-//                //retrieve the new list of notificationlist entityes from database
-                previousNotificationListEntityList = database.previousNotificationListDao().loadAllPrevNotifications();
+            database.prevNotificationDao().deleteAll();
+            List<MinNotificationEntity> minNotifs = database.minNotificationDao().loadMinNotificationsFromProfileSync("profile");
+            for(MinNotificationEntity notif: minNotifs){
+                MinNotification mn = new MinNotification(notif.getAppName(), notif.getNotificationContext(), notif.getDate(), notif.getProfileName());
+                database.prevNotificationDao().insert(new PrevNotificationEntity(mn));
             }
-//
-//            //add all the notifications into the list
-            for (int i = 0; i < previousNotificationListEntityList.size(); i++) {
-                minNotificationEntityList.add(previousNotificationListEntityList.get(i).getNotification());
+
+            List<PrevNotificationEntity> notifs = database.prevNotificationDao().loadAllPrevNotificationsSync();
+            if (notifs == null || notifs.size()==0) {
+                database.prevNotificationDao().insert(new PrevNotificationEntity(new MinNotification("", "There are no notifications to display", new Date(), "")));
             }
 
 
             listadaptor = new NotificationAdapter(NotificationListActivity.this,
-                    R.layout.notification_list_row, minNotificationEntityList);
+                    R.layout.notification_list_row, notifs);
 
             return null;
         }
