@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+import static com.pk.example.NLService.INSERT_NOTIFICATION;
 
 public class MainActivity extends Activity {
 
@@ -29,7 +30,7 @@ public class MainActivity extends Activity {
         txtView = (TextView) findViewById(R.id.textView);
         nReceiver = new NotificationReceiver();
         IntentFilter filter = new IntentFilter();
-        filter.addAction("com.pk.example.INSERT_NOTIFICATION");
+        filter.addAction(NLService.INSERT_NOTIFICATION);
         registerReceiver(nReceiver,filter);
 
         ComponentName cn = new ComponentName(getApplicationContext(), NLService.class);

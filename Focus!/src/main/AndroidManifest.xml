@@ -87,9 +87,9 @@
         </activity>
         <receiver android:name=".NotificationReceiver" >
             <intent-filter>
-                <action android:name="com.pk.example.INSERT_NOTIFICATION"/>
-                <action android:name="com.pk.example.ADD_PROFILE"/>
-                <action android:name="com.pk.example.REMOVE_PROFILE" />
+                <action android:name="com.pk.example.INSERTNOTIFICATION"/>
+                <action android:name="com.pk.example.ADDPROFILE"/>
+                <action android:name="com.pk.example.REMOVEPROFILE" />
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </receiver>

@@ -52,7 +52,7 @@ public class NLService extends NotificationListenerService {
     static final String ADD_SCHEDULE_PENDING_INTENT = "com.pk.example.ADDSCHEDULEPENDINGINTENT";
     static final String ADD_PROFILE_PENDING_INTENT = "com.pk.example.ADDPROFILEPENDINGINTENT";
     static final String CANCEL_ALARM_INTENTS = "com.pk.example.CANCELALARMINTENTS";
-    static final String INSERT_NOTIFICATION = "com.pk.example.INSERT_NOTIFICATION";
+    static final String INSERT_NOTIFICATION = "com.pk.example.INSERTNOTIFICATION";
 
 
     private String TAG = this.getClass().getSimpleName();

@@ -34,6 +34,9 @@ public class NotificationReceiver extends BroadcastReceiver {
 
         switch(intent.getAction()) {
             case ADD_PROFILE:
+//                ArrayList<String> profs = new ArrayList<String>();
+//                profs.add("")
+//                new InsertNotification("test", "test", "test", profs).execute();
                 new UpdateProfile(intent.getStringExtra("name"), true).execute();
                 break;
             case REMOVE_PROFILE:

@@ -115,20 +115,20 @@ receiver#com.pk.example.NotificationReceiver
 ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:88:9-95:20
 	android:name
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:88:19-55
-intent-filter#android.intent.category.DEFAULT+com.pk.example.ADD_PROFILE+com.pk.example.INSERT_NOTIFICATION+com.pk.example.REMOVE_PROFILE
+intent-filter#android.intent.category.DEFAULT+com.pk.example.ADDPROFILE+com.pk.example.INSERTNOTIFICATION+com.pk.example.REMOVEPROFILE
 ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:89:13-94:29
-action#com.pk.example.INSERT_NOTIFICATION
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:90:17-76
+action#com.pk.example.INSERTNOTIFICATION
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:90:17-75
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:90:25-74
-action#com.pk.example.ADD_PROFILE
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:91:17-68
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:90:25-73
+action#com.pk.example.ADDPROFILE
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:91:17-67
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:91:25-66
-action#com.pk.example.REMOVE_PROFILE
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:92:17-72
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:91:25-65
+action#com.pk.example.REMOVEPROFILE
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:92:17-71
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:92:25-69
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:92:25-68
 category#android.intent.category.DEFAULT
 ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:93:17-75
 	android:name
