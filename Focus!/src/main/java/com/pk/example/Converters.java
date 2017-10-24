@@ -9,7 +9,6 @@ import android.arch.persistence.room.TypeConverter;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.pk.example.entity.MinNotificationEntity;
-import com.pk.example.entity.PreviousNotificationListEntity;
 
 
 public class Converters {
@@ -60,7 +59,7 @@ public class Converters {
 
     //converters for minnotification lists
     @TypeConverter
-    public static List<MinNotificationEntity> fromArrayListNotification (String value) {
+    public static List<MinNotificationEntity> fromArrayListNotification(String value) {
         Type listType = new TypeToken<List<MinNotificationEntity>>() {
         }.getType();
         return new Gson().fromJson(value, listType);
@@ -73,18 +72,5 @@ public class Converters {
         return json;
     }
 
-    //converters for minnotification lists
-    @TypeConverter
-    public static List<PreviousNotificationListEntity> fromListPreviousNotification (String value) {
-        Type listType = new TypeToken<List<PreviousNotificationListEntity>>() {
-        }.getType();
-        return new Gson().fromJson(value, listType);
-    }
 
-    @TypeConverter
-    public static String fromPreviousNotificationList(List<PreviousNotificationListEntity> list) {
-        Gson gson = new Gson();
-        String json = gson.toJson(list);
-        return json;
-    }
 }

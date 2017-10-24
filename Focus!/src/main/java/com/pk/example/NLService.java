@@ -4,13 +4,11 @@ import android.annotation.TargetApi;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Resources;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Looper;
 import android.os.Parcel;
@@ -26,22 +24,14 @@ import android.view.ViewGroup;
 import android.widget.RemoteViews;
 import android.widget.TextView;
 
-import com.pk.example.dao.CurrentNotificationListDao;
-import com.pk.example.dao.ProfileDao;
-import com.pk.example.entity.CurrentNotificationListEntity;
 import com.pk.example.entity.MinNotificationEntity;
-import com.pk.example.entity.PreviousNotificationListEntity;
-import com.pk.example.entity.ProfileEntity;
 
 import java.lang.reflect.Field;
-import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.Executor;
 
 public class NLService extends NotificationListenerService {
     //INTENT ACTIONS
@@ -106,18 +96,17 @@ public class NLService extends NotificationListenerService {
             if(blockedApps.get(sbn.getPackageName()) != null) {
                 cancelNotification(statusBarNotificationKey);
 
-                //handleactionadd
-            }
+                handleActionAdd(sbn.getNotification(),
+                        sbn.getPackageName(),
+                        sbn.getTag(),
+                        sbn.getId(),
+                        statusBarNotificationKey,
+                        getApplicationContext(),
+                        "listener");            }
         }
 
 
-        handleActionAdd(sbn.getNotification(),
-                sbn.getPackageName(),
-                sbn.getTag(),
-                sbn.getId(),
-                statusBarNotificationKey,
-                getApplicationContext(),
-                "listener");
+
     }
 
     @Override

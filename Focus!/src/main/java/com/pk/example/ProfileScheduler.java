@@ -93,6 +93,8 @@ public class ProfileScheduler {
 
     //randomly turn off a profile
     public static void turnOffProfile(Context context, ProfileEntity profile){
+        //SEND A INTENT TO NOTIFICATION RECEIVER TO CHANGE PREV NOTIFICATIONS
+
         // send intent to cancel NLService end profile pendingintent
         Intent i;
         i = new Intent(NLService.REMOVE_PROFILE);

@@ -1,38 +1,16 @@
 package com.pk.example;
 
 
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import android.app.Fragment;
 import android.app.ListActivity;
-import android.app.ListFragment;
 import android.app.ProgressDialog;
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
-import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListView;
-import android.widget.Toast;
 
-import com.pk.example.dao.ScheduleDao;
-import com.pk.example.entity.MinNotificationEntity;
 import com.pk.example.entity.PrevNotificationEntity;
-import com.pk.example.entity.PreviousNotificationListEntity;
-import com.pk.example.entity.ScheduleEntity;
 
 public class NotificationListActivity extends ListActivity {
 

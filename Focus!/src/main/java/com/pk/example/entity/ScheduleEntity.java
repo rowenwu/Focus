@@ -19,6 +19,7 @@ public class ScheduleEntity extends Schedule {
     private int _durationMin; //number of minutes
     private boolean _repeatWeekly;
     private boolean _isEnabled;
+    private boolean _active;
 
     @Override
     public String getName() {
@@ -82,6 +83,11 @@ public class ScheduleEntity extends Schedule {
     public void setIsEnabled(boolean isEnabled) {
         this._isEnabled = isEnabled;
     }
+
+    public boolean getActive() {return _active;}
+
+    public void setActive(boolean active) { this._active = active;}
+
     public ScheduleEntity () {
 
     }
@@ -94,5 +100,6 @@ public class ScheduleEntity extends Schedule {
         this._durationMin = schedule.getDurationMin();
         this._repeatWeekly = schedule.getRepeatWeekly();
         this._isEnabled = schedule.getIsEnabled();
+        this._active = false;
     }
 }

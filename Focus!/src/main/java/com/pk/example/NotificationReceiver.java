@@ -4,12 +4,11 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.util.Log;
 
 import com.pk.example.entity.MinNotificationEntity;
 import com.pk.example.entity.PrevNotificationEntity;
-import com.pk.example.entity.PreviousNotificationListEntity;
 import com.pk.example.entity.ProfileEntity;
+import com.pk.example.entity.ScheduleEntity;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -124,4 +123,22 @@ public class NotificationReceiver extends BroadcastReceiver {
         }
     }
 
+    private class UpdateSchedule extends AsyncTask<Void, Void, Void> {
+        private String scheduleName;
+        private boolean active;
+
+        public UpdateSchedule(String scheduleName, boolean active){
+            super();
+            this.scheduleName = scheduleName;
+            this.active = active;
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            ScheduleEntity schedule = db.scheduleDao().loadScheduleSync(scheduleName);
+            schedule.setActive(active);
+            db.scheduleDao().update(schedule);
+            return null;
+        }
+    }
 }

@@ -8,15 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.CompoundButton;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import com.pk.example.entity.MinNotificationEntity;
-import com.pk.example.entity.PreviousNotificationListEntity;
-import com.pk.example.entity.ProfileEntity;
 import com.pk.example.entity.ScheduleEntity;
 
 public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
@@ -84,10 +78,6 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
                 });
             }
 
-            //still need to set info
-            //appName.setText(applicationInfo.loadLabel(packageManager));
-            //packageName.setText(applicationInfo.packageName);
-            //iconview.setImageDrawable(applicationInfo.loadIcon(packageManager));
         }
         return view;
     }

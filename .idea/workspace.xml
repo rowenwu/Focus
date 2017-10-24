@@ -11,43 +11,54 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fc93fc3-05a9-41a0-ac42-5e6153d72697" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/dao/CurrentNotificationListDao.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/dao/PreviousNotificationListDao.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/entity/CurrentNotificationListEntity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/entity/PreviousNotificationListEntity.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/classes/debug/com/pk/example/MainActivity$NotificationReceiver.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/classes/debug/com/pk/example/MainActivity$NotificationReceiver.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/classes/debug/com/pk/example/MainActivity.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/classes/debug/com/pk/example/MainActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/classes/debug/com/pk/example/NLService$SchedulingReceiver.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/classes/debug/com/pk/example/NLService$SchedulingReceiver.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/classes/debug/com/pk/example/NLService$SimpleAction.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/classes/debug/com/pk/example/NLService$SimpleAction.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/classes/debug/com/pk/example/NLService.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/classes/debug/com/pk/example/NLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/incremental-verifier/debug/com/pk/example/MainActivity$NotificationReceiver.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/incremental-verifier/debug/com/pk/example/MainActivity$NotificationReceiver.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/incremental-verifier/debug/com/pk/example/MainActivity.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/incremental-verifier/debug/com/pk/example/MainActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/incremental-verifier/debug/com/pk/example/NLService$SchedulingReceiver.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/incremental-verifier/debug/com/pk/example/NLService$SchedulingReceiver.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/incremental-verifier/debug/com/pk/example/NLService$SimpleAction.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/incremental-verifier/debug/com/pk/example/NLService$SimpleAction.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/incremental-verifier/debug/com/pk/example/NLService.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/incremental-verifier/debug/com/pk/example/NLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/incremental/packageDebug/zip-cache/Wr3jJsxswD3Uqr+fsZrh2SLlKzI=" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/incremental/packageDebug/zip-cache/Wr3jJsxswD3Uqr+fsZrh2SLlKzI=" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/incremental/packageInstantRunResourcesDebug/zip-cache/Wr3jJsxswD3Uqr+fsZrh2SLlKzI=" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/incremental/packageInstantRunResourcesDebug/zip-cache/Wr3jJsxswD3Uqr+fsZrh2SLlKzI=" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/instant-run-resources/resources-debug.ir.ap_" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/instant-run-resources/resources-debug.ir.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/res/resources-debug.ap_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/split-apk/debug/slices/slice_1.apk" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/split-apk/debug/slices/slice_1.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/split-apk/debug/slices/slice_2.apk" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/split-apk/debug/slices/slice_2.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/split-apk/debug/slices/slice_6.apk" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/split-apk/debug/slices/slice_6.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/dex/debug/folders/1000/5/slice_1/classes.dex" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/dex/debug/folders/1000/5/slice_1/classes.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/dex/debug/folders/1000/5/slice_2/classes.dex" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/dex/debug/folders/1000/5/slice_2/classes.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/dex/debug/folders/1000/5/slice_6/classes.dex" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/dex/debug/folders/1000/5/slice_6/classes.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/pk/example/MainActivity$NotificationReceiver.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/pk/example/MainActivity$NotificationReceiver.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/pk/example/MainActivity.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/pk/example/MainActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/pk/example/NLService$SchedulingReceiver.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/pk/example/NLService$SchedulingReceiver.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/pk/example/NLService$SimpleAction.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/pk/example/NLService$SimpleAction.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/pk/example/NLService.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/pk/example/NLService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/com/pk/example/MainActivity$NotificationReceiver.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/com/pk/example/MainActivity$NotificationReceiver.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/com/pk/example/MainActivity.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/com/pk/example/MainActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/com/pk/example/NLService$SchedulingReceiver.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/com/pk/example/NLService$SchedulingReceiver.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/com/pk/example/NLService$SimpleAction.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/com/pk/example/NLService$SimpleAction.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/com/pk/example/NLService.class" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/com/pk/example/NLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/outputs/apk/Focus!-debug.apk" afterPath="$PROJECT_DIR$/Focus!/build/outputs/apk/Focus!-debug.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/incremental/packageDebug/file-input-save-data.txt" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/incremental/packageDebug/file-input-save-data.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/incremental/packageInstantRunResourcesDebug/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/incremental/packageInstantRunResourcesDebug/dex-renamer-state.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/incremental/packageInstantRunResourcesDebug/file-input-save-data.txt" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/incremental/packageInstantRunResourcesDebug/file-input-save-data.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/instant-run-support/debug/manifest.crc" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/instant-run-support/debug/manifest.crc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/instant-run-support/debug/manifest.xml" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/instant-run-support/debug/manifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/instant-run-support/debug/package_slice_1/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/instant-run-support/debug/package_slice_1/dex-renamer-state.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/instant-run-support/debug/package_slice_2/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/instant-run-support/debug/package_slice_2/dex-renamer-state.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/manifests/instant-run/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/manifests/instant-run/debug/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/instant-run-support/debug/package_slice_6/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/instant-run-support/debug/package_slice_6/dex-renamer-state.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/instant-run-support/debug/slice_6/AndroidManifest.xml" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/instant-run-support/debug/slice_6/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/restart-dex/debug/build-info.xml" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/restart-dex/debug/build-info.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/outputs/logs/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/Focus!/build/outputs/logs/manifest-merger-debug-report.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/Focus!/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/MainActivity.java" afterPath="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/AppDatabase.java" afterPath="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/AppDatabase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/Converters.java" afterPath="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/Converters.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/NLService.java" afterPath="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/NLService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/NotificationListActivity.java" afterPath="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/NotificationListActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/NotificationReceiver.java" afterPath="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/NotificationReceiver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/ProfileScheduler.java" afterPath="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/ProfileScheduler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/ScheduleAdapter.java" afterPath="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/ScheduleAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/entity/ScheduleEntity.java" afterPath="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/entity/ScheduleEntity.java" />
     </list>
     <ignored path="NotificationListenerService.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -112,11 +123,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="NotificationListActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/NotificationListActivity.java">
+      <file leaf-file-name="NotificationReceiver.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/NotificationReceiver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="597">
-              <caret line="70" column="57" selection-start-line="70" selection-start-column="57" selection-end-line="70" selection-end-column="57" />
+            <state relative-caret-position="2709">
+              <caret line="131" column="45" selection-start-line="131" selection-start-column="45" selection-end-line="131" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -127,8 +138,8 @@
       <file leaf-file-name="NLService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/NLService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="54" column="68" selection-start-line="54" selection-start-column="68" selection-end-line="54" selection-end-column="68" />
+            <state relative-caret-position="132">
+              <caret line="92" column="47" selection-start-line="92" selection-start-column="47" selection-end-line="92" selection-end-column="47" />
               <folding>
                 <element signature="method#getActions#0;class#NLService#0" expanded="false" />
               </folding>
@@ -136,67 +147,57 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NotificationReceiver.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/NotificationReceiver.java">
+      <file leaf-file-name="ScheduleEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/entity/ScheduleEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="18" column="41" selection-start-line="18" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="-902">
+              <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+              <folding>
+                <element signature="e#1834#1835#0" expanded="true" />
+                <element signature="e#1877#1878#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Converters.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/Converters.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="517">
+              <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Focus!/src/main/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="981">
-              <caret line="89" column="59" selection-start-line="89" selection-start-column="59" selection-end-line="89" selection-end-column="59" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-manifest">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProfileViewActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/ProfileViewActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2739">
-              <caret line="109" column="44" selection-start-line="109" selection-start-column="44" selection-end-line="109" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProfileScheduler.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ProfileScheduler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/ProfileScheduler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
+            <state relative-caret-position="1386">
+              <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProfileListAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/ProfileListAdapter.java">
+      <file leaf-file-name="AppDatabase.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/AppDatabase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="72" column="29" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
+            <state relative-caret-position="399">
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding>
-                <element signature="e#2904#2905#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScheduleAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/ScheduleAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="465">
+              <caret line="72" column="52" selection-start-line="72" selection-start-column="52" selection-end-line="72" selection-end-column="52" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -2320,10 +2321,7 @@
         <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/DurationPickerDialog.java" />
         <option value="$PROJECT_DIR$/Focus!/src/main/res/layout/activity_schedule_list.xml" />
         <option value="$PROJECT_DIR$/Focus!/src/main/res/layout/activity_profile_list.xml" />
-        <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/Schedule.java" />
-        <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/entity/ScheduleEntity.java" />
         <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/DummyDb.java" />
-        <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/Converters.java" />
         <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/dao/CurrentNotificationListDao.java" />
         <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/entity/CurrentNotificationListEntity.java" />
         <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/ProfileViewActivity.java" />
@@ -2334,22 +2332,25 @@
         <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/dao/MinNotificationDao.java" />
         <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/ScheduleViewActivity.java" />
         <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/ScheduleListActivity.java" />
-        <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/ScheduleAdapter.java" />
         <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/ProfileListActivity.java" />
         <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/dao/PrevNotificationDao.java" />
         <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/entity/PrevNotificationEntity.java" />
         <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/MinNotification.java" />
         <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/entity/MinNotificationEntity.java" />
         <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/NotificationAdapter.java" />
-        <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/AppDatabase.java" />
-        <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/ProfileScheduler.java" />
         <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/NotificationListActivity.java" />
         <option value="$PROJECT_DIR$/Focus!/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/ProfileListAdapter.java" />
         <option value="$PROJECT_DIR$/Focus!/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/NotificationReceiver.java" />
-        <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/NLService.java" />
         <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/MainActivity.java" />
+        <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/Schedule.java" />
+        <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/entity/ScheduleEntity.java" />
+        <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/Converters.java" />
+        <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/AppDatabase.java" />
+        <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/NotificationReceiver.java" />
+        <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/ScheduleAdapter.java" />
+        <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/NLService.java" />
+        <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/ProfileScheduler.java" />
       </list>
     </option>
   </component>
@@ -3158,6 +3159,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296837" sideWeight="0.4378434" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14869505" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296837" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -3171,7 +3173,6 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15934066" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296837" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -3217,39 +3218,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/ScheduleAdapter.java</url>
-          <line>75</line>
-          <properties />
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/ScheduleAdapter.java</url>
-          <line>78</line>
-          <properties />
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="28" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/Profile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/AppAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1243">
-          <caret line="73" column="54" selection-start-line="73" selection-start-column="54" selection-end-line="73" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/SchedulesViewModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="792">
@@ -3335,14 +3308,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/dao/CurrentNotificationListDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="37" column="1" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/dao/ProfileDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="792">
@@ -3372,18 +3337,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/dao/ScheduleDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="726">
-          <caret line="34" column="38" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/DatabaseCreator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="33">
           <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3398,38 +3356,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="314">
           <caret line="133" column="23" selection-start-line="133" selection-start-column="23" selection-end-line="133" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/Schedule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="709">
-          <caret line="31" column="41" selection-start-line="31" selection-start-column="41" selection-end-line="31" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/ScheduleAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1617">
-          <caret line="68" column="32" selection-start-line="68" selection-start-column="22" selection-end-line="68" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1283#1284#0" expanded="false" />
-            <element signature="e#1364#1365#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/ScheduleListActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2409">
-          <caret line="97" column="48" selection-start-line="97" selection-start-column="48" selection-end-line="97" selection-end-column="48" />
-          <folding>
-            <element signature="e#3722#3723#0" expanded="false" />
-            <element signature="e#3765#3766#0" expanded="false" />
-            <element signature="e#4261#4262#0" expanded="false" />
-            <element signature="e#4315#4316#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3452,6 +3378,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="429">
           <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3474,13 +3401,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-330">
           <caret line="5" column="44" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/Converters.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="71" column="40" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3514,16 +3435,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/AppDatabase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/entity/MinNotificationEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1356">
@@ -3540,17 +3451,6 @@
         <state relative-caret-position="627">
           <caret line="30" column="76" selection-start-line="30" selection-start-column="76" selection-end-line="30" selection-end-column="76" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/entity/ProfileEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
-          <folding>
-            <element signature="e#588#589#0" expanded="true" />
-            <element signature="e#623#624#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3584,24 +3484,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/ProfileListAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="72" column="29" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
-          <folding>
-            <element signature="e#2904#2905#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/ProfileScheduler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/NotificationListActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="597">
@@ -3623,16 +3505,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/NLService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="54" column="68" selection-start-line="54" selection-start-column="68" selection-end-line="54" selection-end-column="68" />
-          <folding>
-            <element signature="method#getActions#0;class#NLService#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/ProfileViewActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2739">
@@ -3641,18 +3513,133 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/NotificationReceiver.java">
+    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="18" column="41" selection-start-line="18" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state relative-caret-position="1023">
+          <caret line="47" column="5" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/ProfileListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="72" column="29" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
+          <folding>
+            <element signature="e#2904#2905#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/AppAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1243">
+          <caret line="73" column="54" selection-start-line="73" selection-start-column="54" selection-end-line="73" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/dao/ScheduleDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <caret line="30" column="6" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/dao/CurrentNotificationListDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/Converters.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="517">
+          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/entity/ScheduleEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-902">
+          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+          <folding>
+            <element signature="e#1834#1835#0" expanded="true" />
+            <element signature="e#1877#1878#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/Schedule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/ScheduleListActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1534">
+          <caret line="97" column="48" selection-start-line="97" selection-start-column="48" selection-end-line="97" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/ScheduleAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="72" column="52" selection-start-line="72" selection-start-column="52" selection-end-line="72" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/AppDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/entity/ProfileEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="38" column="67" selection-start-line="35" selection-start-column="3" selection-end-line="38" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/NotificationReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2709">
+          <caret line="131" column="45" selection-start-line="131" selection-start-column="45" selection-end-line="131" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/NLService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="92" column="47" selection-start-line="92" selection-start-column="47" selection-end-line="92" selection-end-column="47" />
+          <folding>
+            <element signature="method#getActions#0;class#NLService#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/ProfileScheduler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1386">
+          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding />
         </state>
       </provider>
