@@ -3,48 +3,21 @@
 
     <item
         is-multidex="true"
+        jar="C:\Users\kathe\Focus\Focus!\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="152657a9e0efee9889d74caa5a53a58c37bb783f">
+        <dex dex="C:\Users\kathe\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_3a43adc4a5265aa9bee6970b46752e7d485aef16\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\kathe\Focus\Focus!\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
         <dex dex="C:\Users\kathe\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_ec7615d5505c11611da33ef9c8f72a6b086c3e2b\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\kathe\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
-        <dex dex="C:\Users\kathe\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\constraint-layout-solver-1.0.2_9be20ddff63b490d6712288807473d27dd0f3168\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\kathe\Focus\Focus!\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="a8a300d1967f8315b4579313966c79546e7ad1b6">
-        <dex dex="C:\Users\kathe\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_3a43adc4a5265aa9bee6970b46752e7d485aef16\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\kathe\.android\build-cache\104db9b3691f1f0f3d4d3e5aa23701ce2b30d111\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="393eb85d65baa2c3702efdf699832498f8b51bf1">
-        <dex dex="C:\Users\kathe\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\classes_61088edaf62a145cbd2c445f2e525358b937f59f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\kathe\.android\build-cache\44e05fe309abb136e97b74cddaef7f35546ef3b3\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
-        <dex dex="C:\Users\kathe\Focus\Focus!\build\intermediates\transforms\dex\debug\folders\1000\10\classes_394297169cf494554596e6af80bd72095350c013\classes.dex" />
     </item>
 
 </items>

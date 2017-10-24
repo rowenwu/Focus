@@ -2,6 +2,7 @@ package com.pk.example;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import com.pk.example.entity.ProfileEntity;
+import com.pk.example.entity.ScheduleEntity;
 
 import java.util.List;
 
@@ -53,7 +55,7 @@ public class ProfileListAdapter extends ArrayAdapter<ProfileEntity> {
             view = layoutInflater.inflate(R.layout.schedule_list_row, null);
         }
 
-        ProfileEntity profileEntity = profileList.get(position);
+        final ProfileEntity profileEntity = profileList.get(position);
         if (null != profileEntity) {
             TextView profileContext = (TextView) view.findViewById(R.id.name);
             profileContext.setText(profileEntity.getName());
@@ -65,30 +67,39 @@ public class ProfileListAdapter extends ArrayAdapter<ProfileEntity> {
             }
             else {
                 if(profileEntity.getActive()){
-                    b.setEnabled(true);
+                    b.setChecked(true);
                 }
                 b.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         if (b.isChecked()) {
-                            ProfileScheduler.turnOnProfile(context, getItem(position).getName());
-                            //                        profileEntity.setActive(true);
-//                                                    database.profileDao().update(profileEntity);
-                            //
-                            //TODO UPDATE PROFILE IS active IN DATABASE
+                            ProfileScheduler.turnOnProfile(context, getItem(position));
+                            profileEntity.setActive(true);
                         } else {
-                            ProfileScheduler.turnOffProfile(context, getItem(position).getName());
-                            //                        profileEntity.setActive(false);
-                            //                        database.profileDao().update(profileEntity);
+                            ProfileScheduler.turnOffProfile(context, getItem(position));
+                            profileEntity.setActive(false);
                         }
+//                        new UpdateProfile(profileEntity).execute();
                     }
                 });
             }
-            //still need to set info
-            //appName.setText(applicationInfo.loadLabel(packageManager));
-            //packageName.setText(applicationInfo.packageName);
-            //iconview.setImageDrawable(applicationInfo.loadIcon(packageManager));
+
         }
         return view;
     }
+
+//    private class UpdateProfile extends AsyncTask<Void, Void, Void> {
+//        private ProfileEntity profile;
+//
+//        public UpdateProfile(ProfileEntity profile ){
+//            super();
+//            this.profile = profile;
+//        }
+//
+//        @Override
+//        protected Void doInBackground(Void... params) {
+//            database.profileDao().update(profile);
+//            return null;
+//        }
+//    }
 }

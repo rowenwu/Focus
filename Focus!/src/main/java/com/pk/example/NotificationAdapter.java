@@ -1,37 +1,36 @@
 package com.pk.example;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.pk.example.entity.MinNotificationEntity;
-import com.pk.example.entity.ScheduleEntity;
+import com.pk.example.entity.PrevNotificationEntity;
 
-public class NotificationAdapter extends ArrayAdapter<MinNotificationEntity> {
-    private List<MinNotificationEntity> minNotificationEntities = null;
+public class NotificationAdapter extends ArrayAdapter<PrevNotificationEntity> {
+    private List<PrevNotificationEntity> notifications = null;
     private Context context;
 
     public NotificationAdapter(Context context, int textViewResourceId,
-                               List<MinNotificationEntity> minNotificationEntities) {
-        super(context, textViewResourceId, minNotificationEntities);
+                               List<PrevNotificationEntity> notifications) {
+        super(context, textViewResourceId, notifications);
         this.context = context;
-        this.minNotificationEntities = minNotificationEntities;
+        this.notifications = notifications;
     }
 
     @Override
     public int getCount() {
-        return ((null != minNotificationEntities) ? minNotificationEntities.size() : 0);
+        return ((null != notifications) ? notifications.size() : 0);
     }
 
     @Override
-    public MinNotificationEntity getItem(int position) {
-        return ((null != minNotificationEntities) ? minNotificationEntities.get(position) : null);
+    public PrevNotificationEntity getItem(int position) {
+        return ((null != notifications) ? notifications.get(position) : null);
     }
 
     @Override
@@ -43,7 +42,7 @@ public class NotificationAdapter extends ArrayAdapter<MinNotificationEntity> {
             view = layoutInflater.inflate(R.layout.notification_list_row, null);
         }
 
-        MinNotificationEntity minNotification = minNotificationEntities.get(position);
+        PrevNotificationEntity minNotification = notifications.get(position);
         if (null != minNotification) {
             TextView appName = (TextView) view.findViewById(R.id.app_name);
             TextView notificationContext = (TextView) view.findViewById(R.id.notifcation_context);
@@ -52,7 +51,8 @@ public class NotificationAdapter extends ArrayAdapter<MinNotificationEntity> {
 
             appName.setText(minNotification.getAppName());
             notificationContext.setText(minNotification.getNotificationContext());
-            timeAndDate.setText(minNotification.getDate().toLocaleString().substring(0, 11));
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //Or whatever format fits best your needs.
+            timeAndDate.setText(sdf.format(minNotification.getDate()));
             //holder.iconview.setImageBitmap(minNotificationEntity.getAppIcon());
         }
         return view;

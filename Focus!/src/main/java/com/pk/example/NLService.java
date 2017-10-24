@@ -41,8 +41,10 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.Executor;
 
 public class NLService extends NotificationListenerService {
+    //INTENT ACTIONS
     static final String ADD_PROFILE = "com.pk.example.ADDPROFILE";
     static final String REMOVE_PROFILE = "com.pk.example.REMOVEPROFILE";
     static final String START_PROFILE_NOTIFICATION = " is now active and blocking your notifications.";
@@ -50,16 +52,19 @@ public class NLService extends NotificationListenerService {
     static final String ADD_SCHEDULE_PENDING_INTENT = "com.pk.example.ADDSCHEDULEPENDINGINTENT";
     static final String ADD_PROFILE_PENDING_INTENT = "com.pk.example.ADDPROFILEPENDINGINTENT";
     static final String CANCEL_ALARM_INTENTS = "com.pk.example.CANCELALARMINTENTS";
+    static final String INSERT_NOTIFICATION = "com.pk.example.INSERT_NOTIFICATION";
 
 
     private String TAG = this.getClass().getSimpleName();
     private SchedulingReceiver aReceiver;
-    private HashMap<String, HashSet<String>> blockedApps;
+    private HashMap<String, ArrayList<String>> blockedApps;
     //store these separately so that when a schedule/profile is disabled/turned off, we can cancel the right pending intents
     private HashMap<String, HashSet<PendingIntent>> scheduleAlarmIntents;
     private HashMap<String, HashSet<PendingIntent>> profileAlarmIntents;
-    String profileToAdd;
-    String profileToRemove;
+    private static HashMap<String, ArrayList<MinNotification>> currentNotificiations;
+    private static ArrayList<MinNotification> previousNotifications;
+    private static ArrayList<String> lastActiveProfiles;
+
 
     private AppDatabase db;
 
@@ -75,7 +80,12 @@ public class NLService extends NotificationListenerService {
         filter.addAction(REMOVE_PROFILE);
         filter.addAction(ADD_SCHEDULE_PENDING_INTENT);
         registerReceiver(aReceiver,filter);
-        blockedApps = new HashMap<String, HashSet<String>>();
+        blockedApps = new HashMap<String, ArrayList<String>>();
+
+        //test
+//        ArrayList<String> profnames = new ArrayList<String>();
+//        profnames.add("profile");
+//        blockedApps.put("com.pk.example", profnames);
         scheduleAlarmIntents = new HashMap<String, HashSet<PendingIntent>>();
         profileAlarmIntents = new HashMap<String, HashSet<PendingIntent>>();
     }
@@ -95,9 +105,11 @@ public class NLService extends NotificationListenerService {
             statusBarNotificationKey = sbn.getKey();
             if(blockedApps.get(sbn.getPackageName()) != null) {
                 cancelNotification(statusBarNotificationKey);
-            //handleactionadd
+
+                //handleactionadd
             }
         }
+
 
         handleActionAdd(sbn.getNotification(),
                 sbn.getPackageName(),
@@ -106,7 +118,6 @@ public class NLService extends NotificationListenerService {
                 statusBarNotificationKey,
                 getApplicationContext(),
                 "listener");
-
     }
 
     @Override
@@ -206,21 +217,31 @@ public class NLService extends NotificationListenerService {
                 }
             }
         }
+        ArrayList<String> profiles = blockedApps.get(packageName);
+        if(profiles != null) {
+            for (String prof : profiles) {
+                //need to add profile
+                MinNotificationEntity notif = new MinNotificationEntity(new MinNotification(packageName, title + " --- " + text, new Date(), prof));
+//                new InsertNotification(notif).execute();
+                //            db.minNotificationDao().insert(notif);
+            }
+        }
+        //TESTING PURPOSES
+        else {
+            profiles = new ArrayList<String>();
+            profiles.add("profile");
+        }
 
-        final Intent intent = new  Intent("com.pk.example.NOTIFICATION_LISTENER_EXAMPLE");
+        final Intent intent = new  Intent(INSERT_NOTIFICATION);
         // Make an intent
 
         intent.putExtra("packageName", packageName);
         intent.putExtra("title", title);
         intent.putExtra("text", text);
         intent.putExtra("action", notification.contentIntent);
+        intent.putStringArrayListExtra("profiles", profiles);
 
-        HashSet<String> profiles = blockedApps.get(packageName);
-//        for(String prof: profiles){
-//            //need to add profile
-//            MinNotificationEntity notif = new MinNotificationEntity(new MinNotification(packageName, title + " --- " + text, new Date(), prof));
-//            db.minNotificationDao().insert(notif);
-//        }
+
 
 
         if (Build.VERSION.SDK_INT >= 11)
@@ -283,6 +304,10 @@ public class NLService extends NotificationListenerService {
 
         Log.i("intent ","intent "+intent.getExtras().toString());
         intent.putExtra("info",intent.getExtras().toString());
+//        intent.putExtra("packageName", packageName);
+//        intent.putExtra("title", title);
+//        intent.putExtra("text", text);
+
         sendBroadcast(intent);
     }
 
@@ -485,72 +510,41 @@ public class NLService extends NotificationListenerService {
         nManager.notify((int)System.currentTimeMillis(),ncomp.build());
     }
 
-    public void addProfile(String profile){
+    public void addProfile(String profile, ArrayList<String> appsToBlock){
         // get profile information (start time, end time, list of apps) from database
         // for list of apps, addBlockedApp
-        //TODO IF PROFILE IS ALREADY ON ACTIVE PROFILES LIST THEN RETURN
-
         //TODO ADD PROFILE TO ACTIVE PROFILES LIST
-//        profileToAdd = profile;
         sendNotification(profile + START_PROFILE_NOTIFICATION);
-//        new AddProfile().execute();
-//        Profile prof = DummyDb.getProfile(profile);
 
-        ProfileEntity prof = db.profileDao().loadProfileSync(profile);
-        for(int a = 0; a < prof.getAppsToBlock().size(); a++){
-            addBlockedApp(prof.appsToBlock.get(a), profile);
+        for(int a = 0; a < appsToBlock.size(); a++){
+            addBlockedApp(appsToBlock.get(a), profile);
         }
 
     }
 
     public void addBlockedApp(String appPackage, String profile) {
-        HashSet<String> profiles = blockedApps.get(appPackage);
+        ArrayList<String> profiles = blockedApps.get(appPackage);
         if (profiles == null){
-            profiles = new HashSet<String>();
+            profiles = new ArrayList<String>();
         }
         profiles.add(profile);
         blockedApps.put(appPackage, profiles);
 
     }
 
-    public void removeProfile(String profile){
-        //TODO CHECK PROFILE IS ON ACTIVE PROFILES LIST, IF NOT RETURN
-        //TODO REMOVE PROFILE FROM ACTIVE PROFILES LIST
-
-
-        // GET NOTIFICATIONS FROM THIS PROFILE AND MAKE IT THE PREVIOUS NOTIFICATIONS LIST
-        profileToRemove = profile;
-//        new RemoveProfile().execute();
-//
-        List<MinNotificationEntity> notifs = db.minNotificationDao().loadMinNotificationsFromProfileSync(profile);
-        db.previousNotificationListDao().deleteAll();
-        for(MinNotificationEntity not: notifs){
-            PreviousNotificationListEntity prevList = new PreviousNotificationListEntity();
-            prevList.addNotification(not);
-            db.previousNotificationListDao().insert(prevList);
-            //need a delete for min
-            db.minNotificationDao().delete(not);
-        }
-
-        ProfileEntity prof = db.profileDao().loadProfileSync(profile);
+    public void removeProfile(String profile, ArrayList<String> appsToBlock){
         sendNotification(profile + STOP_PROFILE_NOTIFICATION);
-//        Profile prof = DummyDb.getProfile(profile);
-        for(int a = 0; a < prof.getAppsToBlock().size(); a++){
-            removeBlockedApp(prof.appsToBlock.get(a), profile);
-        }
 
-        HashSet<PendingIntent> alarms = profileAlarmIntents.get(profile);
-        if (alarms != null) {
-            for (PendingIntent temp : alarms) {
-                ProfileScheduler.removeAlarm(getApplicationContext(), temp);
-            }
-            profileAlarmIntents.remove(profile);
-        }
+        //might not be necessary
+        cancelProfileAlarmIntents(profile);
 
+        for(int a = 0; a < appsToBlock.size(); a++){
+            removeBlockedApp(appsToBlock.get(a), profile);
+        }
     }
 
     public void removeBlockedApp(String appPackage, String profile){
-        HashSet<String> profiles = blockedApps.get(appPackage);
+        ArrayList<String> profiles = blockedApps.get(appPackage);
         if (profiles != null){
             profiles.remove(profile);
         }
@@ -587,7 +581,13 @@ public class NLService extends NotificationListenerService {
         }
     }
     public void cancelProfileAlarmIntents(String profile){
-
+        HashSet<PendingIntent> alarms = profileAlarmIntents.get(profile);
+        if (alarms != null) {
+            for (PendingIntent temp : alarms) {
+                ProfileScheduler.removeAlarm(getApplicationContext(), temp);
+            }
+            profileAlarmIntents.remove(profile);
+        }
     }
 
     // receives notice to start or stop profile from alarm
@@ -602,10 +602,10 @@ public class NLService extends NotificationListenerService {
 
             switch(intent.getAction()){
                 case ADD_PROFILE:
-                    addProfile(name);
+                    addProfile(name, intent.getStringArrayListExtra("apps"));
                     break;
                 case REMOVE_PROFILE:
-                    removeProfile(name);
+                    removeProfile(name, intent.getStringArrayListExtra("apps"));
                     break;
                 case ADD_SCHEDULE_PENDING_INTENT:
                     //  get parcelable and add to profileAlarmIntent
@@ -626,39 +626,55 @@ public class NLService extends NotificationListenerService {
         }
     }
 
-    private class AddProfile extends AsyncTask<Void, Void, Void> {
-        private ProgressDialog progress = null;
-
-        @Override
-        protected Void doInBackground(Void... params) {
-            ProfileEntity prof = db.profileDao().loadProfileSync(profileToAdd);
-            for(int a = 0; a < prof.getAppsToBlock().size(); a++){
-                addBlockedApp(prof.appsToBlock.get(a), profileToAdd);
-            }
 
 
-            return null;
-        }
-    }
-
-    private class RemoveProfile extends AsyncTask<Void, Void, Void> {
-
-        @Override
-        protected Void doInBackground(Void... params) {
-//            db.scheduleDao().insert(scheduleInsert);
-
-            List<MinNotificationEntity> notifs = db.minNotificationDao().loadMinNotificationsFromProfileSync(profileToRemove);
-            db.previousNotificationListDao().deleteAll();
-            for(MinNotificationEntity not: notifs){
-                PreviousNotificationListEntity prevList = new PreviousNotificationListEntity();
-                prevList.addNotification(not);
-                db.previousNotificationListDao().insert(prevList);
-            }
-
-            return null;
-        }
-
-
-    }
+//    private class AddProfile extends AsyncTask<Void, Void, Void> {
+//        private String profileName;
+//
+//        public AddProfile(String profile){
+//            super();
+//            profileName = profile;
+//        }
+//
+//        @Override
+//        protected Void doInBackground(Void... params) {
+//            ProfileEntity prof = db.profileDao().loadProfileSync(profileName);
+//            for(int a = 0; a < prof.getAppsToBlock().size(); a++) {
+//                addBlockedApp(prof.appsToBlock.get(a), profileName);
+//            }
+//
+//            //change isActive to true
+//            return null;
+//        }
+//    }
+//
+//    private class RemoveProfile extends AsyncTask<Void, Void, Void> {
+//        private String profileName;
+//
+//        public RemoveProfile(String profile){
+//            super();
+//            profileName = profile;
+//        }
+//
+//        @Override
+//        protected Void doInBackground(Void... params) {
+////            db.scheduleDao().insert(scheduleInsert);
+//
+//            List<MinNotificationEntity> notifs = db.minNotificationDao().loadMinNotificationsFromProfileSync(profileName);
+//            db.previousNotificationListDao().deleteAll();
+//            for(MinNotificationEntity not: notifs){
+//                PreviousNotificationListEntity prevList = new PreviousNotificationListEntity();
+//                prevList.addNotification(not);
+//                db.previousNotificationListDao().insert(prevList);
+//            }
+//            ProfileEntity prof = db.profileDao().loadProfileSync(profileName);
+//            for(int a = 0; a < prof.getAppsToBlock().size(); a++){
+//                removeBlockedApp(prof.appsToBlock.get(a), profileName);
+//            }
+//            return null;
+//        }
+//
+//
+//    }
 
 }
