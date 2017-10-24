@@ -33,7 +33,9 @@ public class ProfileViewActivity extends ListActivity {
     private PackageManager packageManager = null;
     private List<ApplicationInfo> applist = null;
     private AppAdapter listadaptor = null;
+    private ProfileListAdapter profileListAdapter = null;
     private String name;
+    private int position;
 
     private AppDatabase db;
 
@@ -75,17 +77,19 @@ public class ProfileViewActivity extends ListActivity {
             EditText profileName = (EditText) findViewById(R.id.editTextProfileName);
             profileName.setText(name);
 
-            // select apps in app list that are currently in profile
-            for (int i = 0; i < applist.size(); i++) {
-                if (profileEntity.getAppsToBlock().contains(applist.get(i).packageName)) {
-                    listView.setItemChecked(i, true);
-                }
-            }
+//            // select apps in app list that are currently in profile
+//            for (int i = 0; i < applist.size(); i++) {
+//                if (profileEntity.getAppsToBlock().contains(applist.get(i).packageName)) {
+//                    listView.setItemChecked(i, true);
+//                }
+//            }
 
         }
         // view profile mode
         else if (flag.equals("view")) {
             name = getIntent().getStringExtra("name");
+            //position = getIntent().getIntExtra("position", 0);
+
             setContentView(R.layout.activity_profile_view);
             getActionBar().setDisplayHomeAsUpEnabled(true);
             packageManager = getPackageManager();
@@ -129,31 +133,15 @@ public class ProfileViewActivity extends ListActivity {
         }
         else {
             // add profile to db, return to ProfileListActivity
-
-            // create new profile entity (add this with profiledao)
-//            ProfileEntity newProfileEntity = new ProfileEntity();
-//
-//            // set profile name and apps to block
-//            newProfileEntity.setName(pname);
-//            newProfileEntity.setAppsToBlock(appPacks);
-//
-//            // add to database
-//            profileDao.insert(newProfileEntity);
-
-
-
-            // crashing??????????
             new InsertProfile().execute();
             profileInsert = new ProfileEntity(new Profile(pname, appPacks, true));
-//                db.profileDao().insert(newProfile);
-//                profileList = db.profileDao().loadAllProfilesAsync();
 
             // notify user
             Toast toast = Toast.makeText(getApplicationContext(),
                     "Profile created", Toast.LENGTH_SHORT);
             toast.show();
 
-            // TODO return to ProfileListActivity
+            // return to ProfileListActivity
             Intent i = new Intent(this, ProfileListActivity.class);
             startActivity(i);
 
@@ -194,7 +182,9 @@ public class ProfileViewActivity extends ListActivity {
 //                ProfileScheduler.turnOnProfile(this, pname);
 //            }
 
-            // TODO return to profile list view
+            // return to ProfileListActivity
+            Intent i = new Intent(this, ProfileListActivity.class);
+            startActivity(i);
         }
     }
 
@@ -212,7 +202,18 @@ public class ProfileViewActivity extends ListActivity {
 //            if(profileEntity.getActive()){
 //                ProfileScheduler.turnOffProfile(this, pname);
 //            }
-        // TODO return to profile list view
+        // return to ProfileListActivity
+        Intent i = new Intent(this, ProfileListActivity.class);
+        startActivity(i);
+    }
+
+    // edit button on profile view
+    public void editButtonClicked(View v) {
+        Intent i = new Intent(getApplicationContext(), ProfileViewActivity.class);
+        i.putExtra("flag", "edit");
+        i.putExtra("name", name);
+        profileEntity = db.profileDao().loadProfileSync(name);
+        startActivity(i);
     }
 
     private class LoadApplications extends AsyncTask<Void, Void, Void> {

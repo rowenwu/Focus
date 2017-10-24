@@ -55,6 +55,7 @@ public class ProfileListActivity extends ListActivity {
         Intent i = new Intent(getApplicationContext(), ProfileViewActivity.class);
         i.putExtra("flag", "view");
         i.putExtra("name", profileListAdapter.getItem(position).getName());
+        //i.putExtra("position", position);
 
         startActivity(i);
     }
