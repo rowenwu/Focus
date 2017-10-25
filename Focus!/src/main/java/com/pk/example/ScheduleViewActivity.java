@@ -4,12 +4,16 @@ package com.pk.example;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -38,17 +42,29 @@ public class ScheduleViewActivity extends ListActivity{
     private String flag;
     private ScheduleEntity scheduleEntity; // for edit/delete
     private List<ProfileEntity> profileList;
-    Button btnDatePicker, btnTimePicker;
-    EditText txtDate, txtTime, txtDuration;
+    Button btnDatePicker, btnTimePicker, btnDayPicker;
+    EditText txtDate, txtTime, txtDuration, txtDay;
     private int mYear , mMonth, mDay, mHour, mMinute;
     private Integer chosenYear, chosenMonth, chosenDay, chosenHour, chosenMinute, durationHours, durationMins;
     ListAdapter listadaptor = null;
     private AppDatabase db;
     TextView textView;
     private Calendar dateChosen = null;
-    CheckBox repeatWeeklyBox;
     private AppDatabase database;
     ScheduleEntity scheduleInsert;
+    final String[] daysOfWeek = new String[]{"SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"};
+    final String[] shortDaysOfWeek = new String[]{"S", "M", "T", "W", "Th", "F", "Sa"};
+
+    boolean[] checkedDays = new boolean[]{
+            false, // M
+            false, // T
+            false, // W
+            false, // Th
+            false, // F
+            false, // Sa
+            false, // S
+    };
+    boolean repeatWeekly = false;
 
 
     @Override
@@ -63,15 +79,110 @@ public class ScheduleViewActivity extends ListActivity{
             setContentView(R.layout.activity_schedule_view);
             btnDatePicker=(Button)findViewById(R.id.btn_date);
             btnTimePicker=(Button)findViewById(R.id.btn_time);
+            btnDayPicker=(Button)findViewById(R.id.btn_day);
             txtDate=(EditText)findViewById(R.id.in_date);
             txtTime=(EditText)findViewById(R.id.in_time);
             txtDuration=(EditText)findViewById(R.id.in_duration);
-            repeatWeeklyBox = (CheckBox)findViewById(R.id.simpleCheckBox);
+            txtDay = (EditText)findViewById(R.id.in_day);
             textView=(TextView)findViewById(R.id.textView);
+
+            txtDate.setEnabled(false);
+            txtDuration.setEnabled(false);
+            txtDay.setEnabled(false);
+            txtTime.setEnabled(false);
 
             new LoadProfiles().execute();
             ListView listView = getListView();
             listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+
+
+
+            btnDayPicker.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(ScheduleViewActivity.this, R.style.Theme_AppCompat_DayNight_Dialog);
+                    final boolean[] selectedItem = {false, false, false, false, false, false, false};
+                    final ArrayList selectedItems = new ArrayList();
+
+                    int temp = -1;
+                    if (txtDate.getText().toString() != "")
+                    {
+                        Calendar c = Calendar.getInstance();
+
+
+                        c.set(Calendar.DAY_OF_MONTH, chosenDay);
+                        c.set(Calendar.MONTH, chosenMonth);
+                        c.set(Calendar.YEAR, chosenYear);
+
+                        int day = c.get(Calendar.DAY_OF_WEEK) ;
+                        selectedItem[day-1] = true;
+                        temp = day - 1;
+                        selectedItems.add(day-1);
+                    }
+                    final int disablePosition = temp;
+
+
+
+                    builder.setTitle("Select Repeat Days");
+                    builder.setMultiChoiceItems(daysOfWeek, selectedItem, new DialogInterface.OnMultiChoiceClickListener(){
+                        @Override
+                        public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+//                  selectedItem[which] = isChecked;
+                            if (which == disablePosition)
+                            {
+                                ((AlertDialog) dialog).getListView().setItemChecked(which, true);
+                                ((AlertDialog) dialog).getListView().getChildAt(which).setEnabled(false);
+                            } else if (isChecked){
+                                selectedItems.add(which);
+                            } else if (selectedItems.contains(which)){
+                                selectedItems.remove(Integer.valueOf(which));
+                            }
+                        }
+                    })
+
+                            .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+
+                                    txtDay.setText("");
+                                    String put = "";
+                                    checkedDays =  selectedItem;
+                                    for (int i = 0; i < selectedItems.size(); i++)
+                                    {
+                                        checkedDays[(Integer)selectedItems.get(i)] = true;
+                                    }
+                                    for (int i = 0; i < checkedDays.length; i++)
+                                    {
+                                        if (checkedDays[i])
+                                        {
+                                            put += shortDaysOfWeek[i] + ",";
+                                        }
+                                    }
+                                    put = put.substring(0,put.length()-1);
+                                    txtDay.setText(put);
+                                }
+                            })
+
+                            .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    txtDay.setText("");
+                                }
+                            });
+
+
+
+
+
+                    AlertDialog dialog = builder.create();
+                    // Display the alert dialog on interface
+                    dialog.show();
+
+
+
+
+
+
+                }
+            });
 
         }
     }
@@ -150,6 +261,9 @@ public class ScheduleViewActivity extends ListActivity{
             timePickerDialog.show();
 
         }
+//        else if (v == btnDayPicker) {
+//
+//        }
     }
 
     public void createButtonClicked(View v){
@@ -187,17 +301,44 @@ public class ScheduleViewActivity extends ListActivity{
             dateChosen.set(Calendar.DAY_OF_MONTH, chosenDay);
             dateChosen.set(Calendar.MONTH, chosenMonth);
             dateChosen.set(Calendar.YEAR, chosenYear);
-            Date date = dateChosen.getTime();
             ArrayList<Date> startTimes = new ArrayList<Date>();
-            startTimes.add(date);
+            for (int i = 0; i < checkedDays.length; i++){
+                if (checkedDays[i]){
+                    dateChosen.set(Calendar.DAY_OF_WEEK,i-1);
+                    Date d = dateChosen.getTime();
+                    startTimes.add(d);
+                }
+            }
+
             ArrayList<String> profiles;
 
             if(profileList.size() > 0){
                 profiles = new ArrayList<String>();
             }
-            else
+            else{
                 profiles = listadaptor.getSelectedApps();
-            Boolean repeatWeekly = repeatWeeklyBox.isChecked();
+            }
+
+            Boolean repeatWeekly = false;
+            int d = dateChosen.get(Calendar.DAY_OF_WEEK);
+            for (int i = 0; i < checkedDays.length; i++)
+            {
+                if (checkedDays[i])
+                {
+                    repeatWeekly = true;
+                }
+
+            }
+//            List<Boolean> daysChecked = new ArrayList<>();
+//            for (int i = 0; i < checkedDays.length; ++i)
+//            {
+//                if (checkedDays[i])
+//                {
+//                    repeatWeekly = true;
+//                }
+//                daysChecked.add(checkedDays[i]);
+//            }
+
 
              scheduleInsert = new ScheduleEntity(new Schedule(pname, profiles, startTimes, durationHours, durationMins, repeatWeekly, true));
 
@@ -268,6 +409,7 @@ public class ScheduleViewActivity extends ListActivity{
             super.onProgressUpdate(values);
         }
     }
+
 
     private class InsertSchedule extends AsyncTask<Void, Void, Void> {
         private ProgressDialog progress = null;
