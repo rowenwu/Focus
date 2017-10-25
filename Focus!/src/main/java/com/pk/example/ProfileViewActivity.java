@@ -63,8 +63,9 @@ public class ProfileViewActivity extends ListActivity {
         // edit/delete profile mode
         else if (flag.equals("edit")) {
             name = getIntent().getStringExtra("name");
-            setContentView(R.layout.activity_create_profile);
+            setContentView(R.layout.activity_profile);
             getActionBar().setDisplayHomeAsUpEnabled(true);
+
             packageManager = getPackageManager();
 
             new LoadApplications().execute();
@@ -75,25 +76,33 @@ public class ProfileViewActivity extends ListActivity {
             EditText profileName = (EditText) findViewById(R.id.editTextProfileName);
             profileName.setText(name);
 
-            // select apps in app list that are currently in profile
-            for (int i = 0; i < applist.size(); i++) {
-                if (profileEntity.getAppsToBlock().contains(applist.get(i).packageName)) {
-                    listView.setItemChecked(i, true);
-                }
-            }
+//            // select apps in app list that are currently in profile
+//            for (int i = 0; i < applist.size(); i++) {
+//                if (profileEntity.getAppsToBlock().contains(applist.get(i).packageName)) {
+//                    listView.setItemChecked(i, true);
+//                }
+//            }
 
         }
         // view profile mode
         else if (flag.equals("view")) {
             name = getIntent().getStringExtra("name");
+            profileEntity = db.profileDao().loadProfileSync(name);
             setContentView(R.layout.activity_profile_view);
             getActionBar().setDisplayHomeAsUpEnabled(true);
             packageManager = getPackageManager();
+
+            new LoadProfileApplications().execute();
 
             TextView profileName = (TextView) findViewById(R.id.profileNameTextView);
             profileName.setText(name);
 
             // TODO populate listview with apps currently in profile
+//            for (int i = 0; i < applist.size(); i++) {
+//                if (profileEntity.getAppsToBlock().contains(applist.get(i).packageName)) {
+//                    listView.setItemChecked(i, true);
+//                }
+//            }
         }
 
         ListView listView = getListView();
@@ -129,31 +138,15 @@ public class ProfileViewActivity extends ListActivity {
         }
         else {
             // add profile to db, return to ProfileListActivity
-
-            // create new profile entity (add this with profiledao)
-//            ProfileEntity newProfileEntity = new ProfileEntity();
-//
-//            // set profile name and apps to block
-//            newProfileEntity.setName(pname);
-//            newProfileEntity.setAppsToBlock(appPacks);
-//
-//            // add to database
-//            profileDao.insert(newProfileEntity);
-
-
-
-            // crashing??????????
             new InsertProfile().execute();
             profileInsert = new ProfileEntity(new Profile(pname, appPacks, true));
-//                db.profileDao().insert(newProfile);
-//                profileList = db.profileDao().loadAllProfilesAsync();
 
             // notify user
             Toast toast = Toast.makeText(getApplicationContext(),
                     "Profile created", Toast.LENGTH_SHORT);
             toast.show();
 
-            // TODO return to ProfileListActivity
+            // return to ProfileListActivity
             Intent i = new Intent(this, ProfileListActivity.class);
             startActivity(i);
 
@@ -182,6 +175,10 @@ public class ProfileViewActivity extends ListActivity {
         }
         else {
             // update profile and return to profile list view
+            profileEntity.setName(pname);
+            profileEntity.setAppsToBlock(appPacks);
+
+            new UpdateProfile().execute();
 
             // notify user
             Toast toast = Toast.makeText(getApplicationContext(),
@@ -194,7 +191,9 @@ public class ProfileViewActivity extends ListActivity {
 //                ProfileScheduler.turnOnProfile(this, pname);
 //            }
 
-            // TODO return to profile list view
+            // return to ProfileListActivity
+            Intent i = new Intent(this, ProfileListActivity.class);
+            startActivity(i);
         }
     }
 
@@ -212,7 +211,18 @@ public class ProfileViewActivity extends ListActivity {
 //            if(profileEntity.getActive()){
 //                ProfileScheduler.turnOffProfile(this, pname);
 //            }
-        // TODO return to profile list view
+        // return to ProfileListActivity
+        Intent i = new Intent(this, ProfileListActivity.class);
+        startActivity(i);
+    }
+
+    // edit button on profile view
+    public void editButtonClicked(View v) {
+        Intent i = new Intent(getApplicationContext(), ProfileViewActivity.class);
+        i.putExtra("flag", "edit");
+        i.putExtra("name", name);
+        profileEntity = db.profileDao().loadProfileSync(name);
+        startActivity(i);
     }
 
     private class LoadApplications extends AsyncTask<Void, Void, Void> {
@@ -222,13 +232,60 @@ public class ProfileViewActivity extends ListActivity {
         protected Void doInBackground(Void... params) {
             if(name != null) {
                 profileEntity = db.profileDao().loadProfileSync(name);
-
-
             }
 
             applist = packageManager.getInstalledApplications(PackageManager.GET_META_DATA);
             listadaptor = new AppAdapter(ProfileViewActivity.this,
                     R.layout.snippet_list_row, applist);
+
+            return null;
+        }
+
+        @Override
+        protected void onCancelled() {
+            super.onCancelled();
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            setListAdapter(listadaptor);
+            progress.dismiss();
+            super.onPostExecute(result);
+        }
+
+        @Override
+        protected void onPreExecute() {
+            progress = ProgressDialog.show(ProfileViewActivity.this, null,
+                    "Loading profile...");
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+        }
+    }
+
+    private class LoadProfileApplications extends AsyncTask<Void, Void, Void> {
+        private ProgressDialog progress = null;
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            if(name != null) {
+                profileEntity = db.profileDao().loadProfileSync(name);
+            }
+
+            applist = packageManager.getInstalledApplications(PackageManager.GET_META_DATA);
+            ArrayList<ApplicationInfo> profileAppList = new ArrayList<>();
+
+            for (ApplicationInfo ai : applist) {
+                if (profileEntity.getAppsToBlock().contains(ai.packageName)) {
+                    profileAppList.add(ai);
+                }
+            }
+
+            listadaptor = new AppAdapter(ProfileViewActivity.this,
+                    R.layout.snippet_list_row, profileAppList);
 
             return null;
         }
@@ -265,6 +322,41 @@ public class ProfileViewActivity extends ListActivity {
         protected Void doInBackground(Void... params) {
 
             db.profileDao().insert(profileInsert);
+
+            return null;
+        }
+
+        @Override
+        protected void onCancelled() {
+            super.onCancelled();
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            progress.dismiss();
+            super.onPostExecute(result);
+        }
+
+        @Override
+        protected void onPreExecute() {
+            progress = ProgressDialog.show(ProfileViewActivity.this, null,
+                    "Saving");
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+        }
+    }
+
+    private class UpdateProfile extends AsyncTask<Void, Void, Void> {
+        private ProgressDialog progress = null;
+
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            db.profileDao().update(profileEntity);
 
             return null;
         }
