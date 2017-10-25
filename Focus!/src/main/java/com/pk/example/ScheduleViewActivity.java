@@ -105,7 +105,7 @@ public class ScheduleViewActivity extends ListActivity{
                     final ArrayList selectedItems = new ArrayList();
 
                     int temp = -1;
-                    if (txtDate.getText().toString() != "")
+                    if (chosenDay != null)
                     {
                         Calendar c = Calendar.getInstance();
 
