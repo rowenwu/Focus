@@ -90,6 +90,9 @@
                 <action android:name="com.pk.example.INSERTNOTIFICATION"/>
                 <action android:name="com.pk.example.ADDPROFILE"/>
                 <action android:name="com.pk.example.REMOVEPROFILE" />
+                <action android:name="com.pk.example.CHANGENOTIFICATIONS" />
+                <action android:name="com.pk.example.UPDATESCHEDULEACTIVE" />
+
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </receiver>

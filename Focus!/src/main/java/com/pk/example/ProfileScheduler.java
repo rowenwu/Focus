@@ -89,6 +89,15 @@ public class ProfileScheduler {
         i.putExtra("name", profile.getName());
         i.putStringArrayListExtra("apps", profile.getAppsToBlock());
         context.sendBroadcast(i);
+
+        Intent hasPendingIntent;
+        hasPendingIntent = new Intent(NLService.ADD_PROFILE_PENDING_INTENT);
+        hasPendingIntent.putExtra("name", profile.getName());
+
+        // add profile alarm intent to nlservice
+        hasPendingIntent.putExtra("pendingIntent", createAlarm(context, profile.getName(), new Date(), 10, 0, false, NLService.REMOVE_PROFILE));
+
+        //TODO sned change notifications alarm intent to notificationreceiver
     }
 
     //randomly turn off a profile
@@ -102,6 +111,13 @@ public class ProfileScheduler {
         i.putStringArrayListExtra("apps", profile.getAppsToBlock());
         context.sendBroadcast(i);
 
+
+        Intent notificationIntent;
+        notificationIntent = new Intent(NLService.CHANGE_NOTIFICATIONS);
+        ArrayList<String> profiles = new ArrayList<String>();
+        profiles.add(profile.getName());
+        notificationIntent.putExtra("profiles", profiles);
+        context.sendBroadcast(notificationIntent);
     }
 
 

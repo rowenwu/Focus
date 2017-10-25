@@ -15,6 +15,7 @@ import java.util.Date;
 import java.util.List;
 
 import static com.pk.example.NLService.ADD_PROFILE;
+import static com.pk.example.NLService.CHANGE_NOTIFICATIONS;
 import static com.pk.example.NLService.INSERT_NOTIFICATION;
 import static com.pk.example.NLService.REMOVE_PROFILE;
 
@@ -41,11 +42,13 @@ public class NotificationReceiver extends BroadcastReceiver {
             case REMOVE_PROFILE:
                 String name = intent.getStringExtra("name");
                 new UpdateProfile(name, false).execute();
-                // change this for a schedule w/ multiple profiles ending
-                profiles = new ArrayList<String>();
-                profiles.add(name);
-                new ChangePrevNotifications(profiles).execute();
                 break;
+            case CHANGE_NOTIFICATIONS:
+                new ChangePrevNotifications(intent.getStringArrayListExtra("profiles")).execute();
+                break;
+//            case UPDATE_SCHEDULE_ACTIVE:
+//                new UpdateProfile(intent.getBooleanExtra("active")).execute();
+//                break;
             case INSERT_NOTIFICATION:
                 String packageName, title, text;
                 packageName = intent.getStringExtra("packageName");
@@ -105,6 +108,7 @@ public class NotificationReceiver extends BroadcastReceiver {
 
         public ChangePrevNotifications(ArrayList<String> profiles){
             super();
+            this.profiles = profiles;
         }
 
         @Override

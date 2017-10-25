@@ -43,6 +43,8 @@ public class NLService extends NotificationListenerService {
     static final String ADD_PROFILE_PENDING_INTENT = "com.pk.example.ADDPROFILEPENDINGINTENT";
     static final String CANCEL_ALARM_INTENTS = "com.pk.example.CANCELALARMINTENTS";
     static final String INSERT_NOTIFICATION = "com.pk.example.INSERTNOTIFICATION";
+    static final String CHANGE_NOTIFICATIONS = "com.pk.example.CHANGENOTIFICATIONS";
+    static final String UPDATE_SCHEDULE_ACTIVE = "com.pk.example.UPDATESCHEDULEACTIVE";
 
 
     private String TAG = this.getClass().getSimpleName();
@@ -69,7 +71,7 @@ public class NLService extends NotificationListenerService {
         filter.addAction(ADD_PROFILE);
         filter.addAction(REMOVE_PROFILE);
         filter.addAction(ADD_SCHEDULE_PENDING_INTENT);
-        registerReceiver(aReceiver,filter);
+        registerReceiver(aReceiver, filter);
         blockedApps = new HashMap<String, ArrayList<String>>();
 
         //test
@@ -91,9 +93,9 @@ public class NLService extends NotificationListenerService {
     public void onNotificationPosted(StatusBarNotification sbn) {
 
         String statusBarNotificationKey = null;
-        if (Build.VERSION.SDK_INT >= 20){
+        if (Build.VERSION.SDK_INT >= 20) {
             statusBarNotificationKey = sbn.getKey();
-            if(blockedApps.get(sbn.getPackageName()) != null) {
+            if (blockedApps.get(sbn.getPackageName()) != null) {
                 cancelNotification(statusBarNotificationKey);
 
                 handleActionAdd(sbn.getNotification(),
@@ -102,16 +104,16 @@ public class NLService extends NotificationListenerService {
                         sbn.getId(),
                         statusBarNotificationKey,
                         getApplicationContext(),
-                        "listener");            }
+                        "listener");
+            }
         }
-
 
 
     }
 
     @Override
     public void onNotificationRemoved(StatusBarNotification sbn) {
-        Log.i(TAG,"********** onNOtificationRemoved");
+        Log.i(TAG, "********** onNOtificationRemoved");
 
     }
 
@@ -131,7 +133,8 @@ public class NLService extends NotificationListenerService {
             }*/
             try {
                 title = notification.extras.get("android.title").toString();
-            } catch (Exception ignored) {}
+            } catch (Exception ignored) {
+            }
             try {
                 text = notification.extras.get("android.text").toString();
             } catch (Exception ignored) {
@@ -156,7 +159,8 @@ public class NLService extends NotificationListenerService {
                 }
                 if (notification.extras.containsKey("android.title.big"))
                     title = notification.extras.getCharSequence("android.title.big", title).toString();
-            } catch (Exception ignored) {}
+            } catch (Exception ignored) {
+            }
 
             if (bigText != null && bigText.length() > 3) {
                 text = bigText.trim();
@@ -200,14 +204,16 @@ public class NLService extends NotificationListenerService {
                                 final String fullContent = fullContent(notification, context, texts, text);
                                 if (fullContent != null) text = fullContent;
                                 // Ignore all errors, we'll survive without the full notification
-                            } catch (Exception ignored) {}
+                            } catch (Exception ignored) {
+                            }
                         }
-                    } catch (Exception ignored) {}
+                    } catch (Exception ignored) {
+                    }
                 }
             }
         }
         ArrayList<String> profiles = blockedApps.get(packageName);
-        if(profiles != null) {
+        if (profiles != null) {
             for (String prof : profiles) {
                 //need to add profile
                 MinNotificationEntity notif = new MinNotificationEntity(new MinNotification(packageName, title + " --- " + text, new Date(), prof));
@@ -221,7 +227,7 @@ public class NLService extends NotificationListenerService {
             profiles.add("profile");
         }
 
-        final Intent intent = new  Intent(INSERT_NOTIFICATION);
+        final Intent intent = new Intent(INSERT_NOTIFICATION);
         // Make an intent
 
         intent.putExtra("packageName", packageName);
@@ -229,8 +235,6 @@ public class NLService extends NotificationListenerService {
         intent.putExtra("text", text);
         intent.putExtra("action", notification.contentIntent);
         intent.putStringArrayListExtra("profiles", profiles);
-
-
 
 
         if (Build.VERSION.SDK_INT >= 11)
@@ -291,8 +295,8 @@ public class NLService extends NotificationListenerService {
                         Intent.FLAG_ACTIVITY_NO_ANIMATION
         );
 
-        Log.i("intent ","intent "+intent.getExtras().toString());
-        intent.putExtra("info",intent.getExtras().toString());
+        Log.i("intent ", "intent " + intent.getExtras().toString());
+        intent.putExtra("info", intent.getExtras().toString());
 //        intent.putExtra("packageName", packageName);
 //        intent.putExtra("title", title);
 //        intent.putExtra("text", text);
@@ -392,7 +396,6 @@ public class NLService extends NotificationListenerService {
     }
 
 
-
     private static List<String> getText(Notification notification) {
         RemoteViews contentView = notification.contentView;
         /*if (Build.VERSION.SDK_INT >= 16) {
@@ -402,8 +405,7 @@ public class NLService extends NotificationListenerService {
         // Use reflection to examine the m_actions member of the given RemoteViews object.
         // It's not pretty, but it works.
         List<String> text = new ArrayList<>();
-        try
-        {
+        try {
             Field field = contentView.getClass().getDeclaredField("mActions");
             field.setAccessible(true);
 
@@ -411,8 +413,7 @@ public class NLService extends NotificationListenerService {
             ArrayList<Parcelable> actions = (ArrayList<Parcelable>) field.get(contentView);
 
             // Find the setText() and setTime() reflection actions
-            for (Parcelable p : actions)
-            {
+            for (Parcelable p : actions) {
                 Parcel parcel = Parcel.obtain();
                 p.writeToParcel(parcel, 0);
                 parcel.setDataPosition(0);
@@ -429,8 +430,7 @@ public class NLService extends NotificationListenerService {
                 if (methodName == null) continue;
 
                     // Save strings
-                else if (methodName.equals("setText"))
-                {
+                else if (methodName.equals("setText")) {
                     // Parameter type (10 = Character Sequence)
                     parcel.readInt();
 
@@ -456,8 +456,7 @@ public class NLService extends NotificationListenerService {
         }
 
         // It's not usually good style to do this, but then again, neither is the use of reflection...
-        catch (Exception e)
-        {
+        catch (Exception e) {
             e.printStackTrace();
             return null;
         }
@@ -488,7 +487,7 @@ public class NLService extends NotificationListenerService {
     }
 
 
-    public void sendNotification(String message){
+    public void sendNotification(String message) {
         NotificationManager nManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         NotificationCompat.Builder ncomp = new NotificationCompat.Builder(this);
         ncomp.setContentTitle("Focus!");
@@ -496,16 +495,16 @@ public class NLService extends NotificationListenerService {
         ncomp.setTicker(message);
         ncomp.setSmallIcon(R.drawable.ic_launcher);
         ncomp.setAutoCancel(true);
-        nManager.notify((int)System.currentTimeMillis(),ncomp.build());
+        nManager.notify((int) System.currentTimeMillis(), ncomp.build());
     }
 
-    public void addProfile(String profile, ArrayList<String> appsToBlock){
+    public void addProfile(String profile, ArrayList<String> appsToBlock) {
         // get profile information (start time, end time, list of apps) from database
         // for list of apps, addBlockedApp
         //TODO ADD PROFILE TO ACTIVE PROFILES LIST
         sendNotification(profile + START_PROFILE_NOTIFICATION);
 
-        for(int a = 0; a < appsToBlock.size(); a++){
+        for (int a = 0; a < appsToBlock.size(); a++) {
             addBlockedApp(appsToBlock.get(a), profile);
         }
 
@@ -513,7 +512,7 @@ public class NLService extends NotificationListenerService {
 
     public void addBlockedApp(String appPackage, String profile) {
         ArrayList<String> profiles = blockedApps.get(appPackage);
-        if (profiles == null){
+        if (profiles == null) {
             profiles = new ArrayList<String>();
         }
         profiles.add(profile);
@@ -521,29 +520,28 @@ public class NLService extends NotificationListenerService {
 
     }
 
-    public void removeProfile(String profile, ArrayList<String> appsToBlock){
+    public void removeProfile(String profile, ArrayList<String> appsToBlock) {
         sendNotification(profile + STOP_PROFILE_NOTIFICATION);
 
-        //might not be necessary
         cancelProfileAlarmIntents(profile);
 
-        for(int a = 0; a < appsToBlock.size(); a++){
+        for (int a = 0; a < appsToBlock.size(); a++) {
             removeBlockedApp(appsToBlock.get(a), profile);
         }
     }
 
-    public void removeBlockedApp(String appPackage, String profile){
+    public void removeBlockedApp(String appPackage, String profile) {
         ArrayList<String> profiles = blockedApps.get(appPackage);
-        if (profiles != null){
+        if (profiles != null) {
             profiles.remove(profile);
         }
-        if(profiles.size() == 0)
+        if (profiles.size() == 0)
             blockedApps.remove(appPackage);
     }
 
-    public void addScheduleAlarmIntent(String schedule, PendingIntent piStart, PendingIntent piEnd){
+    public void addScheduleAlarmIntent(String schedule, PendingIntent piStart, PendingIntent piEnd) {
         HashSet<PendingIntent> alarms = scheduleAlarmIntents.get(schedule);
-        if (alarms == null){
+        if (alarms == null) {
             alarms = new HashSet<PendingIntent>();
         }
         alarms.add(piStart);
@@ -551,7 +549,7 @@ public class NLService extends NotificationListenerService {
         scheduleAlarmIntents.put(schedule, alarms);
     }
 
-    public void addProfileAlarmIntent(String profile, PendingIntent pi){
+    public void addProfileAlarmIntent(String profile, PendingIntent pi) {
         HashSet<PendingIntent> alarms = profileAlarmIntents.get(profile);
         if (alarms != null) {
             alarms = new HashSet<PendingIntent>();
@@ -560,16 +558,17 @@ public class NLService extends NotificationListenerService {
         profileAlarmIntents.put(profile, alarms);
     }
 
-    public void cancelScheduleAlarmIntents(String schedule){
+    public void cancelScheduleAlarmIntents(String schedule) {
         HashSet<PendingIntent> alarms = scheduleAlarmIntents.get(schedule);
-        if (alarms != null){
+        if (alarms != null) {
             for (PendingIntent temp : alarms) {
                 ProfileScheduler.removeAlarm(getApplicationContext(), temp);
             }
             scheduleAlarmIntents.remove(schedule);
         }
     }
-    public void cancelProfileAlarmIntents(String profile){
+
+    public void cancelProfileAlarmIntents(String profile) {
         HashSet<PendingIntent> alarms = profileAlarmIntents.get(profile);
         if (alarms != null) {
             for (PendingIntent temp : alarms) {
@@ -584,12 +583,12 @@ public class NLService extends NotificationListenerService {
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            Log.i("intent ","intent "+intent.getExtras().toString());
+            Log.i("intent ", "intent " + intent.getExtras().toString());
 
             String name = intent.getStringExtra("name");
             PendingIntent piStart, piEnd;
 
-            switch(intent.getAction()){
+            switch (intent.getAction()) {
                 case ADD_PROFILE:
                     addProfile(name, intent.getStringArrayListExtra("apps"));
                     break;
@@ -614,56 +613,4 @@ public class NLService extends NotificationListenerService {
 
         }
     }
-
-
-
-//    private class AddProfile extends AsyncTask<Void, Void, Void> {
-//        private String profileName;
-//
-//        public AddProfile(String profile){
-//            super();
-//            profileName = profile;
-//        }
-//
-//        @Override
-//        protected Void doInBackground(Void... params) {
-//            ProfileEntity prof = db.profileDao().loadProfileSync(profileName);
-//            for(int a = 0; a < prof.getAppsToBlock().size(); a++) {
-//                addBlockedApp(prof.appsToBlock.get(a), profileName);
-//            }
-//
-//            //change isActive to true
-//            return null;
-//        }
-//    }
-//
-//    private class RemoveProfile extends AsyncTask<Void, Void, Void> {
-//        private String profileName;
-//
-//        public RemoveProfile(String profile){
-//            super();
-//            profileName = profile;
-//        }
-//
-//        @Override
-//        protected Void doInBackground(Void... params) {
-////            db.scheduleDao().insert(scheduleInsert);
-//
-//            List<MinNotificationEntity> notifs = db.minNotificationDao().loadMinNotificationsFromProfileSync(profileName);
-//            db.previousNotificationListDao().deleteAll();
-//            for(MinNotificationEntity not: notifs){
-//                PreviousNotificationListEntity prevList = new PreviousNotificationListEntity();
-//                prevList.addNotification(not);
-//                db.previousNotificationListDao().insert(prevList);
-//            }
-//            ProfileEntity prof = db.profileDao().loadProfileSync(profileName);
-//            for(int a = 0; a < prof.getAppsToBlock().size(); a++){
-//                removeBlockedApp(prof.appsToBlock.get(a), profileName);
-//            }
-//            return null;
-//        }
-//
-//
-//    }
-
 }
