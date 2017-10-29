@@ -18,34 +18,33 @@ public class ProfileScheduler {
     private static AlarmManager alarmMgr;
 
     //enable schedule to become active later
-    public static void enableSchedule(Context context, ScheduleEntity schedule) {
+    public static void enableSchedule(Context context, ScheduleEntity schedule, String profile, ArrayList<String> appsToBlock) {
         //get schedule time and profiles from database
 
-        ArrayList<String> profiles = schedule.getProfiles();
         ArrayList<Date> startTimes = schedule.getStartTimes();
-        for (int j = 0; j < profiles.size(); j++)
-            for (int i = 0; i < startTimes.size(); i++) {
-                // send the intent to NLService in case we need to cancel it later
-                Intent hasPendingIntent;
-                hasPendingIntent = new Intent(NLService.ADD_SCHEDULE_PENDING_INTENT);
-                hasPendingIntent.putExtra("name", schedule.getName());
+        for (int i = 0; i < startTimes.size(); i++) {
+            // send the intent to NLService in case we need to cancel it later
+            Intent hasPendingIntent;
+            hasPendingIntent = new Intent(NLService.ADD_SCHEDULE_PENDING_INTENT);
+            hasPendingIntent.putExtra("name", schedule.getName());
 
-                //TODO ADD APPS TO BLOCK TO INTENT
-                hasPendingIntent.putExtra("startIntent",
-                        createAlarm(context, profiles.get(j), startTimes.get(i), 0, 0, schedule.getRepeatWeekly(), NLService.ADD_PROFILE));
-                hasPendingIntent.putExtra("endIntent",
-                        createAlarm(context, profiles.get(j), startTimes.get(i), schedule.getDurationHr(), schedule.getDurationMin(), schedule.getRepeatWeekly(), NLService.REMOVE_PROFILE));
-                context.sendBroadcast(hasPendingIntent);
-            }
+            //TODO ADD APPS TO BLOCK TO INTENT
+            hasPendingIntent.putExtra("startIntent",
+                    createAlarm(context, profile, appsToBlock, startTimes.get(i), 0, 0, schedule.getRepeatWeekly(), NLService.ADD_PROFILE));
+            hasPendingIntent.putExtra("endIntent",
+                    createAlarm(context, profile, appsToBlock, startTimes.get(i), schedule.getDurationHr(), schedule.getDurationMin(), schedule.getRepeatWeekly(), NLService.REMOVE_PROFILE));
+            context.sendBroadcast(hasPendingIntent);
+        }
     }
 
     // NEED TO CREATE DIFFERENT PENDING INTENT IDS AND STORE THEM IN NLSERVICE
-    public static PendingIntent createAlarm(Context context, String profile, Date date, int addHr, int addMin, boolean repeat, String intentAction) {
+    public static PendingIntent createAlarm(Context context, String profile, ArrayList<String> appsToBlock, Date date, int addHr, int addMin, boolean repeat, String intentAction) {
         //create alarms - pendingintents
 
         alarmMgr = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent i = new Intent(intentAction);
         i.putExtra("name", profile);
+        i.putExtra("appsToBlock", appsToBlock);
         PendingIntent alarmIntent = PendingIntent.getBroadcast(context, (int) System.currentTimeMillis(), i, 0);
         Calendar calendar = Calendar.getInstance(); // creates a new calendar instance
         calendar.setTime(date);
@@ -62,7 +61,7 @@ public class ProfileScheduler {
     }
 
     // disable schedule
-    public static void disableSchedule(Context context, Schedule schedule) {
+    public static void disableSchedule(Context context, ScheduleEntity schedule) {
         //get schedule time and profiles from database
 
         // TODO if schedule is active: remove profiles
@@ -95,7 +94,7 @@ public class ProfileScheduler {
         hasPendingIntent.putExtra("name", profile.getName());
 
         // add profile alarm intent to nlservice
-        hasPendingIntent.putExtra("pendingIntent", createAlarm(context, profile.getName(), new Date(), 10, 0, false, NLService.REMOVE_PROFILE));
+        hasPendingIntent.putExtra("pendingIntent", createAlarm(context, profile.getName(), profile.getAppsToBlock(), new Date(), 10, 0, false, NLService.REMOVE_PROFILE));
 
         //TODO sned change notifications alarm intent to notificationreceiver
     }

@@ -1,5 +1,6 @@
 package com.pk.example;
 
+import java.util.ArrayList;
 import java.util.List;
 import android.content.Context;
 import android.os.AsyncTask;
@@ -11,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+import com.pk.example.entity.ProfileEntity;
 import com.pk.example.entity.ScheduleEntity;
 
 public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
@@ -66,7 +68,7 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
                     @Override
                     public void onClick(View v) {
                         if (b.isChecked()) {
-                            ProfileScheduler.enableSchedule(context, getItem(position));
+                            new EnableSchedule(getItem(position)).execute();
                             schedule.setIsEnabled(true);
                         } else {
                             ProfileScheduler.disableSchedule(context, getItem(position));
@@ -93,6 +95,25 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
         @Override
         protected Void doInBackground(Void... params) {
             database.scheduleDao().update(schedule);
+            return null;
+        }
+    }
+
+    private class EnableSchedule extends AsyncTask<Void, Void, Void> {
+        private ScheduleEntity schedule;
+
+        public EnableSchedule(ScheduleEntity schedule ){
+            super();
+            this.schedule = schedule;
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            ArrayList<String> profiles = schedule.getProfiles();
+            for(String profile: profiles){
+                ProfileEntity prof = database.profileDao().loadProfileSync(profile);
+                ProfileScheduler.enableSchedule(context, schedule, profile, prof.getAppsToBlock());
+            }
             return null;
         }
     }

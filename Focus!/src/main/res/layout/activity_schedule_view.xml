@@ -125,7 +125,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAllCaps="true"
-            android:text="Set duration"
+            android:text="Select Days"
             android:id="@+id/btn_day"
             android:onClick="buttonClicked"
             android:layout_alignBottom="@+id/in_day"
