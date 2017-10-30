@@ -4,8 +4,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
-        testCompile 'junit:junit:4.12'
+        classpath 'com.android.tools.build:gradle:3.0.0'
     }
 }
 
@@ -50,6 +49,8 @@ dependencies {
     //UIAutomator dependency
     androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.1'
 
+    // JUnit dependency
+    testCompile 'junit:junit:4.12'
 }
 
 // The sample build uses multiple directories to
