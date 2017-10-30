@@ -463,7 +463,72 @@ public class ScheduleViewActivity extends ListActivity{
     }
 
     public void saveButtonClicked(View v) {
-        //
+        // update schedule
+        // get new profile name from text field
+        EditText scheduleName = (EditText) findViewById(R.id.editTextScheduleName);
+        String sname = scheduleName.getText().toString();
+
+        if (sname.isEmpty()) {
+            // show toast if profile name is empty
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "Please enter a schedule name", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+        else if (chosenHour == null || chosenYear == null || durationHours == null) {
+            // show toast if no apps are selected
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "Please choose a date, time, and duration", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+        else if (durationHours >= 10 || (durationHours == 0 && durationMins < 10)){
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "Duration must be between 10 minutes and 10 hours", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+        else {
+            //
+            dateChosen = Calendar.getInstance();
+            dateChosen.set(Calendar.MINUTE, chosenMinute);
+            dateChosen.set(Calendar.HOUR_OF_DAY, chosenHour);
+            dateChosen.set(Calendar.DAY_OF_MONTH, chosenDay);
+            dateChosen.set(Calendar.MONTH, chosenMonth);
+            dateChosen.set(Calendar.YEAR, chosenYear);
+            ArrayList<Date> startTimes = new ArrayList<Date>();
+            for (int i = 0; i < checkedDays.length; i++) {
+                if (checkedDays[i]) {
+                    dateChosen.set(Calendar.DAY_OF_WEEK, i - 1);
+                    Date d = dateChosen.getTime();
+                    startTimes.add(d);
+                }
+            }
+
+            ArrayList<String> profiles;
+
+            if (profileList.size() > 0) {
+                profiles = new ArrayList<String>();
+            } else {
+                profiles = listadaptor.getSelectedApps();
+            }
+
+            Boolean repeatWeekly = false;
+            int d = dateChosen.get(Calendar.DAY_OF_WEEK);
+            for (int i = 0; i < checkedDays.length; i++) {
+                if (checkedDays[i]) {
+                    repeatWeekly = true;
+                }
+
+            }
+
+            new UpdateSchedule(name, sname, profiles, startTimes, durationHours, durationMins, repeatWeekly, true).execute();
+
+            // notify user
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "Schedule updated", Toast.LENGTH_SHORT);
+            toast.show();
+
+            Intent i = new Intent(getApplicationContext(), ScheduleListActivity.class);
+            startActivity(i);
+        }
     }
 
     public void deleteButtonClicked(View v) {
@@ -545,6 +610,56 @@ public class ScheduleViewActivity extends ListActivity{
             database.scheduleDao().insert(scheduleInsert);
 
 
+
+            return null;
+        }
+
+        @Override
+        protected void onCancelled() {
+            super.onCancelled();
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            progress.dismiss();
+            super.onPostExecute(result);
+        }
+
+        @Override
+        protected void onPreExecute() {
+            progress = ProgressDialog.show(ScheduleViewActivity.this, null,
+                    "Saving");
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+        }
+    }
+
+    private class UpdateSchedule extends AsyncTask<Void, Void, Void> {
+        private ProgressDialog progress = null;
+        private String oldName;
+        private ScheduleEntity schedule;
+
+        UpdateSchedule(String name, String newName, ArrayList<String> profiles, ArrayList<Date> startTimes, int durationHr, int durationMin, boolean repeatWeekly, boolean isEnabled) {
+            this.oldName = name;
+            schedule = database.scheduleDao().loadScheduleSync(name);
+
+            schedule.setName(newName);
+            schedule.setProfiles(profiles);
+            schedule.setStartTimes(startTimes);
+            schedule.setDurationHr(durationHr);
+            schedule.setDurationMin(durationMin);
+            schedule.setRepeatWeekly(repeatWeekly);
+            schedule.setIsEnabled(isEnabled);
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            database.scheduleDao().update(schedule);
 
             return null;
         }
