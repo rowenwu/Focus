@@ -8,6 +8,7 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
+import android.arch.persistence.room.Delete;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -51,6 +52,7 @@ public class ScheduleViewActivity extends ListActivity{
     TextView textView;
     private Calendar dateChosen = null;
     private AppDatabase database;
+    private String name;
     ScheduleEntity scheduleInsert;
     final String[] daysOfWeek = new String[]{"SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"};
     final String[] shortDaysOfWeek = new String[]{"S", "M", "T", "W", "Th", "F", "Sa"};
@@ -184,6 +186,106 @@ public class ScheduleViewActivity extends ListActivity{
                 }
             });
 
+        }
+
+        // schedule edit mode
+        else if (flag.equals("edit")) {
+            name = getIntent().getStringExtra("name");
+
+            setContentView(R.layout.activity_schedule_edit);
+            EditText txtScheduleName = (EditText) findViewById(R.id.editTextScheduleName);
+            btnDatePicker=(Button)findViewById(R.id.btn_date);
+            btnTimePicker=(Button)findViewById(R.id.btn_time);
+            btnDayPicker=(Button)findViewById(R.id.btn_day);
+            txtDate=(EditText)findViewById(R.id.in_date);
+            txtTime=(EditText)findViewById(R.id.in_time);
+            txtDuration=(EditText)findViewById(R.id.in_duration);
+            txtDay = (EditText)findViewById(R.id.in_day);
+            textView=(TextView)findViewById(R.id.textView);
+
+            txtScheduleName.setText(name);
+            txtDate.setEnabled(false);
+            txtDuration.setEnabled(false);
+            txtDay.setEnabled(false);
+            txtTime.setEnabled(false);
+
+            new LoadProfiles().execute();
+            ListView listView = getListView();
+            listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+
+            btnDayPicker.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(ScheduleViewActivity.this, R.style.Theme_AppCompat_DayNight_Dialog);
+                    final boolean[] selectedItem = {false, false, false, false, false, false, false};
+                    final ArrayList selectedItems = new ArrayList();
+
+                    int temp = -1;
+                    if (chosenDay != null)
+                    {
+                        Calendar c = Calendar.getInstance();
+
+
+                        c.set(Calendar.DAY_OF_MONTH, chosenDay);
+                        c.set(Calendar.MONTH, chosenMonth);
+                        c.set(Calendar.YEAR, chosenYear);
+
+                        int day = c.get(Calendar.DAY_OF_WEEK) ;
+                        selectedItem[day-1] = true;
+                        temp = day - 1;
+                        selectedItems.add(day-1);
+                    }
+                    final int disablePosition = temp;
+
+                    builder.setTitle("Select Repeat Days");
+                    builder.setMultiChoiceItems(daysOfWeek, selectedItem, new DialogInterface.OnMultiChoiceClickListener(){
+                        @Override
+                        public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                            if (which == disablePosition)
+                            {
+                                ((AlertDialog) dialog).getListView().setItemChecked(which, true);
+                                ((AlertDialog) dialog).getListView().getChildAt(which).setEnabled(false);
+                            } else if (isChecked){
+                                selectedItems.add(which);
+                            } else if (selectedItems.contains(which)){
+                                selectedItems.remove(Integer.valueOf(which));
+                            }
+                        }
+                    })
+
+                            .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+
+                                    txtDay.setText("");
+                                    String put = "";
+                                    checkedDays =  selectedItem;
+                                    for (int i = 0; i < selectedItems.size(); i++)
+                                    {
+                                        checkedDays[(Integer)selectedItems.get(i)] = true;
+                                    }
+                                    for (int i = 0; i < checkedDays.length; i++)
+                                    {
+                                        if (checkedDays[i])
+                                        {
+                                            put += shortDaysOfWeek[i] + ",";
+                                        }
+                                    }
+                                    put = put.substring(0,put.length()-1);
+                                    txtDay.setText(put);
+                                }
+                            })
+
+                            .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    txtDay.setText("");
+                                }
+                            });
+
+                    AlertDialog dialog = builder.create();
+                    // Display the alert dialog on interface
+                    dialog.show();
+                }
+            });
         }
     }
     //DATE CANT BE PAST
@@ -360,6 +462,23 @@ public class ScheduleViewActivity extends ListActivity{
         }
     }
 
+    public void saveButtonClicked(View v) {
+        //
+    }
+
+    public void deleteButtonClicked(View v) {
+        // delete schedule
+        new DeleteSchedule(name).execute();
+
+        // notify user
+        Toast toast = Toast.makeText(getApplicationContext(),
+                "Schedule deleted", Toast.LENGTH_SHORT);
+        toast.show();
+
+        Intent i = new Intent(getApplicationContext(), ScheduleListActivity.class);
+        startActivity(i);
+    }
+
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
@@ -426,6 +545,48 @@ public class ScheduleViewActivity extends ListActivity{
             database.scheduleDao().insert(scheduleInsert);
 
 
+
+            return null;
+        }
+
+        @Override
+        protected void onCancelled() {
+            super.onCancelled();
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            progress.dismiss();
+            super.onPostExecute(result);
+        }
+
+        @Override
+        protected void onPreExecute() {
+            progress = ProgressDialog.show(ScheduleViewActivity.this, null,
+                    "Saving");
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+        }
+    }
+
+    private class DeleteSchedule extends AsyncTask<Void, Void, Void> {
+        private ProgressDialog progress = null;
+        private String name;
+        private ScheduleEntity schedule;
+
+        DeleteSchedule(String name) {
+            this.name = name;
+            schedule = db.scheduleDao().loadScheduleSync(name);
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            db.scheduleDao().delete(schedule);
 
             return null;
         }
