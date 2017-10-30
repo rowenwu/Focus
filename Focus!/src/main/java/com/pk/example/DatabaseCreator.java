@@ -1,8 +1,8 @@
 package com.pk.example;
 
 import android.annotation.SuppressLint;
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
+//import android.arch.lifecycle.LiveData;
+//import android.arch.lifecycle.MutableLiveData;
 import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.os.AsyncTask;
@@ -21,7 +21,7 @@ public class DatabaseCreator{
 
     private static DatabaseCreator sInstance;
 
-    private final MutableLiveData<Boolean> mIsDatabaseCreated = new MutableLiveData<>();
+//    private final MutableLiveData<Boolean> mIsDatabaseCreated = new MutableLiveData<>();
 
     private AppDatabase mDb;
 
@@ -42,9 +42,9 @@ public class DatabaseCreator{
     }
 
     /** Used to observe when the database initialization is done */
-    public LiveData<Boolean> isDatabaseCreated() {
-        return mIsDatabaseCreated;
-    }
+//    public LiveData<Boolean> isDatabaseCreated() {
+//        return mIsDatabaseCreated;
+//    }
 
     @Nullable
     public AppDatabase getAppDatabase() {
@@ -65,7 +65,7 @@ public class DatabaseCreator{
             return; // Already initializing
         }
 
-        mIsDatabaseCreated.setValue(false);// Trigger an update to show a loading screen.
+//        mIsDatabaseCreated.setValue(false);// Trigger an update to show a loading screen.
         new AsyncTask<Context, Void, Void>() {
 
             @Override
@@ -89,7 +89,7 @@ public class DatabaseCreator{
             @Override
             protected void onPostExecute(Void ignored) {
                 // Now on the main thread, notify observers that the db is created and ready.
-                mIsDatabaseCreated.setValue(true);
+//                mIsDatabaseCreated.setValue(true);
             }
         }.execute(context.getApplicationContext());
     }

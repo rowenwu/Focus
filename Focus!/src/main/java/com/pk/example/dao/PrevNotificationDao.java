@@ -1,7 +1,7 @@
 package com.pk.example.dao;
 
 
-import android.arch.lifecycle.LiveData;
+//import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
@@ -17,8 +17,8 @@ import java.util.List;
 
 @Dao
 public interface PrevNotificationDao {
-    @Query("SELECT * FROM prev_notifications")
-    LiveData<List<PrevNotificationEntity>> loadAllPrevNotifications();
+//    @Query("SELECT * FROM prev_notifications")
+//    LiveData<List<PrevNotificationEntity>> loadAllPrevNotifications();
 
     @Query("SELECT * FROM prev_notifications")
     List<PrevNotificationEntity> loadAllPrevNotificationsSync();

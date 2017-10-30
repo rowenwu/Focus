@@ -1,7 +1,7 @@
 package com.pk.example.dao;
 
 
-import android.arch.lifecycle.LiveData;
+//import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
@@ -16,8 +16,8 @@ import java.util.List;
 
 @Dao
 public interface MinNotificationDao {
-    @Query("SELECT * FROM min_notifications")
-    LiveData<List<MinNotificationEntity>> loadAllMinNotifications();
+//    @Query("SELECT * FROM min_notifications")
+//    LiveData<List<MinNotificationEntity>> loadAllMinNotifications();
 
     @Delete
     void delete(MinNotificationEntity minNotification);
@@ -27,9 +27,9 @@ public interface MinNotificationDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAll(List<MinNotificationEntity> minNotifications);
-
-    @Query("select * from min_notifications where _id = :minNotificationID")
-    LiveData<MinNotificationEntity> loadMinNotification(int minNotificationID);
+//
+//    @Query("select * from min_notifications where _id = :minNotificationID")
+//    LiveData<MinNotificationEntity> loadMinNotification(int minNotificationID);
 
     @Query("select * from min_notifications where _id = :minNotificationID")
     MinNotificationEntity loadMinNotificationASync(int minNotificationID);

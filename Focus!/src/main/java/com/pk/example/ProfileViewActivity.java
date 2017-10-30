@@ -6,7 +6,6 @@ import java.util.List;
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
-import android.arch.lifecycle.LiveData;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;

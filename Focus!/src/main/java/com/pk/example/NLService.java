@@ -9,7 +9,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Resources;
+import android.os.Binder;
 import android.os.Build;
+import android.os.IBinder;
 import android.os.Looper;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -28,10 +30,14 @@ import com.pk.example.entity.MinNotificationEntity;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
 public class NLService extends NotificationListenerService {
     //INTENT ACTIONS
@@ -57,8 +63,17 @@ public class NLService extends NotificationListenerService {
     private static ArrayList<MinNotification> previousNotifications;
     private static ArrayList<String> lastActiveProfiles;
 
+    // Used as a key for the Intent.
+    public static final String SEED_KEY = "SEED_KEY";
+
+    // Binder given to clients
+    private IBinder mBinder;
+
+    // Random number generator
+    private Random mGenerator = new Random();
 
     private AppDatabase db;
+    private long mSeed;
 
 
     @Override
@@ -86,6 +101,30 @@ public class NLService extends NotificationListenerService {
     public void onDestroy() {
         super.onDestroy();
         unregisterReceiver(aReceiver);
+    }
+
+//    @Override
+//    public IBinder onBind(Intent intent) {
+//        // If the Intent comes with a seed for the number generator, apply it.
+//        if (intent.hasExtra(SEED_KEY)) {
+//            mSeed = intent.getLongExtra(SEED_KEY, 0);
+//            mGenerator.setSeed(mSeed);
+//        }
+//        return mBinder;
+//    }
+//
+//    public class LocalBinder extends Binder {
+//
+//        public NLService getService() {
+//            // Return this instance of LocalService so clients can call public methods.
+//            return NLService.this;
+//        }
+//    }
+    /**
+     * Returns a random integer in [0, 100).
+     */
+    public int getRandomInt() {
+        return mGenerator.nextInt(100);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -501,12 +540,20 @@ public class NLService extends NotificationListenerService {
     public void addProfile(String profile, ArrayList<String> appsToBlock) {
         // get profile information (start time, end time, list of apps) from database
         // for list of apps, addBlockedApp
-        //TODO ADD PROFILE TO ACTIVE PROFILES LIST
         sendNotification(profile + START_PROFILE_NOTIFICATION);
 
         for (int a = 0; a < appsToBlock.size(); a++) {
             addBlockedApp(appsToBlock.get(a), profile);
         }
+
+    }
+
+    public void resetBlockedApps(){
+        String profileName = "test profile";
+        String [] strings = new String [] {"com.facebook.orca", "com.appname.fake", "com.something.else"};
+        ArrayList<String> appsToBlock = new ArrayList<String>(Arrays.asList(strings));
+        addProfile(profileName, appsToBlock);
+        blockedApps.clear();
 
     }
 
@@ -518,6 +565,30 @@ public class NLService extends NotificationListenerService {
         profiles.add(profile);
         blockedApps.put(appPackage, profiles);
 
+    }
+
+    public ArrayList<String> getBlockedApps(){
+        ArrayList<String> appPacks = new ArrayList<String>();
+        Iterator it = blockedApps.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry pair = (Map.Entry)it.next();
+            appPacks.add((String)pair.getKey());
+            ArrayList<String> profs = (ArrayList<String>)pair.getValue();
+            System.out.println(profs.get(0));
+            it.remove(); // avoids a ConcurrentModificationException
+        }
+
+        return appPacks;
+    }
+
+    public ArrayList<String> getProfilesBlockingApp(String appPackage){
+        return blockedApps.get(appPackage);
+    }
+
+    public boolean isAppBlocked(String appPackage){
+        if(blockedApps.get(appPackage) == null) return false;
+        return true;
+//        return !(blockedApps.get(appPackage) == null);
     }
 
     public void removeProfile(String profile, ArrayList<String> appsToBlock) {

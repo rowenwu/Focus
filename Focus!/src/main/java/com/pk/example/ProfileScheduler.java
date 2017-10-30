@@ -30,22 +30,22 @@ public class ProfileScheduler {
 
             //TODO ADD APPS TO BLOCK TO INTENT
             hasPendingIntent.putExtra("startIntent",
-                    createAlarm(context, profile, appsToBlock, startTimes.get(i), 0, 0, schedule.getRepeatWeekly(), NLService.ADD_PROFILE));
+                    createAlarm(context, profile, appsToBlock, startTimes.get(i), 0, 0, schedule.getRepeatWeekly(), NLService.ADD_PROFILE, Calendar.getInstance().getTimeInMillis()));
             hasPendingIntent.putExtra("endIntent",
-                    createAlarm(context, profile, appsToBlock, startTimes.get(i), schedule.getDurationHr(), schedule.getDurationMin(), schedule.getRepeatWeekly(), NLService.REMOVE_PROFILE));
+                    createAlarm(context, profile, appsToBlock, startTimes.get(i), schedule.getDurationHr(), schedule.getDurationMin(), schedule.getRepeatWeekly(), NLService.REMOVE_PROFILE, Calendar.getInstance().getTimeInMillis()));
             context.sendBroadcast(hasPendingIntent);
         }
     }
 
     // NEED TO CREATE DIFFERENT PENDING INTENT IDS AND STORE THEM IN NLSERVICE
-    public static PendingIntent createAlarm(Context context, String profile, ArrayList<String> appsToBlock, Date date, int addHr, int addMin, boolean repeat, String intentAction) {
+    public static PendingIntent createAlarm(Context context, String profile, ArrayList<String> appsToBlock, Date date, int addHr, int addMin, boolean repeat, String intentAction, long alarmID) {
         //create alarms - pendingintents
 
         alarmMgr = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent i = new Intent(intentAction);
         i.putExtra("name", profile);
         i.putExtra("appsToBlock", appsToBlock);
-        PendingIntent alarmIntent = PendingIntent.getBroadcast(context, (int) System.currentTimeMillis(), i, 0);
+        PendingIntent alarmIntent = PendingIntent.getBroadcast(context, (int) alarmID, i, 0);
         Calendar calendar = Calendar.getInstance(); // creates a new calendar instance
         calendar.setTime(date);
         calendar.add(Calendar.HOUR_OF_DAY, addHr);
@@ -94,7 +94,7 @@ public class ProfileScheduler {
         hasPendingIntent.putExtra("name", profile.getName());
 
         // add profile alarm intent to nlservice
-        hasPendingIntent.putExtra("pendingIntent", createAlarm(context, profile.getName(), profile.getAppsToBlock(), new Date(), 10, 0, false, NLService.REMOVE_PROFILE));
+        hasPendingIntent.putExtra("pendingIntent", createAlarm(context, profile.getName(), profile.getAppsToBlock(), new Date(), 10, 0, false, NLService.REMOVE_PROFILE, Calendar.getInstance().getTimeInMillis()));
 
         //TODO sned change notifications alarm intent to notificationreceiver
     }

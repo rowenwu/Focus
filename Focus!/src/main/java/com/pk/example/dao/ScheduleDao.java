@@ -1,6 +1,6 @@
 package com.pk.example.dao;
 
-import android.arch.lifecycle.LiveData;
+//import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
@@ -17,9 +17,9 @@ import java.util.List;
 @Dao
 public interface ScheduleDao {
 
-    //get all schedule
-    @Query("SELECT * FROM schedules")
-    LiveData<List<ScheduleEntity>> loadAllSchedules();
+//    //get all schedule
+//    @Query("SELECT * FROM schedules")
+//    LiveData<List<ScheduleEntity>> loadAllSchedules();
 
     //get all schedule
     @Query("SELECT * FROM schedules")
@@ -41,10 +41,10 @@ public interface ScheduleDao {
     //update a profile
     @Update
     void update(ScheduleEntity schedule);
-
-    //get a schedule
-    @Query("select * from schedules where _name = :scheduleName")
-    LiveData<ScheduleEntity> loadSchedule(String scheduleName);
+//
+//    //get a schedule
+//    @Query("select * from schedules where _name = :scheduleName")
+//    LiveData<ScheduleEntity> loadSchedule(String scheduleName);
 
     @Query("select * from schedules where _name = :scheduleName")
     ScheduleEntity loadScheduleSync(String scheduleName);
