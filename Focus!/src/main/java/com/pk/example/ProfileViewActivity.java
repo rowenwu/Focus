@@ -198,7 +198,8 @@ public class ProfileViewActivity extends ListActivity {
 
     public void deleteButtonClicked(View v) {
         // delete profile and return to profile list view
-        profileDao.delete(profileEntity);
+        //profileDao.delete(profileEntity);
+        new DeleteProfile(name).execute();
         
         // notify user
         Toast toast = Toast.makeText(getApplicationContext(),
@@ -356,6 +357,48 @@ public class ProfileViewActivity extends ListActivity {
         protected Void doInBackground(Void... params) {
 
             db.profileDao().update(profileEntity);
+
+            return null;
+        }
+
+        @Override
+        protected void onCancelled() {
+            super.onCancelled();
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            progress.dismiss();
+            super.onPostExecute(result);
+        }
+
+        @Override
+        protected void onPreExecute() {
+            progress = ProgressDialog.show(ProfileViewActivity.this, null,
+                    "Saving");
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+        }
+    }
+
+    private class DeleteProfile extends AsyncTask<Void, Void, Void> {
+        private ProgressDialog progress = null;
+        private String name;
+        private ProfileEntity profile;
+
+        DeleteProfile(String name) {
+            this.name = name;
+            profile = db.profileDao().loadProfileSync(name);
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            db.profileDao().delete(profile);
 
             return null;
         }
