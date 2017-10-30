@@ -4,7 +4,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'com.android.tools.build:gradle:3.0.0'
     }
 }
 
@@ -57,6 +57,9 @@ dependencies {
     compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
     testCompile "org.robolectric:robolectric:3.4.2"
 
+    // JUnit dependency
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-core:1.10.19'
 }
 
 // The sample build uses multiple directories to
@@ -104,6 +107,9 @@ android {
 
         }*/
 
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
     }
     //sourceSets { main { java.srcDirs = ['src/main/java', 'src/androidTest/java'] } }
 }

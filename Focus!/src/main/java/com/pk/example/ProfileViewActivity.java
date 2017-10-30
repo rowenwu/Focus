@@ -115,7 +115,7 @@ public class ProfileViewActivity extends ListActivity {
     }
 
 
-    public void createButtonClicked(View v){
+    public String createButtonClicked(View v){
         // get new profile name from text field
         EditText profileName = (EditText) findViewById(R.id.editTextProfileName);
         String pname = profileName.getText().toString();
@@ -145,14 +145,15 @@ public class ProfileViewActivity extends ListActivity {
                     "Profile created", Toast.LENGTH_SHORT);
             toast.show();
 
+            flag = null;
             // return to ProfileListActivity
             Intent i = new Intent(this, ProfileListActivity.class);
             startActivity(i);
-
         }
+        return flag;
     }
 
-    public void saveButtonClicked(View v) {
+    public String saveButtonClicked(View v) {
         // get new profile name from text field
         EditText profileName = (EditText) findViewById(R.id.editTextProfileName);
         String pname = profileName.getText().toString();
@@ -190,13 +191,15 @@ public class ProfileViewActivity extends ListActivity {
 //                ProfileScheduler.turnOnProfile(this, pname);
 //            }
 
+            flag = null;
             // return to ProfileListActivity
             Intent i = new Intent(this, ProfileListActivity.class);
             startActivity(i);
         }
+        return flag;
     }
 
-    public void deleteButtonClicked(View v) {
+    public String deleteButtonClicked(View v) {
         // delete profile and return to profile list view
         //profileDao.delete(profileEntity);
         new DeleteProfile(name).execute();
@@ -211,18 +214,22 @@ public class ProfileViewActivity extends ListActivity {
 //            if(profileEntity.getActive()){
 //                ProfileScheduler.turnOffProfile(this, pname);
 //            }
+        flag = null;
         // return to ProfileListActivity
         Intent i = new Intent(this, ProfileListActivity.class);
         startActivity(i);
+
+        return flag;
     }
 
     // edit button on profile view
-    public void editButtonClicked(View v) {
+    public String editButtonClicked(View v) {
         Intent i = new Intent(getApplicationContext(), ProfileViewActivity.class);
         i.putExtra("flag", "edit");
         i.putExtra("name", name);
         profileEntity = db.profileDao().loadProfileSync(name);
         startActivity(i);
+        return flag;
     }
 
     private class LoadApplications extends AsyncTask<Void, Void, Void> {
@@ -425,5 +432,10 @@ public class ProfileViewActivity extends ListActivity {
         protected void onProgressUpdate(Void... values) {
             super.onProgressUpdate(values);
         }
+    }
+
+    // for testing
+    public String getFlag() {
+        return flag;
     }
 }
