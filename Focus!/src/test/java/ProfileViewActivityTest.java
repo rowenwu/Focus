@@ -1,5 +1,6 @@
 import android.app.Application;
 import android.content.Context;
+import android.support.v4.widget.TextViewCompat;
 import android.test.mock.MockApplication;
 import android.view.View;
 
@@ -27,32 +28,15 @@ import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ProfileViewActivityTest {
-    private ProfileEntity profileEntity = null;
-    private ArrayList<String> apps = null;
-//    private View v = null;
     private String fakeFlag;
 
-    @Mock
-    Application application = new MockApplication();
-//    @Mock
-//    ProfileViewActivity activity;
     ProfileViewActivity activity = Mockito.mock(ProfileViewActivity.class);
-    @Mock
-    Context mockContext;
+
     @Mock
     View v;
 
-//    @BeforeClass
-//    public void setProfileEntity() {
-//        // setup example profile entity to be used in tests
-//        apps.add("YouTube");
-//        profileEntity.setName("test profile");
-//        profileEntity.setAppsToBlock(apps);
-//    }
-
     @Before
     public void initializeActivity() {
-//        activity = new ProfileViewActivity();
         fakeFlag = null;
     }
 
@@ -75,5 +59,21 @@ public class ProfileViewActivityTest {
         assertEquals(null, flag);
     }
 
+    @Test
+    public void testCreateButtonClicked() {
+        // checks that intent flag is null for create profile
+        when(activity.createButtonClicked(v)).thenReturn(fakeFlag);
+        String flag = activity.createButtonClicked(v);
+
+        assertEquals(null, flag);
+    }
+
+    @Test
+    public void testSaveButtonClicked() {
+        when(activity.saveButtonClicked(v)).thenReturn(fakeFlag);
+        String flag = activity.createButtonClicked(v);
+
+        assertEquals(null, flag);
+    }
 
 }
