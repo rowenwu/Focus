@@ -228,7 +228,7 @@ public class CreateProfileTest {
         onView(withId(R.id.btnDeleteProfile)).perform(click());
 
         //check is profile still in list
-        onData(allOf(instanceOf((ScheduleEntity.class)))).atPosition(0).onChildView(withId(R.id.name)).check(ViewAssertions.matches(not((withText(containsString(("testDeleteProfile"))))));
+        onData(allOf(instanceOf((ScheduleEntity.class)))).atPosition(0).onChildView(withId(R.id.name)).check(ViewAssertions.matches(not((withText(containsString(("testDeleteProfile")))))));
 
     }
 
@@ -271,8 +271,6 @@ public class CreateProfileTest {
         onData(allOf(instanceOf((ApplicationInfo.class)))).atPosition(0).onChildView(withId(R.id.app_name)).check(ViewAssertions.matches((withText(containsString(("Example Wallpapers"))))));
 
     }
-
-
 
 
 
