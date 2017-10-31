@@ -28,7 +28,7 @@ import static org.mockito.Mockito.when;
  * Created by Stephanie on 10/29/2017.
  */
 
-@RunWith(MockitoJUnitRunner.class)
+@RunWith(MockitoJUnitRunner.Silent.class)
 public class ProfileViewActivityTest {
     private String fakeFlag;
 
