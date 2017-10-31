@@ -729,6 +729,14 @@ public class ScheduleViewActivity extends ListActivity{
             super.onProgressUpdate(values);
         }
     }
+
+    public String[] getDaysOfWeek() {
+        return daysOfWeek;
+    }
+
+    public String[] getShortDaysOfWeek() {
+        return shortDaysOfWeek;
+    }
 }
 
 
