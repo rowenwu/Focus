@@ -42,10 +42,12 @@ public class NotificationReceiver extends BroadcastReceiver {
             case REMOVE_PROFILE:
                 String name = intent.getStringExtra("name");
                 new UpdateProfile(name, false).execute();
-                break;
-            case CHANGE_NOTIFICATIONS:
                 new ChangePrevNotifications(intent.getStringArrayListExtra("profiles")).execute();
+
                 break;
+//            case CHANGE_NOTIFICATIONS:
+//                new ChangePrevNotifications(intent.getStringArrayListExtra("profiles")).execute();
+//                break;
 //            case UPDATE_SCHEDULE_ACTIVE:
 //                new UpdateProfile(intent.getBooleanExtra("active")).execute();
 //                break;

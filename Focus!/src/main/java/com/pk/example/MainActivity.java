@@ -14,6 +14,7 @@ import android.provider.Settings;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import static com.pk.example.NLService.INSERT_NOTIFICATION;
@@ -22,6 +23,7 @@ public class MainActivity extends Activity {
 
     public TextView txtView;
     private NotificationReceiver nReceiver;
+    public Button profilesButton, schedulesButton, notificationsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,11 @@ public class MainActivity extends Activity {
         IntentFilter filter = new IntentFilter();
         filter.addAction(NLService.INSERT_NOTIFICATION);
         registerReceiver(nReceiver,filter);
+        profilesButton = (Button) findViewById( R.id.btnNavigation );
+        schedulesButton = (Button) findViewById( R.id.btnAllProfiles );
+        notificationsButton = (Button) findViewById( R.id.btnNotificationList );
+
+
 
         ComponentName cn = new ComponentName(getApplicationContext(), NLService.class);
         String flat = Settings.Secure.getString(getApplicationContext().getContentResolver(), "enabled_notification_listeners");

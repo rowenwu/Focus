@@ -1,36 +1,65 @@
 -- Merging decision tree log ---
 manifest
 ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:2:1-109:12
+INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:2:1-109:12
+INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:2:1-109:12
+MERGED from [android.arch.persistence.room:runtime:1.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0-alpha1.aar\9444fe83bcefde957a0e29e59439b2f5\AndroidManifest.xml:17:1-26:12
+MERGED from [com.android.support:support-v13:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-v13-26.0.0-alpha1.aar\2e0a0ffe1738ef8683bae4d1bff7ea83\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.0.0-alpha1.aar\4ef5e727eaf71eea28325d5e7ad54f33\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\9a1add3de89417174023239240d38f0d\AndroidManifest.xml:17:1-31:12
+MERGED from [android.arch.persistence.room:support-db-impl:1.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-db-impl-1.0.0-alpha1.aar\5fb63390f3d322c5b5cd3e53a1b34694\AndroidManifest.xml:17:1-26:12
+MERGED from [android.arch.persistence.room:support-db:1.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-db-1.0.0-alpha1.aar\dbbae0db6e5ab807d5fdc3558542f21d\AndroidManifest.xml:17:1-26:12
+MERGED from [android.arch.core:core:1.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\core-1.0.0-alpha1.aar\1b072a3d642936a3597a037634eaf181\AndroidManifest.xml:17:1-26:12
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.0-alpha1.aar\3358c1e35bf42133a05effae6ac6a222\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.0-alpha1.aar\5de712554220ce29dd3fcceaa2e06830\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.0-alpha1.aar\234aca19b2e2ca98019dd5646e064b9c\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.0.0-alpha1.aar\2f28c6ba40b6c62472058c4f77c0d800\AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.0.0-alpha1.aar\e08f69b9772029a3d1f1a9c00fb29ad3\AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.0-alpha1.aar\7b2955bfbe5469e8b0268cddaefb06b4\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\3a5466a0c39a0f66afca9af629057a05\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:multidex:1.0.2] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\multidex-1.0.2.aar\e0b5f9aadb03ae1417e14b9072e22e9f\AndroidManifest.xml:17:1-22:12
+INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:2:1-109:12
+INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:2:1-109:12
 	package
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:3:5-29
 	android:versionName
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:5:5-30
 		INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:2:11-69
 	android:versionCode
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:4:5-28
 		INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml
-	xmlns:android
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:2:11-69
 application
 ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:7:5-107:19
-MERGED from [com.android.support:support-v13:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\86f38e1e999c134914c5fb4e9c0ebba37897efd5\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\57cfecf7b2698c8c4c9a5d7dcf0dc02708cd7fce\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\8990cba7ae262fa2ba3376baa263473cdc4c5ea3\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\334178f6b7123363e876aa04f116e89a89298fb7\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\e58f592f52753a3ed7edcb052d4182b18216ccd6\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\96090a35bf27750c657d15d29e26fc42a8c8fa3a\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\5aebae3db8c5552dfd812e2d7a59cd1d3260a87c\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\a1c7b310025949490bd0d2f9083c1cdaca2d2d21\output\AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\58e88e5fb9e450db28fed2b253317e7477486ce5\output\AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\ae76590f4677a79782b11816d3986034ea016c5c\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-v13:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-v13-26.0.0-alpha1.aar\2e0a0ffe1738ef8683bae4d1bff7ea83\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-v13:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-v13-26.0.0-alpha1.aar\2e0a0ffe1738ef8683bae4d1bff7ea83\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.0.0-alpha1.aar\4ef5e727eaf71eea28325d5e7ad54f33\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.0.0-alpha1.aar\4ef5e727eaf71eea28325d5e7ad54f33\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\9a1add3de89417174023239240d38f0d\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\9a1add3de89417174023239240d38f0d\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.0-alpha1.aar\3358c1e35bf42133a05effae6ac6a222\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.0-alpha1.aar\3358c1e35bf42133a05effae6ac6a222\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.0-alpha1.aar\5de712554220ce29dd3fcceaa2e06830\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.0-alpha1.aar\5de712554220ce29dd3fcceaa2e06830\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.0-alpha1.aar\234aca19b2e2ca98019dd5646e064b9c\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.0-alpha1.aar\234aca19b2e2ca98019dd5646e064b9c\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.0.0-alpha1.aar\2f28c6ba40b6c62472058c4f77c0d800\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.0.0-alpha1.aar\2f28c6ba40b6c62472058c4f77c0d800\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.0.0-alpha1.aar\e08f69b9772029a3d1f1a9c00fb29ad3\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.0.0-alpha1.aar\e08f69b9772029a3d1f1a9c00fb29ad3\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.0-alpha1.aar\7b2955bfbe5469e8b0268cddaefb06b4\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.0-alpha1.aar\7b2955bfbe5469e8b0268cddaefb06b4\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\3a5466a0c39a0f66afca9af629057a05\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\3a5466a0c39a0f66afca9af629057a05\AndroidManifest.xml:29:5-20
 	android:label
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:10:9-41
-	android:allowBackup
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:8:9-35
 	android:icon
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:9:9-45
+	android:allowBackup
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:8:9-35
 	android:theme
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:11:9-40
 activity#com.pk.example.MainActivity
@@ -67,10 +96,10 @@ ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:28:17-99
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:28:25-96
 activity#com.pk.example.ProfileViewActivity
 ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:40:9-47:20
-	android:label
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:42:13-66
 	android:parentActivityName
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:43:13-62
+	android:label
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:42:13-66
 	android:name
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:41:13-48
 meta-data#android.support.PARENT_ACTIVITY
@@ -81,26 +110,26 @@ ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:44:13-46:70
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:45:17-63
 activity#com.pk.example.ScheduleListActivity
 ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:64:9-71:20
-	android:label
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:66:13-65
 	android:parentActivityName
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:67:13-55
+	android:label
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:66:13-65
 	android:name
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:65:13-49
 activity#com.pk.example.ProfileListActivity
 ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:72:9-79:20
-	android:label
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:74:13-42
 	android:parentActivityName
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:75:13-55
+	android:label
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:74:13-42
 	android:name
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:73:13-48
 activity#com.pk.example.ScheduleViewActivity
 ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:80:9-87:20
-	android:label
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:82:13-37
 	android:parentActivityName
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:83:13-63
+	android:label
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:82:13-37
 	android:name
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:81:13-49
 receiver#com.pk.example.NotificationReceiver
@@ -135,49 +164,79 @@ ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:96:17-75
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:96:27-73
 activity#com.pk.example.NotificationListActivity
 ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:99:9-106:20
-	android:label
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:100:13-46
 	android:parentActivityName
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:102:13-55
+	android:label
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:100:13-46
 	android:name
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:101:13-53
 uses-sdk
 INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [com.android.support:multidex:1.0.1] C:\Users\kathe\.android\build-cache\d31315b8f53ce4ab00a312361e4ec31a7c023ae8\output\AndroidManifest.xml:18:5-42
-MERGED from [android.arch.persistence.room:runtime:1.0.0-alpha1] C:\Users\kathe\.android\build-cache\be3da3e3b5639e557a8ee6807e83a1363ba1cf87\output\AndroidManifest.xml:22:5-24:41
-MERGED from [android.arch.persistence.room:support-db-impl:1.0.0-alpha1] C:\Users\kathe\.android\build-cache\477f911ef24a72392c325d2d29685c4b093f594f\output\AndroidManifest.xml:22:5-24:41
-MERGED from [android.arch.persistence.room:support-db:1.0.0-alpha1] C:\Users\kathe\.android\build-cache\8c9912b94348c5e9249e472a0755297acd72d188\output\AndroidManifest.xml:22:5-24:41
-MERGED from [android.arch.core:core:1.0.0-alpha1] C:\Users\kathe\.android\build-cache\5318899595bd8946928910f8a8a18408abf1b819\output\AndroidManifest.xml:22:5-24:41
-MERGED from [com.android.support:support-v13:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\86f38e1e999c134914c5fb4e9c0ebba37897efd5\output\AndroidManifest.xml:21:5-23:55
-MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\57cfecf7b2698c8c4c9a5d7dcf0dc02708cd7fce\output\AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\8990cba7ae262fa2ba3376baa263473cdc4c5ea3\output\AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\334178f6b7123363e876aa04f116e89a89298fb7\output\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\e58f592f52753a3ed7edcb052d4182b18216ccd6\output\AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\96090a35bf27750c657d15d29e26fc42a8c8fa3a\output\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\5aebae3db8c5552dfd812e2d7a59cd1d3260a87c\output\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\a1c7b310025949490bd0d2f9083c1cdaca2d2d21\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\58e88e5fb9e450db28fed2b253317e7477486ce5\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\ae76590f4677a79782b11816d3986034ea016c5c\output\AndroidManifest.xml:21:5-23:58
+INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml
+INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml
+MERGED from [android.arch.persistence.room:runtime:1.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0-alpha1.aar\9444fe83bcefde957a0e29e59439b2f5\AndroidManifest.xml:22:5-24:41
+MERGED from [android.arch.persistence.room:runtime:1.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0-alpha1.aar\9444fe83bcefde957a0e29e59439b2f5\AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:support-v13:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-v13-26.0.0-alpha1.aar\2e0a0ffe1738ef8683bae4d1bff7ea83\AndroidManifest.xml:21:5-23:55
+MERGED from [com.android.support:support-v13:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-v13-26.0.0-alpha1.aar\2e0a0ffe1738ef8683bae4d1bff7ea83\AndroidManifest.xml:21:5-23:55
+MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.0.0-alpha1.aar\4ef5e727eaf71eea28325d5e7ad54f33\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.0.0-alpha1.aar\4ef5e727eaf71eea28325d5e7ad54f33\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\9a1add3de89417174023239240d38f0d\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\9a1add3de89417174023239240d38f0d\AndroidManifest.xml:21:5-23:54
+MERGED from [android.arch.persistence.room:support-db-impl:1.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-db-impl-1.0.0-alpha1.aar\5fb63390f3d322c5b5cd3e53a1b34694\AndroidManifest.xml:22:5-24:41
+MERGED from [android.arch.persistence.room:support-db-impl:1.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-db-impl-1.0.0-alpha1.aar\5fb63390f3d322c5b5cd3e53a1b34694\AndroidManifest.xml:22:5-24:41
+MERGED from [android.arch.persistence.room:support-db:1.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-db-1.0.0-alpha1.aar\dbbae0db6e5ab807d5fdc3558542f21d\AndroidManifest.xml:22:5-24:41
+MERGED from [android.arch.persistence.room:support-db:1.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-db-1.0.0-alpha1.aar\dbbae0db6e5ab807d5fdc3558542f21d\AndroidManifest.xml:22:5-24:41
+MERGED from [android.arch.core:core:1.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\core-1.0.0-alpha1.aar\1b072a3d642936a3597a037634eaf181\AndroidManifest.xml:22:5-24:41
+MERGED from [android.arch.core:core:1.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\core-1.0.0-alpha1.aar\1b072a3d642936a3597a037634eaf181\AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.0-alpha1.aar\3358c1e35bf42133a05effae6ac6a222\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.0-alpha1.aar\3358c1e35bf42133a05effae6ac6a222\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.0-alpha1.aar\5de712554220ce29dd3fcceaa2e06830\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.0-alpha1.aar\5de712554220ce29dd3fcceaa2e06830\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.0-alpha1.aar\234aca19b2e2ca98019dd5646e064b9c\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.0-alpha1.aar\234aca19b2e2ca98019dd5646e064b9c\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.0.0-alpha1.aar\2f28c6ba40b6c62472058c4f77c0d800\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.0.0-alpha1.aar\2f28c6ba40b6c62472058c4f77c0d800\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.0.0-alpha1.aar\e08f69b9772029a3d1f1a9c00fb29ad3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.0.0-alpha1.aar\e08f69b9772029a3d1f1a9c00fb29ad3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.0-alpha1.aar\7b2955bfbe5469e8b0268cddaefb06b4\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.0-alpha1.aar\7b2955bfbe5469e8b0268cddaefb06b4\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\3a5466a0c39a0f66afca9af629057a05\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\3a5466a0c39a0f66afca9af629057a05\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:multidex:1.0.2] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\multidex-1.0.2.aar\e0b5f9aadb03ae1417e14b9072e22e9f\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:multidex:1.0.2] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\multidex-1.0.2.aar\e0b5f9aadb03ae1417e14b9072e22e9f\AndroidManifest.xml:20:5-43
+INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml
+INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml
 	tools:overrideLibrary
-		ADDED from [com.android.support:support-v13:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\86f38e1e999c134914c5fb4e9c0ebba37897efd5\output\AndroidManifest.xml:23:9-52
+		ADDED from [com.android.support:support-v13:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-v13-26.0.0-alpha1.aar\2e0a0ffe1738ef8683bae4d1bff7ea83\AndroidManifest.xml:23:9-52
 	android:targetSdkVersion
 		INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml
 	android:minSdkVersion
 		INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml
 meta-data#android.support.VERSION
-ADDED from [com.android.support:support-v13:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\86f38e1e999c134914c5fb4e9c0ebba37897efd5\output\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\57cfecf7b2698c8c4c9a5d7dcf0dc02708cd7fce\output\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\8990cba7ae262fa2ba3376baa263473cdc4c5ea3\output\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\334178f6b7123363e876aa04f116e89a89298fb7\output\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\e58f592f52753a3ed7edcb052d4182b18216ccd6\output\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\96090a35bf27750c657d15d29e26fc42a8c8fa3a\output\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\5aebae3db8c5552dfd812e2d7a59cd1d3260a87c\output\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\a1c7b310025949490bd0d2f9083c1cdaca2d2d21\output\AndroidManifest.xml:22:5-24:41
-MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\58e88e5fb9e450db28fed2b253317e7477486ce5\output\AndroidManifest.xml:22:5-24:41
-MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\ae76590f4677a79782b11816d3986034ea016c5c\output\AndroidManifest.xml:25:5-27:41
+ADDED from [com.android.support:support-v13:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-v13-26.0.0-alpha1.aar\2e0a0ffe1738ef8683bae4d1bff7ea83\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.0.0-alpha1.aar\4ef5e727eaf71eea28325d5e7ad54f33\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.0.0-alpha1.aar\4ef5e727eaf71eea28325d5e7ad54f33\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\9a1add3de89417174023239240d38f0d\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\9a1add3de89417174023239240d38f0d\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.0-alpha1.aar\3358c1e35bf42133a05effae6ac6a222\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.0-alpha1.aar\3358c1e35bf42133a05effae6ac6a222\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.0-alpha1.aar\5de712554220ce29dd3fcceaa2e06830\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.0-alpha1.aar\5de712554220ce29dd3fcceaa2e06830\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.0-alpha1.aar\234aca19b2e2ca98019dd5646e064b9c\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.0-alpha1.aar\234aca19b2e2ca98019dd5646e064b9c\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.0.0-alpha1.aar\2f28c6ba40b6c62472058c4f77c0d800\AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.0.0-alpha1.aar\2f28c6ba40b6c62472058c4f77c0d800\AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.0.0-alpha1.aar\e08f69b9772029a3d1f1a9c00fb29ad3\AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.0.0-alpha1.aar\e08f69b9772029a3d1f1a9c00fb29ad3\AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.0-alpha1.aar\7b2955bfbe5469e8b0268cddaefb06b4\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.0-alpha1.aar\7b2955bfbe5469e8b0268cddaefb06b4\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\3a5466a0c39a0f66afca9af629057a05\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\3a5466a0c39a0f66afca9af629057a05\AndroidManifest.xml:25:5-27:41
 	android:value
-		ADDED from [com.android.support:support-v13:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\86f38e1e999c134914c5fb4e9c0ebba37897efd5\output\AndroidManifest.xml:27:9-38
+		ADDED from [com.android.support:support-v13:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-v13-26.0.0-alpha1.aar\2e0a0ffe1738ef8683bae4d1bff7ea83\AndroidManifest.xml:27:9-38
 	android:name
-		ADDED from [com.android.support:support-v13:26.0.0-alpha1] C:\Users\kathe\.android\build-cache\86f38e1e999c134914c5fb4e9c0ebba37897efd5\output\AndroidManifest.xml:26:9-47
+		ADDED from [com.android.support:support-v13:26.0.0-alpha1] C:\Users\kathe\.gradle\caches\transforms-1\files-1.1\support-v13-26.0.0-alpha1.aar\2e0a0ffe1738ef8683bae4d1bff7ea83\AndroidManifest.xml:26:9-47

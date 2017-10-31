@@ -1,5 +1,6 @@
 package com.pk.example;
 import android.content.Intent;
+import android.os.Build;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -24,6 +25,9 @@ import static org.junit.Assert.assertThat;
 
 @RunWith(RobolectricTestRunner.class)
 @Config(constants = BuildConfig.class)
+//@Config(constants = BuildConfig.class,
+//        manifest="some/build/path/AndroidManifest.xml",
+//        shadows={ShadowFoo.class, ShadowBar.class})
 public class MainActivityTest {
 
     private MainActivity activity;
@@ -32,7 +36,9 @@ public class MainActivityTest {
     public void setUp() throws Exception {
         activity = Robolectric.buildActivity(MainActivity.class)
                 .create()
+                .start()
                 .resume()
+                .visible()
                 .get();
     }
 
@@ -62,7 +68,7 @@ public class MainActivityTest {
 //    @Test
 //    public void profilesButtonTest() throws Exception
 //    {
-//        Button button = (Button) activity.findViewById( R.id.btnNavigation );
+//        Button button = (Button) activity.findViewById( R.id.btnAllProfiles );
 //        button.performClick();
 //        Intent intent = Shadows.shadowOf(activity).peekNextStartedActivity();
 //        assertEquals(ScheduleListActivity.class.getCanonicalName(), intent.getComponent().getClassName());

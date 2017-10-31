@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.sax.StartElementListener;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,6 +30,7 @@ public class ProfileListActivity extends ListActivity {
     private AppDatabase db;
     TextView textView;
     //ListView profileListView;
+    Button profilesButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,8 @@ public class ProfileListActivity extends ListActivity {
 
         ListView profileListView = getListView();
         textView=(TextView)findViewById(R.id.textView);
+        profilesButton = (Button) findViewById( R.id.btnToast );
+
 
         new LoadProfiles().execute();
     }

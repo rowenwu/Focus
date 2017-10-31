@@ -16,17 +16,12 @@ repositories {
 
 
 dependencies {
-    //    compile 'android.arch.persistence.room:runtime:' + rootProject.archRoomVersion annotationProcessor 'android.arch.persistence.room:compiler:' + rootProject.archRoomVersion compile 'android.arch.lifecycle:runtime:1.0.0'
-    //    compile 'android.arch.lifecycle:extensions:1.0.0-beta2'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.google.code.gson:gson:2.4'
-    //    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    //    annotationProcessor 'android.arch.lifecycle:compiler:1.0.0-beta2'
-//    compile "android.arch.lifecycle:extensions:1.0.0-rc1"
     compile 'android.arch.persistence.room:runtime:1.0.0-alpha1'
     annotationProcessor "android.arch.persistence.room:compiler:1.0.0-alpha1"
     androidTestCompile 'junit:junit:4.12'
     testCompile 'junit:junit:4.12'
-    //
     //    // required if you want to use Mockito for unit tests
     testCompile 'org.mockito:mockito-core:2.7.22'
     //    // required if you want to use Mockito for Android tests
@@ -55,11 +50,19 @@ dependencies {
     compile 'com.android.support:support-v13:26.0.0-alpha1'
     compile 'com.android.support:support-annotations:26.0.0-alpha1'
     compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
-    testCompile "org.robolectric:robolectric:3.4.2"
+//    testCompile "org.robolectric:robolectric:3.4.2"
+//    testImplementation "org.robolectric:robolectric:3.4.2"
+    testCompile "org.robolectric:robolectric:3.3.2"
+
 
     // JUnit dependency
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-core:1.10.19'
+}
+
+task copyTestResources(type: Copy) {
+    from "${projectDir}/src/test/resources"
+    into "${buildDir}/intermediates/classes/test/debug"
 }
 
 // The sample build uses multiple directories to
@@ -72,7 +75,7 @@ List<String> dirs = [
 
 android {
     compileSdkVersion 24
-    buildToolsVersion '26.0.1'
+    buildToolsVersion '26.0.2'
 
     defaultConfig {
         minSdkVersion 18
@@ -108,8 +111,6 @@ android {
         }*/
 
     }
-    testOptions {
-        unitTests.returnDefaultValues = true
-    }
+
     //sourceSets { main { java.srcDirs = ['src/main/java', 'src/androidTest/java'] } }
 }

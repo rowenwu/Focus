@@ -13,6 +13,7 @@ import org.robolectric.Shadows;
 import org.robolectric.annotation.Config;
 import org.robolectric.shadows.*;
 
+import static junit.framework.Assert.assertTrue;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -55,14 +56,17 @@ public class ProfileListActivityTest {
 //    {
 //
 //        Button button = (Button) activity.findViewById( R.id.btnToast );
+//        Intent expectedIntent = new Intent(activity, ScheduleViewActivity.class);
 //
 //        button.performClick();
 //        ShadowActivity shadowActivity = shadowOf(activity);
 //        // 9
 //        Intent startedIntent = shadowActivity.getNextStartedActivity();
+//        assertTrue(startedIntent.filterEquals(expectedIntent));
+//
 //        // 10
-//        ShadowIntent shadowIntent = shadowOf(startedIntent);
-//        assertThat(shadowIntent.getIntentClass().getName(), equalTo(ScheduleViewActivity.class.getName()));
+////        ShadowIntent shadowIntent = shadowOf(startedIntent);
+////        assertThat(shadowIntent.getIntentClass().getName(), equalTo(ScheduleViewActivity.class.getName()));
 //
 //    }
 
