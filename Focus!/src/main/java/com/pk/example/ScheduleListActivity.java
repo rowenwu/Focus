@@ -63,15 +63,15 @@ public class ScheduleListActivity extends ListActivity {
     }
 
 
-//    @Override
-//    protected void onListItemClick(ListView l, View v, int position, long id) {
-//        super.onListItemClick(l, v, position, id);
-////        v.setSelected(true);
-//        Intent i = new Intent(this, ScheduleViewActivity.class);
-//        i.putExtra("flag", "edit");
-//        i.putExtra("name", listadaptor.getItem(position).getName());
-//        startActivity(i);
-//    }
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+//        v.setSelected(true);
+        Intent i = new Intent(this, ScheduleViewActivity.class);
+        i.putExtra("flag", "edit");
+        i.putExtra("name", listadaptor.getItem(position).getName());
+        startActivity(i);
+    }
 
 
 
