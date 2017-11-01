@@ -1,4 +1,6 @@
 package com.pk.example;
+import com.pk.example.clientui.ScheduleViewActivity;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;

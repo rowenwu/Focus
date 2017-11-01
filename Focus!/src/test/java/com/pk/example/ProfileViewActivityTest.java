@@ -1,24 +1,15 @@
 package com.pk.example;
 
-import android.app.Application;
-import android.content.Context;
-import android.support.v4.widget.TextViewCompat;
-import android.test.mock.MockApplication;
 import android.view.View;
 
-import com.pk.example.Profile;
-import com.pk.example.ProfileViewActivity;
-import com.pk.example.entity.ProfileEntity;
+import com.pk.example.clientui.ProfileViewActivity;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
-
-import java.util.ArrayList;
 
 import static junit.framework.TestCase.assertEquals;
 import static org.mockito.Mockito.doReturn;

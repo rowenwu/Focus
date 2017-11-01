@@ -9,7 +9,7 @@
     android:paddingRight="16dp"
     android:paddingTop="16dp"
     android:paddingBottom="16dp"
-    tools:context="com.pk.example.ScheduleViewActivity">
+    tools:context=".clientui.ScheduleViewActivity">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

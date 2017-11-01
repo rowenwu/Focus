@@ -1,4 +1,3 @@
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.support.test.InstrumentationRegistry;
@@ -14,7 +13,7 @@ import android.support.test.uiautomator.Until;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
 
-import com.pk.example.MainActivity;
+import com.pk.example.clientui.MainActivity;
 import com.pk.example.R;
 import com.pk.example.entity.ProfileEntity;
 import com.pk.example.entity.ScheduleEntity;
@@ -28,7 +27,6 @@ import org.junit.runner.RunWith;
 
 import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.Espresso.pressBack;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.action.ViewActions.typeText;

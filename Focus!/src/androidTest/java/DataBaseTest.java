@@ -3,11 +3,11 @@ import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.pk.example.AppDatabase;
-import com.pk.example.dao.MinNotificationDao;
-import com.pk.example.dao.PrevNotificationDao;
-import com.pk.example.dao.ProfileDao;
-import com.pk.example.dao.ScheduleDao;
+import com.pk.example.database.AppDatabase;
+import com.pk.example.database.dao.MinNotificationDao;
+import com.pk.example.database.dao.PrevNotificationDao;
+import com.pk.example.database.dao.ProfileDao;
+import com.pk.example.database.dao.ScheduleDao;
 import com.pk.example.entity.MinNotificationEntity;
 import com.pk.example.entity.PrevNotificationEntity;
 import com.pk.example.entity.ProfileEntity;
