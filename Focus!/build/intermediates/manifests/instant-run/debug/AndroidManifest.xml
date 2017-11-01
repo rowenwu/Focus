@@ -14,10 +14,8 @@
 
     <application
         android:allowBackup="true"
-        android:debuggable="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.pk.example.MainActivity"
@@ -118,8 +116,8 @@
         </activity>
 
         <provider
-            android:name="com.android.tools.ir.server.InstantRunContentProvider"
-            android:authorities="com.pk.example.com.android.tools.ir.server.InstantRunContentProvider"
+            android:name="com.android.tools.fd.runtime.InstantRunContentProvider"
+            android:authorities="com.pk.example.com.android.tools.fd.runtime.InstantRunContentProvider"
             android:multiprocess="true" />
     </application>
 
