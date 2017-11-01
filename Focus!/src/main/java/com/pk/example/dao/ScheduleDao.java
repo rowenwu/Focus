@@ -25,6 +25,11 @@ public interface ScheduleDao {
     @Query("SELECT * FROM schedules")
     List<ScheduleEntity> loadAllSchedulesSync();
 
+
+    @Query("DELETE FROM schedules")
+    void deleteAll();
+
+
     /*
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAll(List<ScheduleEntity> schedules);

@@ -37,6 +37,9 @@ public interface ProfileDao {
     @Delete
     void delete(ProfileEntity profile);
 
+    @Query("DELETE FROM profiles")
+    void deleteAll();
+
     //update a profile
     @Update
     void update(ProfileEntity profile);

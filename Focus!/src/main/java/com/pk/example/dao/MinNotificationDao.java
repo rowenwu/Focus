@@ -22,6 +22,9 @@ public interface MinNotificationDao {
     @Delete
     void delete(MinNotificationEntity minNotification);
 
+    @Query("DELETE FROM min_notifications")
+    void deleteAll();
+
     @Insert
     void insert(MinNotificationEntity minNotification);
 

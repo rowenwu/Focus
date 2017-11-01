@@ -92,7 +92,7 @@ public class DataBaseTest {
         List notifs = prevNotificationDao.loadAllPrevNotificationsSync();
 
         assertEquals(1, notifs.size());
-        prevNotificationDao.delete(prevNotification);
+        prevNotificationDao.deleteAll();
         notifs = prevNotificationDao.loadAllPrevNotificationsSync();
         assertEquals(0, notifs.size());
     }
@@ -123,7 +123,7 @@ public class DataBaseTest {
         List notifs = minNotificationDao.loadMinNotificationsFromProfileSync("prof");
 
         assertEquals(1, notifs.size());
-        minNotificationDao.delete(minNotification);
+        minNotificationDao.deleteAll();
         notifs = minNotificationDao.loadMinNotificationsFromProfileSync("prof");
         assertEquals(0, notifs.size());
     }
@@ -152,7 +152,7 @@ public class DataBaseTest {
         List profiles = profileDao.loadAllProfilesAsync();
 
         assertEquals(1, profiles.size());
-        profileDao.delete(profile);
+        profileDao.deleteAll();
         profiles = profileDao.loadAllProfilesAsync();
         assertEquals(0, profiles.size());
     }
@@ -190,7 +190,7 @@ public class DataBaseTest {
         List schedules = scheduleDao.loadAllSchedulesSync();
 
         assertEquals(1, schedules.size());
-        scheduleDao.delete(schedule);
+        scheduleDao.deleteAll();
         schedules = scheduleDao.loadAllSchedulesSync();
         assertEquals(0, schedules.size());
 
