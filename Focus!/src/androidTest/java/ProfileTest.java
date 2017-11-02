@@ -228,7 +228,7 @@ public class ProfileTest {
         onView(withId(R.id.btnDeleteProfile)).perform(click());
 
         //check is profile still in list
-        onData(allOf(instanceOf((ScheduleEntity.class)))).atPosition(0).onChildView(withId(R.id.name)).check(ViewAssertions.matches(not((withText(containsString(("testDeleteProfile")))))));
+        onData(allOf(instanceOf((ProfileEntity.class)))).atPosition(0).onChildView(withId(R.id.name)).check(ViewAssertions.matches(not((withText(containsString(("testDeleteProfile")))))));
 
     }
 
