@@ -171,17 +171,9 @@ public class ScheduleViewActivity extends ListActivity{
                             });
 
 
-
-
-
                     AlertDialog dialog = builder.create();
                     // Display the alert dialog on interface
                     dialog.show();
-
-
-
-
-
 
                 }
             });
@@ -208,6 +200,8 @@ public class ScheduleViewActivity extends ListActivity{
             txtDuration.setEnabled(false);
             txtDay.setEnabled(false);
             txtTime.setEnabled(false);
+
+            new GetScheduleInfo(name).execute();
 
             new LoadProfiles().execute();
             ListView listView = getListView();
@@ -730,6 +724,80 @@ public class ScheduleViewActivity extends ListActivity{
         }
     }
 
+    private class GetScheduleInfo extends AsyncTask<Void, Void, Void> {
+        private ProgressDialog progress = null;
+        private String name;
+        private ScheduleEntity schedule;
+
+        GetScheduleInfo(String name) {
+            this.name = name;
+            schedule = database.scheduleDao().loadScheduleSync(name);
+            GetScheduleInfo(schedule);
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            return null;
+        }
+
+        @Override
+        protected void onCancelled() {
+            super.onCancelled();
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+
+        }
+
+        @Override
+        protected void onPreExecute() {
+            progress = ProgressDialog.show(ScheduleViewActivity.this, null,
+                    "Saving");
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+        }
+    }
+
+    public void GetScheduleInfo(Schedule schedule) {
+        btnDatePicker=(Button)findViewById(R.id.btn_date);
+        btnTimePicker=(Button)findViewById(R.id.btn_time);
+        btnDayPicker=(Button)findViewById(R.id.btn_day);
+        txtDate=(EditText)findViewById(R.id.in_date);
+        txtTime=(EditText)findViewById(R.id.in_time);
+        txtDuration=(EditText)findViewById(R.id.in_duration);
+        txtDay = (EditText)findViewById(R.id.in_day);
+
+        ArrayList<Date> dates = schedule.getStartTimes();
+
+        if(dates.isEmpty()) {
+            int here = 0;
+        }
+        Date date = dates.get(0);
+
+        int dayOfMonth, monthOfYear, year, hourOfDay, minute, durationHour, durationMinute;
+
+        dayOfMonth = date.getDay();
+        monthOfYear= date.getMonth();
+        year = date.getYear();
+        hourOfDay = date.getHours();
+        minute = date.getMinutes();
+        durationHour = schedule.getDurationHr();
+        durationMinute = schedule.getDurationMin();
+
+        txtDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+        txtTime.setText(hourOfDay + ":" + minute);
+        txtDuration.setText(durationHour + ":" + durationMinute);
+    }
+
+
+
     public String[] getDaysOfWeek() {
         return daysOfWeek;
     }
@@ -738,6 +806,8 @@ public class ScheduleViewActivity extends ListActivity{
         return shortDaysOfWeek;
     }
 }
+
+
 
 
 //
