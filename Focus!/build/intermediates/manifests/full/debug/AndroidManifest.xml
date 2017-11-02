@@ -18,7 +18,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.pk.example.MainActivity"
+            android:name="com.pk.example.clientui.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -29,7 +29,7 @@
         </activity>
 
         <service
-            android:name="com.pk.example.NLService"
+            android:name="com.pk.example.servicereceiver.NLService"
             android:label="@string/app_name"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" >
             <intent-filter>
@@ -46,12 +46,12 @@
         <!-- </service> -->
 
         <activity
-            android:name="com.pk.example.ProfileViewActivity"
+            android:name="com.pk.example.clientui.ProfileViewActivity"
             android:label="@string/title_activity_create_profile"
-            android:parentActivityName="com.pk.example.ProfileListActivity" >
+            android:parentActivityName="com.pk.example.clientui.ProfileListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.pk.example.ProfileListActivity" />
+                android:value=".clientui.ProfileListActivity" />
         </activity>
         <!-- <activity -->
         <!-- android:name=".TabbedActivity" -->
@@ -70,49 +70,50 @@
         <!-- android:value="com.pk.example.MainActivity" /> -->
         <!-- </activity> -->
         <activity
-            android:name="com.pk.example.ScheduleListActivity"
+            android:name="com.pk.example.clientui.ScheduleListActivity"
             android:label="@string/title_activity_schedule_list"
-            android:parentActivityName="com.pk.example.MainActivity" >
+            android:parentActivityName="com.pk.example.clientui.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.pk.example.MainActivity" />
+                android:value=".clientui.MainActivity" />
         </activity>
         <activity
-            android:name="com.pk.example.ProfileListActivity"
+            android:name="com.pk.example.clientui.ProfileListActivity"
             android:label="View Profiles"
-            android:parentActivityName="com.pk.example.MainActivity" >
+            android:parentActivityName="com.pk.example.clientui.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.pk.example.MainActivity" />
+                android:value=".clientui.MainActivity" />
         </activity>
         <activity
-            android:name="com.pk.example.ScheduleViewActivity"
+            android:name="com.pk.example.clientui.ScheduleViewActivity"
             android:label="Schedule"
-            android:parentActivityName="com.pk.example.ScheduleListActivity" >
+            android:parentActivityName="com.pk.example.clientui.ScheduleListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.pk.example.ScheduleListActivity" />
+                android:value=".clientui.ScheduleListActivity" />
         </activity>
 
-        <receiver android:name="com.pk.example.NotificationReceiver" >
+        <receiver android:name="com.pk.example.servicereceiver.NotificationReceiver" >
             <intent-filter>
                 <action android:name="com.pk.example.INSERTNOTIFICATION" />
                 <action android:name="com.pk.example.ADDPROFILE" />
                 <action android:name="com.pk.example.REMOVEPROFILE" />
                 <action android:name="com.pk.example.CHANGENOTIFICATIONS" />
                 <action android:name="com.pk.example.UPDATESCHEDULEACTIVE" />
+                <action android:name="com.pk.example.TOGGLESCHEDULE" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
 
         <activity
-            android:name="com.pk.example.NotificationListActivity"
+            android:name="com.pk.example.clientui.NotificationListActivity"
             android:label="Notification List"
-            android:parentActivityName="com.pk.example.MainActivity" >
+            android:parentActivityName="com.pk.example.clientui.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.pk.example.ScheduleListActivity" />
+                android:value=".clientui.ScheduleListActivity" />
         </activity>
     </application>
 

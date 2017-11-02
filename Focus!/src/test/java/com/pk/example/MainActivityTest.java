@@ -1,18 +1,13 @@
 package com.pk.example;
-import android.content.Intent;
-import android.os.Build;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+
+import com.pk.example.clientui.MainActivity;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
-import org.robolectric.Shadows;
 import org.robolectric.annotation.Config;
-import org.robolectric.shadows.ShadowToast;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertEquals;

@@ -7,7 +7,7 @@
 //import android.support.test.rule.ServiceTestRule;
 //import android.support.test.runner.AndroidJUnit4;
 //
-//import com.pk.example.NLService;
+//import com.pk.example.NotificationAdapter.NLService;
 //import com.pk.example.Profile;
 //
 //import org.junit.Rule;

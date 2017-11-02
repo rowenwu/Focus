@@ -6,7 +6,7 @@ import android.support.test.uiautomator.UiDevice;
 import android.support.test.uiautomator.UiObject2;
 import android.support.test.uiautomator.Until;
 
-import com.pk.example.MainActivity;
+import com.pk.example.clientui.MainActivity;
 import com.pk.example.R;
 
 import org.junit.Assert;

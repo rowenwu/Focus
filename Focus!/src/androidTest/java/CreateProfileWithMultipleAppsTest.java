@@ -1,21 +1,15 @@
-import android.content.Context;
 import android.content.pm.ApplicationInfo;
-import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.assertion.ViewAssertions;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.pk.example.ProfileListActivity;
+import com.pk.example.clientui.ProfileListActivity;
 import com.pk.example.R;
 import com.pk.example.entity.ProfileEntity;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import java.util.Map;
 
 import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.Espresso.onView;
@@ -32,7 +26,6 @@ import static junit.framework.Assert.assertTrue;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasEntry;
 import static org.hamcrest.Matchers.instanceOf;
-import static org.junit.Assert.*;
 
 /**
  * Instrumented test, which will execute on an Android device.
