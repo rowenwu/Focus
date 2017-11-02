@@ -542,7 +542,7 @@ int id action_menu_presenter 0x7f0a0003
 int id action_mode_bar 0x7f0a0044
 int id action_mode_bar_stub 0x7f0a0043
 int id action_mode_close_button 0x7f0a0026
-int id action_settings 0x7f0a0094
+int id action_settings 0x7f0a0095
 int id action_text 0x7f0a0078
 int id actions 0x7f0a0089
 int id activity_chooser_view_content 0x7f0a0027
@@ -578,6 +578,7 @@ int id chronometer 0x7f0a0085
 int id collapseActionView 0x7f0a001e
 int id container 0x7f0a0071
 int id contentPanel 0x7f0a0031
+int id countdown 0x7f0a0093
 int id custom 0x7f0a0038
 int id customPanel 0x7f0a0037
 int id decor_content_parent 0x7f0a0045
@@ -667,7 +668,7 @@ int id time_and_date 0x7f0a007b
 int id title 0x7f0a002d
 int id titleDividerNoCustom 0x7f0a003c
 int id title_template 0x7f0a003a
-int id toggBtn 0x7f0a0093
+int id toggBtn 0x7f0a0094
 int id top 0x7f0a0023
 int id topPanel 0x7f0a0039
 int id up 0x7f0a0008

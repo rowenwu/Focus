@@ -80,9 +80,10 @@ public class ProfileListAdapter extends ArrayAdapter<ProfileEntity> {
                             ProfileScheduler.turnOffProfile(context, getItem(position));
                             profileEntity.setActive(false);
                         }
-                        new UpdateProfile(profileEntity).execute();
+//                        new UpdateProfile(profileEntity).execute();
                     }
                 });
+
             }
 
         }

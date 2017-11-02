@@ -82,6 +82,10 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
 
                     }
                 });
+
+                if(schedule.getActive()){
+
+                }
             }
 
         }

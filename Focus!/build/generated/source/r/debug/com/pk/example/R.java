@@ -1874,7 +1874,7 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f0a0044;
         public static final int action_mode_bar_stub=0x7f0a0043;
         public static final int action_mode_close_button=0x7f0a0026;
-        public static final int action_settings=0x7f0a0094;
+        public static final int action_settings=0x7f0a0095;
         public static final int action_text=0x7f0a0078;
         public static final int actions=0x7f0a0089;
         public static final int activity_chooser_view_content=0x7f0a0027;
@@ -1910,6 +1910,7 @@ containing a value of this type.
         public static final int collapseActionView=0x7f0a001e;
         public static final int container=0x7f0a0071;
         public static final int contentPanel=0x7f0a0031;
+        public static final int countdown=0x7f0a0093;
         public static final int custom=0x7f0a0038;
         public static final int customPanel=0x7f0a0037;
         public static final int decor_content_parent=0x7f0a0045;
@@ -1999,7 +2000,7 @@ containing a value of this type.
         public static final int title=0x7f0a002d;
         public static final int titleDividerNoCustom=0x7f0a003c;
         public static final int title_template=0x7f0a003a;
-        public static final int toggBtn=0x7f0a0093;
+        public static final int toggBtn=0x7f0a0094;
         public static final int top=0x7f0a0023;
         public static final int topPanel=0x7f0a0039;
         public static final int up=0x7f0a0008;

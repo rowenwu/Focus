@@ -172,15 +172,17 @@ public class ProfileViewActivity extends ListActivity {
             // update profile and return to profile list view
 
             //if profile is active, change apps blocked by NLService
+            boolean wasActive = false;
             if(profileEntity.getActive()){
                 ProfileScheduler.turnOffProfile(getApplicationContext(), profileEntity);
+                wasActive = true;
             }
 
             profileEntity.setName(pname);
             profileEntity.setAppsToBlock(appPacks);
 
             new UpdateProfile().execute();
-            if(profileEntity.getActive()){
+            if(wasActive){
                 ProfileScheduler.turnOnProfile(getApplicationContext(), profileEntity);
             }
 
@@ -188,11 +190,6 @@ public class ProfileViewActivity extends ListActivity {
             Toast toast = Toast.makeText(getApplicationContext(),
                     "Profile updated", Toast.LENGTH_SHORT);
             toast.show();
-
-//            if(profileEntity.getActive()){
-//                ProfileScheduler.turnOffProfile(this, pname);
-//                ProfileScheduler.turnOnProfile(this, pname);
-//            }
 
             flag = null;
             // return to ProfileListActivity
@@ -205,6 +202,8 @@ public class ProfileViewActivity extends ListActivity {
     public String deleteButtonClicked(View v) {
         // delete profile and return to profile list view
         //profileDao.delete(profileEntity);
+        if(profileEntity.getActive())
+            ProfileScheduler.turnOffProfile(getApplicationContext(), profileEntity);
         new DeleteProfile(name).execute();
         
         // notify user
@@ -368,6 +367,7 @@ public class ProfileViewActivity extends ListActivity {
         protected Void doInBackground(Void... params) {
 
             db.profileDao().update(profileEntity);
+            profileEntity = db.profileDao().loadProfileSync(profileEntity.getId());
 
             return null;
         }

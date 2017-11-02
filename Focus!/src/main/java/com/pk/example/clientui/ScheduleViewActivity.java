@@ -380,11 +380,11 @@ public class ScheduleViewActivity extends ListActivity{
                     "Please choose a date, time, and duration", Toast.LENGTH_SHORT);
             toast.show();
         }
-        else if (durationHours >= 10 || (durationHours == 0 && durationMins < 10)){
-            Toast toast = Toast.makeText(getApplicationContext(),
-                    "Duration must be between 10 minutes and 10 hours", Toast.LENGTH_SHORT);
-            toast.show();
-        }
+//        else if (durationHours >= 10 || (durationHours == 0 && durationMins < 10)){
+//            Toast toast = Toast.makeText(getApplicationContext(),
+//                    "Duration must be between 10 minutes and 10 hours", Toast.LENGTH_SHORT);
+//            toast.show();
+//        }
         else {
             // add profile to db, return to ProfileListActivity
 
@@ -396,13 +396,16 @@ public class ScheduleViewActivity extends ListActivity{
             dateChosen.set(Calendar.MONTH, chosenMonth);
             dateChosen.set(Calendar.YEAR, chosenYear);
             ArrayList<Date> startTimes = new ArrayList<Date>();
-            for (int i = 0; i < checkedDays.length; i++){
-                if (checkedDays[i]){
-                    dateChosen.set(Calendar.DAY_OF_WEEK,i-1);
+            startTimes.add(dateChosen.getTime());
+            for (int i = 0; i < checkedDays.length; i++) {
+                if (checkedDays[i]) {
+                    dateChosen.set(Calendar.DAY_OF_WEEK, i - 1);
                     Date d = dateChosen.getTime();
-                    startTimes.add(d);
+                    if(!startTimes.contains(d))
+                        startTimes.add(d);
                 }
             }
+
 
             ArrayList<String> profiles;
 
@@ -434,7 +437,7 @@ public class ScheduleViewActivity extends ListActivity{
 //            }
 
 
-             scheduleInsert = new ScheduleEntity(new Schedule(pname, profiles, startTimes, durationHours, durationMins, repeatWeekly, true));
+             scheduleInsert = new ScheduleEntity(new Schedule(pname, profiles, startTimes, durationHours, durationMins, repeatWeekly, false));
 
             // crashes
 //                database.scheduleDao().insert(fakeSchedule);
@@ -472,11 +475,11 @@ public class ScheduleViewActivity extends ListActivity{
                     "Please choose a date, time, and duration", Toast.LENGTH_SHORT);
             toast.show();
         }
-//        else if (durationHours >= 10 || (durationHours == 0 && durationMins < 10)){
-//            Toast toast = Toast.makeText(getApplicationContext(),
-//                    "Duration must be between 10 minutes and 10 hours", Toast.LENGTH_SHORT);
-//            toast.show();
-//        }
+        else if (durationHours >= 10 || (durationHours == 0 && durationMins < 10)){
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "Duration must be between 10 minutes and 10 hours", Toast.LENGTH_SHORT);
+            toast.show();
+        }
         else {
             //
             dateChosen = Calendar.getInstance();
@@ -486,11 +489,13 @@ public class ScheduleViewActivity extends ListActivity{
             dateChosen.set(Calendar.MONTH, chosenMonth);
             dateChosen.set(Calendar.YEAR, chosenYear);
             ArrayList<Date> startTimes = new ArrayList<Date>();
+            startTimes.add(dateChosen.getTime());
             for (int i = 0; i < checkedDays.length; i++) {
                 if (checkedDays[i]) {
                     dateChosen.set(Calendar.DAY_OF_WEEK, i - 1);
                     Date d = dateChosen.getTime();
-                    startTimes.add(d);
+                    if(!startTimes.contains(d))
+                        startTimes.add(d);
                 }
             }
 

@@ -49,4 +49,6 @@ public interface ProfileDao {
     @Query("select * from profiles where _name = :profileName")
     ProfileEntity loadProfileSync(String profileName);
 
+    @Query("select * from profiles where _id = :id")
+    ProfileEntity loadProfileSync(int id);
 }

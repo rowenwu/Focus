@@ -89,6 +89,10 @@ public class NLService extends NotificationListenerService {
         filter.addAction(ADD_PROFILE);
         filter.addAction(REMOVE_PROFILE);
         filter.addAction(ADD_SCHEDULE_PENDING_INTENT);
+        filter.addAction(CANCEL_ALARM_INTENTS);
+        filter.addAction(ADD_PROFILE_PENDING_INTENT);
+        filter.addAction(UPDATE_SCHEDULE_ACTIVE);
+
         registerReceiver(aReceiver, filter);
         blockedApps = new HashMap<String, ArrayList<String>>();
 
@@ -566,7 +570,8 @@ public class NLService extends NotificationListenerService {
         if (profiles == null) {
             profiles = new ArrayList<String>();
         }
-        profiles.add(profile);
+        if(!profiles.contains(profile))
+            profiles.add(profile);
         blockedApps.put(appPackage, profiles);
 
     }
@@ -683,6 +688,10 @@ public class NLService extends NotificationListenerService {
                     break;
                 case CANCEL_ALARM_INTENTS:
                     cancelScheduleAlarmIntents(name);
+                    break;
+                case UPDATE_SCHEDULE_ACTIVE:
+                    boolean active = intent.getBooleanExtra("active", false);
+                    sendNotification("hi" + active);
                     break;
             }
 
