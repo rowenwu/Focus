@@ -82,8 +82,11 @@ public class NotificationReceiver extends BroadcastReceiver {
         @Override
         protected Void doInBackground(Void... params) {
             ProfileEntity profile = db.profileDao().loadProfileSync(profileName);
-            profile.setActive(active);
-            db.profileDao().update(profile);
+            if(profile != null){
+                profile.setActive(active);
+                db.profileDao().update(profile);
+            }
+
             return null;
         }
     }

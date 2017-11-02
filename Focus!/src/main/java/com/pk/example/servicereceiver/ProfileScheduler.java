@@ -31,10 +31,10 @@ public class ProfileScheduler {
 //            setAlarm(context, startTimes.get(i), 0, 0, schedule.getRepeatWeekly(), startIntent);
 
             //create intent to end profile
-//            PendingIntent endIntent = createPendingIntent(context, schedule.getName(), NLService.UPDATE_SCHEDULE_ACTIVE, false, ((int)Calendar.getInstance().getTimeInMillis())+(i*2));
-//            setAlarm(context, startTimes.get(i), schedule.getDurationHr(), schedule.getDurationMin(), schedule.getRepeatWeekly(), endIntent);
-//            hasPendingIntent.putExtra("endIntent", endIntent);
-//            context.sendBroadcast(hasPendingIntent);
+            PendingIntent endIntent = createPendingIntent(context, schedule.getName(), NLService.UPDATE_SCHEDULE_ACTIVE, false, ((int)Calendar.getInstance().getTimeInMillis())+(i*2));
+            setAlarm(context, startTimes.get(i), schedule.getDurationHr(), schedule.getDurationMin(), schedule.getRepeatWeekly(), endIntent);
+            hasPendingIntent.putExtra("endIntent", endIntent);
+            context.sendBroadcast(hasPendingIntent);
         }
     }
 
