@@ -66,6 +66,8 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
             else {
                 if(schedule.getIsEnabled()){
                     b.setChecked(true);
+                    TextView countdownTimer = (TextView) view.findViewById(R.id.countdown);
+                    countdownTimer.setText("ACTIVE ");
                 }
                 b.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -83,9 +85,6 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
                     }
                 });
 
-                if(schedule.getActive()){
-
-                }
             }
 
         }

@@ -37,6 +37,22 @@ public class NotificationReceiver extends BroadcastReceiver {
         this.context = context;
 
         switch(intent.getAction()) {
+            case TOGGLE_SCHEDULE:
+                //testing
+                ArrayList<String> profs = profiles = new ArrayList<String>();
+                profs.add("profile");
+
+                final Intent i = new Intent(INSERT_NOTIFICATION);
+                // Make an intent
+
+                i.putExtra("packageName", "packageName");
+                i.putExtra("title", "packageName");
+                i.putExtra("text", "packageName");
+                i.putStringArrayListExtra("profiles", profs);
+                name = intent.getStringExtra("name");
+                context.sendBroadcast(i);
+                new UpdateSchedule(name, intent.getBooleanExtra("active", false)).execute();
+                break;
             case ADD_PROFILE:
 //                ArrayList<String> profs = new ArrayList<String>();
 //                profs.add("")
@@ -52,10 +68,7 @@ public class NotificationReceiver extends BroadcastReceiver {
             case CHANGE_NOTIFICATIONS:
                 new ChangePrevNotifications(intent.getStringArrayListExtra("profiles")).execute();
                 break;
-            case UPDATE_SCHEDULE_ACTIVE:
-                name = intent.getStringExtra("name");
-                new UpdateSchedule(name, intent.getBooleanExtra("active", false)).execute();
-                break;
+
             case INSERT_NOTIFICATION:
                 String packageName, title, text;
                 packageName = intent.getStringExtra("packageName");

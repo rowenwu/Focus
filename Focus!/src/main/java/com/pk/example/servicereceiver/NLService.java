@@ -54,6 +54,8 @@ public class NLService extends NotificationListenerService {
     public static final String INSERT_NOTIFICATION = "com.pk.example.INSERTNOTIFICATION";
     public static final String CHANGE_NOTIFICATIONS = "com.pk.example.CHANGENOTIFICATIONS";
     public static final String UPDATE_SCHEDULE_ACTIVE = "com.pk.example.UPDATESCHEDULEACTIVE";
+    public static final String TOGGLE_SCHEDULE = "com.pk.example.TOGGLESCHEDULE";
+
 
 
     private String TAG = this.getClass().getSimpleName();
@@ -691,7 +693,10 @@ public class NLService extends NotificationListenerService {
                     break;
                 case UPDATE_SCHEDULE_ACTIVE:
                     boolean active = intent.getBooleanExtra("active", false);
-                    sendNotification("hi" + active);
+                    if (active)
+                        sendNotification("The schedule " + name + " is now active.");
+                    else
+                        sendNotification("The schedule " + name + " is no longer active.");
                     break;
             }
 

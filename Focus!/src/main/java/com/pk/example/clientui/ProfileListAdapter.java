@@ -69,6 +69,8 @@ public class ProfileListAdapter extends ArrayAdapter<ProfileEntity> {
             else {
                 if(profileEntity.getActive()){
                     b.setChecked(true);
+                    TextView countdownTimer = (TextView) view.findViewById(R.id.countdown);
+                    countdownTimer.setText("ACTIVE ");
                 }
                 b.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -83,7 +85,6 @@ public class ProfileListAdapter extends ArrayAdapter<ProfileEntity> {
 //                        new UpdateProfile(profileEntity).execute();
                     }
                 });
-
             }
 
         }

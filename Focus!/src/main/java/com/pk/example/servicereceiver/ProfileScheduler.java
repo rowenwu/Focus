@@ -8,6 +8,7 @@ import android.content.Intent;
 import com.pk.example.entity.ProfileEntity;
 import com.pk.example.entity.ScheduleEntity;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -22,16 +23,18 @@ public class ProfileScheduler {
         ArrayList<Date> startTimes = schedule.getStartTimes();
 
         for (int i = 0; i < startTimes.size(); i++) {
+//            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm"); //Or whatever format fits best your needs.
+//            String date = sdf.format(startTimes.get(i));
             Intent hasPendingIntent;
             hasPendingIntent = new Intent(NLService.ADD_SCHEDULE_PENDING_INTENT);
             hasPendingIntent.putExtra("name", schedule.getName());
             //create intent to start profile
-            PendingIntent startIntent = createPendingIntent(context, schedule.getName(), NLService.UPDATE_SCHEDULE_ACTIVE, true, ((int)Calendar.getInstance().getTimeInMillis())+i);
+            PendingIntent startIntent = createPendingIntent(context, schedule.getName(), NLService.TOGGLE_SCHEDULE, true, ((int)Calendar.getInstance().getTimeInMillis())+i);
             hasPendingIntent.putExtra("startIntent", startIntent);
-//            setAlarm(context, startTimes.get(i), 0, 0, schedule.getRepeatWeekly(), startIntent);
+            setAlarm(context, startTimes.get(i), 0, 0, schedule.getRepeatWeekly(), startIntent);
 
             //create intent to end profile
-            PendingIntent endIntent = createPendingIntent(context, schedule.getName(), NLService.UPDATE_SCHEDULE_ACTIVE, false, ((int)Calendar.getInstance().getTimeInMillis())+(i*2));
+            PendingIntent endIntent = createPendingIntent(context, schedule.getName(), NLService.TOGGLE_SCHEDULE, false, ((int)Calendar.getInstance().getTimeInMillis())+(i*2));
             setAlarm(context, startTimes.get(i), schedule.getDurationHr(), schedule.getDurationMin(), schedule.getRepeatWeekly(), endIntent);
             hasPendingIntent.putExtra("endIntent", endIntent);
             context.sendBroadcast(hasPendingIntent);
@@ -51,12 +54,12 @@ public class ProfileScheduler {
     }
 
     // NEED TO CREATE DIFFERENT PENDING INTENT IDS AND STORE THEM IN NLSERVICE
-    public static PendingIntent createPendingIntent(Context context, String schedule, String intentAction, boolean active, long alarmID) {
+    public static PendingIntent createPendingIntent(Context context, String schedule, String intentAction, boolean active, int alarmID) {
         //create alarms - pendingintents
         Intent i = new Intent(intentAction);
         i.putExtra("name", schedule);
         i.putExtra("active", active);
-        context.sendBroadcast(i);
+//        context.sendBroadcast(i);
         PendingIntent alarmIntent = PendingIntent.getBroadcast(context, (int) alarmID, i, 0);
 
         return alarmIntent;
@@ -86,6 +89,14 @@ public class ProfileScheduler {
         hasPendingIntent = new Intent(NLService.CANCEL_ALARM_INTENTS);
         hasPendingIntent.putExtra("name", schedule.getName());
         context.sendBroadcast(hasPendingIntent);
+
+        if(schedule.getActive()){
+            Intent i;
+            i = new Intent(NLService.UPDATE_SCHEDULE_ACTIVE);
+            i.putExtra("name", schedule.getName());
+            i.putExtra("active", false);
+            context.sendBroadcast(i);
+        }
 
     }
 
