@@ -44,14 +44,16 @@ public class NotificationReceiver extends BroadcastReceiver {
 
                 final Intent i = new Intent(INSERT_NOTIFICATION);
                 // Make an intent
-
+                boolean active = intent.getBooleanExtra("active", false);
                 i.putExtra("packageName", "packageName");
                 i.putExtra("title", "packageName");
                 i.putExtra("text", "packageName");
                 i.putStringArrayListExtra("profiles", profs);
                 name = intent.getStringExtra("name");
+                intent.putExtra("info", "schedule is " + active);
+
                 context.sendBroadcast(i);
-                new UpdateSchedule(name, intent.getBooleanExtra("active", false)).execute();
+                new UpdateSchedule(name, active).execute();
                 break;
             case ADD_PROFILE:
 //                ArrayList<String> profs = new ArrayList<String>();

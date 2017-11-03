@@ -106,6 +106,14 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
+        <receiver
+            android:name="com.pk.example.servicereceiver.BootReceiver"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <!-- <action android:name="android.intent.action.INPUT_METHOD_CHANGED" /> -->
+            </intent-filter>
+        </receiver>
 
         <activity
             android:name="com.pk.example.clientui.NotificationListActivity"

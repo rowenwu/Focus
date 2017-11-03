@@ -23,15 +23,15 @@ public class ProfileScheduler {
         ArrayList<Date> startTimes = schedule.getStartTimes();
 
         for (int i = 0; i < startTimes.size(); i++) {
-//            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm"); //Or whatever format fits best your needs.
-//            String date = sdf.format(startTimes.get(i));
+            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm"); //Or whatever format fits best your needs.
+            String date = sdf.format(startTimes.get(i));
             Intent hasPendingIntent;
             hasPendingIntent = new Intent(NLService.ADD_SCHEDULE_PENDING_INTENT);
             hasPendingIntent.putExtra("name", schedule.getName());
             //create intent to start profile
             PendingIntent startIntent = createPendingIntent(context, schedule.getName(), NLService.TOGGLE_SCHEDULE, true, ((int)Calendar.getInstance().getTimeInMillis())+i);
-            hasPendingIntent.putExtra("startIntent", startIntent);
             setAlarm(context, startTimes.get(i), 0, 0, schedule.getRepeatWeekly(), startIntent);
+            hasPendingIntent.putExtra("startIntent", startIntent);
 
             //create intent to end profile
             PendingIntent endIntent = createPendingIntent(context, schedule.getName(), NLService.TOGGLE_SCHEDULE, false, ((int)Calendar.getInstance().getTimeInMillis())+(i*2));
@@ -72,11 +72,12 @@ public class ProfileScheduler {
         calendar.setTime(date);
         calendar.add(Calendar.HOUR_OF_DAY, addHr);
         calendar.add(Calendar.MINUTE, addMin);
-        if (repeat)
-            //creates a weekly repeating alarm
+        if (repeat) {
             alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), alarmMgr.INTERVAL_DAY * 7, alarmIntent);
-        else
+        }
+        else {
             alarmMgr.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), alarmIntent);
+        }
     }
 
     // disable schedule
