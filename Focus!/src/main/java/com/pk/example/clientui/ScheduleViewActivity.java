@@ -399,8 +399,7 @@ public class ScheduleViewActivity extends ListActivity{
             dateChosen.set(Calendar.MONTH, chosenMonth);
             dateChosen.set(Calendar.YEAR, chosenYear);
             ArrayList<Date> startTimes = new ArrayList<Date>();
-            if(checkedDays.length == 0)
-                startTimes.add(dateChosen.getTime());
+
             for (int i = 0; i < checkedDays.length; i++) {
                 if (checkedDays[i]) {
                     dateChosen.set(Calendar.DAY_OF_WEEK, i - 1);
@@ -409,7 +408,8 @@ public class ScheduleViewActivity extends ListActivity{
                         startTimes.add(d);
                 }
             }
-
+            if(startTimes.size() == 0)
+                startTimes.add(dateChosen.getTime());
 
             ArrayList<String> profiles;
 
@@ -493,8 +493,7 @@ public class ScheduleViewActivity extends ListActivity{
             dateChosen.set(Calendar.MONTH, chosenMonth);
             dateChosen.set(Calendar.YEAR, chosenYear);
             ArrayList<Date> startTimes = new ArrayList<Date>();
-            if(checkedDays.length == 0)
-                startTimes.add(dateChosen.getTime());
+
             for (int i = 0; i < checkedDays.length; i++) {
                 if (checkedDays[i]) {
                     dateChosen.set(Calendar.DAY_OF_WEEK, i - 1);
@@ -503,6 +502,8 @@ public class ScheduleViewActivity extends ListActivity{
                         startTimes.add(d);
                 }
             }
+            if(startTimes.size() == 0)
+                startTimes.add(dateChosen.getTime());
 
             ArrayList<String> profiles;
 
