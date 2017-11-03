@@ -106,6 +106,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
+
+        <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
         <receiver
             android:name="com.pk.example.servicereceiver.BootReceiver"
             android:exported="true" >

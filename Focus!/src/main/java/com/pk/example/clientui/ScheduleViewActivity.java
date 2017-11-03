@@ -383,11 +383,11 @@ public class ScheduleViewActivity extends ListActivity{
             toast.show();
         }
         //REMOVED FOR TESTING -- UNCOMMMENT LATER
-//        else if (durationHours >= 10 || (durationHours == 0 && durationMins < 10)){
-//            Toast toast = Toast.makeText(getApplicationContext(),
-//                    "Duration must be between 10 minutes and 10 hours", Toast.LENGTH_SHORT);
-//            toast.show();
-//        }
+        else if (durationHours >= 10 || (durationHours == 0 && durationMins < 10)){
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "Duration must be between 10 minutes and 10 hours", Toast.LENGTH_SHORT);
+            toast.show();
+        }
         else {
             // add profile to db, return to ProfileListActivity
 
