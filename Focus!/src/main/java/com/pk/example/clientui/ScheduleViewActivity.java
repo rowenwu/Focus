@@ -1,5 +1,3 @@
-
-
 package com.pk.example.clientui;
 
 import android.app.DatePickerDialog;
@@ -165,9 +163,17 @@ public class ScheduleViewActivity extends ListActivity{
                             });
 
 
+
+
+
                     AlertDialog dialog = builder.create();
                     // Display the alert dialog on interface
                     dialog.show();
+
+
+
+
+
 
                 }
             });
@@ -195,9 +201,11 @@ public class ScheduleViewActivity extends ListActivity{
             txtDay.setEnabled(false);
             txtTime.setEnabled(false);
 
+            new LoadProfiles().execute();
+
+            //populate schedule info
             new GetScheduleInfo(name).execute();
 
-            new LoadProfiles().execute();
             ListView listView = getListView();
             listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
@@ -407,7 +415,7 @@ public class ScheduleViewActivity extends ListActivity{
 
             ArrayList<String> profiles;
 
-            if(profileList.size() > 0){
+            if(profileList.size() == 0){
                 profiles = new ArrayList<String>();
             }
             else{
@@ -435,7 +443,7 @@ public class ScheduleViewActivity extends ListActivity{
 //            }
 
 
-             scheduleInsert = new ScheduleEntity(new Schedule(pname, profiles, startTimes, durationHours, durationMins, repeatWeekly, false));
+            scheduleInsert = new ScheduleEntity(new Schedule(pname, profiles, startTimes, durationHours, durationMins, repeatWeekly, false));
 
             // crashes
 //                database.scheduleDao().insert(fakeSchedule);
@@ -733,48 +741,27 @@ public class ScheduleViewActivity extends ListActivity{
         }
     }
 
-    private class GetScheduleInfo extends AsyncTask<Void, Void, Void> {
+private class GetScheduleInfo extends AsyncTask<Void, Void, Void> {
         private ProgressDialog progress = null;
         private String name;
         private ScheduleEntity schedule;
 
         GetScheduleInfo(String name) {
             this.name = name;
-            schedule = database.scheduleDao().loadScheduleSync(name);
-            GetScheduleInfo(schedule);
         }
 
         @Override
         protected Void doInBackground(Void... params) {
-
+            schedule = database.scheduleDao().loadScheduleSync(name);
+            SetScheduleInfo(schedule);
             return null;
         }
 
-        @Override
-        protected void onCancelled() {
-            super.onCancelled();
-        }
 
-        @Override
-        protected void onPostExecute(Void result) {
-            super.onPostExecute(result);
-
-        }
-
-        @Override
-        protected void onPreExecute() {
-            progress = ProgressDialog.show(ScheduleViewActivity.this, null,
-                    "Saving");
-            super.onPreExecute();
-        }
-
-        @Override
-        protected void onProgressUpdate(Void... values) {
-            super.onProgressUpdate(values);
-        }
     }
 
-    public void GetScheduleInfo(Schedule schedule) {
+    public void SetScheduleInfo(Schedule schedule) {
+        //populate schedule's info
         btnDatePicker=(Button)findViewById(R.id.btn_date);
         btnTimePicker=(Button)findViewById(R.id.btn_time);
         btnDayPicker=(Button)findViewById(R.id.btn_day);
@@ -803,6 +790,20 @@ public class ScheduleViewActivity extends ListActivity{
         txtDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
         txtTime.setText(hourOfDay + ":" + minute);
         txtDuration.setText(durationHour + ":" + durationMinute);
+
+//        //select profiles that are already selected
+//        //getListView().setItemChecked(position, listadaptor.changeCheckedState(position));
+//        ArrayList<String> profileAlreadySelectedList = schedule.getProfiles();
+//        int position = 0;
+//        for(Profile profile : profileList) {
+//            for(String name : profileAlreadySelectedList) {
+//                if(profile.getName().equals(name)) {
+//                    getListView().setItemChecked(position, listadaptor.changeCheckedState(position));
+//                }
+//            }
+//            position++;
+//        }
+
     }
 
 
