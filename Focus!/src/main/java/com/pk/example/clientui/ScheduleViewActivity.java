@@ -376,6 +376,7 @@ public class ScheduleViewActivity extends ListActivity{
                     "Please choose a date, time, and duration", Toast.LENGTH_SHORT);
             toast.show();
         }
+        //REMOVED FOR TESTING -- UNCOMMMENT LATER
         else if (durationHours >= 10 || (durationHours == 0 && durationMins < 10)){
             Toast toast = Toast.makeText(getApplicationContext(),
                     "Duration must be between 10 minutes and 10 hours", Toast.LENGTH_SHORT);
@@ -392,7 +393,7 @@ public class ScheduleViewActivity extends ListActivity{
             dateChosen.set(Calendar.MONTH, chosenMonth);
             dateChosen.set(Calendar.YEAR, chosenYear);
             ArrayList<Date> startTimes = new ArrayList<Date>();
-            startTimes.add(dateChosen.getTime());
+
             for (int i = 0; i < checkedDays.length; i++) {
                 if (checkedDays[i]) {
                     dateChosen.set(Calendar.DAY_OF_WEEK, i - 1);
@@ -401,7 +402,8 @@ public class ScheduleViewActivity extends ListActivity{
                         startTimes.add(d);
                 }
             }
-
+            if(startTimes.size() == 0)
+                startTimes.add(dateChosen.getTime());
 
             ArrayList<String> profiles;
 
@@ -485,7 +487,7 @@ public class ScheduleViewActivity extends ListActivity{
             dateChosen.set(Calendar.MONTH, chosenMonth);
             dateChosen.set(Calendar.YEAR, chosenYear);
             ArrayList<Date> startTimes = new ArrayList<Date>();
-            startTimes.add(dateChosen.getTime());
+
             for (int i = 0; i < checkedDays.length; i++) {
                 if (checkedDays[i]) {
                     dateChosen.set(Calendar.DAY_OF_WEEK, i - 1);
@@ -494,6 +496,8 @@ public class ScheduleViewActivity extends ListActivity{
                         startTimes.add(d);
                 }
             }
+            if(startTimes.size() == 0)
+                startTimes.add(dateChosen.getTime());
 
             ArrayList<String> profiles;
 

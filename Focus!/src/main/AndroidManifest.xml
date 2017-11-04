@@ -3,12 +3,16 @@
     package="com.pk.example"
     android:versionCode="1"
     android:versionName="1.0">
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
+
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".clientui.MainActivity"
             android:label="@string/app_name"
@@ -85,16 +89,24 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".clientui.ScheduleListActivity" />
         </activity>
+
         <receiver android:name=".servicereceiver.NotificationReceiver" >
             <intent-filter>
                 <action android:name="com.pk.example.INSERTNOTIFICATION"/>
                 <action android:name="com.pk.example.ADDPROFILE"/>
                 <action android:name="com.pk.example.REMOVEPROFILE" />
                 <action android:name="com.pk.example.CHANGENOTIFICATIONS" />
-                <action android:name="com.pk.example.UPDATESCHEDULEACTIVE" />
                 <action android:name="com.pk.example.TOGGLESCHEDULE"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".servicereceiver.BootReceiver"  android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <!--<action android:name="android.intent.action.INPUT_METHOD_CHANGED" />-->
             </intent-filter>
         </receiver>
         <activity

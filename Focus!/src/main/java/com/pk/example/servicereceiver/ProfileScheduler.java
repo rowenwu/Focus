@@ -23,19 +23,19 @@ public class ProfileScheduler {
         ArrayList<Date> startTimes = schedule.getStartTimes();
 
         for (int i = 0; i < startTimes.size(); i++) {
-//            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm"); //Or whatever format fits best your needs.
-//            String date = sdf.format(startTimes.get(i));
+            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm"); //Or whatever format fits best your needs.
+            String date = sdf.format(startTimes.get(i));
             Intent hasPendingIntent;
             hasPendingIntent = new Intent(NLService.ADD_SCHEDULE_PENDING_INTENT);
             hasPendingIntent.putExtra("name", schedule.getName());
             //create intent to start profile
             PendingIntent startIntent = createPendingIntent(context, schedule.getName(), NLService.TOGGLE_SCHEDULE, true, ((int)Calendar.getInstance().getTimeInMillis())+i);
+            setAlarm(context, DateManipulator.getCalendarFromDate(startTimes.get(i)), schedule.getRepeatWeekly(), startIntent);
             hasPendingIntent.putExtra("startIntent", startIntent);
-            setAlarm(context, startTimes.get(i), 0, 0, schedule.getRepeatWeekly(), startIntent);
 
             //create intent to end profile
             PendingIntent endIntent = createPendingIntent(context, schedule.getName(), NLService.TOGGLE_SCHEDULE, false, ((int)Calendar.getInstance().getTimeInMillis())+(i*2));
-            setAlarm(context, startTimes.get(i), schedule.getDurationHr(), schedule.getDurationMin(), schedule.getRepeatWeekly(), endIntent);
+            setAlarm(context, DateManipulator.getEndCalendar(startTimes.get(i), schedule.getDurationHr(), schedule.getDurationMin()), schedule.getRepeatWeekly(), endIntent);
             hasPendingIntent.putExtra("endIntent", endIntent);
             context.sendBroadcast(hasPendingIntent);
         }
@@ -65,18 +65,19 @@ public class ProfileScheduler {
         return alarmIntent;
     }
 
-    public static void setAlarm(Context context, Date date, int addHr, int addMin,  boolean repeat, PendingIntent alarmIntent){
+    public static void setAlarm(Context context, Calendar calendar,  boolean repeat, PendingIntent alarmIntent){
         AlarmManager alarmMgr = (AlarmManager) context.getSystemService(ALARM_SERVICE);
 
-        Calendar calendar = Calendar.getInstance(); // creates a new calendar instance
-        calendar.setTime(date);
-        calendar.add(Calendar.HOUR_OF_DAY, addHr);
-        calendar.add(Calendar.MINUTE, addMin);
-        if (repeat)
-            //creates a weekly repeating alarm
+//        Calendar calendar = Calendar.getInstance(); // creates a new calendar instance
+//        calendar.setTime(date);
+//        calendar.add(Calendar.HOUR_OF_DAY, addHr);
+//        calendar.add(Calendar.MINUTE, addMin);
+        if (repeat) {
             alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), alarmMgr.INTERVAL_DAY * 7, alarmIntent);
-        else
+        }
+        else {
             alarmMgr.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), alarmIntent);
+        }
     }
 
     // disable schedule
@@ -92,7 +93,7 @@ public class ProfileScheduler {
 
         if(schedule.getActive()){
             Intent i;
-            i = new Intent(NLService.UPDATE_SCHEDULE_ACTIVE);
+            i = new Intent(NLService.TOGGLE_SCHEDULE);
             i.putExtra("name", schedule.getName());
             i.putExtra("active", false);
             context.sendBroadcast(i);
@@ -124,7 +125,7 @@ public class ProfileScheduler {
 
         // add profile alarm intent to nlservice
         PendingIntent endIntent = createPendingIntent(context, profile.getName(), profile.getAppsToBlock(), NLService.REMOVE_PROFILE, (int) Calendar.getInstance().getTimeInMillis());
-        setAlarm(context, new Date(), 10, 0, false, endIntent);
+        setAlarm(context, DateManipulator.getEndCalendar(new Date(), 10, 0), false, endIntent);
         hasPendingIntent.putExtra("pendingIntent", endIntent);
 
         //TODO sned change notifications alarm intent to notificationreceiver

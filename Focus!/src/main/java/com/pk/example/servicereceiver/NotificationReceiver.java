@@ -38,25 +38,12 @@ public class NotificationReceiver extends BroadcastReceiver {
 
         switch(intent.getAction()) {
             case TOGGLE_SCHEDULE:
-                //testing
-                ArrayList<String> profs = profiles = new ArrayList<String>();
-                profs.add("profile");
-
-                final Intent i = new Intent(INSERT_NOTIFICATION);
-                // Make an intent
-
-                i.putExtra("packageName", "packageName");
-                i.putExtra("title", "packageName");
-                i.putExtra("text", "packageName");
-                i.putStringArrayListExtra("profiles", profs);
                 name = intent.getStringExtra("name");
-                context.sendBroadcast(i);
-                new UpdateSchedule(name, intent.getBooleanExtra("active", false)).execute();
+
+                boolean active = intent.getBooleanExtra("active", false);
+                new UpdateSchedule(name, active).execute();
                 break;
             case ADD_PROFILE:
-//                ArrayList<String> profs = new ArrayList<String>();
-//                profs.add("")
-//                new InsertNotification("test", "test", "test", profs).execute();
                 new UpdateProfile(intent.getStringExtra("name"), true).execute();
                 break;
             case REMOVE_PROFILE:
@@ -172,12 +159,14 @@ public class NotificationReceiver extends BroadcastReceiver {
             schedule.setActive(active);
             db.scheduleDao().update(schedule);
 
+
+            //NOT SURE WHY THIS ISN'T HAPPENING??
             for(String profile: schedule.getProfiles()){
                 ProfileEntity profileEntity = db.profileDao().loadProfileSync(profile);
                 Intent i = new Intent(intentAction);
                 i.putExtra("name", profile);
                 i.putExtra("appsToBlock", profileEntity.getAppsToBlock());
-                i.putExtra("active", active);
+//                i.putExtra("active", active);
                 context.sendBroadcast(i);
 
 //                profileEntity.setActive(true);

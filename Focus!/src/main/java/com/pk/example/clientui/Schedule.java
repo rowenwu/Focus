@@ -1,6 +1,9 @@
 package com.pk.example.clientui;
 
+import com.pk.example.servicereceiver.DateManipulator;
+
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Schedule {
@@ -61,6 +64,14 @@ public class Schedule {
 
     public boolean getIsEnabled() {
         return isEnabled;
+    }
+
+    public Boolean[] getDaysOfWeek(){
+        Boolean[] daysOfWeek = new Boolean[7];
+        for(Date d: startTimes){
+            daysOfWeek[DateManipulator.getDayOfWeek(d)] = true;
+        }
+        return daysOfWeek;
     }
 
 

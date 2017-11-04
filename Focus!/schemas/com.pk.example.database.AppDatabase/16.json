@@ -1,0 +1,249 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 16,
+    "identityHash": "4d0382f227cead595ffcd56b38ea9023",
+    "entities": [
+      {
+        "tableName": "min_notifications",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`appName` TEXT, `notificationContext` TEXT, `date` INTEGER, `profileName` TEXT, `_id` INTEGER PRIMARY KEY AUTOINCREMENT, `_appName` TEXT, `_notificationContext` TEXT, `_date` INTEGER, `_profileName` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "appName",
+            "columnName": "appName",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "notificationContext",
+            "columnName": "notificationContext",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "date",
+            "columnName": "date",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "profileName",
+            "columnName": "profileName",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "_id",
+            "columnName": "_id",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "_appName",
+            "columnName": "_appName",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "_notificationContext",
+            "columnName": "_notificationContext",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "_date",
+            "columnName": "_date",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "_profileName",
+            "columnName": "_profileName",
+            "affinity": "TEXT"
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "profiles",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`name` TEXT, `appsToBlock` TEXT, `active` INTEGER, `_id` INTEGER PRIMARY KEY AUTOINCREMENT, `_name` TEXT, `_appsToBlock` TEXT, `_active` INTEGER)",
+        "fields": [
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "appsToBlock",
+            "columnName": "appsToBlock",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "active",
+            "columnName": "active",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "_id",
+            "columnName": "_id",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "_name",
+            "columnName": "_name",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "_appsToBlock",
+            "columnName": "_appsToBlock",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "_active",
+            "columnName": "_active",
+            "affinity": "INTEGER"
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "schedules",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`_id` INTEGER PRIMARY KEY AUTOINCREMENT, `_name` TEXT, `_profiles` TEXT, `_startTimes` TEXT, `_durationHr` INTEGER, `_durationMin` INTEGER, `_repeatWeekly` INTEGER, `_isEnabled` INTEGER, `_active` INTEGER, `name` TEXT, `profiles` TEXT, `startTimes` TEXT, `durationHr` INTEGER, `durationMin` INTEGER, `repeatWeekly` INTEGER, `isEnabled` INTEGER)",
+        "fields": [
+          {
+            "fieldPath": "_id",
+            "columnName": "_id",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "_name",
+            "columnName": "_name",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "_profiles",
+            "columnName": "_profiles",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "_startTimes",
+            "columnName": "_startTimes",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "_durationHr",
+            "columnName": "_durationHr",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "_durationMin",
+            "columnName": "_durationMin",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "_repeatWeekly",
+            "columnName": "_repeatWeekly",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "_isEnabled",
+            "columnName": "_isEnabled",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "_active",
+            "columnName": "_active",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "profiles",
+            "columnName": "profiles",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "startTimes",
+            "columnName": "startTimes",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "durationHr",
+            "columnName": "durationHr",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "durationMin",
+            "columnName": "durationMin",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "repeatWeekly",
+            "columnName": "repeatWeekly",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "isEnabled",
+            "columnName": "isEnabled",
+            "affinity": "INTEGER"
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "prev_notifications",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`_id` INTEGER PRIMARY KEY AUTOINCREMENT, `_appName` TEXT, `_notificationContext` TEXT, `_date` INTEGER)",
+        "fields": [
+          {
+            "fieldPath": "_id",
+            "columnName": "_id",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "_appName",
+            "columnName": "_appName",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "_notificationContext",
+            "columnName": "_notificationContext",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "_date",
+            "columnName": "_date",
+            "affinity": "INTEGER"
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"4d0382f227cead595ffcd56b38ea9023\")"
+    ]
+  }
+}
