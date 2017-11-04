@@ -1,9 +1,14 @@
 package com.pk.example.clientui;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 import android.content.Context;
 import android.os.AsyncTask;
+import android.os.CountDownTimer;
 import android.support.v7.widget.SwitchCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +29,8 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
     SwitchCompat switchCompat;
     ToggleButton b;
     private AppDatabase database;
+    private static final String FORMAT = "%02d:%02d:%02d";
+
 
     public ScheduleAdapter(Context context, int textViewResourceId,
                                List<ScheduleEntity> scheduleEntities) {
@@ -54,11 +61,13 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
         }
 
         final ScheduleEntity schedule = scheduleEntities.get(position);
+
+
         if (null != schedule) {
             TextView profileContext = (TextView) view.findViewById(R.id.name);
             profileContext.setText(schedule.getName());
             b = (ToggleButton) view.findViewById(R.id.toggBtn);
-
+            final TextView countdownTimer = (TextView) view.findViewById(R.id.countdown);
             if(schedule.getName().equals("There are no schedules to display.")){
                 ((ViewGroup) b.getParent()).removeView(b);
 
@@ -66,19 +75,66 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
             else {
                 if(schedule.getIsEnabled()){
                     b.setChecked(true);
-                    TextView countdownTimer = (TextView) view.findViewById(R.id.countdown);
-                    countdownTimer.setText("ACTIVE ");
+                    Date startDate = schedule.getStartTimes().get(0);
+                    long startHour = startDate.getHours();
+                    long startMin = startDate.getMinutes();
+
+                    long endHour = startHour + schedule.getDurationHr();
+                    long endMin = startMin + schedule.getDurationMin();
+
+                    Date currentDate = Calendar.getInstance().getTime();
+
+                    long durrationHour = endHour - currentDate.getHours();
+                    long durrationMin = endMin - currentDate.getMinutes();
+                    long durationSec = durrationHour * 3600 + durrationMin * 60;
+
+                    new CountDownTimer(durationSec * 1000, 1000) { // adjust the milli seconds here
+
+                        public void onTick(long millisUntilFinished) {
+
+                            countdownTimer.setText("ACTIVE "+String.format(FORMAT,
+                                    TimeUnit.MILLISECONDS.toHours(millisUntilFinished),
+                                    TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished) - TimeUnit.HOURS.toMinutes(
+                                            TimeUnit.MILLISECONDS.toHours(millisUntilFinished)),
+                                    TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - TimeUnit.MINUTES.toSeconds(
+                                            TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
+                        }
+
+                        public void onFinish() {
+
+                        }
+                    }.start();
                 }
                 b.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        int durationSec = schedule.getDurationHr() * 3600 + schedule.getDurationMin() * 60;
+//                        CountDownTimer countdown = new CountDownTimer(durationSec * 1000, 1000) { // adjust the milli seconds here
+//
+//                            public void onTick(long millisUntilFinished) {
+//
+//                                countdownTimer.setText("ACTIVE "+String.format(FORMAT,
+//                                        TimeUnit.MILLISECONDS.toHours(millisUntilFinished),
+//                                        TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished) - TimeUnit.HOURS.toMinutes(
+//                                                TimeUnit.MILLISECONDS.toHours(millisUntilFinished)),
+//                                        TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - TimeUnit.MINUTES.toSeconds(
+//                                                TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
+//                            }
+//
+//                            public void onFinish() {
+//
+//                            }
+//                        };
                         if (b.isChecked()) {
 //                            new EnableSchedule(getItem(position)).execute();
                             ProfileScheduler.enableSchedule(context, schedule);
                             schedule.setIsEnabled(true);
+                            //countdown.start();
                         } else {
                             ProfileScheduler.disableSchedule(context, schedule);
                             schedule.setIsEnabled(false);
+//                            countdown.cancel();
+//                            countdownTimer.setText("");
                         }
                         new UpdateSchedule(schedule).execute();
 
