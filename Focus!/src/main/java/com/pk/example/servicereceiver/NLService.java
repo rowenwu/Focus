@@ -53,7 +53,7 @@ public class NLService extends NotificationListenerService {
     public static final String CANCEL_ALARM_INTENTS = "com.pk.example.CANCELALARMINTENTS";
     public static final String INSERT_NOTIFICATION = "com.pk.example.INSERTNOTIFICATION";
     public static final String CHANGE_NOTIFICATIONS = "com.pk.example.CHANGENOTIFICATIONS";
-    public static final String UPDATE_SCHEDULE_ACTIVE = "com.pk.example.UPDATESCHEDULEACTIVE";
+//    public static final String UPDATE_SCHEDULE_ACTIVE = "com.pk.example.UPDATESCHEDULEACTIVE";
     public static final String TOGGLE_SCHEDULE = "com.pk.example.TOGGLESCHEDULE";
 
 
