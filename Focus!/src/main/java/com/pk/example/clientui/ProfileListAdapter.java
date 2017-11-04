@@ -1,12 +1,15 @@
 package com.pk.example.clientui;
 
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.ToggleButton;
 
 import com.pk.example.R;
@@ -26,6 +29,8 @@ public class ProfileListAdapter extends ArrayAdapter<ProfileEntity> {
     private Context context;
     ToggleButton b;
     private AppDatabase database;
+    private Integer durationHours, durationMins;
+    EditText txtDuration;
 
     public ProfileListAdapter(Context context, int textViewResourceId,
                               List<ProfileEntity> profileList) {
@@ -56,6 +61,9 @@ public class ProfileListAdapter extends ArrayAdapter<ProfileEntity> {
             view = layoutInflater.inflate(R.layout.schedule_list_row, null);
         }
 
+        txtDuration=(EditText)view.findViewById(R.id.in_duration);
+        txtDuration.setEnabled(false);
+
         final ProfileEntity profileEntity = profileList.get(position);
         if (null != profileEntity) {
             TextView profileContext = (TextView) view.findViewById(R.id.name);
@@ -78,6 +86,21 @@ public class ProfileListAdapter extends ArrayAdapter<ProfileEntity> {
                         if (b.isChecked()) {
                             ProfileScheduler.turnOnProfile(context, getItem(position));
                             profileEntity.setActive(true);
+//
+//                            DurationPickerDialog timePickerDialog = new DurationPickerDialog(this,
+//                                    new TimePickerDialog.OnTimeSetListener(){
+//
+//                                        @Override
+//                                        public void onTimeSet(TimePicker view, int hourOfDay,
+//                                                              int minute) {
+//
+//                                            txtDuration.setText(hourOfDay + ":" + minute);
+//                                            durationHours = hourOfDay;
+//                                            durationMins = minute;
+//                                        }
+//                                    }, 0, 0);
+//                            timePickerDialog.show();
+
                             countdownTimer.setText("ACTIVE ");
                         } else {
                             ProfileScheduler.turnOffProfile(context, getItem(position));
