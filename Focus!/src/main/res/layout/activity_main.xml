@@ -50,6 +50,18 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Weekly View"
+        android:textAllCaps="true"
+        android:layout_below="@+id/btnCreateNotify"
+        android:id="@+id/btnWeeklyView"
+        android:onClick="buttonClicked"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"/>
+
     <!--<Button-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="wrap_content"-->

@@ -21,11 +21,13 @@ import android.widget.Toast;
 import com.pk.example.R;
 import com.pk.example.servicereceiver.NLService;
 
+import java.util.Calendar;
+
 public class MainActivity extends Activity {
 
     public TextView txtView;
     private NotificationReceiver nReceiver;
-    public Button profilesButton, schedulesButton, notificationsButton;
+    public Button profilesButton, schedulesButton, notificationsButton, weeklyButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class MainActivity extends Activity {
         profilesButton = (Button) findViewById( R.id.btnNavigation );
         schedulesButton = (Button) findViewById( R.id.btnAllProfiles );
         notificationsButton = (Button) findViewById( R.id.btnNotificationList );
+        weeklyButton = (Button) findViewById(R.id.btnWeeklyView);
 
 
 
@@ -120,6 +123,10 @@ public class MainActivity extends Activity {
         }
         else if(v.getId() == R.id.btnNotificationList){
             Intent i = new Intent(this, NotificationListActivity.class);
+            startActivity(i);
+        }
+        else if (v.getId() == R.id.btnWeeklyView){
+            Intent i = new Intent(this, CalendarActivity.class);
             startActivity(i);
         }
 

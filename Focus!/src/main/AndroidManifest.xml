@@ -85,6 +85,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".clientui.ScheduleListActivity" />
         </activity>
+        <activity
+            android:name=".clientui.CalendarActivity"
+            android:label="Weekly View"
+            android:parentActivityName=".clientui.CalendarActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".clientui.CalendarActivity" />
+        </activity>
         <receiver android:name=".servicereceiver.NotificationReceiver" >
             <intent-filter>
                 <action android:name="com.pk.example.INSERTNOTIFICATION"/>
