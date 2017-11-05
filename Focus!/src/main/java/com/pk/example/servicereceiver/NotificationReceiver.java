@@ -37,10 +37,13 @@ public class NotificationReceiver extends BroadcastReceiver {
         this.context = context;
 
         switch(intent.getAction()) {
+            case TOGGLE_SCHEDULE:
+                name = intent.getStringExtra("name");
+
+                boolean active = intent.getBooleanExtra("active", false);
+                new UpdateSchedule(name, active).execute();
+                break;
             case ADD_PROFILE:
-//                ArrayList<String> profs = new ArrayList<String>();
-//                profs.add("")
-//                new InsertNotification("test", "test", "test", profs).execute();
                 new UpdateProfile(intent.getStringExtra("name"), true).execute();
                 break;
             case REMOVE_PROFILE:
@@ -52,10 +55,7 @@ public class NotificationReceiver extends BroadcastReceiver {
             case CHANGE_NOTIFICATIONS:
                 new ChangePrevNotifications(intent.getStringArrayListExtra("profiles")).execute();
                 break;
-            case UPDATE_SCHEDULE_ACTIVE:
-                name = intent.getStringExtra("name");
-                new UpdateSchedule(name, intent.getBooleanExtra("active", false)).execute();
-                break;
+
             case INSERT_NOTIFICATION:
                 String packageName, title, text;
                 packageName = intent.getStringExtra("packageName");
@@ -82,8 +82,11 @@ public class NotificationReceiver extends BroadcastReceiver {
         @Override
         protected Void doInBackground(Void... params) {
             ProfileEntity profile = db.profileDao().loadProfileSync(profileName);
-            profile.setActive(active);
-            db.profileDao().update(profile);
+            if(profile != null){
+                profile.setActive(active);
+                db.profileDao().update(profile);
+            }
+
             return null;
         }
     }
@@ -156,12 +159,14 @@ public class NotificationReceiver extends BroadcastReceiver {
             schedule.setActive(active);
             db.scheduleDao().update(schedule);
 
+
+            //NOT SURE WHY THIS ISN'T HAPPENING??
             for(String profile: schedule.getProfiles()){
                 ProfileEntity profileEntity = db.profileDao().loadProfileSync(profile);
                 Intent i = new Intent(intentAction);
                 i.putExtra("name", profile);
                 i.putExtra("appsToBlock", profileEntity.getAppsToBlock());
-                i.putExtra("active", active);
+//                i.putExtra("active", active);
                 context.sendBroadcast(i);
 
 //                profileEntity.setActive(true);

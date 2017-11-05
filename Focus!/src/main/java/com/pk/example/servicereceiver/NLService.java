@@ -53,7 +53,9 @@ public class NLService extends NotificationListenerService {
     public static final String CANCEL_ALARM_INTENTS = "com.pk.example.CANCELALARMINTENTS";
     public static final String INSERT_NOTIFICATION = "com.pk.example.INSERTNOTIFICATION";
     public static final String CHANGE_NOTIFICATIONS = "com.pk.example.CHANGENOTIFICATIONS";
-    public static final String UPDATE_SCHEDULE_ACTIVE = "com.pk.example.UPDATESCHEDULEACTIVE";
+//    public static final String UPDATE_SCHEDULE_ACTIVE = "com.pk.example.UPDATESCHEDULEACTIVE";
+    public static final String TOGGLE_SCHEDULE = "com.pk.example.TOGGLESCHEDULE";
+
 
 
     private String TAG = this.getClass().getSimpleName();
@@ -91,7 +93,7 @@ public class NLService extends NotificationListenerService {
         filter.addAction(ADD_SCHEDULE_PENDING_INTENT);
         filter.addAction(CANCEL_ALARM_INTENTS);
         filter.addAction(ADD_PROFILE_PENDING_INTENT);
-        filter.addAction(UPDATE_SCHEDULE_ACTIVE);
+        filter.addAction(TOGGLE_SCHEDULE);
 
         registerReceiver(aReceiver, filter);
         blockedApps = new HashMap<String, ArrayList<String>>();
@@ -689,9 +691,12 @@ public class NLService extends NotificationListenerService {
                 case CANCEL_ALARM_INTENTS:
                     cancelScheduleAlarmIntents(name);
                     break;
-                case UPDATE_SCHEDULE_ACTIVE:
+                case TOGGLE_SCHEDULE:
                     boolean active = intent.getBooleanExtra("active", false);
-                    sendNotification("hi" + active);
+                    if (active)
+                        sendNotification("The schedule " + name + " is now active.");
+                    else
+                        sendNotification("The schedule " + name + " is no longer active.");
                     break;
             }
 

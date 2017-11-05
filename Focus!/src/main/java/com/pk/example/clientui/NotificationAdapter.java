@@ -52,7 +52,7 @@ public class NotificationAdapter extends ArrayAdapter<PrevNotificationEntity> {
 
             appName.setText(minNotification.getAppName());
             notificationContext.setText(minNotification.getNotificationContext());
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //Or whatever format fits best your needs.
+            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm"); //Or whatever format fits best your needs.
             timeAndDate.setText(sdf.format(minNotification.getDate()));
             //holder.iconview.setImageBitmap(minNotificationEntity.getAppIcon());
         }

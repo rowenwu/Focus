@@ -61,6 +61,7 @@ public class ProfileListAdapter extends ArrayAdapter<ProfileEntity> {
             TextView profileContext = (TextView) view.findViewById(R.id.name);
             profileContext.setText(profileEntity.getName());
             b = (ToggleButton) view.findViewById(R.id.toggBtn);
+            final TextView countdownTimer = (TextView) view.findViewById(R.id.countdown);
 
             if(profileEntity.getName().equals("There are no profiles to display.")){
                 ((ViewGroup) b.getParent()).removeView(b);
@@ -69,6 +70,7 @@ public class ProfileListAdapter extends ArrayAdapter<ProfileEntity> {
             else {
                 if(profileEntity.getActive()){
                     b.setChecked(true);
+                    countdownTimer.setText("ACTIVE ");
                 }
                 b.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -76,14 +78,15 @@ public class ProfileListAdapter extends ArrayAdapter<ProfileEntity> {
                         if (b.isChecked()) {
                             ProfileScheduler.turnOnProfile(context, getItem(position));
                             profileEntity.setActive(true);
+                            countdownTimer.setText("ACTIVE ");
                         } else {
                             ProfileScheduler.turnOffProfile(context, getItem(position));
                             profileEntity.setActive(false);
+                            countdownTimer.setText("");
                         }
 //                        new UpdateProfile(profileEntity).execute();
                     }
                 });
-
             }
 
         }
