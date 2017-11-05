@@ -1,5 +1,3 @@
-
-
 package com.pk.example.clientui;
 
 import android.app.DatePickerDialog;
@@ -204,6 +202,10 @@ public class ScheduleViewActivity extends ListActivity{
             txtTime.setEnabled(false);
 
             new LoadProfiles().execute();
+
+            //populate schedule info
+            new GetScheduleInfo(name).execute();
+
             ListView listView = getListView();
             listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
@@ -413,7 +415,7 @@ public class ScheduleViewActivity extends ListActivity{
 
             ArrayList<String> profiles;
 
-            if(profileList.size() > 0){
+            if(profileList.size() == 0){
                 profiles = new ArrayList<String>();
             }
             else{
@@ -441,7 +443,7 @@ public class ScheduleViewActivity extends ListActivity{
 //            }
 
 
-             scheduleInsert = new ScheduleEntity(new Schedule(pname, profiles, startTimes, durationHours, durationMins, repeatWeekly, false));
+            scheduleInsert = new ScheduleEntity(new Schedule(pname, profiles, startTimes, durationHours, durationMins, repeatWeekly, false));
 
             // crashes
 //                database.scheduleDao().insert(fakeSchedule);
@@ -739,6 +741,73 @@ public class ScheduleViewActivity extends ListActivity{
         }
     }
 
+private class GetScheduleInfo extends AsyncTask<Void, Void, Void> {
+        private ProgressDialog progress = null;
+        private String name;
+        private ScheduleEntity schedule;
+
+        GetScheduleInfo(String name) {
+            this.name = name;
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            schedule = database.scheduleDao().loadScheduleSync(name);
+            SetScheduleInfo(schedule);
+            return null;
+        }
+
+
+    }
+
+    public void SetScheduleInfo(Schedule schedule) {
+        //populate schedule's info
+        btnDatePicker=(Button)findViewById(R.id.btn_date);
+        btnTimePicker=(Button)findViewById(R.id.btn_time);
+        btnDayPicker=(Button)findViewById(R.id.btn_day);
+        txtDate=(EditText)findViewById(R.id.in_date);
+        txtTime=(EditText)findViewById(R.id.in_time);
+        txtDuration=(EditText)findViewById(R.id.in_duration);
+        txtDay = (EditText)findViewById(R.id.in_day);
+
+        ArrayList<Date> dates = schedule.getStartTimes();
+
+        if(dates.isEmpty()) {
+            int here = 0;
+        }
+        Date date = dates.get(0);
+
+        int dayOfMonth, monthOfYear, year, hourOfDay, minute, durationHour, durationMinute;
+
+        dayOfMonth = date.getDay();
+        monthOfYear= date.getMonth();
+        year = date.getYear();
+        hourOfDay = date.getHours();
+        minute = date.getMinutes();
+        durationHour = schedule.getDurationHr();
+        durationMinute = schedule.getDurationMin();
+
+        txtDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+        txtTime.setText(hourOfDay + ":" + minute);
+        txtDuration.setText(durationHour + ":" + durationMinute);
+
+//        //select profiles that are already selected
+//        //getListView().setItemChecked(position, listadaptor.changeCheckedState(position));
+//        ArrayList<String> profileAlreadySelectedList = schedule.getProfiles();
+//        int position = 0;
+//        for(Profile profile : profileList) {
+//            for(String name : profileAlreadySelectedList) {
+//                if(profile.getName().equals(name)) {
+//                    getListView().setItemChecked(position, listadaptor.changeCheckedState(position));
+//                }
+//            }
+//            position++;
+//        }
+
+    }
+
+
+
     public String[] getDaysOfWeek() {
         return daysOfWeek;
     }
@@ -747,4 +816,3 @@ public class ScheduleViewActivity extends ListActivity{
         return shortDaysOfWeek;
     }
 }
-

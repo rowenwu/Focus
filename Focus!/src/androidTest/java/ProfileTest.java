@@ -96,7 +96,7 @@ public class ProfileTest {
         onData(allOf(instanceOf((ProfileEntity.class)))).atPosition(0).perform(click());
 
         //check if app is listed
-        onData(allOf(instanceOf((ApplicationInfo.class)))).atPosition(0).onChildView(withId(R.id.app_name)).check(ViewAssertions.matches((withText(containsString(("Focus!"))))));
+        onData(allOf(instanceOf((ApplicationInfo.class)))).atPosition(0).onChildView(withId(R.id.app_name)).check(ViewAssertions.matches((withText(containsString(("com.android.smoketest"))))));
     }
 
     @Test
@@ -128,9 +128,9 @@ public class ProfileTest {
         onData(allOf(instanceOf((ProfileEntity.class)))).atPosition(0).perform(click());
 
         //check if apps are listed
-        onData(allOf(instanceOf((ApplicationInfo.class)))).atPosition(0).onChildView(withId(R.id.app_name)).check(ViewAssertions.matches((withText(containsString(("com.android.cts.priv.ctsshim"))))));
-        onData(allOf(instanceOf((ApplicationInfo.class)))).atPosition(1).onChildView(withId(R.id.app_name)).check(ViewAssertions.matches((withText(containsString(("YouTube"))))));
-        onData(allOf(instanceOf((ApplicationInfo.class)))).atPosition(2).onChildView(withId(R.id.app_name)).check(ViewAssertions.matches((withText(containsString(("Android Services Library"))))));
+        onData(allOf(instanceOf((ApplicationInfo.class)))).atPosition(0).onChildView(withId(R.id.app_name)).check(ViewAssertions.matches((withText(containsString(("com.android.smoketest"))))));
+        onData(allOf(instanceOf((ApplicationInfo.class)))).atPosition(1).onChildView(withId(R.id.app_name)).check(ViewAssertions.matches((withText(containsString(("com.android.cts.priv.ctsshim"))))));
+        onData(allOf(instanceOf((ApplicationInfo.class)))).atPosition(2).onChildView(withId(R.id.app_name)).check(ViewAssertions.matches((withText(containsString(("YouTube"))))));
     }
 
 
@@ -209,7 +209,7 @@ public class ProfileTest {
         onView(withId(R.id.btnDeleteProfile)).perform(click());
 
         //check is profile still in list
-        onData(allOf(instanceOf((ScheduleEntity.class)))).atPosition(0).onChildView(withId(R.id.name)).check(ViewAssertions.matches(not((withText(containsString(("testDeleteProfile")))))));
+        onData(allOf(instanceOf((ProfileEntity.class)))).atPosition(0).onChildView(withId(R.id.name)).check(ViewAssertions.matches(not((withText(containsString(("testDeleteProfile")))))));
 
     }
 
@@ -240,7 +240,7 @@ public class ProfileTest {
         onView(withId(R.id.editTextProfileName)).perform(closeSoftKeyboard());
 
         //choose app to block 3
-        onData(allOf(instanceOf((ApplicationInfo.class)))).atPosition(3).perform(click());
+        onData(allOf(instanceOf((ApplicationInfo.class)))).atPosition(4).perform(click());
 
         //new applicatin slected
         onView(withId(R.id.btnSaveProfile)).perform(click());
