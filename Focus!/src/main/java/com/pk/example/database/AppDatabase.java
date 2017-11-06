@@ -24,7 +24,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public static AppDatabase getDatabase(Context context) {
         if (INSTANCE == null) {
-            context.deleteDatabase("db");
+//            context.deleteDatabase("db");
             INSTANCE =
                     Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "db")
                             .allowMainThreadQueries()

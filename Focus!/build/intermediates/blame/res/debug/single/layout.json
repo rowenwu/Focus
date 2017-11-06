@@ -128,6 +128,10 @@
         "source": "C:\\Users\\kathe\\Focus\\Focus!\\src\\main\\res\\layout\\activity_schedule_list.xml"
     },
     {
+        "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout\\activity_week_view.xml",
+        "source": "C:\\Users\\kathe\\Focus\\Focus!\\src\\main\\res\\layout\\activity_week_view.xml"
+    },
+    {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_item_material.xml",
         "source": "C:\\Users\\kathe\\.android\\build-cache\\57cfecf7b2698c8c4c9a5d7dcf0dc02708cd7fce\\output\\res\\layout\\select_dialog_item_material.xml"
     },

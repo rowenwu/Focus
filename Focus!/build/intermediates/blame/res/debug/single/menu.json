@@ -4,6 +4,10 @@
         "source": "C:\\Users\\kathe\\Focus\\Focus!\\src\\main\\res\\menu\\menu_tabbed.xml"
     },
     {
+        "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\menu\\calendar_menu.xml",
+        "source": "C:\\Users\\kathe\\Focus\\Focus!\\src\\main\\res\\menu\\calendar_menu.xml"
+    },
+    {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
         "source": "C:\\Users\\kathe\\Focus\\Focus!\\src\\main\\res\\menu\\main.xml"
     }

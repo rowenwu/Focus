@@ -156,6 +156,7 @@
     <orderEntry type="library" exported="" name="android.arch.persistence.room:support-db-impl-1.0.0-alpha1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="com.google.android.apps.common.testing.accessibility.framework:accessibility-test-framework:2.0@jar" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="com.android.support.test.espresso:espresso-idling-resource-2.2.2" level="project" />
+    <orderEntry type="library" exported="" name="com.github.alamkanak:android-week-view-1.2.6" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="javax.annotation:javax.annotation-api:1.2@jar" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="org.apache.maven:maven-artifact:2.2.1@jar" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="org.codehaus.plexus:plexus-container-default:1.0-alpha-9-stable-1@jar" level="project" />
