@@ -6,6 +6,7 @@ import android.arch.persistence.room.PrimaryKey;
 import com.pk.example.clientui.Profile;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 @Entity(tableName = "profiles")
 public class ProfileEntity extends Profile {
@@ -15,6 +16,7 @@ public class ProfileEntity extends Profile {
     private String _name;
     private ArrayList<String> _appsToBlock;
     private boolean _active;
+    private Date _endTime;
 
     public int getId() {
         return _id;
@@ -46,6 +48,12 @@ public class ProfileEntity extends Profile {
     public boolean getActive() {return _active;}
 
     public void setActive(boolean active) { this._active = active;}
+
+    public Date getEndTime() {return _endTime;}
+
+    public void setEndTime(Date endTime) {
+        this._endTime = endTime;
+    }
 
     public ProfileEntity(){
     }
