@@ -78,6 +78,7 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
                     Date startDate = schedule.getStartTimes().get(0);
                     long startHour = startDate.getHours();
                     long startMin = startDate.getMinutes();
+                    long startSec = startDate.getSeconds();
 
                     long endHour = startHour + schedule.getDurationHr();
                     long endMin = startMin + schedule.getDurationMin();
@@ -86,9 +87,10 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
 
                     long durrationHour = endHour - currentDate.getHours();
                     long durrationMin = endMin - currentDate.getMinutes();
-                    long durationSec = durrationHour * 3600 + durrationMin * 60;
+                    long durrationSec = startSec - currentDate.getSeconds();
+                    long durationTotal = durrationHour * 3600 + durrationMin * 60 + durrationSec;
 
-                    new CountDownTimer(durationSec * 1000, 1000) { // adjust the milli seconds here
+                    new CountDownTimer(durationTotal * 1000, 1000) { // adjust the milli seconds here
 
                         public void onTick(long millisUntilFinished) {
 
