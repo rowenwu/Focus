@@ -1,7 +1,10 @@
 package com.pk.example.clientui;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.graphics.Color;
 import android.graphics.RectF;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
@@ -13,12 +16,17 @@ import com.alamkanak.weekview.MonthLoader;
 import com.alamkanak.weekview.WeekView;
 import com.alamkanak.weekview.WeekViewEvent;
 import com.pk.example.R;
+import com.pk.example.database.AppDatabase;
+import com.pk.example.entity.PrevNotificationEntity;
+import com.pk.example.entity.ScheduleEntity;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 
 /**
  * Created by williamxu on 11/4/17.
@@ -30,6 +38,9 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
     private static final int TYPE_WEEK_VIEW = 3;
     private int mWeekViewType = TYPE_THREE_DAY_VIEW;
     private WeekView mWeekView;
+    private AppDatabase database;
+    private List<ScheduleEntity> scheduleEntityList;
+    private List<WeekViewEvent> events = new ArrayList<WeekViewEvent>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,10 +92,24 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
 
     @Override
     public List<? extends WeekViewEvent> onMonthChange(int newYear, int newMonth) {
+        //get all schedules
+        new LoadSchedules().execute();
+        //list of schedules for the month/year
         List<WeekViewEvent> matchedEvents = new ArrayList<WeekViewEvent>();
+        //get the ones that match
+        for(WeekViewEvent event : events) {
+            if(eventMatches(event, newYear, newMonth - 1)) {
+                matchedEvents.add(event);
+            }
+        }
         return matchedEvents;
-
     }
+
+    private boolean eventMatches(WeekViewEvent event, int year, int month) {
+        return (event.getStartTime().get(Calendar.YEAR) == year && event.getStartTime().get(Calendar.MONTH) == month)
+                || (event.getEndTime().get(Calendar.YEAR) == year && event.getEndTime().get(Calendar.MONTH) == month);
+    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -134,7 +159,44 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
         return super.onOptionsItemSelected(item);
     }
 
+    //get schedules from database
+    private class LoadSchedules extends AsyncTask<Void, Void, Void> {
+        private ProgressDialog progress = null;
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            //get database
+            database = AppDatabase.getDatabase(getApplicationContext());
+            scheduleEntityList = database.scheduleDao().loadAllSchedulesSync();
 
 
+            int id = 0;
+            for(ScheduleEntity schedule : scheduleEntityList) {
+                //get random color for schedule
+                Random rand = new Random();
+                int r = rand.nextInt(255);
+                int g = rand.nextInt(255);
+                int b = rand.nextInt(255);
+                int randomColor = Color.rgb(r, g, b);
+
+                //start times for schedule
+                ArrayList<Date> daysOfSchedule = schedule.getStartTimes();
+                for(Date date : daysOfSchedule) {
+                    Calendar startTime = Calendar.getInstance();
+                    startTime.set(Calendar.HOUR_OF_DAY, date.getHours());
+                    startTime.set(Calendar.MINUTE, date.getMinutes());
+                    startTime.set(Calendar.MONTH, date.getMonth());
+                    startTime.set(Calendar.YEAR, date.getYear());
+                    Calendar endTime = Calendar.getInstance();
+                    endTime.set(Calendar.HOUR_OF_DAY, date.getHours() + schedule.getDurationHr());
+                    endTime.set(Calendar.MINUTE, date.getMinutes() + schedule.getDurationMin());
+                    WeekViewEvent event = new WeekViewEvent(id, schedule.getName(), startTime, endTime);
+                    event.setColor(randomColor);
+                    events.add(event);
+                }
+            }
+            return null;
+        }
+    }
 }
 
