@@ -27,6 +27,7 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -636,19 +637,17 @@ public class ScheduleViewActivity extends ListActivity{
 
             scheduleEntity = db.scheduleDao().loadScheduleSync(name);
 
-            profileList.clear();
+            profileList = db.profileDao().loadAllProfilesAsync();
+            ArrayList<ProfileEntity> plist = new ArrayList<>();
 
-            for (String p : scheduleEntity.getProfiles()) {
-                ProfileEntity pe = db.profileDao().loadProfileSync(p);
-                profileList.add(pe);
-            }
-
-            if (profileList.size()==0) {
-                profileList.add(new ProfileEntity(new Profile("No profiles to add.", new ArrayList<>( Arrays.asList("Buenos Aires", "Córdoba", "La Plata")), false)));
+            for (ProfileEntity pe : profileList) {
+                if (scheduleEntity.getProfiles().contains(pe.getName())) {
+                    plist.add(pe);
+                }
             }
 
             listadaptor = new ListAdapter(ScheduleViewActivity.this,
-                    R.layout.profile_list_row, profileList);
+                    R.layout.profile_list_row, plist);
 
             return null;
         }
