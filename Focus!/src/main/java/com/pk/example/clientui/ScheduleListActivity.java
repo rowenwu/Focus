@@ -58,7 +58,7 @@ public class ScheduleListActivity extends ListActivity {
         super.onListItemClick(l, v, position, id);
 //        v.setSelected(true);
         Intent i = new Intent(this, ScheduleViewActivity.class);
-        i.putExtra("flag", "edit");
+        i.putExtra("flag", "view");
         i.putExtra("name", listadaptor.getItem(position).getName());
         startActivity(i);
     }
