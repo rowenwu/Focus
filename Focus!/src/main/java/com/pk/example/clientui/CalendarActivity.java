@@ -2,12 +2,14 @@ package com.pk.example.clientui;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.app.usage.UsageEvents;
 import android.graphics.Color;
 import android.graphics.RectF;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -42,6 +44,7 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
     private List<ScheduleEntity> scheduleEntityList;
     private List<WeekViewEvent> events = new ArrayList<WeekViewEvent>();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +66,10 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
         // Set long press listener for empty view
         mWeekView.setEmptyViewLongPressListener(this);
 
+        new LoadSchedules().execute();
+
     }
+
 
     @Override
     public void onEventClick(WeekViewEvent event, RectF eventRect) {
@@ -92,8 +98,8 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
 
     @Override
     public List<? extends WeekViewEvent> onMonthChange(int newYear, int newMonth) {
-        //get all schedules
-        new LoadSchedules().execute();
+
+        getWeekView().notifyDatasetChanged();
         //list of schedules for the month/year
         List<WeekViewEvent> matchedEvents = new ArrayList<WeekViewEvent>();
         //get the ones that match
@@ -102,13 +108,18 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
                 matchedEvents.add(event);
             }
         }
+
         return matchedEvents;
     }
 
     private boolean eventMatches(WeekViewEvent event, int year, int month) {
-        return (event.getStartTime().get(Calendar.YEAR) == year && event.getStartTime().get(Calendar.MONTH) == month)
-                || (event.getEndTime().get(Calendar.YEAR) == year && event.getEndTime().get(Calendar.MONTH) == month);
+
+        int eYear = event.getStartTime().get(Calendar.YEAR) + 1900;
+        int eMonth = event.getStartTime().get(Calendar.MONTH);
+        return ( eYear == year &&  eMonth == month)
+                || (event.getEndTime().get(Calendar.YEAR)  + 1900 == year && event.getEndTime().get(Calendar.MONTH) == month);
     }
+
 
 
     @Override
@@ -154,14 +165,23 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
                     mWeekView.setEventTextSize((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 10, getResources().getDisplayMetrics()));
                 }
                 return true;
+
         }
 
         return super.onOptionsItemSelected(item);
     }
 
+
+
     //get schedules from database
     private class LoadSchedules extends AsyncTask<Void, Void, Void> {
-        private ProgressDialog progress = null;
+
+        @Override
+        protected void onPostExecute(Void result) {
+            getWeekView().notifyDatasetChanged();
+
+            super.onPostExecute(result);
+        }
 
         @Override
         protected Void doInBackground(Void... params) {
@@ -183,13 +203,16 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
                 ArrayList<Date> daysOfSchedule = schedule.getStartTimes();
                 for(Date date : daysOfSchedule) {
                     Calendar startTime = Calendar.getInstance();
-                    startTime.set(Calendar.HOUR_OF_DAY, date.getHours());
-                    startTime.set(Calendar.MINUTE, date.getMinutes());
-                    startTime.set(Calendar.MONTH, date.getMonth());
-                    startTime.set(Calendar.YEAR, date.getYear());
+//                    startTime.set(Calendar.HOUR_OF_DAY, date.getHours());
+//                    startTime.set(Calendar.MINUTE, date.getMinutes());
+//                    startTime.set(Calendar.MONTH, date.getMonth());
+//                    startTime.set(Calendar.YEAR, date.getYear());
+                    startTime.set(date.getYear(),date.getMonth(),date.getDate(),date.getHours(),date.getMinutes());
+
                     Calendar endTime = Calendar.getInstance();
-                    endTime.set(Calendar.HOUR_OF_DAY, date.getHours() + schedule.getDurationHr());
-                    endTime.set(Calendar.MINUTE, date.getMinutes() + schedule.getDurationMin());
+//                    endTime.set(Calendar.HOUR_OF_DAY, date.getHours() + schedule.getDurationHr());
+//                    endTime.set(Calendar.MINUTE, date.getMinutes() + schedule.getDurationMin());
+                    endTime.set(date.getYear(),date.getMonth(),date.getDate(),date.getHours() + schedule.getDurationHr(),date.getMinutes()+schedule.getDurationMin());
                     WeekViewEvent event = new WeekViewEvent(id, schedule.getName(), startTime, endTime);
                     event.setColor(randomColor);
                     events.add(event);
@@ -199,4 +222,8 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
         }
     }
 }
+
+
+
+
 

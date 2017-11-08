@@ -395,11 +395,7 @@ public class ScheduleViewActivity extends ListActivity{
 
             // create new profile entity (add this with profiledao)
             dateChosen = Calendar.getInstance();
-            dateChosen.set(Calendar.MINUTE, chosenMinute);
-            dateChosen.set(Calendar.HOUR_OF_DAY, chosenHour);
-            dateChosen.set(Calendar.DAY_OF_MONTH, chosenDay);
-            dateChosen.set(Calendar.MONTH, chosenMonth);
-            dateChosen.set(Calendar.YEAR, chosenYear);
+            dateChosen.set(chosenYear,chosenMonth,chosenDay,chosenHour,chosenMinute);
             ArrayList<Date> startTimes = new ArrayList<Date>();
 
             for (int i = 0; i < checkedDays.length; i++) {
