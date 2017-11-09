@@ -638,12 +638,17 @@ public class ScheduleViewActivity extends ListActivity{
             scheduleEntity = db.scheduleDao().loadScheduleSync(name);
 
             profileList = db.profileDao().loadAllProfilesAsync();
+
             ArrayList<ProfileEntity> plist = new ArrayList<>();
 
             for (ProfileEntity pe : profileList) {
                 if (scheduleEntity.getProfiles().contains(pe.getName())) {
                     plist.add(pe);
                 }
+            }
+
+            if (plist.size()==0) {
+                plist.add(new ProfileEntity(new Profile("No profiles to show.", new ArrayList<>( Arrays.asList("Buenos Aires", "Córdoba", "La Plata")), false)));
             }
 
             listadaptor = new ListAdapter(ScheduleViewActivity.this,
