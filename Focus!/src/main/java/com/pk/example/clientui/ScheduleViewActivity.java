@@ -50,13 +50,13 @@ public class ScheduleViewActivity extends ListActivity{
     final String[] shortDaysOfWeek = new String[]{"S", "M", "T", "W", "Th", "F", "Sa"};
 
     boolean[] checkedDays = new boolean[]{
+            false, // S
             false, // M
             false, // T
             false, // W
             false, // Th
             false, // F
-            false, // Sa
-            false, // S
+            false // Ss
     };
     boolean repeatWeekly = false;
 
@@ -394,13 +394,24 @@ public class ScheduleViewActivity extends ListActivity{
             // add profile to db, return to ProfileListActivity
 
             // create new profile entity (add this with profiledao)
-            dateChosen = Calendar.getInstance();
-            dateChosen.set(chosenYear,chosenMonth,chosenDay,chosenHour,chosenMinute);
+
             ArrayList<Date> startTimes = new ArrayList<Date>();
 
             for (int i = 0; i < checkedDays.length; i++) {
                 if (checkedDays[i]) {
-                    dateChosen.set(Calendar.DAY_OF_WEEK, i - 1);
+                    dateChosen = Calendar.getInstance();
+                    dateChosen.set(Calendar.MINUTE, chosenMinute);
+                    dateChosen.set(Calendar.HOUR_OF_DAY, chosenHour);
+
+                    dateChosen.set(Calendar.DAY_OF_MONTH, chosenDay);
+                    dateChosen.set(Calendar.MONTH, chosenMonth);
+                    dateChosen.set(Calendar.YEAR, chosenYear);
+                    dateChosen.set(Calendar.DAY_OF_WEEK, i+1);
+                    if (Calendar.getInstance().getTime().getDay() > i)
+                    {
+                        dateChosen.add(Calendar.DATE, 7);
+                    }
+
                     Date d = dateChosen.getTime();
                     if(!startTimes.contains(d))
                         startTimes.add(d);
@@ -483,20 +494,26 @@ public class ScheduleViewActivity extends ListActivity{
             toast.show();
         }
         else {
-            //
-            dateChosen = Calendar.getInstance();
-            dateChosen.set(Calendar.MINUTE, chosenMinute);
-            dateChosen.set(Calendar.HOUR_OF_DAY, chosenHour);
-            dateChosen.set(Calendar.DAY_OF_MONTH, chosenDay);
-            dateChosen.set(Calendar.MONTH, chosenMonth);
-            dateChosen.set(Calendar.YEAR, chosenYear);
+
             ArrayList<Date> startTimes = new ArrayList<Date>();
 
             for (int i = 0; i < checkedDays.length; i++) {
+
                 if (checkedDays[i]) {
-                    dateChosen.set(Calendar.DAY_OF_WEEK, i - 1);
+                    dateChosen = Calendar.getInstance();
+                    dateChosen.set(Calendar.MINUTE, chosenMinute);
+                    dateChosen.set(Calendar.HOUR_OF_DAY, chosenHour);
+
+                    dateChosen.set(Calendar.DAY_OF_MONTH, chosenDay);
+                    dateChosen.set(Calendar.MONTH, chosenMonth);
+                    dateChosen.set(Calendar.YEAR, chosenYear);
+                    dateChosen.set(Calendar.DAY_OF_WEEK, i + 1);
+                    if (Calendar.getInstance().getTime().getDay() > i) {
+                        dateChosen.add(Calendar.DATE, 7);
+                    }
+
                     Date d = dateChosen.getTime();
-                    if(!startTimes.contains(d))
+                    if (!startTimes.contains(d))
                         startTimes.add(d);
                 }
             }
@@ -783,7 +800,7 @@ private class GetScheduleInfo extends AsyncTask<Void, Void, Void> {
         durationHour = schedule.getDurationHr();
         durationMinute = schedule.getDurationMin();
 
-        txtDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+        txtDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + (year + 1900));
         txtTime.setText(hourOfDay + ":" + minute);
         txtDuration.setText(durationHour + ":" + durationMinute);
 

@@ -3,6 +3,7 @@ package com.pk.example.clientui;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.app.usage.UsageEvents;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.RectF;
 import android.os.AsyncTask;
@@ -72,12 +73,15 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
 
     @Override
     public void onEventClick(WeekViewEvent event, RectF eventRect) {
-
+        Intent i = new Intent(this, ScheduleViewActivity.class);
+        i.putExtra("flag", "edit");
+        i.putExtra("name", event.getName());
+        startActivity(i);
     }
 
     @Override
     public void onEventLongPress(WeekViewEvent event, RectF eventRect) {
-
+        onEventClick(event, eventRect);
     }
 
     @Override
@@ -203,15 +207,9 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
                 ArrayList<Date> daysOfSchedule = schedule.getStartTimes();
                 for(Date date : daysOfSchedule) {
                     Calendar startTime = Calendar.getInstance();
-//                    startTime.set(Calendar.HOUR_OF_DAY, date.getHours());
-//                    startTime.set(Calendar.MINUTE, date.getMinutes());
-//                    startTime.set(Calendar.MONTH, date.getMonth());
-//                    startTime.set(Calendar.YEAR, date.getYear());
                     startTime.set(date.getYear()+1900,date.getMonth(),date.getDate(),date.getHours(),date.getMinutes());
 
                     Calendar endTime = Calendar.getInstance();
-//                    endTime.set(Calendar.HOUR_OF_DAY, date.getHours() + schedule.getDurationHr());
-//                    endTime.set(Calendar.MINUTE, date.getMinutes() + schedule.getDurationMin());
                     endTime.set(date.getYear()+1900,date.getMonth(),date.getDate(),date.getHours() + schedule.getDurationHr(),date.getMinutes()+schedule.getDurationMin());
                     WeekViewEvent event = new WeekViewEvent(id, schedule.getName(), startTime, endTime);
                     event.setColor(randomColor);
