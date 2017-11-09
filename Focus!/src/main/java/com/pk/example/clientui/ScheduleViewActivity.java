@@ -25,6 +25,9 @@ import android.widget.TimePicker;
 import android.app.TimePickerDialog;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -48,6 +51,8 @@ public class ScheduleViewActivity extends ListActivity{
     ScheduleEntity scheduleInsert;
     final String[] daysOfWeek = new String[]{"SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"};
     final String[] shortDaysOfWeek = new String[]{"S", "M", "T", "W", "Th", "F", "Sa"};
+    // view
+    TextView tvScheduleName, tvStartTimes, tvDuration, tvRepeatWeekly, tvDaysOfWeek;
 
     boolean[] checkedDays = new boolean[]{
             false, // S
@@ -70,7 +75,7 @@ public class ScheduleViewActivity extends ListActivity{
 
         // create profile mode
         if (flag.equals("create")) {
-            setContentView(R.layout.activity_schedule_view);
+            setContentView(R.layout.activity_schedule_create);
             btnDatePicker=(Button)findViewById(R.id.btn_date);
             btnTimePicker=(Button)findViewById(R.id.btn_time);
             btnDayPicker=(Button)findViewById(R.id.btn_day);
@@ -178,6 +183,17 @@ public class ScheduleViewActivity extends ListActivity{
                 }
             });
 
+        }
+
+        else if (flag.equals("view")) {
+            name = getIntent().getStringExtra("name");
+
+            setContentView(R.layout.activity_schedule_view);
+
+            new ViewScheduleInfo(name).execute();
+            new LoadSelectedProfiles().execute();
+            ListView listView = getListView();
+            listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         }
 
         // schedule edit mode
@@ -470,6 +486,13 @@ public class ScheduleViewActivity extends ListActivity{
         }
     }
 
+    public void editButtonClicked(View v) {
+        Intent i = new Intent(getApplicationContext(), ScheduleViewActivity.class);
+        i.putExtra("flag", "edit");
+        i.putExtra("name", name);
+        startActivity(i);
+    }
+
     public void saveButtonClicked(View v) {
         // update schedule
         // get new profile name from text field
@@ -618,6 +641,59 @@ public class ScheduleViewActivity extends ListActivity{
         }
     }
 
+    private class LoadSelectedProfiles extends AsyncTask<Void, Void, Void> {
+        private ProgressDialog progress = null;
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            db = AppDatabase.getDatabase(getApplicationContext());
+
+            scheduleEntity = db.scheduleDao().loadScheduleSync(name);
+
+            profileList = db.profileDao().loadAllProfilesAsync();
+
+            ArrayList<ProfileEntity> plist = new ArrayList<>();
+
+            for (ProfileEntity pe : profileList) {
+                if (scheduleEntity.getProfiles().contains(pe.getName())) {
+                    plist.add(pe);
+                }
+            }
+
+            if (plist.size()==0) {
+                plist.add(new ProfileEntity(new Profile("No profiles to show.", new ArrayList<>( Arrays.asList("Buenos Aires", "Córdoba", "La Plata")), false)));
+            }
+
+            listadaptor = new ListAdapter(ScheduleViewActivity.this,
+                    R.layout.profile_list_row, plist);
+
+            return null;
+        }
+
+        @Override
+        protected void onCancelled() {
+            super.onCancelled();
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            setListAdapter(listadaptor);
+            progress.dismiss();
+            super.onPostExecute(result);
+        }
+
+        @Override
+        protected void onPreExecute() {
+            progress = ProgressDialog.show(ScheduleViewActivity.this, null,
+                    "Loading profile info...");
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+        }
+    }
 
     private class InsertSchedule extends AsyncTask<Void, Void, Void> {
         private ProgressDialog progress = null;
@@ -754,7 +830,7 @@ public class ScheduleViewActivity extends ListActivity{
         }
     }
 
-private class GetScheduleInfo extends AsyncTask<Void, Void, Void> {
+    private class GetScheduleInfo extends AsyncTask<Void, Void, Void> {
         private ProgressDialog progress = null;
         private String name;
         private ScheduleEntity schedule;
@@ -769,7 +845,57 @@ private class GetScheduleInfo extends AsyncTask<Void, Void, Void> {
             SetScheduleInfo(schedule);
             return null;
         }
+    }
 
+    private class ViewScheduleInfo extends AsyncTask<Void, Void, Void> {
+        private ProgressDialog progress = null;
+        private String name;
+        private ScheduleEntity schedule;
+
+        ViewScheduleInfo(String name) {
+            this.name = name;
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            schedule = database.scheduleDao().loadScheduleSync(name);
+            getViewScheduleInfo(schedule);
+            return null;
+        }
+    }
+
+    public void getViewScheduleInfo(ScheduleEntity schedule) {
+        tvScheduleName = (TextView) findViewById(R.id.textViewScheduleName);
+        tvStartTimes = (TextView) findViewById(R.id.textViewStartTimes);
+        tvDuration = (TextView) findViewById(R.id.textViewDuration);
+        tvRepeatWeekly = (TextView) findViewById(R.id.textViewRepeatWeekly);
+        tvDaysOfWeek = (TextView) findViewById(R.id.textViewDaysOfWeek);
+
+        tvScheduleName.setText(name);
+
+        ArrayList<Date> dates = schedule.getStartTimes();
+        if(dates.isEmpty()) {
+            int here = 0;
+        }
+        Date date = dates.get(0);
+
+        int dayOfMonth, monthOfYear, year, hourOfDay, minute, durationHour, durationMinute;
+
+        dayOfMonth = date.getDay();
+        monthOfYear= date.getMonth();
+        year = date.getYear();
+        hourOfDay = date.getHours();
+        minute = date.getMinutes();
+        durationHour = schedule.getDurationHr();
+        durationMinute = schedule.getDurationMin();
+        tvStartTimes.setText("Start time: " + hourOfDay + ":" + minute);
+        tvDuration.setText("Duration: " + durationHour + ":" + durationMinute);
+
+        if (schedule.getRepeatWeekly()) {
+            tvRepeatWeekly.setText("Repeated weekly: yes");
+        } else {
+            tvRepeatWeekly.setText("Repeated weekly: no");
+        }
 
     }
 
