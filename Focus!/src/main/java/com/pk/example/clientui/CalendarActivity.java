@@ -48,6 +48,8 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        new LoadSchedules().execute();
+
         setContentView(R.layout.activity_week_view);
 
         // Get a reference for the week view in the layout.
@@ -65,9 +67,6 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
 
         // Set long press listener for empty view
         mWeekView.setEmptyViewLongPressListener(this);
-
-        new LoadSchedules().execute();
-
     }
 
 
@@ -100,8 +99,10 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
     public List<? extends WeekViewEvent> onMonthChange(int newYear, int newMonth) {
 
         getWeekView().notifyDatasetChanged();
+        getWeekView().invalidate();
+
         //list of schedules for the month/year
-        List<WeekViewEvent> matchedEvents = new ArrayList<WeekViewEvent>();
+        List<WeekViewEvent> matchedEvents = new ArrayList<>();
         //get the ones that match
         for(WeekViewEvent event : events) {
             if(eventMatches(event, newYear, newMonth - 1)) {
@@ -114,10 +115,10 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
 
     private boolean eventMatches(WeekViewEvent event, int year, int month) {
 
-        int eYear = event.getStartTime().get(Calendar.YEAR) + 1900;
+        int eYear = event.getStartTime().get(Calendar.YEAR);
         int eMonth = event.getStartTime().get(Calendar.MONTH);
         return ( eYear == year &&  eMonth == month)
-                || (event.getEndTime().get(Calendar.YEAR)  + 1900 == year && event.getEndTime().get(Calendar.MONTH) == month);
+                || (event.getEndTime().get(Calendar.YEAR)== year && event.getEndTime().get(Calendar.MONTH) == month);
     }
 
 
@@ -178,7 +179,6 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
 
         @Override
         protected void onPostExecute(Void result) {
-            getWeekView().notifyDatasetChanged();
 
             super.onPostExecute(result);
         }
@@ -207,15 +207,16 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
 //                    startTime.set(Calendar.MINUTE, date.getMinutes());
 //                    startTime.set(Calendar.MONTH, date.getMonth());
 //                    startTime.set(Calendar.YEAR, date.getYear());
-                    startTime.set(date.getYear(),date.getMonth(),date.getDate(),date.getHours(),date.getMinutes());
+                    startTime.set(date.getYear()+1900,date.getMonth(),date.getDate(),date.getHours(),date.getMinutes());
 
                     Calendar endTime = Calendar.getInstance();
 //                    endTime.set(Calendar.HOUR_OF_DAY, date.getHours() + schedule.getDurationHr());
 //                    endTime.set(Calendar.MINUTE, date.getMinutes() + schedule.getDurationMin());
-                    endTime.set(date.getYear(),date.getMonth(),date.getDate(),date.getHours() + schedule.getDurationHr(),date.getMinutes()+schedule.getDurationMin());
+                    endTime.set(date.getYear()+1900,date.getMonth(),date.getDate(),date.getHours() + schedule.getDurationHr(),date.getMinutes()+schedule.getDurationMin());
                     WeekViewEvent event = new WeekViewEvent(id, schedule.getName(), startTime, endTime);
                     event.setColor(randomColor);
                     events.add(event);
+                    id += 1;
                 }
             }
             return null;
