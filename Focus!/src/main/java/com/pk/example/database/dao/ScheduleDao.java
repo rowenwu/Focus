@@ -48,8 +48,9 @@ public interface ScheduleDao {
 //    @Query("select * from schedules where _name = :scheduleName")
 //    LiveData<ScheduleEntity> loadSchedule(String scheduleName);
 
-    @Query("select * from schedules where _name = :scheduleName")
-    ScheduleEntity loadScheduleSync(String scheduleName);
+    @Query("select * from schedules where _id = :id")
+    ScheduleEntity loadScheduleSync(int id);
+
 
     @Query("select * from schedules where _isEnabled =:isEnabled")
     List<ScheduleEntity> loadEnabledSchedulesSync(boolean isEnabled);

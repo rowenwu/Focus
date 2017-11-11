@@ -2245,10 +2245,10 @@ containing a value of this type.
         public static final int btnSaveSchedule=0x7f0a0079;
         public static final int btnToast=0x7f0a006c;
         public static final int btnWeeklyView=0x7f0a0068;
-        public static final int btn_date=0x7f0a0070;
-        public static final int btn_day=0x7f0a0076;
-        public static final int btn_duration=0x7f0a0074;
-        public static final int btn_time=0x7f0a0072;
+        public static final int btn_date=0x7f0a0071;
+        public static final int btn_day=0x7f0a0077;
+        public static final int btn_duration=0x7f0a0075;
+        public static final int btn_time=0x7f0a0073;
         public static final int buttonPanel=0x7f0a0037;
         public static final int cancel_action=0x7f0a008e;
         public static final int checkbox=0x7f0a0047;
@@ -2263,7 +2263,7 @@ containing a value of this type.
         public static final int default_activity_button=0x7f0a0033;
         public static final int disableHome=0x7f0a000c;
         public static final int editTextProfileName=0x7f0a0060;
-        public static final int editTextScheduleName=0x7f0a0078;
+        public static final int editTextScheduleName=0x7f0a006f;
         public static final int edit_query=0x7f0a0052;
         public static final int end=0x7f0a001b;
         public static final int end_padder=0x7f0a00a0;
@@ -2276,10 +2276,10 @@ containing a value of this type.
         public static final int icon_group=0x7f0a009b;
         public static final int ifRoom=0x7f0a001f;
         public static final int image=0x7f0a0032;
-        public static final int in_date=0x7f0a006f;
-        public static final int in_day=0x7f0a0075;
-        public static final int in_duration=0x7f0a0073;
-        public static final int in_time=0x7f0a0071;
+        public static final int in_date=0x7f0a0070;
+        public static final int in_day=0x7f0a0076;
+        public static final int in_duration=0x7f0a0074;
+        public static final int in_time=0x7f0a0072;
         public static final int info=0x7f0a0097;
         public static final int itemTextView=0x7f0a00a2;
         public static final int length_long=0x7f0a002b;
@@ -2305,7 +2305,7 @@ containing a value of this type.
         public static final int parentPanel=0x7f0a0039;
         public static final int profileNameTextView=0x7f0a006d;
         public static final int profile_list_content=0x7f0a00a1;
-        public static final int profilesTextView=0x7f0a0077;
+        public static final int profilesTextView=0x7f0a0078;
         public static final int progress_circular=0x7f0a0005;
         public static final int progress_horizontal=0x7f0a0006;
         public static final int radio=0x7f0a0049;

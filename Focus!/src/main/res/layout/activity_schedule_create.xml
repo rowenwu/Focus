@@ -21,7 +21,7 @@
 
 
     <EditText
-        android:id="@+id/editTextProfileName"
+        android:id="@+id/editTextScheduleName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -47,7 +47,7 @@
             android:textAllCaps="true"
             android:text="SELECT DATE"
             android:id="@+id/btn_date"
-            android:onClick="buttonClicked"
+            android:onClick="showDatePicker"
         android:layout_alignBottom="@+id/in_date"
         android:layout_toRightOf="@+id/in_date"
         android:layout_toEndOf="@+id/in_date" />
@@ -74,7 +74,7 @@
             android:textAllCaps="true"
             android:text="SELECT TIME"
             android:id="@+id/btn_time"
-            android:onClick="buttonClicked"
+            android:onClick="showTimePicker"
             android:layout_alignBottom="@+id/in_time"
             android:layout_toRightOf="@+id/in_time"
             android:layout_toEndOf="@+id/in_time" />
@@ -100,7 +100,7 @@
             android:textAllCaps="true"
             android:text="Set duration"
             android:id="@+id/btn_duration"
-            android:onClick="buttonClicked"
+            android:onClick="showDurationPicker"
             android:layout_alignBottom="@+id/in_duration"
             android:layout_toRightOf="@+id/in_duration"
             android:layout_toEndOf="@+id/in_duration" />
@@ -127,7 +127,7 @@
             android:textAllCaps="true"
             android:text="Select Days"
             android:id="@+id/btn_day"
-            android:onClick="buttonClicked"
+            android:onClick="showDayOfWeekPicker"
             android:layout_alignBottom="@+id/in_day"
             android:layout_toRightOf="@+id/in_day"
             android:layout_toEndOf="@+id/in_day" />

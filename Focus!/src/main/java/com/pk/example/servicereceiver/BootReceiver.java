@@ -61,7 +61,6 @@ public class BootReceiver extends BroadcastReceiver {
                         //replace with toggle_schedule intent??/
                         schedule.setActive(false);
                         db.scheduleDao().update(schedule);
-                        //NOT SURE WHY THIS ISN'T HAPPENING??
                         for(String profile: schedule.getProfiles()){
                             ProfileEntity profileEntity = db.profileDao().loadProfileSync(profile);
                             Intent i = new Intent(NLService.REMOVE_PROFILE);

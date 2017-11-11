@@ -29,12 +29,12 @@ public class ProfileScheduler {
             hasPendingIntent = new Intent(NLService.ADD_SCHEDULE_PENDING_INTENT);
             hasPendingIntent.putExtra("name", schedule.getName());
             //create intent to start profile
-            PendingIntent startIntent = createPendingIntent(context, schedule.getName(), NLService.TOGGLE_SCHEDULE, true, ((int)Calendar.getInstance().getTimeInMillis())+i);
+            PendingIntent startIntent = createPendingIntent(context, schedule.getId(), NLService.TOGGLE_SCHEDULE, true, ((int)Calendar.getInstance().getTimeInMillis())+i);
             setAlarm(context, DateManipulator.getCalendarFromDate(startTimes.get(i)), schedule.getRepeatWeekly(), startIntent);
             hasPendingIntent.putExtra("startIntent", startIntent);
 
             //create intent to end profile
-            PendingIntent endIntent = createPendingIntent(context, schedule.getName(), NLService.TOGGLE_SCHEDULE, false, ((int)Calendar.getInstance().getTimeInMillis())+(i*2));
+            PendingIntent endIntent = createPendingIntent(context, schedule.getId(), NLService.TOGGLE_SCHEDULE, false, ((int)Calendar.getInstance().getTimeInMillis())+(i*2));
             setAlarm(context, DateManipulator.getEndCalendar(startTimes.get(i), schedule.getDurationHr(), schedule.getDurationMin()), schedule.getRepeatWeekly(), endIntent);
             hasPendingIntent.putExtra("endIntent", endIntent);
             context.sendBroadcast(hasPendingIntent);
@@ -54,10 +54,10 @@ public class ProfileScheduler {
     }
 
     // NEED TO CREATE DIFFERENT PENDING INTENT IDS AND STORE THEM IN NLSERVICE
-    public static PendingIntent createPendingIntent(Context context, String schedule, String intentAction, boolean active, int alarmID) {
+    public static PendingIntent createPendingIntent(Context context, int id, String intentAction, boolean active, int alarmID) {
         //create alarms - pendingintents
         Intent i = new Intent(intentAction);
-        i.putExtra("name", schedule);
+        i.putExtra("id", id);
         i.putExtra("active", active);
 //        context.sendBroadcast(i);
         PendingIntent alarmIntent = PendingIntent.getBroadcast(context, (int) alarmID, i, 0);
@@ -94,7 +94,7 @@ public class ProfileScheduler {
         if(schedule.getActive()){
             Intent i;
             i = new Intent(NLService.TOGGLE_SCHEDULE);
-            i.putExtra("name", schedule.getName());
+            i.putExtra("id", schedule.getId());
             i.putExtra("active", false);
             context.sendBroadcast(i);
         }

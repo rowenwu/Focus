@@ -38,4 +38,17 @@ public class DateManipulator {
         calendar.set(Calendar.DAY_OF_WEEK, day);
         return calendar.getTime();
     }
+
+    public static Calendar getCalendarFromChosenTime(int day, int month, int year, int hours, int min){
+        Calendar c = Calendar.getInstance();
+        c.set(Calendar.DAY_OF_MONTH, day);
+        c.set(Calendar.MONTH, month);
+        c.set(Calendar.YEAR, year);
+        c.set(Calendar.HOUR_OF_DAY, hours);
+        c.set(Calendar.MINUTE, min);
+        return c;
+    }
+
+
+
 }

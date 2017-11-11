@@ -2,6 +2,7 @@ package com.pk.example.clientui;
 
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.widget.TimePicker;
 
 public class DurationPickerDialog extends TimePickerDialog {
@@ -27,6 +28,21 @@ public class DurationPickerDialog extends TimePickerDialog {
     public void updateTitle(int hour, int minute) {
         setTitle("Duration: " + hour + ":" + formatNumber(minute));
     }
+
+//    @Override
+//    public void onClick(DialogInterface dialog, int which) {
+//        switch (which) {
+//            case BUTTON_POSITIVE:
+//                if (mTimeSetListener != null) {
+//                    mTimeSetListener.onTimeSet(mTimePicker, mTimePicker.getCurrentHour(),
+//                            mTimePicker.getCurrentMinute());
+//                }
+//                break;
+//            case BUTTON_NEGATIVE:
+//                cancel();
+//                break;
+//        }
+//    }
 
     private String formatNumber(int number) {
         String result = "";

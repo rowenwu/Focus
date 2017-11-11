@@ -609,10 +609,10 @@ int id btnSaveProfile 0x7f0a006a
 int id btnSaveSchedule 0x7f0a0079
 int id btnToast 0x7f0a006c
 int id btnWeeklyView 0x7f0a0068
-int id btn_date 0x7f0a0070
-int id btn_day 0x7f0a0076
-int id btn_duration 0x7f0a0074
-int id btn_time 0x7f0a0072
+int id btn_date 0x7f0a0071
+int id btn_day 0x7f0a0077
+int id btn_duration 0x7f0a0075
+int id btn_time 0x7f0a0073
 int id buttonPanel 0x7f0a0037
 int id cancel_action 0x7f0a008e
 int id checkbox 0x7f0a0047
@@ -627,7 +627,7 @@ int id decor_content_parent 0x7f0a004e
 int id default_activity_button 0x7f0a0033
 int id disableHome 0x7f0a000c
 int id editTextProfileName 0x7f0a0060
-int id editTextScheduleName 0x7f0a0078
+int id editTextScheduleName 0x7f0a006f
 int id edit_query 0x7f0a0052
 int id end 0x7f0a001b
 int id end_padder 0x7f0a00a0
@@ -640,10 +640,10 @@ int id icon 0x7f0a0035
 int id icon_group 0x7f0a009b
 int id ifRoom 0x7f0a001f
 int id image 0x7f0a0032
-int id in_date 0x7f0a006f
-int id in_day 0x7f0a0075
-int id in_duration 0x7f0a0073
-int id in_time 0x7f0a0071
+int id in_date 0x7f0a0070
+int id in_day 0x7f0a0076
+int id in_duration 0x7f0a0074
+int id in_time 0x7f0a0072
 int id info 0x7f0a0097
 int id itemTextView 0x7f0a00a2
 int id length_long 0x7f0a002b
@@ -669,7 +669,7 @@ int id pager_header 0x7f0a0082
 int id parentPanel 0x7f0a0039
 int id profileNameTextView 0x7f0a006d
 int id profile_list_content 0x7f0a00a1
-int id profilesTextView 0x7f0a0077
+int id profilesTextView 0x7f0a0078
 int id progress_circular 0x7f0a0005
 int id progress_horizontal 0x7f0a0006
 int id radio 0x7f0a0049

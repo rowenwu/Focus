@@ -616,9 +616,9 @@ public class NLService extends NotificationListenerService {
         ArrayList<String> profiles = blockedApps.get(appPackage);
         if (profiles != null) {
             profiles.remove(profile);
+            if (profiles.size() == 0)
+                blockedApps.remove(appPackage);
         }
-        if (profiles.size() == 0)
-            blockedApps.remove(appPackage);
     }
 
     public void addScheduleAlarmIntent(String schedule, PendingIntent piStart, PendingIntent piEnd) {

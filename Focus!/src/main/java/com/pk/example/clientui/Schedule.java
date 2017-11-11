@@ -67,7 +67,7 @@ public class Schedule {
     }
 
     public Boolean[] getDaysOfWeek(){
-        Boolean[] daysOfWeek = new Boolean[7];
+        Boolean[] daysOfWeek = new Boolean[8];
         for(Date d: startTimes){
             daysOfWeek[DateManipulator.getDayOfWeek(d)] = true;
         }

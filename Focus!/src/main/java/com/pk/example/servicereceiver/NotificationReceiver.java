@@ -33,22 +33,23 @@ public class NotificationReceiver extends BroadcastReceiver {
 //        Log.i("intent ","intent "+intent.getExtras().toString());
         db = AppDatabase.getDatabase(context);
         ArrayList<String> profiles;
-        String name;
+        int id;
         this.context = context;
 
         switch(intent.getAction()) {
             case TOGGLE_SCHEDULE:
-                name = intent.getStringExtra("name");
+                id = intent.getIntExtra("id", -1);
 
                 boolean active = intent.getBooleanExtra("active", false);
-                new UpdateSchedule(name, active).execute();
+                new UpdateSchedule(id, active).execute();
                 break;
             case ADD_PROFILE:
-                new UpdateProfile(intent.getStringExtra("name"), true).execute();
+                id = intent.getIntExtra("id", -1);
+                new UpdateProfile(id, true).execute();
                 break;
             case REMOVE_PROFILE:
-                name = intent.getStringExtra("name");
-                new UpdateProfile(name, false).execute();
+                id = intent.getIntExtra("id", -1);
+                new UpdateProfile(id, false).execute();
 //                new ChangePrevNotifications(intent.getStringArrayListExtra("profiles")).execute();
 
                 break;
@@ -70,18 +71,18 @@ public class NotificationReceiver extends BroadcastReceiver {
     }
 
     private class UpdateProfile extends AsyncTask<Void, Void, Void> {
-        private String profileName;
+        private int id;
         private boolean active;
 
-        public UpdateProfile(String profileName, boolean active){
+        public UpdateProfile(int id, boolean active){
             super();
-            this.profileName = profileName;
+            this.id = id;
             this.active = active;
         }
 
         @Override
         protected Void doInBackground(Void... params) {
-            ProfileEntity profile = db.profileDao().loadProfileSync(profileName);
+            ProfileEntity profile = db.profileDao().loadProfileSync(id);
             if(profile != null){
                 profile.setActive(active);
                 db.profileDao().update(profile);
@@ -138,13 +139,13 @@ public class NotificationReceiver extends BroadcastReceiver {
     }
 
     private class UpdateSchedule extends AsyncTask<Void, Void, Void> {
-        private String scheduleName;
+        private int id;
         private boolean active;
         private String intentAction;
 
-        public UpdateSchedule(String scheduleName, boolean active){
+        public UpdateSchedule(int id, boolean active){
             super();
-            this.scheduleName = scheduleName;
+            this.id = id;
             this.active = active;
             if(active)
                 intentAction = NLService.ADD_PROFILE;
@@ -155,7 +156,7 @@ public class NotificationReceiver extends BroadcastReceiver {
 
         @Override
         protected Void doInBackground(Void... params) {
-            ScheduleEntity schedule = db.scheduleDao().loadScheduleSync(scheduleName);
+            ScheduleEntity schedule = db.scheduleDao().loadScheduleSync(id);
             schedule.setActive(active);
             db.scheduleDao().update(schedule);
 

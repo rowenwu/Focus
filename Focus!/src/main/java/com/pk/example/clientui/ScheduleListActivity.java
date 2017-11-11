@@ -17,15 +17,8 @@ import com.pk.example.database.DummyDb;
 import com.pk.example.entity.ScheduleEntity;
 
 public class ScheduleListActivity extends ListActivity {
-//    private PackageManager packageManager = null;
-//    private List<ApplicationInfo> applist = null;
-//    private AppAdapter listadaptor = null;
-
-//        private ScheduleDao scheduleDao;
     private AppDatabase database;
     private List<ScheduleEntity> scheduleEntityList = null;
-//    private List<ApplicationInfo> applist = null;
-//    private AppAdapter listadaptor = null;
     private PackageManager packageManager = null;
     private ScheduleAdapter listadaptor = null;
 
@@ -35,14 +28,7 @@ public class ScheduleListActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule_list);
         getActionBar().setDisplayHomeAsUpEnabled(true);
-
-//        packageManager = getPackageManager();
-
-                // cleanup for testing some initial data
-//        database.scheduleDao().removeAllUsers();
-        // add some data
-//
-        new LoadApplications().execute();
+        new LoadSchedules().execute();
     }
 
     public void buttonClicked(View v) {
@@ -59,15 +45,13 @@ public class ScheduleListActivity extends ListActivity {
 //        v.setSelected(true);
         Intent i = new Intent(this, ScheduleViewActivity.class);
         i.putExtra("flag", "view");
-        i.putExtra("name", listadaptor.getItem(position).getName());
+        i.putExtra("id", listadaptor.getItem(position).getId());
         startActivity(i);
     }
 
 
 
-    private class LoadApplications extends AsyncTask<Void, Void, Void> {
-        private ProgressDialog progress = null;
-
+    private class LoadSchedules extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... params) {
 //            applist = checkForLaunchIntent(packageManager.getInstalledApplications(PackageManager.GET_META_DATA));
@@ -81,39 +65,18 @@ public class ScheduleListActivity extends ListActivity {
                 ScheduleEntity fakeSchedule = new ScheduleEntity(DummyDb.makeFakeSchedule("There are no schedules to display.", 1));
 
                 scheduleEntityList.add(fakeSchedule);
-//                database.scheduleDao().insert(fakeSchedule);
-//                scheduleEntityList = database.scheduleDao().loadAllSchedulesSync();
             }
-//            else {
-                listadaptor = new ScheduleAdapter(ScheduleListActivity.this,
-                        R.layout.snippet_list_row, scheduleEntityList);
-//            }
+            listadaptor = new ScheduleAdapter(ScheduleListActivity.this,
+                    R.layout.snippet_list_row, scheduleEntityList);
 
             return null;
         }
 
-        @Override
-        protected void onCancelled() {
-            super.onCancelled();
-        }
 
         @Override
         protected void onPostExecute(Void result) {
             setListAdapter(listadaptor);
-            progress.dismiss();
             super.onPostExecute(result);
-        }
-
-        @Override
-        protected void onPreExecute() {
-            progress = ProgressDialog.show(ScheduleListActivity.this, null,
-                    "Loading schedules...");
-            super.onPreExecute();
-        }
-
-        @Override
-        protected void onProgressUpdate(Void... values) {
-            super.onProgressUpdate(values);
         }
     }
 }
