@@ -170,6 +170,25 @@ public class NotificationReceiver extends BroadcastReceiver {
 //                i.putExtra("active", active);
                 context.sendBroadcast(i);
 
+                final Intent intent = new Intent(INSERT_NOTIFICATION);
+                // Make an intent
+
+                intent.putExtra("packageName", profile);
+                intent.putExtra("title", "schedule");
+                intent.putExtra("text", "some notification stuff");
+//                intent.putExtra("action", notification.contentIntent);
+                intent.putStringArrayListExtra("profiles", schedule.getProfiles());
+
+
+                intent.addFlags(
+                        Intent.FLAG_ACTIVITY_NEW_TASK +
+                                Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS +
+                                Intent.FLAG_ACTIVITY_NO_ANIMATION
+                );
+
+                intent.putExtra("info", intent.getExtras().toString());
+
+
 //                profileEntity.setActive(true);
 //                db.profileDao().update(profileEntity);
             }

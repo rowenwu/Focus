@@ -29,7 +29,7 @@ public class DateManipulator {
     }
 
     public static int getDayOfWeek(Date date){
-        return getCalendarFromDate(date).get(Calendar.DAY_OF_WEEK);
+        return getCalendarFromDate(date).get(Calendar.DAY_OF_WEEK) - 1;
     }
 
     public static Date getStartDateToday(Date date){

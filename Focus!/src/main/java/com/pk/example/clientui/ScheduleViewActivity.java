@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -51,7 +52,7 @@ public class ScheduleViewActivity extends ListActivity{
     private int id;
 //    ScheduleEntity scheduleInsert;
     final String[] daysOfWeek = new String[]{"SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"};
-    final String[] shortDaysOfWeek = new String[]{"S", "M", "T", "W", "Th", "F", "Sa"};
+    final String[] shortDaysOfWeek = new String[]{"S", "M", "T", "W", "TH", "F", "SA"};
     // view
     TextView tvScheduleName, tvStartTimes, tvDuration, tvRepeatWeekly, tvDaysOfWeek;
 
@@ -76,18 +77,17 @@ public class ScheduleViewActivity extends ListActivity{
         // create profile mode
         if (flag.equals("create")) {
             setContentView(R.layout.activity_schedule_create);
+
+            new LoadProfiles().execute();
+
         }
         else{
             id = getIntent().getIntExtra("id", -1);
+
         }
         // schedule edit mode
         if (flag.equals("edit")) {
             setContentView(R.layout.activity_schedule_edit);
-            EditText txtScheduleName = (EditText) findViewById(R.id.editTextScheduleName);
-//            txtScheduleName.setText(name);
-            //populate schedule info
-            new LoadSelectedProfiles().execute();
-
             new GetEditScheduleInfo().execute();
         }
 
@@ -95,7 +95,6 @@ public class ScheduleViewActivity extends ListActivity{
         if (flag.equals("view")) {
             setContentView(R.layout.activity_schedule_view);
             new GetViewScheduleInfo().execute();
-            new LoadSelectedProfiles().execute();
         }
         else{
             //common to both edit and create
@@ -112,11 +111,12 @@ public class ScheduleViewActivity extends ListActivity{
             txtDay.setEnabled(false);
             txtTime.setEnabled(false);
 
-            new LoadProfiles().execute();
         }
 
         ListView listView = getListView();
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+
+
     }
 
     public void showDurationPicker(View v){
@@ -528,25 +528,34 @@ public class ScheduleViewActivity extends ListActivity{
 
         int durationHour = schedule.getDurationHr();
         int durationMinute = schedule.getDurationMin();
+        tvStartTimes.setText("Start time: " + hourMinFormat(date));
+        tvDuration.setText("Duration: " + timeFormat(durationHour, durationMinute));
 
-        txtDate.setText(dateFormat(date));
-        txtTime.setText(hourMinFormat(date));
-        txtDuration.setText(timeFormat(durationHour, durationMinute));
-
+        String days = "";
         if (schedule.getRepeatWeekly()) {
             tvRepeatWeekly.setText("Repeated weekly: yes");
+            Boolean[] daysOfWeek = schedule.getDaysOfWeek();
+            for(int i = 0; i < 7; i++){
+                if(daysOfWeek[i])
+                    days += shortDaysOfWeek[i] + " ";
+            }
+            tvDaysOfWeek.setText("Days of Week: " + days);
         } else {
             tvRepeatWeekly.setText("Repeated weekly: no");
+            tvDaysOfWeek.setText("Date: " + dateFormat(date));
         }
 
     }
 
     public void setEditScheduleInfo(Schedule schedule) {
         //populate schedule's info
+        tvScheduleName = (TextView) findViewById(R.id.editTextScheduleName);
         txtDate=(EditText)findViewById(R.id.in_date);
         txtTime=(EditText)findViewById(R.id.in_time);
         txtDuration=(EditText)findViewById(R.id.in_duration);
         txtDay = (EditText)findViewById(R.id.in_day);
+        tvScheduleName.setText(schedule.getName());
+
 
         ArrayList<Date> dates = schedule.getStartTimes();
 //
@@ -562,18 +571,6 @@ public class ScheduleViewActivity extends ListActivity{
         txtTime.setText(hourMinFormat(date));
         txtDuration.setText(timeFormat(durationHour, durationMinute));
 
-//        //select profiles that are already selected
-//        //getListView().setItemChecked(position, listadaptor.changeCheckedState(position));
-//        ArrayList<String> profileAlreadySelectedList = schedule.getProfiles();
-//        int position = 0;
-//        for(Profile profile : profileList) {
-//            for(String name : profileAlreadySelectedList) {
-//                if(profile.getName().equals(name)) {
-//                    getListView().setItemChecked(position, listadaptor.changeCheckedState(position));
-//                }
-//            }
-//            position++;
-//        }
 
     }
 
@@ -586,8 +583,7 @@ public class ScheduleViewActivity extends ListActivity{
     }
 
     public String timeFormat(int hours, int min){
-        DecimalFormat df = new DecimalFormat("##");
-        return df.format(hours) + ":" + df.format(min);
+        return formatNumber(hours) + ":" + formatNumber(min);
     }
 
     public String dateFormat(Date d){
@@ -598,5 +594,15 @@ public class ScheduleViewActivity extends ListActivity{
     public String hourMinFormat(Date d){
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm"); //Or whatever format fits best your needs.
         return sdf.format(d);
+    }
+
+    private String formatNumber(int number) {
+        String result = "";
+        if (number < 10) {
+            result += "0";
+        }
+        result += number;
+
+        return result;
     }
 }
