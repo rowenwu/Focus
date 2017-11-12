@@ -1,5 +1,6 @@
 package com.pk.example.servicereceiver;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -34,7 +35,7 @@ public class DateManipulator {
 
     public static Date getStartDateToday(Date date){
         Calendar calendar = getCalendarFromDate(date);
-        int day = getDayOfWeek(date);
+        int day = getCalendarFromDate(date).get(Calendar.DAY_OF_WEEK);
         calendar.set(Calendar.DAY_OF_WEEK, day);
         return calendar.getTime();
     }
@@ -49,6 +50,12 @@ public class DateManipulator {
         return c;
     }
 
-
+    public static boolean[] getDaysOfWeekFromStartTimes(ArrayList<Date> startTimes){
+        boolean[] daysOfWeek = new boolean[7];
+        for(Date d: startTimes){
+            daysOfWeek[DateManipulator.getDayOfWeek(d)] = true;
+        }
+        return daysOfWeek;
+    }
 
 }

@@ -66,13 +66,6 @@ public class Schedule {
         return isEnabled;
     }
 
-    public Boolean[] getDaysOfWeek(){
-        Boolean[] daysOfWeek = new Boolean[7];
-        for(Date d: startTimes){
-            daysOfWeek[DateManipulator.getDayOfWeek(d)] = true;
-        }
-        return daysOfWeek;
-    }
 
 
 }

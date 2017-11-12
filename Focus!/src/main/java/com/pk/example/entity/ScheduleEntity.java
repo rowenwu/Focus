@@ -4,6 +4,7 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
 import com.pk.example.clientui.Schedule;
+import com.pk.example.servicereceiver.DateManipulator;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -99,6 +100,15 @@ public class ScheduleEntity extends Schedule {
     public ScheduleEntity () {
 
     }
+
+//    public Boolean[] getDaysOfWeek(){
+//        Boolean[] daysOfWeek = new Boolean[7];
+//        for(Date d: _startTimes){
+//            daysOfWeek[DateManipulator.getDayOfWeek(d)] = true;
+//        }
+//        return daysOfWeek;
+//    }
+
 
     public ScheduleEntity (Schedule schedule){
         this._name = schedule.getName();

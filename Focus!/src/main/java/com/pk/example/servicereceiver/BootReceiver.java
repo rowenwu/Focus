@@ -46,7 +46,7 @@ public class BootReceiver extends BroadcastReceiver {
                 Date startTime = new Date();
                 Date endTime;
                 if (schedule.getRepeatWeekly()) {
-                    Boolean[] daysOfWeek = schedule.getDaysOfWeek();
+                    boolean[] daysOfWeek = DateManipulator.getDaysOfWeekFromStartTimes(startTimes);
                     if(daysOfWeek[DateManipulator.getDayOfWeek(startTime)]){
                         startTime = DateManipulator.getStartDateToday(startTimes.get(0));
                     }

@@ -77,9 +77,6 @@ public class ScheduleViewActivity extends ListActivity{
         // create profile mode
         if (flag.equals("create")) {
             setContentView(R.layout.activity_schedule_create);
-
-            new LoadProfiles().execute();
-
         }
         else{
             id = getIntent().getIntExtra("id", -1);
@@ -89,6 +86,7 @@ public class ScheduleViewActivity extends ListActivity{
         if (flag.equals("edit")) {
             setContentView(R.layout.activity_schedule_edit);
             new GetEditScheduleInfo().execute();
+            new LoadSelectedProfiles().execute();
         }
 
 
@@ -97,6 +95,8 @@ public class ScheduleViewActivity extends ListActivity{
             new GetViewScheduleInfo().execute();
         }
         else{
+            new LoadProfiles().execute();
+
             //common to both edit and create
 //            btnDatePicker=(Button)findViewById(R.id.btn_date);
 //            btnTimePicker=(Button)findViewById(R.id.btn_time);
@@ -116,6 +116,7 @@ public class ScheduleViewActivity extends ListActivity{
         ListView listView = getListView();
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
+        new LoadProfiles().execute();
 
     }
 
@@ -174,7 +175,14 @@ public class ScheduleViewActivity extends ListActivity{
         final ArrayList selectedItems = new ArrayList();
 
         int temp = -1;
-        if (chosenDay != null)
+        if(checkedDays != null){
+            for(int a = 0 ; a < 7; a++){
+                selectedItem[a] = checkedDays[a];
+                if(checkedDays[a])
+                    selectedItems.add(a);
+            }
+        }
+        else if (chosenDay != null)
         {
             Calendar c = Calendar.getInstance();
             c.set(Calendar.DAY_OF_MONTH, chosenDay);
@@ -186,6 +194,7 @@ public class ScheduleViewActivity extends ListActivity{
             temp = day - 1;
             selectedItems.add(day-1);
         }
+
         final int disablePosition = temp;
 
         builder.setTitle("Select Repeat Days");
@@ -203,34 +212,32 @@ public class ScheduleViewActivity extends ListActivity{
                 }
             }
         })
+        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
 
-                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-
-                        txtDay.setText("");
-                        String put = "";
-                        checkedDays =  selectedItem;
-                        for (int i = 0; i < selectedItems.size(); i++)
-                        {
-                            checkedDays[(Integer)selectedItems.get(i)] = true;
-                        }
-                        for (int i = 0; i < checkedDays.length; i++)
-                        {
-                            if (checkedDays[i])
-                            {
-                                put += shortDaysOfWeek[i] + ",";
-                            }
-                        }
-                        put = put.substring(0,put.length()-1);
-                        txtDay.setText(put);
+                txtDay.setText("");
+                String put = "";
+                checkedDays =  selectedItem;
+                for (int i = 0; i < selectedItems.size(); i++)
+                {
+                    checkedDays[(Integer)selectedItems.get(i)] = true;
+                }
+                for (int i = 0; i < checkedDays.length; i++)
+                {
+                    if (checkedDays[i])
+                    {
+                        put += shortDaysOfWeek[i] + " ";
                     }
-                })
-
-                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        txtDay.setText("");
-                    }
-                });
+                }
+                put = put.substring(0,put.length()-1);
+                txtDay.setText(put);
+            }
+        })
+        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                txtDay.setText("");
+            }
+        });
 
         AlertDialog dialog = builder.create();
         // Display the alert dialog on interface
@@ -351,6 +358,7 @@ public class ScheduleViewActivity extends ListActivity{
             boolean repeatWeekly = getRepeatWeekly();
 
             ScheduleEntity updatedSchedule = new ScheduleEntity(new Schedule(scheduleName, profiles, startTimes, durationHours, durationMins, repeatWeekly, false));
+            updatedSchedule.setId(id);
             new UpdateSchedule(updatedSchedule).execute();
 
             // notify user
@@ -524,22 +532,17 @@ public class ScheduleViewActivity extends ListActivity{
 //        if(dates.isEmpty()) {
 //            int here = 0;
 //        }
-        Date date = dates.get(0);
 
+        Date date = dates.get(0);
         int durationHour = schedule.getDurationHr();
         int durationMinute = schedule.getDurationMin();
         tvStartTimes.setText("Start time: " + hourMinFormat(date));
         tvDuration.setText("Duration: " + timeFormat(durationHour, durationMinute));
 
-        String days = "";
         if (schedule.getRepeatWeekly()) {
             tvRepeatWeekly.setText("Repeated weekly: yes");
-            Boolean[] daysOfWeek = schedule.getDaysOfWeek();
-            for(int i = 0; i < 7; i++){
-                if(daysOfWeek[i])
-                    days += shortDaysOfWeek[i] + " ";
-            }
-            tvDaysOfWeek.setText("Days of Week: " + days);
+            boolean[] daysOfWeek = DateManipulator.getDaysOfWeekFromStartTimes(schedule.getStartTimes());
+            tvDaysOfWeek.setText("Days of Week: " + getDaysOfWeekString(daysOfWeek));
         } else {
             tvRepeatWeekly.setText("Repeated weekly: no");
             tvDaysOfWeek.setText("Date: " + dateFormat(date));
@@ -547,7 +550,7 @@ public class ScheduleViewActivity extends ListActivity{
 
     }
 
-    public void setEditScheduleInfo(Schedule schedule) {
+    public void setEditScheduleInfo(ScheduleEntity schedule) {
         //populate schedule's info
         tvScheduleName = (TextView) findViewById(R.id.editTextScheduleName);
         txtDate=(EditText)findViewById(R.id.in_date);
@@ -562,16 +565,37 @@ public class ScheduleViewActivity extends ListActivity{
 //        if(dates.isEmpty()) {
 //            int here = 0;
 //        }
+        //TODO FIX THIS TO HAVE MULTIPLE DATES
         Date date = dates.get(0);
+        Calendar c = DateManipulator.getCalendarFromDate(schedule.getStartTimes().get(0));
+        chosenDay = c.get(Calendar.DAY_OF_MONTH);
+        chosenMonth = c.get(Calendar.MONTH);
+        chosenYear = c.get(Calendar.YEAR);
+        chosenHour = c.get(Calendar.HOUR_OF_DAY);
+        chosenMinute = c.get(Calendar.MINUTE);
+        durationHours = schedule.getDurationHr();
+        durationMins  = schedule.getDurationMin();
 
-        int durationHour = schedule.getDurationHr();
-        int durationMinute = schedule.getDurationMin();
-
+        boolean[] daysOfWeek = DateManipulator.getDaysOfWeekFromStartTimes(schedule.getStartTimes());
+        checkedDays =daysOfWeek;
         txtDate.setText(dateFormat(date));
         txtTime.setText(hourMinFormat(date));
-        txtDuration.setText(timeFormat(durationHour, durationMinute));
+        txtDuration.setText(timeFormat(durationHours, durationMins));
+        txtDay.setText(getDaysOfWeekString(daysOfWeek));
 
 
+
+
+    }
+
+    public String getDaysOfWeekString(boolean[] daysOfWeek){
+//        boolean a = daysOfWeek[0];
+        String days = "";
+        for(int i = 0; i < 7; i++){
+            if(daysOfWeek[i])
+                days += shortDaysOfWeek[i] + " ";
+        }
+        return days;
     }
 
     public String[] getDaysOfWeek() {
@@ -605,4 +629,6 @@ public class ScheduleViewActivity extends ListActivity{
 
         return result;
     }
+
+
 }
