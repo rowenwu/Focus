@@ -404,6 +404,12 @@ public class ScheduleViewActivity extends ListActivity{
 
             return null;
         }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            setListAdapter(listadaptor);
+            super.onPostExecute(result);
+        }
     }
 
     private class LoadSelectedProfiles extends AsyncTask<Void, Void, Void> {
@@ -431,6 +437,12 @@ public class ScheduleViewActivity extends ListActivity{
                     R.layout.profile_list_row, plist);
 
             return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            setListAdapter(listadaptor);
+            super.onPostExecute(result);
         }
     }
 
