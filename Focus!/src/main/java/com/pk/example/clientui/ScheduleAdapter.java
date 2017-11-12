@@ -32,6 +32,7 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
     ToggleButton b;
     private AppDatabase database;
     private static final String FORMAT = "%02d:%02d:%02d";
+    private CountDownTimer[] timers;
 
 
     public ScheduleAdapter(Context context, int textViewResourceId,
@@ -41,6 +42,7 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
         this.scheduleEntities = scheduleEntities;
         database = AppDatabase.getDatabase(context);
 
+        timers = new CountDownTimer[scheduleEntities.size()];
     }
 
     @Override
@@ -72,69 +74,31 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
             final TextView countdownTimer = (TextView) view.findViewById(R.id.countdown);
             if(schedule.getName().equals("There are no schedules to display.")){
                 ((ViewGroup) b.getParent()).removeView(b);
-
             }
             else {
                 if(schedule.getIsEnabled()){
                     b.setChecked(true);
 
                     if(schedule.getActive() && schedule.shouldBeActive()) {
-                        Date startDate = new Date();
-                        Date endDate = DateManipulator.getEndDate(startDate, schedule.getDurationHr(), schedule.getDurationMin());
-                        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm"); //Or whatever format fits best your needs.
-                        String test = sdf.format(startDate);
-                        test = sdf.format(endDate);
-                        long difference = DateManipulator.getTimeDiffMillis(startDate, endDate);
-                        new CountDownTimer(difference, 1000) { // adjust the milli seconds here
-
-                            public void onTick(long millisUntilFinished) {
-
-                                countdownTimer.setText("ACTIVE " + String.format(FORMAT,
-                                        TimeUnit.MILLISECONDS.toHours(millisUntilFinished),
-                                        TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished) - TimeUnit.HOURS.toMinutes(
-                                                TimeUnit.MILLISECONDS.toHours(millisUntilFinished)),
-                                        TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - TimeUnit.MINUTES.toSeconds(
-                                                TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
-                            }
-
-                            public void onFinish() {
-
-                            }
-                        }.start();
+                        timers[position] = setCountDownTimer(countdownTimer, schedule);
                     }
                 }
                 b.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        int durationSec = schedule.getDurationHr() * 3600 + schedule.getDurationMin() * 60;
-//                        CountDownTimer countdown = new CountDownTimer(durationSec * 1000, 1000) { // adjust the milli seconds here
-//
-//                            public void onTick(long millisUntilFinished) {
-//
-//                                countdownTimer.setText("ACTIVE "+String.format(FORMAT,
-//                                        TimeUnit.MILLISECONDS.toHours(millisUntilFinished),
-//                                        TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished) - TimeUnit.HOURS.toMinutes(
-//                                                TimeUnit.MILLISECONDS.toHours(millisUntilFinished)),
-//                                        TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - TimeUnit.MINUTES.toSeconds(
-//                                                TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
-//                            }
-//
-//                            public void onFinish() {
-//
-//                            }
-//                        };
                         if (b.isChecked()) {
 //                            new EnableSchedule(getItem(position)).execute();
                             ProfileScheduler.enableSchedule(context, schedule);
                             schedule.setIsEnabled(true);
                             if(schedule.shouldBeActive()){
-
+                                timers[position] = setCountDownTimer(countdownTimer, schedule);
                             }
                             //countdown.start();
                         } else {
                             ProfileScheduler.disableSchedule(context, schedule);
                             schedule.setIsEnabled(false);
-//                            countdown.cancel();
+                            if(timers[position] != null)
+                                timers[position].cancel();
                             countdownTimer.setText("");
                         }
                         new UpdateSchedule(schedule).execute();
@@ -146,6 +110,32 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
 
         }
         return view;
+    }
+
+    public CountDownTimer setCountDownTimer(final TextView txtView, ScheduleEntity schedule){
+        Date startDate = new Date();
+        Date endDate = DateManipulator.getEndDate(schedule.getStartTimes().get(0), schedule.getDurationHr(), schedule.getDurationMin());
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm"); //Or whatever format fits best your needs.
+        String test = sdf.format(startDate);
+        test = sdf.format(endDate);
+        long difference = DateManipulator.getTimeDiffMillis(startDate, endDate);
+        CountDownTimer countdown = new CountDownTimer(difference, 1000) { // adjust the milli seconds here
+
+            public void onTick(long millisUntilFinished) {
+
+                txtView.setText("ACTIVE " + String.format(FORMAT,
+                        TimeUnit.MILLISECONDS.toHours(millisUntilFinished),
+                        TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished) - TimeUnit.HOURS.toMinutes(
+                                TimeUnit.MILLISECONDS.toHours(millisUntilFinished)),
+                        TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - TimeUnit.MINUTES.toSeconds(
+                                TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
+            }
+
+            public void onFinish() {
+
+            }
+        }.start();
+        return countdown;
     }
 
     private class UpdateSchedule extends AsyncTask<Void, Void, Void> {
