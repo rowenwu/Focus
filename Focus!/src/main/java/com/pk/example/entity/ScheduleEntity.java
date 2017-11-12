@@ -101,14 +101,29 @@ public class ScheduleEntity extends Schedule {
 
     }
 
-//    public Boolean[] getDaysOfWeek(){
-//        Boolean[] daysOfWeek = new Boolean[7];
-//        for(Date d: _startTimes){
-//            daysOfWeek[DateManipulator.getDayOfWeek(d)] = true;
-//        }
-//        return daysOfWeek;
-//    }
+    public boolean shouldBeActive(){
+        Date startTime = new Date();
+        Date endTime;
+        if (getRepeatWeekly()) {
+            boolean[] daysOfWeek = DateManipulator.getDaysOfWeekFromStartTimes(_startTimes);
+            if(daysOfWeek[DateManipulator.getDayOfWeek(startTime)]){
+                startTime = DateManipulator.getStartDateToday(_startTimes.get(0));
+            }
+            else{
+                return false;
+            }
+        }
+        else{
+            startTime = _startTimes.get(0);
+        }
+        endTime = DateManipulator.getEndDate(startTime, _durationHr, _durationMin);
+        return isWithinRange(startTime, endTime);
+    }
 
+    boolean isWithinRange(Date startTime, Date endTime) {
+        Date currentTime = new Date();
+        return !(currentTime.before(startTime) || currentTime.after(endTime));
+    }
 
     public ScheduleEntity (Schedule schedule){
         this._name = schedule.getName();

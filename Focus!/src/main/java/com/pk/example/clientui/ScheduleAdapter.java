@@ -1,5 +1,6 @@
 package com.pk.example.clientui;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -21,6 +22,7 @@ import com.pk.example.R;
 import com.pk.example.database.AppDatabase;
 import com.pk.example.entity.ProfileEntity;
 import com.pk.example.entity.ScheduleEntity;
+import com.pk.example.servicereceiver.DateManipulator;
 import com.pk.example.servicereceiver.ProfileScheduler;
 
 public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
@@ -75,37 +77,31 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
             else {
                 if(schedule.getIsEnabled()){
                     b.setChecked(true);
-                    Date startDate = schedule.getStartTimes().get(0);
-                    long startHour = startDate.getHours();
-                    long startMin = startDate.getMinutes();
-                    long startSec = startDate.getSeconds();
 
-                    long endHour = startHour + schedule.getDurationHr();
-                    long endMin = startMin + schedule.getDurationMin();
+                    if(schedule.getActive() && schedule.shouldBeActive()) {
+                        Date startDate = new Date();
+                        Date endDate = DateManipulator.getEndDate(startDate, schedule.getDurationHr(), schedule.getDurationMin());
+                        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm"); //Or whatever format fits best your needs.
+                        String test = sdf.format(startDate);
+                        test = sdf.format(endDate);
+                        long difference = DateManipulator.getTimeDiffMillis(startDate, endDate);
+                        new CountDownTimer(difference, 1000) { // adjust the milli seconds here
 
-                    Date currentDate = Calendar.getInstance().getTime();
+                            public void onTick(long millisUntilFinished) {
 
-                    long durrationHour = endHour - currentDate.getHours();
-                    long durrationMin = endMin - currentDate.getMinutes();
-                    long durrationSec = startSec - currentDate.getSeconds();
-                    long durationTotal = durrationHour * 3600 + durrationMin * 60 + durrationSec;
+                                countdownTimer.setText("ACTIVE " + String.format(FORMAT,
+                                        TimeUnit.MILLISECONDS.toHours(millisUntilFinished),
+                                        TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished) - TimeUnit.HOURS.toMinutes(
+                                                TimeUnit.MILLISECONDS.toHours(millisUntilFinished)),
+                                        TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - TimeUnit.MINUTES.toSeconds(
+                                                TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
+                            }
 
-                    new CountDownTimer(durationTotal * 1000, 1000) { // adjust the milli seconds here
+                            public void onFinish() {
 
-                        public void onTick(long millisUntilFinished) {
-
-                            countdownTimer.setText("ACTIVE "+String.format(FORMAT,
-                                    TimeUnit.MILLISECONDS.toHours(millisUntilFinished),
-                                    TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished) - TimeUnit.HOURS.toMinutes(
-                                            TimeUnit.MILLISECONDS.toHours(millisUntilFinished)),
-                                    TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - TimeUnit.MINUTES.toSeconds(
-                                            TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
-                        }
-
-                        public void onFinish() {
-
-                        }
-                    }.start();
+                            }
+                        }.start();
+                    }
                 }
                 b.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -131,12 +127,15 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
 //                            new EnableSchedule(getItem(position)).execute();
                             ProfileScheduler.enableSchedule(context, schedule);
                             schedule.setIsEnabled(true);
+                            if(schedule.shouldBeActive()){
+
+                            }
                             //countdown.start();
                         } else {
                             ProfileScheduler.disableSchedule(context, schedule);
                             schedule.setIsEnabled(false);
 //                            countdown.cancel();
-//                            countdownTimer.setText("");
+                            countdownTimer.setText("");
                         }
                         new UpdateSchedule(schedule).execute();
 

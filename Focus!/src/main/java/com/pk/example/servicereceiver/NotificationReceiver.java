@@ -43,16 +43,6 @@ public class NotificationReceiver extends BroadcastReceiver {
                 boolean active = intent.getBooleanExtra("active", false);
                 new UpdateSchedule(id, active).execute();
                 break;
-            case ADD_PROFILE:
-                id = intent.getIntExtra("id", -1);
-                new UpdateProfile(id, true).execute();
-                break;
-            case REMOVE_PROFILE:
-                id = intent.getIntExtra("id", -1);
-                new UpdateProfile(id, false).execute();
-//                new ChangePrevNotifications(intent.getStringArrayListExtra("profiles")).execute();
-
-                break;
             case CHANGE_NOTIFICATIONS:
                 new ChangePrevNotifications(intent.getStringArrayListExtra("profiles")).execute();
                 break;
@@ -70,27 +60,6 @@ public class NotificationReceiver extends BroadcastReceiver {
 //        txtView.setText(temp+"");
     }
 
-    private class UpdateProfile extends AsyncTask<Void, Void, Void> {
-        private int id;
-        private boolean active;
-
-        public UpdateProfile(int id, boolean active){
-            super();
-            this.id = id;
-            this.active = active;
-        }
-
-        @Override
-        protected Void doInBackground(Void... params) {
-            ProfileEntity profile = db.profileDao().loadProfileSync(id);
-            if(profile != null){
-                profile.setActive(active);
-                db.profileDao().update(profile);
-            }
-
-            return null;
-        }
-    }
 
     private class InsertNotification extends AsyncTask<Void, Void, Void> {
         String packageName, title, text;
@@ -166,28 +135,10 @@ public class NotificationReceiver extends BroadcastReceiver {
                 ProfileEntity profileEntity = db.profileDao().loadProfileSync(profile);
                 Intent i = new Intent(intentAction);
                 i.putExtra("name", profile);
-                i.putExtra("appsToBlock", profileEntity.getAppsToBlock());
+                i.putExtra("apps", profileEntity.getAppsToBlock());
+                int j = profileEntity.getAppsToBlock().size();
 //                i.putExtra("active", active);
                 context.sendBroadcast(i);
-
-                final Intent intent = new Intent(INSERT_NOTIFICATION);
-                // Make an intent
-
-                intent.putExtra("packageName", profile);
-                intent.putExtra("title", "schedule");
-                intent.putExtra("text", "some notification stuff");
-//                intent.putExtra("action", notification.contentIntent);
-                intent.putStringArrayListExtra("profiles", schedule.getProfiles());
-
-
-                intent.addFlags(
-                        Intent.FLAG_ACTIVITY_NEW_TASK +
-                                Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS +
-                                Intent.FLAG_ACTIVITY_NO_ANIMATION
-                );
-
-                intent.putExtra("info", intent.getExtras().toString());
-
 
 //                profileEntity.setActive(true);
 //                db.profileDao().update(profileEntity);

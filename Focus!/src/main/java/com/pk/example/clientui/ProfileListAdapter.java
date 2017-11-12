@@ -85,37 +85,37 @@ public class ProfileListAdapter extends ArrayAdapter<ProfileEntity> {
                 if(profileEntity.getActive()){
                     b.setChecked(true);
 
-                    Date startDate = profileEntity.getEndTime();
-                    long endHour = startDate.getHours();
-                    long endMin = startDate.getMinutes();
-                    long endSec = startDate.getSeconds();
-
-                    Date currentDate = Calendar.getInstance().getTime();
-
-                    long durrHour = endHour - currentDate.getHours();
-                    long durrMin = endMin - currentDate.getMinutes();
-                    long durrSec = endSec - currentDate.getSeconds();
-
-                    countdownTimer.setText(endHour + " " + endMin + " " + currentDate.getHours() + " " + currentDate.getMinutes());
-
-                    long durationSec = durrHour * 3600 + durrMin * 60 + durrSec;
-
-                    new CountDownTimer(durationSec * 1000, 1000) { // adjust the milli seconds here
-
-                        public void onTick(long millisUntilFinished) {
-
-                            countdownTimer.setText("ACTIVE "+String.format(FORMAT,
-                                    TimeUnit.MILLISECONDS.toHours(millisUntilFinished),
-                                    TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished) - TimeUnit.HOURS.toMinutes(
-                                            TimeUnit.MILLISECONDS.toHours(millisUntilFinished)),
-                                    TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - TimeUnit.MINUTES.toSeconds(
-                                            TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
-                        }
-
-                        public void onFinish() {
-
-                        }
-                    }.start();
+//                    Date startDate = profileEntity.getEndTime();
+//                    long endHour = startDate.getHours();
+//                    long endMin = startDate.getMinutes();
+//                    long endSec = startDate.getSeconds();
+//
+//                    Date currentDate = Calendar.getInstance().getTime();
+//
+//                    long durrHour = endHour - currentDate.getHours();
+//                    long durrMin = endMin - currentDate.getMinutes();
+//                    long durrSec = endSec - currentDate.getSeconds();
+//
+//                    countdownTimer.setText(endHour + " " + endMin + " " + currentDate.getHours() + " " + currentDate.getMinutes());
+//
+//                    long durationSec = durrHour * 3600 + durrMin * 60 + durrSec;
+//
+//                    new CountDownTimer(durationSec * 1000, 1000) { // adjust the milli seconds here
+//
+//                        public void onTick(long millisUntilFinished) {
+//
+//                            countdownTimer.setText("ACTIVE "+String.format(FORMAT,
+//                                    TimeUnit.MILLISECONDS.toHours(millisUntilFinished),
+//                                    TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished) - TimeUnit.HOURS.toMinutes(
+//                                            TimeUnit.MILLISECONDS.toHours(millisUntilFinished)),
+//                                    TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - TimeUnit.MINUTES.toSeconds(
+//                                            TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
+//                        }
+//
+//                        public void onFinish() {
+//
+//                        }
+//                    }.start();
                 }
                 b.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -123,28 +123,30 @@ public class ProfileListAdapter extends ArrayAdapter<ProfileEntity> {
                         if (b.isChecked()) {
                             ProfileScheduler.turnOnProfile(context, getItem(position));
                             profileEntity.setActive(true);
+                            countdownTimer.setText("ACTIVE");
+
 //
-                            DurationPickerDialog timePickerDialog = new DurationPickerDialog(getContext(),
-                                    new TimePickerDialog.OnTimeSetListener(){
-
-                                        @Override
-                                        public void onTimeSet(TimePicker view, int hourOfDay,
-                                                              int minute) {
-
-                                            durationHours = hourOfDay;
-                                            durationMins = minute;
-
-                                            Calendar calendar = Calendar.getInstance();
-                                            calendar.setTime(new Date());
-                                            calendar.add(Calendar.HOUR, durationHours);
-                                            calendar.add(Calendar.MINUTE,  durationMins);
-                                            Date date = calendar.getTime();
-
-
-                                            new AddEndTime(profileEntity, date).execute();
-                                        }
-                                    }, 0, 0);
-                            timePickerDialog.show();
+//                            DurationPickerDialog timePickerDialog = new DurationPickerDialog(getContext(),
+//                                    new TimePickerDialog.OnTimeSetListener(){
+//
+//                                        @Override
+//                                        public void onTimeSet(TimePicker view, int hourOfDay,
+//                                                              int minute) {
+//
+//                                            durationHours = hourOfDay;
+//                                            durationMins = minute;
+//
+//                                            Calendar calendar = Calendar.getInstance();
+//                                            calendar.setTime(new Date());
+//                                            calendar.add(Calendar.HOUR, durationHours);
+//                                            calendar.add(Calendar.MINUTE,  durationMins);
+//                                            Date date = calendar.getTime();
+//
+//
+//                                            new AddEndTime(profileEntity, date).execute();
+//                                        }
+//                                    }, 0, 0);
+//                            timePickerDialog.show();
 
                         } else {
                             ProfileScheduler.turnOffProfile(context, getItem(position));

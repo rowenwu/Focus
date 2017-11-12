@@ -1,6 +1,7 @@
 package com.pk.example.servicereceiver;
 
 import android.annotation.TargetApi;
+import android.app.ActivityManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -9,7 +10,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Resources;
+import android.os.AsyncTask;
 import android.os.Build;
+import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.Parcel;
@@ -56,7 +59,7 @@ public class NLService extends NotificationListenerService {
 //    public static final String UPDATE_SCHEDULE_ACTIVE = "com.pk.example.UPDATESCHEDULEACTIVE";
     public static final String TOGGLE_SCHEDULE = "com.pk.example.TOGGLESCHEDULE";
 
-
+    Handler handler = null;
 
     private String TAG = this.getClass().getSimpleName();
     private SchedulingReceiver aReceiver;
@@ -555,7 +558,18 @@ public class NLService extends NotificationListenerService {
         for (int a = 0; a < appsToBlock.size(); a++) {
             addBlockedApp(appsToBlock.get(a), profile);
         }
-
+//        if(handler == null){
+//            handler = new Handler();
+//            final int delay = 1000; //milliseconds
+//
+//            handler.postDelayed(new Runnable(){
+//                public void run(){
+//                    //do something
+//                    new ForegroundCheckTask().execute(context).get();
+//                    handler.postDelayed(this, delay);
+//                }
+//            }, delay);
+//        }
     }
 
     public void resetBlockedApps() {
@@ -660,6 +674,29 @@ public class NLService extends NotificationListenerService {
         }
     }
 
+    class ForegroundCheckTask extends AsyncTask<Context, Void, Boolean> {
+
+        @Override
+        protected Boolean doInBackground(Context... params) {
+            final Context context = params[0].getApplicationContext();
+            return isAppOnForeground(context);
+        }
+
+        private boolean isAppOnForeground(Context context) {
+            ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+            List<ActivityManager.RunningAppProcessInfo> appProcesses = activityManager.getRunningAppProcesses();
+            if (appProcesses == null) {
+                return false;
+            }
+            final String packageName = context.getPackageName();
+            for (ActivityManager.RunningAppProcessInfo appProcess : appProcesses) {
+                if (appProcess.importance == ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND && appProcess.processName.equals(packageName)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
     // receives notice to start or stop profile from alarm
     class SchedulingReceiver extends BroadcastReceiver {
 
@@ -690,13 +727,6 @@ public class NLService extends NotificationListenerService {
                     break;
                 case CANCEL_ALARM_INTENTS:
                     cancelScheduleAlarmIntents(name);
-                    break;
-                case TOGGLE_SCHEDULE:
-                    boolean active = intent.getBooleanExtra("active", false);
-                    if (active)
-                        sendNotification("The schedule " + name + " is now active.");
-                    else
-                        sendNotification("The schedule " + name + " is no longer active.");
                     break;
             }
 

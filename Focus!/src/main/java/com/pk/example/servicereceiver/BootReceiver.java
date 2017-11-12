@@ -27,13 +27,7 @@ public class BootReceiver extends BroadcastReceiver {
         db = AppDatabase.getDatabase(context);
         context = context;
 
-        StringBuilder sb = new StringBuilder();
-        sb.append("Action: " + intent.getAction() + "\n");
-        sb.append("URI: " + intent.toUri(Intent.URI_INTENT_SCHEME).toString() + "\n");
-        String log = sb.toString();
-        Toast.makeText(context, log, Toast.LENGTH_LONG).show();
-
-
+        new CheckForActiveSchedules().execute();
     }
     private class CheckForActiveSchedules extends AsyncTask<Void, Void, Void> {
 
@@ -42,22 +36,9 @@ public class BootReceiver extends BroadcastReceiver {
 
             List<ScheduleEntity> enabledSchedules = db.scheduleDao().loadEnabledSchedulesSync(true);
             for(ScheduleEntity schedule: enabledSchedules){
-                ArrayList<Date> startTimes = schedule.getStartTimes();
-                Date startTime = new Date();
-                Date endTime;
-                if (schedule.getRepeatWeekly()) {
-                    boolean[] daysOfWeek = DateManipulator.getDaysOfWeekFromStartTimes(startTimes);
-                    if(daysOfWeek[DateManipulator.getDayOfWeek(startTime)]){
-                        startTime = DateManipulator.getStartDateToday(startTimes.get(0));
-                    }
-                }
-                else{
-                    startTime = startTimes.get(0);
-                }
-                endTime = DateManipulator.getEndDate(startTime, schedule.getDurationHr(), schedule.getDurationMin());
                 //check if any schedules that are enabled should be active but have not been set to active
                 if(schedule.getActive()) {
-                    if(!isWithinRange(startTime, endTime)){
+                    if(!schedule.shouldBeActive()){
                         //replace with toggle_schedule intent??/
                         schedule.setActive(false);
                         db.scheduleDao().update(schedule);
@@ -75,11 +56,10 @@ public class BootReceiver extends BroadcastReceiver {
                 }
                 //check if any schedules that are active shouldn't be active (are not enabled, current time isn't within range of start/end
                 else{
-                    if(isWithinRange(startTime, endTime)){
+                    if(schedule.shouldBeActive()){
                         //replace with toggle_schedule intent??/
                         schedule.setActive(true);
                         db.scheduleDao().update(schedule);
-                        //NOT SURE WHY THIS ISN'T HAPPENING??
                         for(String profile: schedule.getProfiles()){
                             ProfileEntity profileEntity = db.profileDao().loadProfileSync(profile);
                             Intent i = new Intent(NLService.ADD_PROFILE);
@@ -87,8 +67,6 @@ public class BootReceiver extends BroadcastReceiver {
                             i.putExtra("appsToBlock", profileEntity.getAppsToBlock());
                             context.sendBroadcast(i);
 
-//                profileEntity.setActive(true);
-//                db.profileDao().update(profileEntity);
                         }
                     }
                 }

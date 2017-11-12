@@ -101,8 +101,6 @@
         <receiver android:name=".servicereceiver.NotificationReceiver" >
             <intent-filter>
                 <action android:name="com.pk.example.INSERTNOTIFICATION"/>
-                <action android:name="com.pk.example.ADDPROFILE"/>
-                <action android:name="com.pk.example.REMOVEPROFILE" />
                 <action android:name="com.pk.example.CHANGENOTIFICATIONS" />
                 <action android:name="com.pk.example.TOGGLESCHEDULE"/>
 
@@ -111,9 +109,14 @@
         </receiver>
 
         <receiver android:name=".servicereceiver.BootReceiver"  android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".servicereceiver.ProfileScheduleReceiver"  android:exported="true">
+            <intent-filter>
+                <action android:name="com.pk.example.ADDPROFILE"/>
+                <action android:name="com.pk.example.REMOVEPROFILE" />
                 <!--<action android:name="android.intent.action.INPUT_METHOD_CHANGED" />-->
             </intent-filter>
         </receiver>

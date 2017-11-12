@@ -22,6 +22,11 @@ public class ProfileScheduler {
     public static void enableSchedule(Context context, ScheduleEntity schedule) {
         ArrayList<Date> startTimes = schedule.getStartTimes();
 
+        if(schedule.shouldBeActive()){
+            Intent i = new Intent(NLService.TOGGLE_SCHEDULE);
+            i.putExtra("name", schedule.getId());
+            i.putExtra("active", true);
+        }
         for (int i = 0; i < startTimes.size(); i++) {
             SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm"); //Or whatever format fits best your needs.
             String date = sdf.format(startTimes.get(i));
@@ -127,8 +132,6 @@ public class ProfileScheduler {
         PendingIntent endIntent = createPendingIntent(context, profile.getName(), profile.getAppsToBlock(), NLService.REMOVE_PROFILE, (int) Calendar.getInstance().getTimeInMillis());
         setAlarm(context, DateManipulator.getEndCalendar(new Date(), 10, 0), false, endIntent);
         hasPendingIntent.putExtra("pendingIntent", endIntent);
-
-        //TODO sned change notifications alarm intent to notificationreceiver
     }
 
     //randomly turn off a profile

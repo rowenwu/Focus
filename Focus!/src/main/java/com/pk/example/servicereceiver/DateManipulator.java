@@ -1,5 +1,7 @@
 package com.pk.example.servicereceiver;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -56,6 +58,11 @@ public class DateManipulator {
             daysOfWeek[DateManipulator.getDayOfWeek(d)] = true;
         }
         return daysOfWeek;
+    }
+
+
+    public static long getTimeDiffMillis(Date start, Date end){
+        return end.getTime() - start.getTime();
     }
 
 }
