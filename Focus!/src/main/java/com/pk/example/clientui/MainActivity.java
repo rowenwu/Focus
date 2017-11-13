@@ -1,6 +1,7 @@
 package com.pk.example.clientui;
 
 import android.app.Activity;
+import android.app.AppOpsManager;
 import android.app.NotificationManager;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
@@ -8,6 +9,8 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -26,24 +29,27 @@ import java.util.Calendar;
 public class MainActivity extends Activity {
 
     public TextView txtView;
-    private NotificationReceiver nReceiver;
+//    private NotificationReceiver nReceiver;
     public Button profilesButton, schedulesButton, notificationsButton, weeklyButton;
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        context = getApplicationContext();
         setContentView(R.layout.activity_main);
         txtView = (TextView) findViewById(R.id.textView);
-        nReceiver = new NotificationReceiver();
+//        nReceiver = new NotificationReceiver();
         IntentFilter filter = new IntentFilter();
         filter.addAction(NLService.INSERT_NOTIFICATION);
-        registerReceiver(nReceiver,filter);
+//        registerReceiver(nReceiver,filter);
         profilesButton = (Button) findViewById( R.id.btnNavigation );
         schedulesButton = (Button) findViewById( R.id.btnAllProfiles );
         notificationsButton = (Button) findViewById( R.id.btnNotificationList );
         weeklyButton = (Button) findViewById(R.id.btnWeeklyView);
 
-
+        if(!hasUsageStatsPermission())
+            startActivity(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS));
 
         ComponentName cn = new ComponentName(getApplicationContext(), NLService.class);
         String flat = Settings.Secure.getString(getApplicationContext().getContentResolver(), "enabled_notification_listeners");
@@ -56,7 +62,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        unregisterReceiver(nReceiver);
+//        unregisterReceiver(nReceiver);
     }
 
     public void toggleService() {
@@ -132,17 +138,32 @@ public class MainActivity extends Activity {
 
     }
 
-    class NotificationReceiver extends BroadcastReceiver{
+    public boolean hasUsageStatsPermission(){
+        boolean granted = false;
+        AppOpsManager appOps = (AppOpsManager) context
+                .getSystemService(Context.APP_OPS_SERVICE);
+        int mode = appOps.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS,
+                android.os.Process.myUid(), context.getPackageName());
 
-        @Override
-        public void onReceive(Context context, Intent intent) {
-
-
-            Log.i("intent ","intent "+intent.getExtras().toString());
-
-
-            String temp = intent.getExtras().getString("info")+ "\n----------------------------------------------" + txtView.getText();
-            txtView.setText(temp+"");
+        if (mode == AppOpsManager.MODE_DEFAULT) {
+            granted = (context.checkCallingOrSelfPermission(android.Manifest.permission.PACKAGE_USAGE_STATS) == PackageManager.PERMISSION_GRANTED);
+        } else {
+            granted = (mode == AppOpsManager.MODE_ALLOWED);
         }
+        return granted;
     }
+
+//    class NotificationReceiver extends BroadcastReceiver{
+//
+//        @Override
+//        public void onReceive(Context context, Intent intent) {
+//
+//
+//            Log.i("intent ","intent "+intent.getExtras().toString());
+//
+//
+//            String temp = intent.getExtras().getString("info")+ "\n----------------------------------------------" + txtView.getText();
+//            txtView.setText(temp+"");
+//        }
+//    }
 }

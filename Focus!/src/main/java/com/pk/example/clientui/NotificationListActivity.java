@@ -50,7 +50,8 @@ public class NotificationListActivity extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
         String packageName = listadaptor.getItem(position).getAppName();
         Intent LaunchIntent = getPackageManager().getLaunchIntentForPackage(packageName);
-        startActivity( LaunchIntent );
+        if(LaunchIntent != null)
+            startActivity( LaunchIntent );
     }
 
     private class LoadApplications extends AsyncTask<Void, Void, Void> {

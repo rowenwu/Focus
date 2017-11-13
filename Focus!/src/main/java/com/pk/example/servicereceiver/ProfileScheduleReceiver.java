@@ -26,58 +26,31 @@ import static com.pk.example.servicereceiver.NLService.REMOVE_PROFILE;
 public class ProfileScheduleReceiver  extends BroadcastReceiver {
     private AppDatabase db;
     private Context mContext;
-    private Handler handler;
-    private String appOpen;
-    private HashMap<String, ArrayList<String>> blockedApps;
+
 
     @Override
     public void onReceive(Context context, Intent intent) {
         db = AppDatabase.getDatabase(context);
-        if(blockedApps == null)
-            blockedApps = new HashMap<String, ArrayList<String>>();
         this.mContext = context;
         String name = intent.getStringExtra("name");
-
-
+        ArrayList<String> apps = intent.getStringArrayListExtra("apps");
+        Intent i= new Intent(context, ForegroundDetectorService.class);
+        i.putExtra("name", name);
+        i.putExtra("apps", apps);
         //TODO CHANGE NAME TO ID
 
         switch(intent.getAction()) {
             case ADD_PROFILE:
                 new UpdateProfile(name, true).execute();
-                addProfile(name, intent.getStringArrayListExtra("apps"));
-                if(handler == null) {
-                    handler = new Handler();
-                    appOpen = "com.pk.example";
-                    final int delay = 1000; //milliseconds
-
-                    handler.postDelayed(new Runnable() {
-                        public void run() {
-                            //do something
-                            try {
-                                boolean blockedAppOpened = new ForegroundCheckTask().execute(mContext).get();
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            } catch (ExecutionException e) {
-                                e.printStackTrace();
-                            }
-                            handler.postDelayed(this, delay);
-                        }
-                    }, delay);
-                }
+                i.setAction(ADD_PROFILE);
                 break;
             case REMOVE_PROFILE:
-                removeProfile(name, intent.getStringArrayListExtra("apps"));
-
-                if(blockedApps.size() == 0)
-                    handler.removeCallbacksAndMessages(null);
-
-                name = intent.getStringExtra("name");
                 new UpdateProfile(name, false).execute();
-                //                new ChangePrevNotifications(intent.getStringArrayListExtra("profiles")).execute();
-
-                //TODO STOP HANDLER ONCE NO PROFILES ARE ACTIVE
+                i.setAction(REMOVE_PROFILE);
                 break;
         }
+
+        context.startService(i);
     }
 
 
@@ -103,70 +76,7 @@ public class ProfileScheduleReceiver  extends BroadcastReceiver {
         }
     }
 
-    class ForegroundCheckTask extends AsyncTask<Context, Void, Boolean> {
 
-        @Override
-        protected Boolean doInBackground(Context... params) {
-            final Context context = params[0].getApplicationContext();
-            return isAppOnForeground(context);
-        }
-
-        private boolean isAppOnForeground(Context context) {
-            ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-            List<ActivityManager.RunningAppProcessInfo> appProcesses = activityManager.getRunningAppProcesses();
-            if (appProcesses == null) {
-                return false;
-            }
-            for (ActivityManager.RunningAppProcessInfo appProcess : appProcesses) {
-                if (appProcess.importance == ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND
-                        && blockedApps.get(appProcess.processName) != null){
-//                        && !appProcess.processName.equals(appOpen)) {
-                    appOpen = appProcess.processName;
-                    Intent i = new Intent(NLService.BLOCKED_APP_OPENED);
-                    i.putExtra("packageName", appOpen);
-                    i.putExtra("name", blockedApps.get(appProcess.processName).get(0));
-
-                    mContext.sendBroadcast(i);
-                    return true;
-                }
-            }
-            return false;
-        }
-    }
-
-    public void addBlockedApp(String appPackage, String profile) {
-        ArrayList<String> profiles = blockedApps.get(appPackage);
-        if (profiles == null) {
-            profiles = new ArrayList<String>();
-        }
-        if(!profiles.contains(profile))
-            profiles.add(profile);
-        blockedApps.put(appPackage, profiles);
-
-    }
-
-
-    public void removeBlockedApp(String appPackage, String profile) {
-        ArrayList<String> profiles = blockedApps.get(appPackage);
-        if (profiles != null) {
-            profiles.remove(profile);
-            if (profiles.size() == 0)
-                blockedApps.remove(appPackage);
-        }
-    }
-
-    public void addProfile(String profile, ArrayList<String> appsToBlock) {
-        for (int a = 0; a < appsToBlock.size(); a++) {
-            addBlockedApp(appsToBlock.get(a), profile);
-        }
-
-    }
-
-    public void removeProfile(String profile, ArrayList<String> appsToBlock) {
-        for (int a = 0; a < appsToBlock.size(); a++) {
-            removeBlockedApp(appsToBlock.get(a), profile);
-        }
-    }
 
 
 }

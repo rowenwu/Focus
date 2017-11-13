@@ -5,6 +5,8 @@ import android.app.ActivityManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.usage.UsageStats;
+import android.app.usage.UsageStatsManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -44,6 +46,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.SortedMap;
+import java.util.TreeMap;
+import java.util.concurrent.ExecutionException;
 
 public class NLService extends NotificationListenerService {
     //INTENT ACTIONS
@@ -51,7 +56,6 @@ public class NLService extends NotificationListenerService {
     public static final String REMOVE_PROFILE = "com.pk.example.REMOVEPROFILE";
     public static final String START_PROFILE_NOTIFICATION = " is now active and blocking your notifications.";
     public static final String STOP_PROFILE_NOTIFICATION = " is now inactive. Check your missed notifications.";
-    public static final String BLOCKED_APP_OPENED_NOTIFICATION = " is blocking notifications from ";
     public static final String ADD_SCHEDULE_PENDING_INTENT = "com.pk.example.ADDSCHEDULEPENDINGINTENT";
     public static final String ADD_PROFILE_PENDING_INTENT = "com.pk.example.ADDPROFILEPENDINGINTENT";
     public static final String CANCEL_ALARM_INTENTS = "com.pk.example.CANCELALARMINTENTS";
@@ -69,27 +73,10 @@ public class NLService extends NotificationListenerService {
     //store these separately so that when a schedule/profile is disabled/turned off, we can cancel the right pending intents
     private HashMap<String, HashSet<PendingIntent>> scheduleAlarmIntents;
     private HashMap<String, HashSet<PendingIntent>> profileAlarmIntents;
-    private static HashMap<String, ArrayList<MinNotification>> currentNotificiations;
-    private static ArrayList<MinNotification> previousNotifications;
-    private static ArrayList<String> lastActiveProfiles;
-
-    // Used as a key for the Intent.
-    public static final String SEED_KEY = "SEED_KEY";
-
-    // Binder given to clients
-    private IBinder mBinder;
-
-    // Random number generator
-    private Random mGenerator = new Random();
-
-    private AppDatabase db;
-    private long mSeed;
-
 
     @Override
     public void onCreate() {
         super.onCreate();
-        db = AppDatabase.getDatabase(getApplicationContext());
 
         aReceiver = new SchedulingReceiver();
         IntentFilter filter = new IntentFilter();
@@ -99,7 +86,7 @@ public class NLService extends NotificationListenerService {
         filter.addAction(CANCEL_ALARM_INTENTS);
         filter.addAction(ADD_PROFILE_PENDING_INTENT);
         filter.addAction(TOGGLE_SCHEDULE);
-        filter.addAction(BLOCKED_APP_OPENED);
+//        filter.addAction(BLOCKED_APP_OPENED);
 
 
         registerReceiver(aReceiver, filter);
@@ -117,31 +104,6 @@ public class NLService extends NotificationListenerService {
     public void onDestroy() {
         super.onDestroy();
         unregisterReceiver(aReceiver);
-    }
-
-    //    @Override
-    //    public IBinder onBind(Intent intent) {
-    //        // If the Intent comes with a seed for the number generator, apply it.
-    //        if (intent.hasExtra(SEED_KEY)) {
-    //            mSeed = intent.getLongExtra(SEED_KEY, 0);
-    //            mGenerator.setSeed(mSeed);
-    //        }
-    //        return mBinder;
-    //    }
-    //
-    //    public class LocalBinder extends Binder {
-    //
-    //        public NLService getService() {
-    //            // Return this instance of LocalService so clients can call public methods.
-    //            return NLService.this;
-    //        }
-    //    }
-
-    /**
-     * Returns a random integer in [0, 100).
-     */
-    public int getRandomInt() {
-        return mGenerator.nextInt(100);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -554,6 +516,7 @@ public class NLService extends NotificationListenerService {
         nManager.notify((int) System.currentTimeMillis(), ncomp.build());
     }
 
+
     public void addProfile(String profile, ArrayList<String> appsToBlock) {
         // get profile information (start time, end time, list of apps) from database
         // for list of apps, addBlockedApp
@@ -562,17 +525,25 @@ public class NLService extends NotificationListenerService {
         for (int a = 0; a < appsToBlock.size(); a++) {
             addBlockedApp(appsToBlock.get(a), profile);
         }
-
+//        if(handler == null) {
+//            handler = new Handler();
+//            appOpen = "com.pk.example";
+//            final int delay = 1000; //milliseconds
+//
+//            handler.postDelayed(new Runnable() {
+//                public void run() {
+//                    String foregroundApp = getForegroundApp();
+//                    if(blockedApps.get(foregroundApp) != null) {
+//                        sendNotification("Focus!" + BLOCKED_APP_OPENED_NOTIFICATION + foregroundApp);
+//                        appOpen = foregroundApp;
+//                    }
+//                    handler.postDelayed(this, delay);
+//                }
+//            }, delay);
+//        }
     }
 
-    public void resetBlockedApps() {
-        String profileName = "test profile";
-        String[] strings = new String[]{"com.facebook.orca", "com.appname.fake", "com.something.else"};
-        ArrayList<String> appsToBlock = new ArrayList<String>(Arrays.asList(strings));
-        addProfile(profileName, appsToBlock);
-        blockedApps.clear();
 
-    }
 
     public void addBlockedApp(String appPackage, String profile) {
         ArrayList<String> profiles = blockedApps.get(appPackage);
@@ -617,6 +588,8 @@ public class NLService extends NotificationListenerService {
         for (int a = 0; a < appsToBlock.size(); a++) {
             removeBlockedApp(appsToBlock.get(a), profile);
         }
+//        if(blockedApps.size() == 0)
+//            handler.removeCallbacksAndMessages(null);
     }
 
     public void removeBlockedApp(String appPackage, String profile) {
@@ -698,10 +671,10 @@ public class NLService extends NotificationListenerService {
                 case CANCEL_ALARM_INTENTS:
                     cancelScheduleAlarmIntents(name);
                     break;
-                case BLOCKED_APP_OPENED:
-                    String packageName = intent.getStringExtra("packageName");
-                    sendNotification(name+ BLOCKED_APP_OPENED_NOTIFICATION + packageName);
-                    break;
+//                case BLOCKED_APP_OPENED:
+//                    String packageName = intent.getStringExtra("packageName");
+//                    sendNotification(name+ BLOCKED_APP_OPENED_NOTIFICATION + packageName);
+//                    break;
             }
 
         }
