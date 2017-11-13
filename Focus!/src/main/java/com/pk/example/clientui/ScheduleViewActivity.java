@@ -116,7 +116,6 @@ public class ScheduleViewActivity extends ListActivity{
         ListView listView = getListView();
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
-        new LoadProfiles().execute();
 
     }
 
@@ -483,6 +482,8 @@ public class ScheduleViewActivity extends ListActivity{
 
         @Override
         protected Void doInBackground(Void... params) {
+            ScheduleEntity original = database.scheduleDao().loadScheduleSync(id);
+            updated.setActive(original.getActive());
             database.scheduleDao().update(updated);
 
             return null;

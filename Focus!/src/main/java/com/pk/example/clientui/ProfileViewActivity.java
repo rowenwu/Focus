@@ -7,6 +7,7 @@ import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -24,8 +25,6 @@ import com.pk.example.servicereceiver.ProfileScheduler;
 
 
 public class ProfileViewActivity extends ListActivity {
-    private PackageManager packageManager = null;
-    private List<ApplicationInfo> applist = null;
     private AppAdapter listadaptor = null;
     private String name;
 
@@ -41,7 +40,6 @@ public class ProfileViewActivity extends ListActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         db = AppDatabase.getDatabase(getApplicationContext());
-
         flag = getIntent().getStringExtra("flag");
 
         // create profile mode
@@ -49,7 +47,6 @@ public class ProfileViewActivity extends ListActivity {
             setContentView(R.layout.activity_create_profile);
             getActionBar().setDisplayHomeAsUpEnabled(true);
 
-            packageManager = getPackageManager();
 
             new LoadApplications().execute();
 
@@ -59,8 +56,6 @@ public class ProfileViewActivity extends ListActivity {
             name = getIntent().getStringExtra("name");
             setContentView(R.layout.activity_profile);
             getActionBar().setDisplayHomeAsUpEnabled(true);
-
-            packageManager = getPackageManager();
 
             new LoadApplications().execute();
 //            ListView listView = getListView();
@@ -84,7 +79,6 @@ public class ProfileViewActivity extends ListActivity {
 //            profileEntity = db.profileDao().loadProfileSync(name);
             setContentView(R.layout.activity_profile_view);
             getActionBar().setDisplayHomeAsUpEnabled(true);
-            packageManager = getPackageManager();
 
             new LoadProfileApplications().execute();
 
@@ -235,14 +229,13 @@ public class ProfileViewActivity extends ListActivity {
     }
 
     private class LoadApplications extends AsyncTask<Void, Void, Void> {
-        private ProgressDialog progress = null;
-
         @Override
         protected Void doInBackground(Void... params) {
 
-            applist = packageManager.getInstalledApplications(PackageManager.GET_META_DATA);
+            List<ApplicationInfo> installedApps = getInstalledApps();
+
             listadaptor = new AppAdapter(ProfileViewActivity.this,
-                    R.layout.snippet_list_row, applist);
+                    R.layout.snippet_list_row, installedApps);
 
             if(name != null) {
                 profileEntity = db.profileDao().loadProfileSync(name);
@@ -259,25 +252,29 @@ public class ProfileViewActivity extends ListActivity {
         @Override
         protected void onPostExecute(Void result) {
             setListAdapter(listadaptor);
-            progress.dismiss();
             super.onPostExecute(result);
         }
 
-        @Override
-        protected void onPreExecute() {
-            progress = ProgressDialog.show(ProfileViewActivity.this, null,
-                    "Loading profile...");
-            super.onPreExecute();
-        }
+    }
 
-        @Override
-        protected void onProgressUpdate(Void... values) {
-            super.onProgressUpdate(values);
+    public boolean isSystemPackage(ApplicationInfo applicationInfo) {
+        return ((applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0);
+    }
+
+    public List<ApplicationInfo> getInstalledApps(){
+        final PackageManager packageManager = getPackageManager();
+
+        List<ApplicationInfo> applist = packageManager.getInstalledApplications(PackageManager.GET_META_DATA);
+        List<ApplicationInfo> installedApps = new ArrayList<ApplicationInfo>();
+        for(ApplicationInfo ai: applist){
+            if(!isSystemPackage(ai))
+                installedApps.add(ai);
         }
+        return installedApps;
+
     }
 
     private class LoadProfileApplications extends AsyncTask<Void, Void, Void> {
-        private ProgressDialog progress = null;
 
         @Override
         protected Void doInBackground(Void... params) {
@@ -285,10 +282,10 @@ public class ProfileViewActivity extends ListActivity {
                 profileEntity = db.profileDao().loadProfileSync(name);
             }
 
-            applist = packageManager.getInstalledApplications(PackageManager.GET_META_DATA);
+            List<ApplicationInfo> installedApps = getInstalledApps();
             ArrayList<ApplicationInfo> profileAppList = new ArrayList<>();
 
-            for (ApplicationInfo ai : applist) {
+            for (ApplicationInfo ai : installedApps) {
                 if (profileEntity.getAppsToBlock().contains(ai.packageName)) {
                     profileAppList.add(ai);
                 }
@@ -308,21 +305,9 @@ public class ProfileViewActivity extends ListActivity {
         @Override
         protected void onPostExecute(Void result) {
             setListAdapter(listadaptor);
-            progress.dismiss();
             super.onPostExecute(result);
         }
 
-        @Override
-        protected void onPreExecute() {
-            progress = ProgressDialog.show(ProfileViewActivity.this, null,
-                    "Loading profile...");
-            super.onPreExecute();
-        }
-
-        @Override
-        protected void onProgressUpdate(Void... values) {
-            super.onProgressUpdate(values);
-        }
     }
 
     private class InsertProfile extends AsyncTask<Void, Void, Void> {
@@ -415,6 +400,7 @@ public class ProfileViewActivity extends ListActivity {
         }
 
     }
+
 
     // for testing
     public String getFlag() {

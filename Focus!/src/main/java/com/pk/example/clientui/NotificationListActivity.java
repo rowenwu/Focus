@@ -15,6 +15,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ListView;
 
 import com.pk.example.R;
 import com.pk.example.database.AppDatabase;
@@ -26,8 +28,6 @@ import com.pk.example.servicereceiver.NLService;
 public class NotificationListActivity extends ListActivity {
 
     private AppDatabase database;
-
-    private PackageManager packageManager = null;
     private NotificationAdapter listadaptor = null;
 
     @Override
@@ -44,6 +44,15 @@ public class NotificationListActivity extends ListActivity {
 
 
     }
+
+
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        String packageName = listadaptor.getItem(position).getAppName();
+        Intent LaunchIntent = getPackageManager().getLaunchIntentForPackage(packageName);
+        startActivity( LaunchIntent );
+    }
+
     private class LoadApplications extends AsyncTask<Void, Void, Void> {
         private ProgressDialog progress = null;
 

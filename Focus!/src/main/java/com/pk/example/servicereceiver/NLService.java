@@ -51,15 +51,17 @@ public class NLService extends NotificationListenerService {
     public static final String REMOVE_PROFILE = "com.pk.example.REMOVEPROFILE";
     public static final String START_PROFILE_NOTIFICATION = " is now active and blocking your notifications.";
     public static final String STOP_PROFILE_NOTIFICATION = " is now inactive. Check your missed notifications.";
+    public static final String BLOCKED_APP_OPENED_NOTIFICATION = " is blocking notifications from ";
     public static final String ADD_SCHEDULE_PENDING_INTENT = "com.pk.example.ADDSCHEDULEPENDINGINTENT";
     public static final String ADD_PROFILE_PENDING_INTENT = "com.pk.example.ADDPROFILEPENDINGINTENT";
     public static final String CANCEL_ALARM_INTENTS = "com.pk.example.CANCELALARMINTENTS";
     public static final String INSERT_NOTIFICATION = "com.pk.example.INSERTNOTIFICATION";
     public static final String CHANGE_NOTIFICATIONS = "com.pk.example.CHANGENOTIFICATIONS";
-//    public static final String UPDATE_SCHEDULE_ACTIVE = "com.pk.example.UPDATESCHEDULEACTIVE";
     public static final String TOGGLE_SCHEDULE = "com.pk.example.TOGGLESCHEDULE";
+    public static final String BLOCKED_APP_OPENED = "com.pk.example.BLOCKEDAPPOPENED";
 
-    Handler handler = null;
+
+//    Handler handler = null;
 
     private String TAG = this.getClass().getSimpleName();
     private SchedulingReceiver aReceiver;
@@ -97,6 +99,8 @@ public class NLService extends NotificationListenerService {
         filter.addAction(CANCEL_ALARM_INTENTS);
         filter.addAction(ADD_PROFILE_PENDING_INTENT);
         filter.addAction(TOGGLE_SCHEDULE);
+        filter.addAction(BLOCKED_APP_OPENED);
+
 
         registerReceiver(aReceiver, filter);
         blockedApps = new HashMap<String, ArrayList<String>>();
@@ -558,18 +562,7 @@ public class NLService extends NotificationListenerService {
         for (int a = 0; a < appsToBlock.size(); a++) {
             addBlockedApp(appsToBlock.get(a), profile);
         }
-//        if(handler == null){
-//            handler = new Handler();
-//            final int delay = 1000; //milliseconds
-//
-//            handler.postDelayed(new Runnable(){
-//                public void run(){
-//                    //do something
-//                    new ForegroundCheckTask().execute(context).get();
-//                    handler.postDelayed(this, delay);
-//                }
-//            }, delay);
-//        }
+
     }
 
     public void resetBlockedApps() {
@@ -674,35 +667,12 @@ public class NLService extends NotificationListenerService {
         }
     }
 
-    class ForegroundCheckTask extends AsyncTask<Context, Void, Boolean> {
 
-        @Override
-        protected Boolean doInBackground(Context... params) {
-            final Context context = params[0].getApplicationContext();
-            return isAppOnForeground(context);
-        }
-
-        private boolean isAppOnForeground(Context context) {
-            ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-            List<ActivityManager.RunningAppProcessInfo> appProcesses = activityManager.getRunningAppProcesses();
-            if (appProcesses == null) {
-                return false;
-            }
-            final String packageName = context.getPackageName();
-            for (ActivityManager.RunningAppProcessInfo appProcess : appProcesses) {
-                if (appProcess.importance == ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND && appProcess.processName.equals(packageName)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-    }
     // receives notice to start or stop profile from alarm
     class SchedulingReceiver extends BroadcastReceiver {
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            Log.i("intent ", "intent " + intent.getExtras().toString());
 
             String name = intent.getStringExtra("name");
             PendingIntent piStart, piEnd;
@@ -727,6 +697,10 @@ public class NLService extends NotificationListenerService {
                     break;
                 case CANCEL_ALARM_INTENTS:
                     cancelScheduleAlarmIntents(name);
+                    break;
+                case BLOCKED_APP_OPENED:
+                    String packageName = intent.getStringExtra("packageName");
+                    sendNotification(name+ BLOCKED_APP_OPENED_NOTIFICATION + packageName);
                     break;
             }
 
