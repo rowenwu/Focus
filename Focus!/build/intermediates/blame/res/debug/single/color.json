@@ -1,39 +1,47 @@
 [
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_light.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\57cfecf7b2698c8c4c9a5d7dcf0dc02708cd7fce\\output\\res\\color\\abc_secondary_text_material_light.xml"
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\50dd0b3ede8edb972756b0c16dd6980d003e06c9\\output\\res\\color\\abc_secondary_text_material_light.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_light.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\57cfecf7b2698c8c4c9a5d7dcf0dc02708cd7fce\\output\\res\\color\\abc_primary_text_disable_only_material_light.xml"
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\50dd0b3ede8edb972756b0c16dd6980d003e06c9\\output\\res\\color\\abc_primary_text_disable_only_material_light.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_dark.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\57cfecf7b2698c8c4c9a5d7dcf0dc02708cd7fce\\output\\res\\color\\switch_thumb_material_dark.xml"
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\50dd0b3ede8edb972756b0c16dd6980d003e06c9\\output\\res\\color\\switch_thumb_material_dark.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_dark.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\57cfecf7b2698c8c4c9a5d7dcf0dc02708cd7fce\\output\\res\\color\\abc_primary_text_material_dark.xml"
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\50dd0b3ede8edb972756b0c16dd6980d003e06c9\\output\\res\\color\\abc_primary_text_material_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\color\\com_facebook_button_text_color.xml",
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\4cefe662d1a7e5d74e1831dc4a5264ed6b8bd8d5\\output\\res\\color\\com_facebook_button_text_color.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_seek_thumb.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\57cfecf7b2698c8c4c9a5d7dcf0dc02708cd7fce\\output\\res\\color\\abc_tint_seek_thumb.xml"
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\50dd0b3ede8edb972756b0c16dd6980d003e06c9\\output\\res\\color\\abc_tint_seek_thumb.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\color\\abc_btn_colored_text_material.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\57cfecf7b2698c8c4c9a5d7dcf0dc02708cd7fce\\output\\res\\color\\abc_btn_colored_text_material.xml"
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\50dd0b3ede8edb972756b0c16dd6980d003e06c9\\output\\res\\color\\abc_btn_colored_text_material.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\color\\abc_search_url_text.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\57cfecf7b2698c8c4c9a5d7dcf0dc02708cd7fce\\output\\res\\color\\abc_search_url_text.xml"
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\50dd0b3ede8edb972756b0c16dd6980d003e06c9\\output\\res\\color\\abc_search_url_text.xml"
+    },
+    {
+        "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\color\\com_facebook_send_button_text_color.xml",
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\5ca5226af6e68a3b96145916d8fbb820692da2ba\\output\\res\\color\\com_facebook_send_button_text_color.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\color\\abc_btn_colored_borderless_text_material.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\57cfecf7b2698c8c4c9a5d7dcf0dc02708cd7fce\\output\\res\\color\\abc_btn_colored_borderless_text_material.xml"
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\50dd0b3ede8edb972756b0c16dd6980d003e06c9\\output\\res\\color\\abc_btn_colored_borderless_text_material.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_btn_checkable.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\57cfecf7b2698c8c4c9a5d7dcf0dc02708cd7fce\\output\\res\\color\\abc_tint_btn_checkable.xml"
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\50dd0b3ede8edb972756b0c16dd6980d003e06c9\\output\\res\\color\\abc_tint_btn_checkable.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_switch_thumb.xml",
@@ -41,42 +49,42 @@
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_spinner.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\57cfecf7b2698c8c4c9a5d7dcf0dc02708cd7fce\\output\\res\\color\\abc_tint_spinner.xml"
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\50dd0b3ede8edb972756b0c16dd6980d003e06c9\\output\\res\\color\\abc_tint_spinner.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_dark.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\57cfecf7b2698c8c4c9a5d7dcf0dc02708cd7fce\\output\\res\\color\\abc_secondary_text_material_dark.xml"
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\50dd0b3ede8edb972756b0c16dd6980d003e06c9\\output\\res\\color\\abc_secondary_text_material_dark.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_dark.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\57cfecf7b2698c8c4c9a5d7dcf0dc02708cd7fce\\output\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\50dd0b3ede8edb972756b0c16dd6980d003e06c9\\output\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_edittext.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\57cfecf7b2698c8c4c9a5d7dcf0dc02708cd7fce\\output\\res\\color\\abc_tint_edittext.xml"
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\50dd0b3ede8edb972756b0c16dd6980d003e06c9\\output\\res\\color\\abc_tint_edittext.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_light.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\57cfecf7b2698c8c4c9a5d7dcf0dc02708cd7fce\\output\\res\\color\\switch_thumb_material_light.xml"
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\50dd0b3ede8edb972756b0c16dd6980d003e06c9\\output\\res\\color\\switch_thumb_material_light.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_light.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\57cfecf7b2698c8c4c9a5d7dcf0dc02708cd7fce\\output\\res\\color\\abc_primary_text_material_light.xml"
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\50dd0b3ede8edb972756b0c16dd6980d003e06c9\\output\\res\\color\\abc_primary_text_material_light.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\color\\abc_hint_foreground_material_dark.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\57cfecf7b2698c8c4c9a5d7dcf0dc02708cd7fce\\output\\res\\color\\abc_hint_foreground_material_dark.xml"
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\50dd0b3ede8edb972756b0c16dd6980d003e06c9\\output\\res\\color\\abc_hint_foreground_material_dark.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_switch_track.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\57cfecf7b2698c8c4c9a5d7dcf0dc02708cd7fce\\output\\res\\color\\abc_tint_switch_track.xml"
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\50dd0b3ede8edb972756b0c16dd6980d003e06c9\\output\\res\\color\\abc_tint_switch_track.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\color\\abc_hint_foreground_material_light.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\57cfecf7b2698c8c4c9a5d7dcf0dc02708cd7fce\\output\\res\\color\\abc_hint_foreground_material_light.xml"
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\50dd0b3ede8edb972756b0c16dd6980d003e06c9\\output\\res\\color\\abc_hint_foreground_material_light.xml"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_default.xml",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\57cfecf7b2698c8c4c9a5d7dcf0dc02708cd7fce\\output\\res\\color\\abc_tint_default.xml"
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\50dd0b3ede8edb972756b0c16dd6980d003e06c9\\output\\res\\color\\abc_tint_default.xml"
     }
 ]
