@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.pk.example"
     android:versionCode="1"
     android:versionName="1.0">
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-
         android:theme="@style/AppTheme">
-
         <activity
             android:name=".clientui.MainActivity"
             android:label="@string/app_name"
@@ -35,8 +38,7 @@
         </service>
         <service
             android:name=".servicereceiver.ForegroundDetectorService"
-            android:label="Foreground detector service" >
-        </service>
+            android:label="Foreground detector service"></service>
 
         <!-- <service -->
         <!-- android:name=".ProfileJobService" -->
@@ -82,9 +84,9 @@
             android:name=".clientui.ProfileListActivity"
             android:label="View Profiles"
             android:parentActivityName=".clientui.MainActivity">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".clientui.MainActivity" />
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".clientui.MainActivity" />
         </activity>
         <activity
             android:name=".clientui.ScheduleViewActivity"
@@ -103,36 +105,57 @@
                 android:value=".clientui.CalendarActivity" />
         </activity>
 
-        <receiver android:name=".servicereceiver.NotificationReceiver" >
+        <receiver android:name=".servicereceiver.NotificationReceiver">
             <intent-filter>
-                <action android:name="com.pk.example.INSERTNOTIFICATION"/>
+                <action android:name="com.pk.example.INSERTNOTIFICATION" />
                 <action android:name="com.pk.example.CHANGENOTIFICATIONS" />
-                <action android:name="com.pk.example.TOGGLESCHEDULE"/>
+                <action android:name="com.pk.example.TOGGLESCHEDULE" />
 
-                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
-
-        <receiver android:name=".servicereceiver.BootReceiver"  android:exported="true">
+        <receiver
+            android:name=".servicereceiver.BootReceiver"
+            android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".servicereceiver.ProfileScheduleReceiver"  android:exported="true">
+        <receiver
+            android:name=".servicereceiver.ProfileScheduleReceiver"
+            android:exported="true">
             <intent-filter>
-                <action android:name="com.pk.example.ADDPROFILE"/>
+                <action android:name="com.pk.example.ADDPROFILE" />
                 <action android:name="com.pk.example.REMOVEPROFILE" />
-                <!--<action android:name="android.intent.action.INPUT_METHOD_CHANGED" />-->
+                <!-- <action android:name="android.intent.action.INPUT_METHOD_CHANGED" /> -->
             </intent-filter>
         </receiver>
+
         <activity
-            android:label="Notification List"
             android:name=".clientui.NotificationListActivity"
+            android:label="Notification List"
             android:parentActivityName=".clientui.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".clientui.ScheduleListActivity"/>
+                android:value=".clientui.ScheduleListActivity" />
         </activity>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            tools:replace="android:theme"
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <provider
+            android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider129584771088687"
+            android:exported="true" />
+
     </application>
 
 </manifest>

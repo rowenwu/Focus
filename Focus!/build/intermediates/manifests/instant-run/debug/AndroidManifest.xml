@@ -10,6 +10,9 @@
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -38,8 +41,7 @@
         </service>
         <service
             android:name="com.pk.example.servicereceiver.ForegroundDetectorService"
-            android:label="Foreground detector service" >
-        </service>
+            android:label="Foreground detector service" />
 
         <!-- <service -->
         <!-- android:name=".ProfileJobService" -->
@@ -142,13 +144,24 @@
         </activity>
 
         <meta-data
-            android:name="android.support.VERSION"
-            android:value="26.0.0" />
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
 
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-            android:theme="@style/com_facebook_activity_theme" />
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <provider
+            android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider129584771088687"
+            android:exported="true" />
+
+        <meta-data
+            android:name="android.support.VERSION"
+            android:value="26.0.0" />
+
         <activity android:name="com.facebook.CustomTabMainActivity" />
         <!--
          The initialization ContentProvider will call FacebookSdk.sdkInitialize automatically
@@ -163,6 +176,13 @@
             android:name="com.facebook.internal.FacebookInitProvider"
             android:authorities="com.pk.example.FacebookInitProvider"
             android:exported="false" />
+
+        <activity
+            android:name="pub.devrel.easypermissions.AppSettingsDialogHolderActivity"
+            android:exported="false"
+            android:label=""
+            android:theme="@style/EasyPermissions.Transparent" />
+
         <provider
             android:name="com.android.tools.fd.runtime.InstantRunContentProvider"
             android:authorities="com.pk.example.com.android.tools.fd.runtime.InstantRunContentProvider"

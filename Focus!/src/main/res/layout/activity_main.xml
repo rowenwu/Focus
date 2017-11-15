@@ -62,71 +62,43 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"/>
 
-    <!--<Button-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="Create Schedule"-->
-        <!--android:textAllCaps="true"-->
-        <!--android:layout_below="@+id/btnPermission"-->
-        <!--android:id="@+id/btnCreateSchedule"-->
-        <!--android:onClick="buttonClicked"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:layout_alignParentRight="true"/>-->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Share to Facebook"
+        android:textAllCaps="true"
+        android:layout_below="@+id/btnCreateNotify"
+        android:id="@+id/btnShareFacebook"
+        android:onClick="buttonClicked"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"/>
+
+    <com.facebook.share.widget.ShareButton
+        android:id="@+id/fb_share_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 
-    <!--<Button-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="Create Profile"-->
-        <!--android:textAllCaps="true"-->
-        <!--android:layout_below="@+id/btnCreateNotify"-->
-        <!--android:id="@+id/btnCreateProfile"-->
-        <!--android:onClick="buttonClicked"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:layout_alignParentRight="true"/>-->
-    <!--<Button-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="Schedule"-->
-        <!--android:textAllCaps="true"-->
-        <!--android:layout_below="@+id/btnCreateProfile"-->
-        <!--android:id="@+id/btnSchedule"-->
-        <!--android:onClick="buttonClicked"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:layout_alignParentRight="true"/>-->
-    <!--<Button-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="Unschedule"-->
-        <!--android:textAllCaps="true"-->
-        <!--android:layout_below="@+id/btnSchedule"-->
-        <!--android:id="@+id/btnUnSchedule"-->
-        <!--android:onClick="buttonClicked"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:layout_alignParentRight="true"/>-->
 
 
-    <ScrollView android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentBottom="true"
-                android:layout_alignRight="@+id/btnListNotify"
-                android:layout_below="@+id/btnListNotify"
-                android:layout_alignLeft="@+id/btnListNotify">
+    <!--<ScrollView android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_alignParentBottom="true"-->
+                <!--android:layout_alignRight="@+id/btnListNotify"-->
+                <!--android:layout_below="@+id/btnListNotify"-->
+                <!--android:layout_alignLeft="@+id/btnListNotify">-->
 
-        <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/app_name"
-                android:id="@+id/textView"
-                />
+        <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+                <!--android:text="@string/app_name"-->
+                <!--android:id="@+id/textView"-->
+                <!--/>-->
 
 
-    </ScrollView>
+    <!--</ScrollView>-->
 
 
 </LinearLayout>
