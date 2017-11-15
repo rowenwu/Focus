@@ -124,6 +124,10 @@
         "source": "C:\\Users\\kathe\\.android\\build-cache\\3350dd5687db9cbd4b17ffe5b652d122e57212c7\\output\\res\\drawable\\notification_tile_bg.xml"
     },
     {
+        "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\drawable\\facebooklogo50.png",
+        "source": "C:\\Users\\kathe\\Focus\\Focus!\\src\\main\\res\\drawable\\facebooklogo50.png"
+    },
+    {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_colored_material.xml",
         "source": "C:\\Users\\kathe\\.android\\build-cache\\50dd0b3ede8edb972756b0c16dd6980d003e06c9\\output\\res\\drawable\\abc_btn_colored_material.xml"
     },
@@ -138,6 +142,10 @@
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\drawable\\tooltip_frame_dark.xml",
         "source": "C:\\Users\\kathe\\.android\\build-cache\\50dd0b3ede8edb972756b0c16dd6980d003e06c9\\output\\res\\drawable\\tooltip_frame_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\drawable\\facebooklogo.png",
+        "source": "C:\\Users\\kathe\\Focus\\Focus!\\src\\main\\res\\drawable\\facebooklogo.png"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\drawable\\messenger_button_blue_bg_round.xml",

@@ -62,24 +62,28 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Share to Facebook"
-        android:textAllCaps="true"
-        android:layout_below="@+id/btnCreateNotify"
-        android:id="@+id/btnShareFacebook"
-        android:onClick="buttonClicked"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"/>
+    <!--<Button-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text=""-->
+        <!--android:textAllCaps="true"-->
+        <!--android:layout_below="@+id/btnCreateNotify"-->
+        <!--android:id="@+id/btnShareFacebook"-->
+        <!--android:onClick="buttonClicked"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentRight="true"/>-->
 
-    <com.facebook.share.widget.ShareButton
-        android:id="@+id/fb_share_button"
+
+    <ImageButton
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-
+        android:layout_height="wrap_content"
+        android:id="@+id/btnShareFacebook"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        style="?android:attr/borderlessButtonStyle"
+        android:onClick="buttonClicked"
+        android:src="@drawable/facebooklogo"/>
 
 
     <!--<ScrollView android:layout_width="match_parent"-->

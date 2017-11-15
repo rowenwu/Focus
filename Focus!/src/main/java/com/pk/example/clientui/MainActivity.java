@@ -85,14 +85,7 @@ public class MainActivity extends Activity {
             toggleService();
         }
 
-        ShareButton shareButton = (ShareButton) findViewById(R.id.fb_share_button);
         shareDialog = new ShareDialog(this);
-        shareButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                selectImageToShareFacebook();
-            }
-        });
     }
 
     @Override
@@ -172,13 +165,8 @@ public class MainActivity extends Activity {
             startActivity(i);
         }
         else if (v.getId() == R.id.btnShareFacebook){
+            selectImageToShareFacebook();
 
-            if (EasyPermissions.hasPermissions(this, galleryPermissions)) {
-                selectImageToShareFacebook();
-            } else {
-                EasyPermissions.requestPermissions(this, "Access for storage",
-                        101, galleryPermissions);
-            }
         }
 
     }
@@ -229,8 +217,15 @@ public class MainActivity extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode == Activity.RESULT_OK) {
-            if (requestCode == SELECT_FILE)
-                onSelectFromGalleryResult(data);
+            if (requestCode == SELECT_FILE) {
+                if (EasyPermissions.hasPermissions(this, galleryPermissions)) {
+                    onSelectFromGalleryResult(data);
+                } else {
+                    EasyPermissions.requestPermissions(this, "Access for storage",
+                            101, galleryPermissions);
+                    selectImageToShareFacebook();
+                }
+            }
             else if (requestCode == REQUEST_CAMERA)
                 onCaptureImageResult(data);
         }
