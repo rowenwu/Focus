@@ -312,6 +312,10 @@
         "source": "C:\\Users\\kathe\\Focus\\Focus!\\src\\main\\res\\layout\\snippet_list_row.xml"
     },
     {
+        "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout\\activity_login.xml",
+        "source": "C:\\Users\\kathe\\Focus\\Focus!\\src\\main\\res\\layout\\activity_login.xml"
+    },
+    {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\layout\\schedule_list_row.xml",
         "source": "C:\\Users\\kathe\\Focus\\Focus!\\src\\main\\res\\layout\\schedule_list_row.xml"
     },
