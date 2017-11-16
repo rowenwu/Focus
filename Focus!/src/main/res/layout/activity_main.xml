@@ -74,17 +74,46 @@
         <!--android:layout_alignParentLeft="true"-->
         <!--android:layout_alignParentRight="true"/>-->
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnShareFacebook"
+            android:layout_centerVertical="true"
+            style="?android:attr/borderlessButtonStyle"
+            android:onClick="buttonClicked"
+            android:src="@drawable/facebooklogo"/>
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnShareFacebook"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        style="?android:attr/borderlessButtonStyle"
-        android:onClick="buttonClicked"
-        android:src="@drawable/facebooklogo"/>
 
+        <!--<ImageButton-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/btnShareTwitter"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--style="?android:attr/borderlessButtonStyle"-->
+            <!--android:onClick="buttonClicked"-->
+            <!--android:layout_alignBottom="@+id/btnShareFacebook"-->
+            <!--android:layout_toRightOf="@+id/btnShareFacebook"-->
+            <!--android:layout_toEndOf="@+id/btnShareFacebook"-->
+            <!--android:src="@drawable/Twitter_Social_Icon"/>-->
+
+        <ImageButton
+            android:layout_width="29dp"
+            android:layout_height="29dp"
+            android:id="@+id/btnShareTwitter"
+            android:src="@drawable/twittericon"
+            android:layout_centerVertical="true"
+            android:adjustViewBounds="true"
+            android:cropToPadding="false"
+            android:layout_alignBottom="@+id/btnShareFacebook"
+            android:layout_toRightOf="@+id/btnShareFacebook"
+            android:layout_toEndOf="@+id/btnShareFacebook"
+            android:onClick="buttonClicked"
+            android:background="#00000000"
+            android:scaleType="fitXY" />
+    </RelativeLayout>
 
     <!--<ScrollView android:layout_width="match_parent"-->
                 <!--android:layout_height="match_parent"-->

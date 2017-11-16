@@ -18,8 +18,7 @@
     <string name="title_activity_schedule_view">ScheduleViewActivity</string>
     <string name="facebook_app_id">129584771088687</string>
     <string name="title_activity_sharing">SharingActivity</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="com.twitter.sdk.android.CONSUMER_KEY">k4Pewc6g3IgE1RuFqM2sUHcF9</string>
+    <string name="com.twitter.sdk.android.CONSUMER_SECRET">bClbomosPA5Lp1qWNai70bvPAgdaeKCOEiJFJihA78ZKI4iKO9</string>
 
 </resources>

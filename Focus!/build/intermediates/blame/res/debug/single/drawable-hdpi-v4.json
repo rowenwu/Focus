@@ -60,6 +60,10 @@
         "source": "C:\\Users\\kathe\\.android\\build-cache\\4cefe662d1a7e5d74e1831dc4a5264ed6b8bd8d5\\output\\res\\drawable-hdpi-v4\\com_facebook_close.png"
     },
     {
+        "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\tw__composer_logo_blue.png",
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\22409cc776092667d8fe29c88f5e74dd7ab863ad\\output\\res\\drawable-hdpi-v4\\tw__composer_logo_blue.png"
+    },
+    {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_button_send_icon_white.png",
         "source": "C:\\Users\\kathe\\.android\\build-cache\\5ca5226af6e68a3b96145916d8fbb820692da2ba\\output\\res\\drawable-hdpi-v4\\com_facebook_button_send_icon_white.png"
     },
@@ -108,6 +112,10 @@
         "source": "C:\\Users\\kathe\\.android\\build-cache\\1f61bcef36fd364d99dc190d446bb68bd0835e6d\\output\\res\\drawable-hdpi-v4\\com_facebook_tooltip_black_xout.png"
     },
     {
+        "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\tw__composer_logo_white.png",
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\22409cc776092667d8fe29c88f5e74dd7ab863ad\\output\\res\\drawable-hdpi-v4\\tw__composer_logo_white.png"
+    },
+    {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_radio_to_on_mtrl_000.png",
         "source": "C:\\Users\\kathe\\.android\\build-cache\\50dd0b3ede8edb972756b0c16dd6980d003e06c9\\output\\res\\drawable-hdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
     },
@@ -122,6 +130,10 @@
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_star_black_16dp.png",
         "source": "C:\\Users\\kathe\\.android\\build-cache\\50dd0b3ede8edb972756b0c16dd6980d003e06c9\\output\\res\\drawable-hdpi-v4\\abc_ic_star_black_16dp.png"
+    },
+    {
+        "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\tw__composer_close.png",
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\22409cc776092667d8fe29c88f5e74dd7ab863ad\\output\\res\\drawable-hdpi-v4\\tw__composer_close.png"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_spinner_mtrl_am_alpha.9.png",
@@ -246,6 +258,10 @@
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_radio_to_on_mtrl_015.png",
         "source": "C:\\Users\\kathe\\.android\\build-cache\\50dd0b3ede8edb972756b0c16dd6980d003e06c9\\output\\res\\drawable-hdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\tw__ic_logo_default.png",
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\d0f8ecd6c02f465e08356be2b0e6d50863128360\\output\\res\\drawable-hdpi-v4\\tw__ic_logo_default.png"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_default_mtrl_alpha.9.png",

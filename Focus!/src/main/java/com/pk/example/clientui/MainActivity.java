@@ -24,6 +24,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.content.FileProvider;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -36,6 +37,11 @@ import com.facebook.share.widget.ShareButton;
 import com.facebook.share.widget.ShareDialog;
 import com.pk.example.R;
 import com.pk.example.servicereceiver.NLService;
+import com.twitter.sdk.android.core.Twitter;
+import com.twitter.sdk.android.core.TwitterCore;
+import com.twitter.sdk.android.core.TwitterSession;
+import com.twitter.sdk.android.tweetcomposer.ComposerActivity;
+import com.twitter.sdk.android.tweetcomposer.TweetComposer;
 
 import org.json.JSONObject;
 
@@ -44,7 +50,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import pub.devrel.easypermissions.EasyPermissions;
 
@@ -52,29 +60,33 @@ public class MainActivity extends Activity {
 
     public TextView txtView;
 //    private NotificationReceiver nReceiver;
-    public Button profilesButton, schedulesButton, notificationsButton, weeklyButton;
-    ShareButton shareButton;
     private Context context;
-    static final int REQUEST_CAMERA = 0;
-    static final int SELECT_FILE = 1;
+    static final int REQUEST_CAMERA_FACEBOOK = 0;
+    static final int SELECT_FILE_FACEBOOK = 1;
     ShareDialog shareDialog;
     private String[] galleryPermissions = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
+    private static final String IMAGE_TYPES = "image/*";
+    String mCurrentPhotoPath;
+
+//    private static final int IMAGE_PICKER_CODE = 141;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //        nReceiver = new NotificationReceiver();
+//        IntentFilter filter = new IntentFilter();
+//        filter.addAction(NLService.INSERT_NOTIFICATION);
+        //        registerReceiver(nReceiver,filter);
+
+        Twitter.initialize(this);
+        TweetComposer.getInstance();
+
+
         super.onCreate(savedInstanceState);
         context = getApplicationContext();
         setContentView(R.layout.activity_main);
         txtView = (TextView) findViewById(R.id.textView);
-//        nReceiver = new NotificationReceiver();
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(NLService.INSERT_NOTIFICATION);
-//        registerReceiver(nReceiver,filter);
-        profilesButton = (Button) findViewById( R.id.btnNavigation );
-        schedulesButton = (Button) findViewById( R.id.btnAllProfiles );
-        notificationsButton = (Button) findViewById( R.id.btnNotificationList );
-        weeklyButton = (Button) findViewById(R.id.btnWeeklyView);
 
+        // Check for usage stats permission, needed to detect app running in foreground
         if(!hasUsageStatsPermission())
             startActivity(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS));
 
@@ -84,6 +96,8 @@ public class MainActivity extends Activity {
         if(!enabled){
             toggleService();
         }
+
+
 
         shareDialog = new ShareDialog(this);
     }
@@ -165,11 +179,29 @@ public class MainActivity extends Activity {
             startActivity(i);
         }
         else if (v.getId() == R.id.btnShareFacebook){
-            selectImageToShareFacebook();
-
+            if (EasyPermissions.hasPermissions(this, galleryPermissions)) {
+                launchPhotoShareDialog(0);
+            } else {
+                EasyPermissions.requestPermissions(this, "Access for storage",
+                        101, galleryPermissions);
+                launchPhotoShareDialog(0);
+            }
         }
-
+        else if (v.getId() == R.id.btnShareTwitter) {
+            if (EasyPermissions.hasPermissions(this, galleryPermissions)) {
+                launchPhotoShareDialog(2);
+            } else {
+                EasyPermissions.requestPermissions(this, "Access for storage",
+                        101, galleryPermissions);
+                launchPhotoShareDialog(2);
+            }        }
     }
+
+//    void launchPicker() {
+//        final Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+//        intent.setType(IMAGE_TYPES);
+//        startActivityForResult(Intent.createChooser(intent, "Pick an Image"), IMAGE_PICKER_CODE);
+//    }
 
     public boolean hasUsageStatsPermission(){
         boolean granted = false;
@@ -186,17 +218,18 @@ public class MainActivity extends Activity {
         return granted;
     }
 
-    private void selectImageToShareFacebook() {
+    private void launchPhotoShareDialog(final int offset) {
         final CharSequence[] items = { "Take Photo", "Choose from Library",
                 "Cancel" };
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        builder.setTitle("Share photo to Facebook");
+        builder.setTitle("Share what you've been focusing on");
         builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int item) {
                 if (items[item].equals("Take Photo")) {
-                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                    startActivityForResult(intent, REQUEST_CAMERA);
+//                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//                    startActivityForResult(intent, REQUEST_CAMERA_FACEBOOK + offset);
+                    dispatchTakePictureIntent(offset);
                 } else if (items[item].equals("Choose from Library")) {
                     Intent intent = new Intent(
                             Intent.ACTION_PICK,
@@ -204,7 +237,7 @@ public class MainActivity extends Activity {
                     intent.setType("image/*");
                     startActivityForResult(
                             Intent.createChooser(intent, "Select File"),
-                            SELECT_FILE);
+                            SELECT_FILE_FACEBOOK + offset);
                 } else if (items[item].equals("Cancel")) {
                     dialog.dismiss();
                 }
@@ -213,25 +246,61 @@ public class MainActivity extends Activity {
         builder.show();
     }
 
+    private void dispatchTakePictureIntent(int offset) {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        // Ensure that there's a camera activity to handle the intent
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            // Create the File where the photo should go
+            File photoFile = null;
+            try {
+                photoFile = createImageFile();
+            } catch (IOException ex) {
+                // Error occurred while creating the File
+            }
+            // Continue only if the File was successfully created
+            if (photoFile != null) {
+                Uri photoURI = FileProvider.getUriForFile(this,
+                        "com.pk.example.fileprovider",
+                        photoFile);
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                startActivityForResult(takePictureIntent, REQUEST_CAMERA_FACEBOOK + offset);
+            }
+        }
+    }
+
+
+    private File createImageFile() throws IOException {
+        // Create an image file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".jpg",         /* suffix */
+                storageDir      /* directory */
+        );
+
+        // Save a file: path for use with ACTION_VIEW intents
+        mCurrentPhotoPath = image.getAbsolutePath();
+        return image;
+    }
+
     protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode == Activity.RESULT_OK) {
-            if (requestCode == SELECT_FILE) {
-                if (EasyPermissions.hasPermissions(this, galleryPermissions)) {
-                    onSelectFromGalleryResult(data);
-                } else {
-                    EasyPermissions.requestPermissions(this, "Access for storage",
-                            101, galleryPermissions);
-                    selectImageToShareFacebook();
-                }
+            if (requestCode == SELECT_FILE_FACEBOOK) {
+                shareGalleryPhotoFacebook(data);
             }
-            else if (requestCode == REQUEST_CAMERA)
-                onCaptureImageResult(data);
+            else if (requestCode == REQUEST_CAMERA_FACEBOOK)
+                shareTakenPhotoFacebook(data);
+            else {
+                launchTwitterShareDialog(data.getData());
+            }
         }
     }
 
-    private void onSelectFromGalleryResult(Intent data) {
+    private void shareGalleryPhotoFacebook(Intent data) {
         Uri selectedImageUri = data.getData();
         String[] projection = { MediaStore.MediaColumns.DATA };
         Cursor cursor = managedQuery(selectedImageUri, projection, null, null,
@@ -251,10 +320,10 @@ public class MainActivity extends Activity {
         options.inSampleSize = scale;
         options.inJustDecodeBounds = false;
         thumbnail = BitmapFactory.decodeFile(selectedImagePath, options);
-        ShareDialog(thumbnail);
+        launchFacebookShareDialog(thumbnail);
     }
 
-    private void onCaptureImageResult(Intent data) {
+    private void shareTakenPhotoFacebook(Intent data) {
         Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         thumbnail.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
@@ -271,10 +340,10 @@ public class MainActivity extends Activity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        ShareDialog(thumbnail);
+        launchFacebookShareDialog(thumbnail);
     }
 
-    public void ShareDialog(Bitmap imagePath){
+    public void launchFacebookShareDialog(Bitmap imagePath){
         SharePhoto photo = new SharePhoto.Builder()
                 .setBitmap(imagePath)
                 .setCaption("Share what you've been focusing on")
@@ -283,6 +352,27 @@ public class MainActivity extends Activity {
                 .addPhoto(photo)
                 .build();
         shareDialog.show(content);
+    }
+
+    void launchTwitterShareDialog(Uri uri) {
+//        final TwitterSession session = TwitterCore.getInstance().getSessionManager()
+//                .getActiveSession();
+//        final Intent intent = new ComposerActivity.Builder(MainActivity.this)
+//                .session(session)
+//                .image(uri)
+//                .text("Tweet from TwitterKit!")
+//                .hashtags("#twitter")
+//                .createIntent();
+//        startActivity(intent);
+
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_SEND);
+//        intent.putExtra(Intent.EXTRA_TEXT, "");
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_STREAM, uri);
+        intent.setType("image/jpeg");
+        intent.setPackage("com.twitter.android");
+        startActivity(intent);
     }
 //    class NotificationReceiver extends BroadcastReceiver{
 //

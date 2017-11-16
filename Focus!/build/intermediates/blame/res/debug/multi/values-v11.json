@@ -421,8 +421,50 @@
                     "startLine": 83,
                     "startColumn": 4,
                     "startOffset": 5776,
+                    "endLine": 90,
+                    "endColumn": 12,
+                    "endOffset": 6281
+                },
+                "from": {
+                    "file": "C:\\Users\\kathe\\.android\\build-cache\\22409cc776092667d8fe29c88f5e74dd7ab863ad\\output\\res\\values-v11\\values-v11.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endLine": 9,
+                        "endColumn": 12,
+                        "endOffset": 560
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 91,
+                    "startColumn": 4,
+                    "startOffset": 6286,
+                    "endLine": 98,
+                    "endColumn": 12,
+                    "endOffset": 6797
+                },
+                "from": {
+                    "file": "C:\\Users\\kathe\\.android\\build-cache\\22409cc776092667d8fe29c88f5e74dd7ab863ad\\output\\res\\values-v11\\values-v11.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 565,
+                        "endLine": 17,
+                        "endColumn": 12,
+                        "endOffset": 1076
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 99,
+                    "startColumn": 4,
+                    "startOffset": 6802,
                     "endColumn": 70,
-                    "endOffset": 5842
+                    "endOffset": 6868
                 },
                 "from": {
                     "file": "C:\\Users\\kathe\\.android\\build-cache\\50dd0b3ede8edb972756b0c16dd6980d003e06c9\\output\\res\\values-v11\\values-v11.xml",
@@ -437,11 +479,11 @@
             },
             {
                 "to": {
-                    "startLine": 84,
+                    "startLine": 100,
                     "startColumn": 4,
-                    "startOffset": 5847,
+                    "startOffset": 6873,
                     "endColumn": 82,
-                    "endOffset": 5925
+                    "endOffset": 6951
                 },
                 "from": {
                     "file": "C:\\Users\\kathe\\.android\\build-cache\\50dd0b3ede8edb972756b0c16dd6980d003e06c9\\output\\res\\values-v11\\values-v11.xml",
@@ -456,12 +498,12 @@
             },
             {
                 "to": {
-                    "startLine": 85,
+                    "startLine": 101,
                     "startColumn": 4,
-                    "startOffset": 5930,
-                    "endLine": 138,
+                    "startOffset": 6956,
+                    "endLine": 154,
                     "endColumn": 12,
-                    "endOffset": 9950
+                    "endOffset": 10976
                 },
                 "from": {
                     "file": "C:\\Users\\kathe\\.android\\build-cache\\50dd0b3ede8edb972756b0c16dd6980d003e06c9\\output\\res\\values-v11\\values-v11.xml",
@@ -477,12 +519,12 @@
             },
             {
                 "to": {
-                    "startLine": 139,
+                    "startLine": 155,
                     "startColumn": 4,
-                    "startOffset": 9955,
-                    "endLine": 193,
+                    "startOffset": 10981,
+                    "endLine": 209,
                     "endColumn": 12,
-                    "endOffset": 14118
+                    "endOffset": 15144
                 },
                 "from": {
                     "file": "C:\\Users\\kathe\\.android\\build-cache\\50dd0b3ede8edb972756b0c16dd6980d003e06c9\\output\\res\\values-v11\\values-v11.xml",
@@ -498,11 +540,11 @@
             },
             {
                 "to": {
-                    "startLine": 194,
+                    "startLine": 210,
                     "startColumn": 4,
-                    "startOffset": 14123,
+                    "startOffset": 15149,
                     "endColumn": 90,
-                    "endOffset": 14209
+                    "endOffset": 15235
                 },
                 "from": {
                     "file": "C:\\Users\\kathe\\.android\\build-cache\\50dd0b3ede8edb972756b0c16dd6980d003e06c9\\output\\res\\values-v11\\values-v11.xml",

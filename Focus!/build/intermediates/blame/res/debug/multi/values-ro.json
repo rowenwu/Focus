@@ -400,6 +400,82 @@
                         "endOffset": 2247
                     }
                 }
+            },
+            {
+                "to": {
+                    "startLine": 23,
+                    "startColumn": 4,
+                    "startOffset": 2252,
+                    "endColumn": 61,
+                    "endOffset": 2309
+                },
+                "from": {
+                    "file": "C:\\Users\\kathe\\.android\\build-cache\\22409cc776092667d8fe29c88f5e74dd7ab863ad\\output\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 61,
+                        "endOffset": 112
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 24,
+                    "startColumn": 4,
+                    "startOffset": 2314,
+                    "endColumn": 70,
+                    "endOffset": 2380
+                },
+                "from": {
+                    "file": "C:\\Users\\kathe\\.android\\build-cache\\d0f8ecd6c02f465e08356be2b0e6d50863128360\\output\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 70,
+                        "endOffset": 121
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 25,
+                    "startColumn": 4,
+                    "startOffset": 2385,
+                    "endColumn": 51,
+                    "endOffset": 2432
+                },
+                "from": {
+                    "file": "C:\\Users\\kathe\\.android\\build-cache\\22409cc776092667d8fe29c88f5e74dd7ab863ad\\output\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 117,
+                        "endColumn": 51,
+                        "endOffset": 164
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 26,
+                    "startColumn": 4,
+                    "startOffset": 2437,
+                    "endColumn": 57,
+                    "endOffset": 2490
+                },
+                "from": {
+                    "file": "C:\\Users\\kathe\\.android\\build-cache\\22409cc776092667d8fe29c88f5e74dd7ab863ad\\output\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 169,
+                        "endColumn": 57,
+                        "endOffset": 222
+                    }
+                }
             }
         ]
     }
