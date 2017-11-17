@@ -35,7 +35,7 @@ public class ProfileListActivity extends ListActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_list);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+//        getActionBar().setDisplayHomeAsUpEnabled(true);
 
         ListView profileListView = getListView();
         textView=(TextView)findViewById(R.id.textView);

@@ -35,7 +35,7 @@ public class NotificationListActivity extends ListActivity {
         //creates view
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification_list);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+//        getActionBar().setDisplayHomeAsUpEnabled(true);
 
 //        minNotificationEntityList = new ArrayList<MinNotificationEntity>();
 

@@ -3755,7 +3755,6 @@ containing a value of this type.
         public static final int Animation_AppCompat_DropDownUp=0x7f0800ae;
         public static final int Animation_AppCompat_Tooltip=0x7f0800af;
         /**  API 11 theme customizations can go here. 
- API 14 theme customizations can go here. 
          */
         public static final int AppBaseTheme=0x7f08000b;
         public static final int AppTheme=0x7f0800b0;

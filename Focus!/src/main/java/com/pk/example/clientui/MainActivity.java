@@ -77,16 +77,6 @@ public class MainActivity extends Activity {
 
         Twitter.initialize(this);
         TweetComposer.getInstance();
-//        String name = getIntent().getStringExtra("name");
-//
-//        if(name != null){
-//            Toast toast = Toast.makeText(getApplicationContext(),
-//                    "Welcome, " + name, Toast.LENGTH_SHORT);
-//            toast.show();
-//        }
-
-
-
 
         super.onCreate(savedInstanceState);
         context = getApplicationContext();
@@ -103,8 +93,6 @@ public class MainActivity extends Activity {
         if(!enabled){
             toggleService();
         }
-
-
 
         shareDialog = new ShareDialog(this);
     }
