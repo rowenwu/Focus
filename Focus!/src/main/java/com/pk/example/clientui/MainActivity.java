@@ -68,8 +68,6 @@ public class MainActivity extends Activity {
     private static final String IMAGE_TYPES = "image/*";
     String mCurrentPhotoPath;
 
-//    private static final int IMAGE_PICKER_CODE = 141;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //        nReceiver = new NotificationReceiver();
@@ -79,6 +77,15 @@ public class MainActivity extends Activity {
 
         Twitter.initialize(this);
         TweetComposer.getInstance();
+//        String name = getIntent().getStringExtra("name");
+//
+//        if(name != null){
+//            Toast toast = Toast.makeText(getApplicationContext(),
+//                    "Welcome, " + name, Toast.LENGTH_SHORT);
+//            toast.show();
+//        }
+
+
 
 
         super.onCreate(savedInstanceState);
@@ -197,11 +204,6 @@ public class MainActivity extends Activity {
             }        }
     }
 
-//    void launchPicker() {
-//        final Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-//        intent.setType(IMAGE_TYPES);
-//        startActivityForResult(Intent.createChooser(intent, "Pick an Image"), IMAGE_PICKER_CODE);
-//    }
 
     public boolean hasUsageStatsPermission(){
         boolean granted = false;
@@ -355,16 +357,6 @@ public class MainActivity extends Activity {
     }
 
     void launchTwitterShareDialog(Uri uri) {
-//        final TwitterSession session = TwitterCore.getInstance().getSessionManager()
-//                .getActiveSession();
-//        final Intent intent = new ComposerActivity.Builder(MainActivity.this)
-//                .session(session)
-//                .image(uri)
-//                .text("Tweet from TwitterKit!")
-//                .hashtags("#twitter")
-//                .createIntent();
-//        startActivity(intent);
-
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_SEND);
 //        intent.putExtra(Intent.EXTRA_TEXT, "");

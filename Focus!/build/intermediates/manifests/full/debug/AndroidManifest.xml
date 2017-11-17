@@ -175,7 +175,7 @@
 
         <activity
             android:name="com.pk.example.clientui.LoginActivity"
-            android:label="@string/title_activity_login" >
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
