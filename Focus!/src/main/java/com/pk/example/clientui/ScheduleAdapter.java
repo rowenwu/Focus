@@ -25,6 +25,8 @@ import com.pk.example.entity.ScheduleEntity;
 import com.pk.example.servicereceiver.DateManipulator;
 import com.pk.example.servicereceiver.ProfileScheduler;
 
+import org.w3c.dom.Text;
+
 public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
     private List<ScheduleEntity> scheduleEntities = null;
     private Context context;
@@ -105,8 +107,17 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
 
                     }
                 });
-
             }
+            TextView holidayTextView = (TextView) view.findViewById(R.id.holiday);
+            Holidays holiday = new Holidays();
+            Calendar calendar = Calendar.getInstance();
+
+            Date date = schedule.getStartTimes().get(0);
+            calendar.setTime(date);
+
+            String holy = holiday.checkIfHoliday(calendar);
+
+            holidayTextView.setText(holiday.checkIfHoliday(calendar));
 
         }
         return view;

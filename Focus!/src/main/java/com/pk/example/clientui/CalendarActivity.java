@@ -195,6 +195,7 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
 
 
             int id = 0;
+            int currYear = 0;
             for(ScheduleEntity schedule : scheduleEntityList) {
                 //get random color for schedule
                 Random rand = new Random();
@@ -215,14 +216,109 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
                     event.setColor(randomColor);
                     events.add(event);
                     id += 1;
+                    currYear = date.getYear()+1900;
                 }
             }
+
+
+            //add Holiday Events
+            //New Year's Day
+            Calendar startTime = Calendar.getInstance();
+            Calendar endTime = Calendar.getInstance();
+            String holidayName = "New Year's Day";
+            startTime.set(currYear,0,0,0,0);
+            endTime.set(currYear,0,0,1,0);
+            WeekViewEvent event = new WeekViewEvent(id, holidayName, startTime, endTime);
+            events.add(event);
+
+
+            // check if Christmas
+            String holidayName2 = "Christmas";
+            Calendar startTime2 = Calendar.getInstance();
+            Calendar endTime2 = Calendar.getInstance();
+            startTime2.set(currYear,11,25,0,0);
+            endTime2.set(currYear,11,25,1,0);
+            event = new WeekViewEvent(id, holidayName2, startTime2, endTime2);
+            events.add(event);
+
+            // check if 4th of July
+            String holidayName3 = "4th Of July";
+            Calendar startTime3 = Calendar.getInstance();
+            Calendar endTime3 = Calendar.getInstance();
+            startTime3.set(currYear,6,3,0,0);
+            endTime3.set(currYear,6,3,1,0);
+            event = new WeekViewEvent(id, holidayName3, startTime3, endTime3);
+            events.add(event);
+
+//
+//  // check Thanksgiving (4th Thursday of November)
+//            String holidayName4 = "Thanksgiving";
+//            Calendar startTime4 = Calendar.getInstance();
+//            Calendar endTime4 = Calendar.getInstance();
+//            startTime4.set(currYear,11);
+//            startTime4.set(Calendar.DAY_OF_WEEK, Calendar.THURSDAY);
+//            startTime4.set(Calendar.DAY_OF_WEEK_IN_MONTH, 4);
+//            startTime4.set(Calendar.HOUR_OF_DAY, 0);
+//
+//            endTime4.set(currYear,11);
+//            endTime4.set(Calendar.DAY_OF_WEEK, Calendar.THURSDAY);
+//            endTime4.set(Calendar.DAY_OF_WEEK_IN_MONTH, 4);
+//            endTime4.set(Calendar.HOUR_OF_DAY, 1);
+//            event = new WeekViewEvent(id, holidayName4, startTime4, endTime4);
+//            events.add(event);
+////            // check Memorial Day (last Monday of May)
+////            if (month == Calendar.MAY
+////                    && cal.get(Calendar.DAY_OF_WEEK) == Calendar.MONDAY
+////                    && cal.get(Calendar.DAY_OF_MONTH) > (31 - 7) ) {
+////                return "Memorial Day";
+////            }
+//
+//            // check Labor Day (1st Monday of September)
+//            String holidayName5 = "Labor Day";
+//            Calendar startTime5 = Calendar.getInstance();
+//            Calendar endTime5 = Calendar.getInstance();
+//            startTime5.set(currYear,8);
+//            startTime5.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+//            startTime5.set(Calendar.HOUR_OF_DAY, 0);
+//            endTime5.set(currYear,8);
+//            endTime5.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+//            endTime5.set(Calendar.HOUR_OF_DAY, 1);
+//            event = new WeekViewEvent(id, holidayName5, startTime5, endTime5);
+//            events.add(event);
+
+//            // check President's Day (3rd Monday of February)
+//            String holidayName6 = "President's Day";
+//            Calendar startTime6 = Calendar.getInstance();
+//            Calendar endTime6 = Calendar.getInstance();
+//            startTime6.set(currYear,1);
+//            startTime6.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+//            startTime6.set(Calendar.DAY_OF_WEEK_IN_MONTH, 3);
+//            startTime6.set(Calendar.HOUR_OF_DAY, 0);
+//
+//            endTime6.set(currYear,1);
+//            endTime6.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+//            endTime6.set(Calendar.DAY_OF_WEEK_IN_MONTH, 3);
+//            endTime6.set(Calendar.HOUR_OF_DAY, 1);
+//            event = new WeekViewEvent(id, holidayName6, startTime6, endTime6);
+//            events.add(event);
+//
+//            // check MLK Day (3rd Monday of January)
+//            String holidayName7 = "MLK Day";
+//            Calendar startTime7 = Calendar.getInstance();
+//            Calendar endTime7 = Calendar.getInstance();
+//            startTime7.set(currYear,0);
+//            startTime7.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+//            startTime7.set(Calendar.DAY_OF_WEEK_IN_MONTH, 3);
+//            startTime7.set(Calendar.HOUR_OF_DAY, 0);
+//
+//            endTime7.set(currYear,0);
+//            endTime7.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+//            endTime7.set(Calendar.DAY_OF_WEEK_IN_MONTH, 3);
+//            endTime7.set(Calendar.HOUR_OF_DAY, 1);
+//            event = new WeekViewEvent(id, holidayName7, startTime7, endTime7);
+//            events.add(event);
+
             return null;
         }
     }
 }
-
-
-
-
-
