@@ -204,12 +204,12 @@
         "source": "C:\\Users\\kathe\\.android\\build-cache\\50dd0b3ede8edb972756b0c16dd6980d003e06c9\\output\\res\\drawable-xhdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
     },
     {
-        "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\com_facebook_button_send_icon_white.png",
-        "source": "C:\\Users\\kathe\\.android\\build-cache\\5ca5226af6e68a3b96145916d8fbb820692da2ba\\output\\res\\drawable-xhdpi-v4\\com_facebook_button_send_icon_white.png"
-    },
-    {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_star_black_16dp.png",
         "source": "C:\\Users\\kathe\\.android\\build-cache\\50dd0b3ede8edb972756b0c16dd6980d003e06c9\\output\\res\\drawable-xhdpi-v4\\abc_ic_star_black_16dp.png"
+    },
+    {
+        "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\com_facebook_button_send_icon_white.png",
+        "source": "C:\\Users\\kathe\\.android\\build-cache\\5ca5226af6e68a3b96145916d8fbb820692da2ba\\output\\res\\drawable-xhdpi-v4\\com_facebook_button_send_icon_white.png"
     },
     {
         "merged": "C:\\Users\\kathe\\Focus\\Focus!\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_light_pressed.9.png",

@@ -144,7 +144,6 @@
     <orderEntry type="library" exported="" name="pub.devrel:easypermissions-1.0.1" level="project" />
     <orderEntry type="library" exported="" name="com.android.support:support-media-compat-26.0.0" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="net.bytebuddy:byte-buddy-agent:1.6.11@jar" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="com.android.support:multidex-instrumentation-1.0.1" level="project" />
     <orderEntry type="library" exported="" name="android.arch.core:core-1.0.0-alpha1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="backport-util-concurrent:backport-util-concurrent:3.1@jar" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="org.robolectric:shadows-core:3.3.2@jar" level="project" />
@@ -166,7 +165,6 @@
     <orderEntry type="library" exported="" name="com.twitter.sdk.android:tweet-composer-3.1.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="classworlds:classworlds:1.1-alpha-2@jar" level="project" />
     <orderEntry type="library" exported="" name="com.squareup.okio:okio:1.9.0@jar" level="project" />
-    <orderEntry type="library" exported="" name="com.android.support:multidex-1.0.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="org.codehaus.plexus:plexus-interpolation:1.11@jar" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase:firebase-core-9.0.0" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="net.bytebuddy:byte-buddy-android:1.6.5@jar" level="project" />
