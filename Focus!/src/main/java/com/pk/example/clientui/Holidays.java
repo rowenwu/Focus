@@ -27,6 +27,12 @@ public class Holidays {
         int dayOfMonth = cal.get(Calendar.DAY_OF_MONTH);
         int dayOfWeekInMonth = cal.get(Calendar.DAY_OF_WEEK_IN_MONTH);
 
+        //test
+        if(month == 10 && dayOfMonth == 20) {
+            return "Test Holiday";
+        }
+
+
         // check if New Year's Day
         if (month == 0
                 && dayOfMonth == 1) {
