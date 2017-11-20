@@ -8,7 +8,8 @@
     android:paddingBottom="10dp"
     android:paddingLeft="10dp"
     android:gravity="center_vertical"
-    android:descendantFocusability="blocksDescendants">
+    android:descendantFocusability="blocksDescendants"
+    android:weightSum="1">
 
 
     <!--<LinearLayout-->
@@ -43,8 +44,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_weight="0.8">
 
         <TextView
             android:id="@+id/name"
@@ -60,7 +61,15 @@
             android:textStyle="bold"
             android:textColor="#45ADA8"
             android:gravity="center_vertical" />
-
+<!--
+        <TextView
+            android:id="@+id/holiday"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="#45ADA8"
+            android:gravity="center_vertical" />
+-->
     </LinearLayout>
     <ToggleButton
         android:id="@+id/toggBtn"

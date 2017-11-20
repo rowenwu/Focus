@@ -26,6 +26,7 @@ import com.pk.example.servicereceiver.ProfileScheduler;
 
 public class ProfileViewActivity extends ListActivity {
     private AppAdapter listadaptor = null;
+    private List<ProfileEntity> profileList = null;
     private String name;
 
     private AppDatabase db;
@@ -40,6 +41,9 @@ public class ProfileViewActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         db = AppDatabase.getDatabase(getApplicationContext());
         flag = getIntent().getStringExtra("flag");
+
+        //load all profiles for name checking
+        new LoadAllProfiles().execute();
 
         // create profile mode
         if (flag.equals("create")) {
@@ -123,6 +127,12 @@ public class ProfileViewActivity extends ListActivity {
                     "Please select one or more apps", Toast.LENGTH_SHORT);
             toast.show();
         }
+        else if (NameExists(pname)){
+            // show toast if name already exist
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "This name has been taken. Please choose another one", Toast.LENGTH_SHORT);
+            toast.show();
+        }
         else {
             // add profile to db, return to ProfileListActivity
             new InsertProfile().execute();
@@ -159,6 +169,13 @@ public class ProfileViewActivity extends ListActivity {
             // show toast if no apps are selected
             Toast toast = Toast.makeText(getApplicationContext(),
                     "Please select one or more apps", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+        else if (NameExistsEditMode(pname))
+        {
+            // show toast if name already exist
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "This name has been taken. Please choose another one", Toast.LENGTH_SHORT);
             toast.show();
         }
         else {
@@ -198,7 +215,7 @@ public class ProfileViewActivity extends ListActivity {
         if(profileEntity.getActive())
             ProfileScheduler.turnOffProfile(getApplicationContext(), profileEntity);
         new DeleteProfile(name).execute();
-        
+
         // notify user
         Toast toast = Toast.makeText(getApplicationContext(),
                 "Profile deleted", Toast.LENGTH_SHORT);
@@ -398,6 +415,52 @@ public class ProfileViewActivity extends ListActivity {
             return null;
         }
 
+    }
+
+    private class LoadAllProfiles extends AsyncTask<Void, Void, Void> {
+        private ProgressDialog progress = null;
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            db = AppDatabase.getDatabase(getApplicationContext());
+            profileList = db.profileDao().loadAllProfilesAsync();
+            return null;
+        }
+
+    }
+
+    private boolean NameExists(String pname)
+    {
+        if (profileList.size() == 0)
+        {
+            return false;
+        } else {
+            for (int i = 0 ; i < profileList.size(); ++i)
+            {
+                if (profileList.get(i).getName().equals(pname))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
+
+    private boolean NameExistsEditMode(String pname)
+    {
+        if (profileList.size() == 0)
+        {
+            return false;
+        } else {
+            for (int i = 0 ; i < profileList.size(); ++i)
+            {
+                if (profileList.get(i).getName().equals(pname) && (!pname.equals(name)))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 
 

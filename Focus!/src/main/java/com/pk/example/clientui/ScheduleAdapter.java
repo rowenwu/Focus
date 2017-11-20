@@ -25,6 +25,8 @@ import com.pk.example.entity.ScheduleEntity;
 import com.pk.example.servicereceiver.DateManipulator;
 import com.pk.example.servicereceiver.ProfileScheduler;
 
+import org.w3c.dom.Text;
+
 public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
     private List<ScheduleEntity> scheduleEntities = null;
     private Context context;
@@ -74,40 +76,74 @@ public class ScheduleAdapter extends ArrayAdapter<ScheduleEntity> {
             final TextView countdownTimer = (TextView) view.findViewById(R.id.countdown);
             if(schedule.getName().equals("There are no schedules to display.")){
                 ((ViewGroup) b.getParent()).removeView(b);
-            }
-            else {
-                if(schedule.getIsEnabled()){
-                    b.setChecked(true);
+            } else {
+                //check if current date is holiday and disable
+                Calendar currentDate = Calendar.getInstance();
+                ArrayList<Date> startTimes = schedule.getStartTimes();
+                for(int i = 0; i < startTimes.size(); i++) {
+                    //current date
+                    Calendar scheduleDate = Calendar.getInstance();
+                    scheduleDate.setTime(startTimes.get(i));
+                    Holidays holiday = new Holidays();
+                    Calendar calendar = Calendar.getInstance();
+                    //get date from schedule list
+                    Date date = startTimes.get(i);
+                    calendar.setTime(date);
+                    final String holy = holiday.checkIfHoliday(calendar);
+                    if (scheduleDate.get(Calendar.YEAR) == currentDate.get(Calendar.YEAR) &&
+                            scheduleDate.get(Calendar.MONTH) == currentDate.get(Calendar.MONTH) &&
+                            scheduleDate.get(Calendar.DAY_OF_MONTH) == currentDate.get(Calendar.DAY_OF_MONTH)) {
 
-                    if(schedule.getActive() && schedule.shouldBeActive()) {
-                        timers[position] = setCountDownTimer(countdownTimer, schedule);
-                    }
-                }
-                b.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (b.isChecked()) {
+                        if (holy != "") {
+                            if (schedule.getIsEnabled()) {
 //                            new EnableSchedule(getItem(position)).execute();
-                            ProfileScheduler.enableSchedule(context, schedule);
-                            schedule.setIsEnabled(true);
-                            if(schedule.shouldBeActive()){
-                                timers[position] = setCountDownTimer(countdownTimer, schedule);
+                                ProfileScheduler.enableSchedule(context, schedule);
+                                schedule.setIsEnabled(true);
+                                if (schedule.getIsEnabled()) {
+                                    timers[position] = setCountDownTimer(countdownTimer, schedule);
+                                }
+                            } else {
+                                b.setChecked(false);
+                                countdownTimer.setText(holy);
+                                ProfileScheduler.disableSchedule(context, schedule);
                             }
-                            //countdown.start();
-                        } else {
-                            ProfileScheduler.disableSchedule(context, schedule);
-                            schedule.setIsEnabled(false);
-                            if(timers[position] != null)
-                                timers[position].cancel();
-                            countdownTimer.setText("");
                         }
-                        new UpdateSchedule(schedule).execute();
-
                     }
-                });
+                    if (schedule.getIsEnabled()) {
+                        b.setChecked(true);
 
+                        if (schedule.getActive() && schedule.shouldBeActive()) {
+                            timers[position] = setCountDownTimer(countdownTimer, schedule);
+                        }
+                    }
+                    b.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (b.isChecked()) {
+//                            new EnableSchedule(getItem(position)).execute();
+                                ProfileScheduler.enableSchedule(context, schedule);
+                                schedule.setIsEnabled(true);
+                                if (schedule.shouldBeActive()) {
+                                    timers[position] = setCountDownTimer(countdownTimer, schedule);
+                                }
+                                //countdown.start();
+                            } else {
+                                ProfileScheduler.disableSchedule(context, schedule);
+                                schedule.setIsEnabled(false);
+                                if (timers[position] != null)
+                                    timers[position].cancel();
+                                if (holy != "") {
+                                    countdownTimer.setText(holy);
+                                } else {
+                                    countdownTimer.setText("");
+                                }
+
+                            }
+                            new UpdateSchedule(schedule).execute();
+                        }
+                    });
+                }
             }
-
         }
         return view;
     }
