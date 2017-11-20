@@ -32,7 +32,6 @@ public class ProfileViewActivity extends ListActivity {
 
     private String flag;
     private ProfileEntity profileEntity; // for edit/delete
-    private ProfileDao profileDao;
     ProfileEntity profileInsert;
 
 
