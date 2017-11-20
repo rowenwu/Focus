@@ -61,7 +61,7 @@
             android:textStyle="bold"
             android:textColor="#45ADA8"
             android:gravity="center_vertical" />
-
+<!--
         <TextView
             android:id="@+id/holiday"
             android:layout_width="fill_parent"
@@ -69,7 +69,7 @@
             android:textStyle="bold"
             android:textColor="#45ADA8"
             android:gravity="center_vertical" />
-
+-->
     </LinearLayout>
     <ToggleButton
         android:id="@+id/toggBtn"
