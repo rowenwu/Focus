@@ -570,7 +570,9 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
          */
         private List<String> getDataFromApi() throws IOException {
             // List the next 10 events from the primary calendar.
-            DateTime now = new DateTime(System.currentTimeMillis());
+            Calendar minDay = Calendar.getInstance();
+            minDay.add(Calendar.DAY_OF_MONTH, -5);
+            DateTime now = new DateTime(minDay.getTimeInMillis());
             List<String> eventStrings = new ArrayList<String>();
             Events calendarEvents = mService.events().list("primary")
                     .setMaxResults(20)
@@ -606,7 +608,7 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
                 eventStrings.add(
                         String.format("%s (%s)", event.getSummary(), start));
             }
-//            getMoreEvents()
+            getWeekView().notifyDatasetChanged();
             return eventStrings;
         }
 
