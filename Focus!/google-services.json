@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "547363105003",
+    "project_id": "focus-42b2e"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:547363105003:android:ad65bdd85b462f59",
+        "android_client_info": {
+          "package_name": "com.pk.example"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "547363105003-ntbf0qt5amg4k3iae125tbq8oetjmuvu.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "547363105003-stk8q62qfdal26pdmn0k0u7kiroo1cd7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pk.example",
+            "certificate_hash": "0fc170a01d94717c1fcc88f87f251b737cb3d93d"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmmKoZCvEFKnk8ijAtzCjy9Iupo_3ufso"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
