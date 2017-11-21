@@ -1,5 +1,9 @@
 package com.pk.example.servicereceiver;
 
+
+import com.google.api.client.util.DateTime;
+
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -63,6 +67,11 @@ public class DateManipulator {
 
     public static long getTimeDiffMillis(Date start, Date end){
         return end.getTime() - start.getTime();
+    }
+
+    public static Calendar getCalendarFromDateTime(DateTime dt){
+        Date date = new Date(dt.getValue());
+        return getCalendarFromDate(date);
     }
 
 }

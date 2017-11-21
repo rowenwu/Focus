@@ -1,13 +1,18 @@
 package com.pk.example.clientui;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.app.usage.UsageEvents;
 import android.content.Intent;
+//import android.graphics.Color;
+//import java.awt.Color;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.RectF;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v13.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
 import android.view.KeyEvent;
@@ -18,6 +23,9 @@ import com.alamkanak.weekview.DateTimeInterpreter;
 import com.alamkanak.weekview.MonthLoader;
 import com.alamkanak.weekview.WeekView;
 import com.alamkanak.weekview.WeekViewEvent;
+import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
+import com.google.api.client.util.ExponentialBackOff;
+import com.google.api.services.calendar.CalendarScopes;
 import com.pk.example.R;
 import com.pk.example.database.AppDatabase;
 import com.pk.example.entity.PrevNotificationEntity;
@@ -25,17 +33,63 @@ import com.pk.example.entity.ScheduleEntity;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.api.client.extensions.android.http.AndroidHttp;
+import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
+import com.google.api.client.googleapis.extensions.android.gms.auth.GooglePlayServicesAvailabilityIOException;
+import com.google.api.client.googleapis.extensions.android.gms.auth.UserRecoverableAuthIOException;
+
+import com.google.api.client.http.HttpTransport;
+import com.google.api.client.json.JsonFactory;
+import com.google.api.client.json.jackson2.JacksonFactory;
+import com.google.api.client.util.ExponentialBackOff;
+
+import com.google.api.services.calendar.CalendarScopes;
+import com.google.api.client.util.DateTime;
+
+import com.google.api.services.calendar.model.*;
+
+import android.Manifest;
+import android.accounts.AccountManager;
+import android.app.Activity;
+import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.text.TextUtils;
+import android.text.method.ScrollingMovementMethod;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.IOException;
+
+
+import pub.devrel.easypermissions.EasyPermissions;
+import com.pk.example.R;
+import com.pk.example.servicereceiver.DateManipulator;
 
 /**
  * Created by williamxu on 11/4/17.
  */
 
-public class CalendarActivity extends Activity implements WeekView.EventClickListener, MonthLoader.MonthChangeListener, WeekView.EventLongPressListener, WeekView.EmptyViewLongPressListener {
+public class CalendarActivity extends Activity implements WeekView.EventClickListener, MonthLoader.MonthChangeListener, WeekView.EventLongPressListener, WeekView.EmptyViewLongPressListener, EasyPermissions.PermissionCallbacks {
     private static final int TYPE_DAY_VIEW = 1;
     private static final int TYPE_THREE_DAY_VIEW = 2;
     private static final int TYPE_WEEK_VIEW = 3;
@@ -45,6 +99,24 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
     private List<ScheduleEntity> scheduleEntityList;
     private List<WeekViewEvent> events = new ArrayList<WeekViewEvent>();
 
+    GoogleAccountCredential mCredential;
+    ProgressDialog mProgress;
+
+    static final int REQUEST_ACCOUNT_PICKER = 1000;
+    static final int REQUEST_AUTHORIZATION = 1001;
+    static final int REQUEST_GOOGLE_PLAY_SERVICES = 1002;
+    static final int REQUEST_PERMISSION_GET_ACCOUNTS = 1003;
+    private static final String PREF_ACCOUNT_NAME = "accountName";
+    private static final String[] SCOPES = { CalendarScopes.CALENDAR_READONLY };
+
+    private static final int ACTIVE_SCHEDULE_EVENT = 0;
+    private static final int ENABLED_SCHEDULE_EVENT = 1;
+    private static final int GOOGLE_CALENDAR_EVENT = 2;
+    private static final int DISABLED_SCHEDULE_EVENT = 3;
+    int eventID;
+
+    private Context context;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +124,10 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
         new LoadSchedules().execute();
 
         setContentView(R.layout.activity_week_view);
+        eventID = 0;
+        context = getApplicationContext();
+        mProgress = new ProgressDialog(this);
+
 
         // Get a reference for the week view in the layout.
         mWeekView = (WeekView) findViewById(R.id.weekView);
@@ -68,6 +144,19 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
 
         // Set long press listener for empty view
         mWeekView.setEmptyViewLongPressListener(this);
+
+
+        // Initialize credentials and service object.
+        mCredential = GoogleAccountCredential.usingOAuth2(
+                getApplicationContext(), Arrays.asList(SCOPES))
+                .setBackOff(new ExponentialBackOff());
+        getResultsFromApi();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mProgress.dismiss();
     }
 
 
@@ -197,128 +286,370 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
             int id = 0;
             int currYear = 0;
             for(ScheduleEntity schedule : scheduleEntityList) {
-                //get random color for schedule
-                Random rand = new Random();
-                int r = rand.nextInt(255);
-                int g = rand.nextInt(255);
-                int b = rand.nextInt(255);
-                int randomColor = Color.rgb(r, g, b);
 
                 //start times for schedule
                 ArrayList<Date> daysOfSchedule = schedule.getStartTimes();
                 for(Date date : daysOfSchedule) {
-                    Calendar startTime = Calendar.getInstance();
-                    startTime.set(date.getYear()+1900,date.getMonth(),date.getDate(),date.getHours(),date.getMinutes());
+                    Calendar startTime = DateManipulator.getCalendarFromDate(date);
+                    Calendar endTime = DateManipulator.getEndCalendar(date, schedule.getDurationHr(), schedule.getDurationMin());
+                    int type = 3;
+                    if(schedule.getActive())
+                        type = 0;
+                    else if(schedule.getIsEnabled())
+                        type = 1;
 
-                    Calendar endTime = Calendar.getInstance();
-                    endTime.set(date.getYear()+1900,date.getMonth(),date.getDate(),date.getHours() + schedule.getDurationHr(),date.getMinutes()+schedule.getDurationMin());
-                    WeekViewEvent event = new WeekViewEvent(id, schedule.getName(), startTime, endTime);
-                    event.setColor(randomColor);
-                    events.add(event);
-                    id += 1;
-                    currYear = date.getYear()+1900;
+                    createEvent(type, schedule.getName(), startTime, endTime);
                 }
             }
 
-
-            //add Holiday Events
-            //New Year's Day
-            Calendar startTime = Calendar.getInstance();
-            Calendar endTime = Calendar.getInstance();
-            String holidayName = "New Year's Day";
-            startTime.set(currYear,0,0,0,0);
-            endTime.set(currYear,0,0,1,0);
-            WeekViewEvent event = new WeekViewEvent(id, holidayName, startTime, endTime);
-            events.add(event);
-
-
-            // check if Christmas
-            String holidayName2 = "Christmas";
-            Calendar startTime2 = Calendar.getInstance();
-            Calendar endTime2 = Calendar.getInstance();
-            startTime2.set(currYear,11,25,0,0);
-            endTime2.set(currYear,11,25,1,0);
-            event = new WeekViewEvent(id, holidayName2, startTime2, endTime2);
-            events.add(event);
-
-            // check if 4th of July
-            String holidayName3 = "4th Of July";
-            Calendar startTime3 = Calendar.getInstance();
-            Calendar endTime3 = Calendar.getInstance();
-            startTime3.set(currYear,6,3,0,0);
-            endTime3.set(currYear,6,3,1,0);
-            event = new WeekViewEvent(id, holidayName3, startTime3, endTime3);
-            events.add(event);
-
-//
-//  // check Thanksgiving (4th Thursday of November)
-//            String holidayName4 = "Thanksgiving";
-//            Calendar startTime4 = Calendar.getInstance();
-//            Calendar endTime4 = Calendar.getInstance();
-//            startTime4.set(currYear,11);
-//            startTime4.set(Calendar.DAY_OF_WEEK, Calendar.THURSDAY);
-//            startTime4.set(Calendar.DAY_OF_WEEK_IN_MONTH, 4);
-//            startTime4.set(Calendar.HOUR_OF_DAY, 0);
-//
-//            endTime4.set(currYear,11);
-//            endTime4.set(Calendar.DAY_OF_WEEK, Calendar.THURSDAY);
-//            endTime4.set(Calendar.DAY_OF_WEEK_IN_MONTH, 4);
-//            endTime4.set(Calendar.HOUR_OF_DAY, 1);
-//            event = new WeekViewEvent(id, holidayName4, startTime4, endTime4);
-//            events.add(event);
-////            // check Memorial Day (last Monday of May)
-////            if (month == Calendar.MAY
-////                    && cal.get(Calendar.DAY_OF_WEEK) == Calendar.MONDAY
-////                    && cal.get(Calendar.DAY_OF_MONTH) > (31 - 7) ) {
-////                return "Memorial Day";
-////            }
-//
-//            // check Labor Day (1st Monday of September)
-//            String holidayName5 = "Labor Day";
-//            Calendar startTime5 = Calendar.getInstance();
-//            Calendar endTime5 = Calendar.getInstance();
-//            startTime5.set(currYear,8);
-//            startTime5.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
-//            startTime5.set(Calendar.HOUR_OF_DAY, 0);
-//            endTime5.set(currYear,8);
-//            endTime5.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
-//            endTime5.set(Calendar.HOUR_OF_DAY, 1);
-//            event = new WeekViewEvent(id, holidayName5, startTime5, endTime5);
-//            events.add(event);
-
-//            // check President's Day (3rd Monday of February)
-//            String holidayName6 = "President's Day";
-//            Calendar startTime6 = Calendar.getInstance();
-//            Calendar endTime6 = Calendar.getInstance();
-//            startTime6.set(currYear,1);
-//            startTime6.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
-//            startTime6.set(Calendar.DAY_OF_WEEK_IN_MONTH, 3);
-//            startTime6.set(Calendar.HOUR_OF_DAY, 0);
-//
-//            endTime6.set(currYear,1);
-//            endTime6.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
-//            endTime6.set(Calendar.DAY_OF_WEEK_IN_MONTH, 3);
-//            endTime6.set(Calendar.HOUR_OF_DAY, 1);
-//            event = new WeekViewEvent(id, holidayName6, startTime6, endTime6);
-//            events.add(event);
-//
-//            // check MLK Day (3rd Monday of January)
-//            String holidayName7 = "MLK Day";
-//            Calendar startTime7 = Calendar.getInstance();
-//            Calendar endTime7 = Calendar.getInstance();
-//            startTime7.set(currYear,0);
-//            startTime7.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
-//            startTime7.set(Calendar.DAY_OF_WEEK_IN_MONTH, 3);
-//            startTime7.set(Calendar.HOUR_OF_DAY, 0);
-//
-//            endTime7.set(currYear,0);
-//            endTime7.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
-//            endTime7.set(Calendar.DAY_OF_WEEK_IN_MONTH, 3);
-//            endTime7.set(Calendar.HOUR_OF_DAY, 1);
-//            event = new WeekViewEvent(id, holidayName7, startTime7, endTime7);
-//            events.add(event);
-
             return null;
+        }
+    }
+
+    public void createEvent(int eventType, String eventName, Calendar startTime, Calendar endTime){
+        WeekViewEvent event = new WeekViewEvent(eventID, eventName, startTime, endTime);
+
+        if(eventType == ACTIVE_SCHEDULE_EVENT) {
+            event.setColor(getResources().getColor(R.color.activeColor));
+        }
+        else if(eventType == ENABLED_SCHEDULE_EVENT){
+            event.setColor(getResources().getColor(R.color.colorPrimary));
+        }
+        else if(eventType == GOOGLE_CALENDAR_EVENT){
+            event.setColor(getResources().getColor(R.color.colorAccent));
+        }
+        else{
+            event.setColor(getResources().getColor(R.color.disabledColor));
+        }
+
+        events.add(event);
+        eventID++;
+    }
+
+
+
+
+    /**
+     * Attempt to call the API, after verifying that all the preconditions are
+     * satisfied. The preconditions are: Google Play Services installed, an
+     * account was selected and the device currently has online access. If any
+     * of the preconditions are not satisfied, the app will prompt the user as
+     * appropriate.
+     */
+    private void getResultsFromApi() {
+        if (! isGooglePlayServicesAvailable()) {
+            acquireGooglePlayServices();
+        } else if (mCredential.getSelectedAccountName() == null) {
+            chooseAccount();
+        } else if (! isDeviceOnline()) {
+            Toast.makeText(context, "No network connection available.", Toast.LENGTH_LONG).show();
+//            mOutputText.setText("No network connection available.");
+        } else {
+            new MakeRequestTask(mCredential).execute();
+        }
+    }
+
+    /**
+     * Attempts to set the account used with the API credentials. If an account
+     * name was previously saved it will use that one; otherwise an account
+     * picker dialog will be shown to the user. Note that the setting the
+     * account to use with the credentials object requires the app to have the
+     * GET_ACCOUNTS permission, which is requested here if it is not already
+     * present. The AfterPermissionGranted annotation indicates that this
+     * function will be rerun automatically whenever the GET_ACCOUNTS permission
+     * is granted.
+     */
+//    @AfterPermissionGranted(REQUEST_PERMISSION_GET_ACCOUNTS)
+    private void chooseAccount() {
+        if (EasyPermissions.hasPermissions(
+                this, Manifest.permission.GET_ACCOUNTS)) {
+            String accountName = getPreferences(Context.MODE_PRIVATE)
+                    .getString(PREF_ACCOUNT_NAME, null);
+            if (accountName != null) {
+                mCredential.setSelectedAccountName(accountName);
+                getResultsFromApi();
+            } else {
+                // Start a dialog from which the user can choose an account
+                startActivityForResult(
+                        mCredential.newChooseAccountIntent(),
+                        REQUEST_ACCOUNT_PICKER);
+            }
+        } else {
+            // Request the GET_ACCOUNTS permission via a user dialog
+            EasyPermissions.requestPermissions(
+                    this,
+                    "This app needs to access your Google account (via Contacts).",
+                    REQUEST_PERMISSION_GET_ACCOUNTS,
+                    Manifest.permission.GET_ACCOUNTS);
+        }
+    }
+
+    /**
+     * Called when an activity launched here (specifically, AccountPicker
+     * and authorization) exits, giving you the requestCode you started it with,
+     * the resultCode it returned, and any additional data from it.
+     * @param requestCode code indicating which activity result is incoming.
+     * @param resultCode code indicating the result of the incoming
+     *     activity result.
+     * @param data Intent (containing result data) returned by incoming
+     *     activity result.
+     */
+    @Override
+    protected void onActivityResult(
+            int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch(requestCode) {
+            case REQUEST_GOOGLE_PLAY_SERVICES:
+                if (resultCode != RESULT_OK) {
+                    Toast.makeText(context,  "This app requires Google Play Services. Please install " +
+                            "Google Play Services on your device and relaunch this app.", Toast.LENGTH_LONG).show();
+//                    mOutputText.setText(
+//                            "This app requires Google Play Services. Please install " +
+//                                    "Google Play Services on your device and relaunch this app.");
+                } else {
+                    getResultsFromApi();
+                }
+                break;
+            case REQUEST_ACCOUNT_PICKER:
+                if (resultCode == RESULT_OK && data != null &&
+                        data.getExtras() != null) {
+                    String accountName =
+                            data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
+                    if (accountName != null) {
+                        SharedPreferences settings =
+                                getPreferences(Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = settings.edit();
+                        editor.putString(PREF_ACCOUNT_NAME, accountName);
+                        editor.apply();
+                        mCredential.setSelectedAccountName(accountName);
+                        getResultsFromApi();
+                    }
+                }
+                break;
+            case REQUEST_AUTHORIZATION:
+                if (resultCode == RESULT_OK) {
+                    getResultsFromApi();
+                }
+                break;
+        }
+    }
+
+    /**
+     * Respond to requests for permissions at runtime for API 23 and above.
+     * @param requestCode The request code passed in
+     *     requestPermissions(android.app.Activity, String, int, String[])
+     * @param permissions The requested permissions. Never null.
+     * @param grantResults The grant results for the corresponding permissions
+     *     which is either PERMISSION_GRANTED or PERMISSION_DENIED. Never null.
+     */
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        EasyPermissions.onRequestPermissionsResult(
+                requestCode, permissions, grantResults, this);
+    }
+
+    /**
+     * Callback for when a permission is granted using the EasyPermissions
+     * library.
+     * @param requestCode The request code associated with the requested
+     *         permission
+     * @param list The requested permission list. Never null.
+     */
+    @Override
+    public void onPermissionsGranted(int requestCode, List<String> list) {
+        // Do nothing.
+    }
+
+    /**
+     * Callback for when a permission is denied using the EasyPermissions
+     * library.
+     * @param requestCode The request code associated with the requested
+     *         permission
+     * @param list The requested permission list. Never null.
+     */
+    @Override
+    public void onPermissionsDenied(int requestCode, List<String> list) {
+        // Do nothing.
+    }
+
+    /**
+     * Checks whether the device currently has a network connection.
+     * @return true if the device has a network connection, false otherwise.
+     */
+    private boolean isDeviceOnline() {
+        ConnectivityManager connMgr =
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        return (networkInfo != null && networkInfo.isConnected());
+    }
+
+    /**
+     * Check that Google Play services APK is installed and up to date.
+     * @return true if Google Play Services is available and up to
+     *     date on this device; false otherwise.
+     */
+    private boolean isGooglePlayServicesAvailable() {
+        GoogleApiAvailability apiAvailability =
+                GoogleApiAvailability.getInstance();
+        final int connectionStatusCode =
+                apiAvailability.isGooglePlayServicesAvailable(this);
+        return connectionStatusCode == ConnectionResult.SUCCESS;
+    }
+
+    /**
+     * Attempt to resolve a missing, out-of-date, invalid or disabled Google
+     * Play Services installation via a user dialog, if possible.
+     */
+    private void acquireGooglePlayServices() {
+        GoogleApiAvailability apiAvailability =
+                GoogleApiAvailability.getInstance();
+        final int connectionStatusCode =
+                apiAvailability.isGooglePlayServicesAvailable(this);
+        if (apiAvailability.isUserResolvableError(connectionStatusCode)) {
+            showGooglePlayServicesAvailabilityErrorDialog(connectionStatusCode);
+        }
+    }
+
+
+    /**
+     * Display an error dialog showing that Google Play Services is missing
+     * or out of date.
+     * @param connectionStatusCode code describing the presence (or lack of)
+     *     Google Play Services on this device.
+     */
+    void showGooglePlayServicesAvailabilityErrorDialog(
+            final int connectionStatusCode) {
+        GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();
+        Dialog dialog = apiAvailability.getErrorDialog(
+                CalendarActivity.this,
+                connectionStatusCode,
+                REQUEST_GOOGLE_PLAY_SERVICES);
+        dialog.show();
+    }
+
+    /**
+     * An asynchronous task that handles the Google Calendar API call.
+     * Placing the API calls in their own task ensures the UI stays responsive.
+     */
+    private class MakeRequestTask extends AsyncTask<Void, Void, List<String>> {
+        private com.google.api.services.calendar.Calendar mService = null;
+        private Exception mLastError = null;
+
+        MakeRequestTask(GoogleAccountCredential credential) {
+            HttpTransport transport = AndroidHttp.newCompatibleTransport();
+            JsonFactory jsonFactory = JacksonFactory.getDefaultInstance();
+            mService = new com.google.api.services.calendar.Calendar.Builder(
+                    transport, jsonFactory, credential)
+                    .setApplicationName("Focus!")
+                    .build();
+        }
+
+        /**
+         * Background task to call Google Calendar API.
+         * @param params no parameters needed for this task.
+         */
+        @Override
+        protected List<String> doInBackground(Void... params) {
+            try {
+                return getDataFromApi();
+            } catch (Exception e) {
+                mLastError = e;
+                cancel(true);
+                return null;
+            }
+        }
+
+        /**
+         * Fetch a list of the next 10 events from the primary calendar.
+         * @return List of Strings describing returned events.
+         * @throws IOException
+         */
+        private List<String> getDataFromApi() throws IOException {
+            // List the next 10 events from the primary calendar.
+            DateTime now = new DateTime(System.currentTimeMillis());
+            List<String> eventStrings = new ArrayList<String>();
+            Events calendarEvents = mService.events().list("primary")
+                    .setMaxResults(20)
+                    .setTimeMin(now)
+                    .setOrderBy("startTime")
+                    .setSingleEvents(true)
+                    .execute();
+            List<Event> items = calendarEvents.getItems();
+
+            for (Event event : items) {
+                DateTime start = event.getStart().getDateTime();
+                DateTime end = event.getEnd().getDateTime();
+
+                Calendar startC, endC;
+                if (start == null) {
+                    // All-day events don't have start times, so just use
+                    // the start date.
+                    start = event.getStart().getDate();
+                    startC = DateManipulator.getCalendarFromDateTime(start);
+                    endC = DateManipulator.getCalendarFromDateTime(start);
+                    startC.set(Calendar.HOUR_OF_DAY, 0);
+                    startC.set(Calendar.MINUTE, 0);
+                    endC.set(Calendar.HOUR_OF_DAY, 11);
+                    endC.set(Calendar.MINUTE, 59);
+                }
+                else{
+                    startC = DateManipulator.getCalendarFromDateTime(start);
+                    endC = DateManipulator.getCalendarFromDateTime(end);
+                }
+
+                createEvent(2, event.getSummary(), startC, endC);
+
+                eventStrings.add(
+                        String.format("%s (%s)", event.getSummary(), start));
+            }
+            return eventStrings;
+        }
+
+
+        @Override
+        protected void onPreExecute() {
+//            mOutputText.setText("");
+            mProgress.show();
+        }
+
+        @Override
+        protected void onPostExecute(List<String> output) {
+            mProgress.hide();
+            if (output == null || output.size() == 0) {
+//                mOutputText.setText("No results returned.");
+                Toast.makeText(context,  "No results returned.", Toast.LENGTH_LONG).show();
+            } else {
+                output.add(0, "Data retrieved using the Google Calendar API:");
+//                mOutputText.setText(TextUtils.join("\n", output));
+                Toast.makeText(context, "Google Calendar events synced.", Toast.LENGTH_LONG).show();
+
+            }
+        }
+
+        @Override
+        protected void onCancelled() {
+            mProgress.hide();
+            if (mLastError != null) {
+                if (mLastError instanceof GooglePlayServicesAvailabilityIOException) {
+                    showGooglePlayServicesAvailabilityErrorDialog(
+                            ((GooglePlayServicesAvailabilityIOException) mLastError)
+                                    .getConnectionStatusCode());
+                } else if (mLastError instanceof UserRecoverableAuthIOException) {
+                    startActivityForResult(
+                            ((UserRecoverableAuthIOException) mLastError).getIntent(),
+                            REQUEST_AUTHORIZATION);
+                } else {
+                    Toast.makeText(context, "The following error occurred:\n" + mLastError.getMessage(), Toast.LENGTH_LONG).show();
+//                    mOutputText.setText("The following error occurred:\n"
+//                            + mLastError.getMessage());
+                }
+            } else {
+                Toast.makeText(context, "Request cancelled", Toast.LENGTH_LONG).show();
+//                mOutputText.setText("Request cancelled.");
+            }
         }
     }
 }

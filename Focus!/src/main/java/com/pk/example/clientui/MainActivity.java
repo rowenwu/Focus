@@ -174,22 +174,11 @@ public class MainActivity extends Activity {
             startActivity(i);
         }
         else if (v.getId() == R.id.btnShareFacebook){
-            if (EasyPermissions.hasPermissions(this, galleryPermissions)) {
                 launchPhotoShareDialog(0);
-            } else {
-                EasyPermissions.requestPermissions(this, "Access for storage",
-                        101, galleryPermissions);
-                launchPhotoShareDialog(0);
-            }
         }
         else if (v.getId() == R.id.btnShareTwitter) {
-            if (EasyPermissions.hasPermissions(this, galleryPermissions)) {
-                launchPhotoShareDialog(2);
-            } else {
-                EasyPermissions.requestPermissions(this, "Access for storage",
-                        101, galleryPermissions);
-                launchPhotoShareDialog(2);
-            }        }
+            launchPhotoShareDialog(2);
+        }
     }
 
 
@@ -208,32 +197,40 @@ public class MainActivity extends Activity {
         return granted;
     }
 
+
     private void launchPhotoShareDialog(final int offset) {
-        final CharSequence[] items = { "Take Photo", "Choose from Library",
-                "Cancel" };
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        builder.setTitle("Share what you've been focusing on");
-        builder.setItems(items, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int item) {
-                if (items[item].equals("Take Photo")) {
+        if (EasyPermissions.hasPermissions(this, galleryPermissions)) {
+            final CharSequence[] items = { "Take Photo", "Choose from Library",
+                    "Cancel" };
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            builder.setTitle("Share what you've been focusing on");
+            builder.setItems(items, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int item) {
+                    if (items[item].equals("Take Photo")) {
 //                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 //                    startActivityForResult(intent, REQUEST_CAMERA_FACEBOOK + offset);
-                    dispatchTakePictureIntent(offset);
-                } else if (items[item].equals("Choose from Library")) {
-                    Intent intent = new Intent(
-                            Intent.ACTION_PICK,
-                            android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                    intent.setType("image/*");
-                    startActivityForResult(
-                            Intent.createChooser(intent, "Select File"),
-                            SELECT_FILE_FACEBOOK + offset);
-                } else if (items[item].equals("Cancel")) {
-                    dialog.dismiss();
+                        dispatchTakePictureIntent(offset);
+                    } else if (items[item].equals("Choose from Library")) {
+                        Intent intent = new Intent(
+                                Intent.ACTION_PICK,
+                                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                        intent.setType("image/*");
+                        startActivityForResult(
+                                Intent.createChooser(intent, "Select File"),
+                                SELECT_FILE_FACEBOOK + offset);
+                    } else if (items[item].equals("Cancel")) {
+                        dialog.dismiss();
+                    }
                 }
-            }
-        });
-        builder.show();
+            });
+            builder.show();
+        } else {
+            EasyPermissions.requestPermissions(this, "Access for storage",
+                    101, galleryPermissions);
+            launchPhotoShareDialog(2);
+        }
+
     }
 
     private void dispatchTakePictureIntent(int offset) {

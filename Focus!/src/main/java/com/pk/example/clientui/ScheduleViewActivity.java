@@ -538,6 +538,7 @@ public class ScheduleViewActivity extends ListActivity{
         tvDuration = (TextView) findViewById(R.id.textViewDuration);
         tvRepeatWeekly = (TextView) findViewById(R.id.textViewRepeatWeekly);
         tvDaysOfWeek = (TextView) findViewById(R.id.textViewDaysOfWeek);
+        TextView profilesTextView = (TextView) findViewById(R.id.profilesTextView);
 
         tvScheduleName.setText(schedule.getName());
 
@@ -559,6 +560,17 @@ public class ScheduleViewActivity extends ListActivity{
         } else {
             tvRepeatWeekly.setText("Repeated weekly: no");
             tvDaysOfWeek.setText("Date: " + dateFormat(date));
+        }
+
+        if(schedule.getProfiles() != null && schedule.getProfiles().size() > 0){
+            String profileNames = "";
+            for(String profile: schedule.getProfiles()){
+                profileNames += profile + ", ";
+            }
+            profilesTextView.setText("Profiles: " + profileNames);
+        }
+        else{
+            profilesTextView.setText("Profiles: No profiles set");
         }
 
     }
