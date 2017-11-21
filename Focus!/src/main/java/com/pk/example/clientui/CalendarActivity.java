@@ -621,7 +621,7 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
 
         @Override
         protected void onPostExecute(List<String> output) {
-            mProgress.hide();
+            mProgress.dismiss();
             if (output == null || output.size() == 0) {
 //                mOutputText.setText("No results returned.");
                 Toast.makeText(context,  "No results returned.", Toast.LENGTH_LONG).show();
@@ -635,7 +635,7 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
 
         @Override
         protected void onCancelled() {
-            mProgress.hide();
+            mProgress.dismiss();
             if (mLastError != null) {
                 if (mLastError instanceof GooglePlayServicesAvailabilityIOException) {
                     showGooglePlayServicesAvailabilityErrorDialog(
