@@ -35,6 +35,12 @@ import com.facebook.share.model.SharePhoto;
 import com.facebook.share.model.SharePhotoContent;
 import com.facebook.share.widget.ShareButton;
 import com.facebook.share.widget.ShareDialog;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.OptionalPendingResult;
+import com.google.android.gms.common.api.ResultCallback;
 import com.pk.example.R;
 import com.pk.example.servicereceiver.NLService;
 import com.twitter.sdk.android.core.Twitter;
@@ -68,12 +74,10 @@ public class MainActivity extends Activity {
     private static final String IMAGE_TYPES = "image/*";
     String mCurrentPhotoPath;
 
+    GoogleApiClient mGoogleApiClient;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //        nReceiver = new NotificationReceiver();
-//        IntentFilter filter = new IntentFilter();
-//        filter.addAction(NLService.INSERT_NOTIFICATION);
-        //        registerReceiver(nReceiver,filter);
 
         Twitter.initialize(this);
         TweetComposer.getInstance();
@@ -94,8 +98,11 @@ public class MainActivity extends Activity {
             toggleService();
         }
 
+
         shareDialog = new ShareDialog(this);
     }
+
+
 
     @Override
     protected void onDestroy() {

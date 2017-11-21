@@ -69,6 +69,11 @@ public class LoginActivity extends FragmentActivity implements
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
 
+        if (mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
+            Intent i = new Intent(this, MainActivity.class);
+            startActivity(i);
+        }
+
         // Customizing G+ button
         btnSignIn.setSize(SignInButton.SIZE_STANDARD);
         btnSignIn.setScopes(gso.getScopeArray());
@@ -114,8 +119,6 @@ public class LoginActivity extends FragmentActivity implements
 //            String personPhotoUrl = acct.getPhotoUrl().toString();
             String email = acct.getEmail();
 
-//            Log.e(TAG, "Name: " + personName + ", email: " + email
-//                    + ", Image: " + personPhotoUrl);
 
             txtName.setText(personName);
             txtEmail.setText(email);
@@ -176,6 +179,7 @@ public class LoginActivity extends FragmentActivity implements
             GoogleSignInResult result = opr.get();
             handleSignInResult(result);
         } else {
+
             // If the user has not previously signed in on this device or the sign-in has expired,
             // this asynchronous branch will attempt to sign in the user silently.  Cross-device
             // single sign-on will occur in this branch.
@@ -226,4 +230,6 @@ public class LoginActivity extends FragmentActivity implements
             llProfileLayout.setVisibility(View.GONE);
         }
     }
+
+
 }

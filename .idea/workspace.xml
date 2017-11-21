@@ -11,8 +11,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fc93fc3-05a9-41a0-ac42-5e6153d72697" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/outputs/apk/Focus!-debug.apk" afterPath="$PROJECT_DIR$/Focus!/build/outputs/apk/Focus!-debug.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/clientui/CalendarActivity.java" afterPath="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/clientui/CalendarActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/Focus!/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/clientui/LoginActivity.java" afterPath="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/clientui/LoginActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/clientui/MainActivity.java" afterPath="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/clientui/MainActivity.java" />
     </list>
     <ignored path="NotificationListenerService.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -88,8 +91,8 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/clientui/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+            <state relative-caret-position="724">
+              <caret line="84" column="33" lean-forward="false" selection-start-line="84" selection-start-column="33" selection-end-line="84" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -97,11 +100,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CalendarActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CalendarActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/clientui/CalendarActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="891">
-              <caret line="601" column="41" lean-forward="false" selection-start-line="601" selection-start-column="41" selection-end-line="601" selection-end-column="41" />
+            <state relative-caret-position="12708">
+              <caret line="511" column="55" lean-forward="false" selection-start-line="511" selection-start-column="55" selection-end-line="511" selection-end-column="55" />
               <folding>
                 <element signature="e#22944#22952#0" expanded="true" />
               </folding>
@@ -109,68 +112,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WeekView.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.alamkanak/android-week-view/1.2.6/a6f7eb0035598721747348009727efc95fd3c5bb/android-week-view-1.2.6-sources.jar!/com/alamkanak/weekview/WeekView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20789">
-              <caret line="875" column="30" lean-forward="false" selection-start-line="875" selection-start-column="17" selection-end-line="875" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DateManipulator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/servicereceiver/DateManipulator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1120">
-              <caret line="72" column="44" lean-forward="false" selection-start-line="72" selection-start-column="44" selection-end-line="72" selection-end-column="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CalendarProvider.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/clientui/CalendarProvider.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1650">
-              <caret line="50" column="50" lean-forward="false" selection-start-line="50" selection-start-column="50" selection-end-line="50" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Focus!/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="759">
-              <caret line="26" column="43" lean-forward="false" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/clientui/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4585">
-              <caret line="208" column="0" lean-forward="false" selection-start-line="208" selection-start-column="0" selection-end-line="208" selection-end-column="0" />
+            <state relative-caret-position="528">
+              <caret line="132" column="29" lean-forward="false" selection-start-line="132" selection-start-column="29" selection-end-line="132" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3568#3727#0" expanded="true" />
-                <element signature="e#3726#3727#0" expanded="true" />
+                <element signature="e#3744#3903#0" expanded="true" />
+                <element signature="e#3902#3903#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Holidays.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/clientui/Holidays.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="68" column="22" lean-forward="false" selection-start-line="68" selection-start-column="22" selection-end-line="68" selection-end-column="22" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -178,10 +129,10 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Focus!/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="618">
-              <caret line="153" column="56" lean-forward="false" selection-start-line="153" selection-start-column="56" selection-end-line="153" selection-end-column="56" />
+            <state relative-caret-position="5238">
+              <caret line="161" column="75" lean-forward="false" selection-start-line="161" selection-start-column="75" selection-end-line="161" selection-end-column="75" />
               <folding>
-                <marker date="1511243510027" expanded="true" signature="7490:7508" ph="..." />
+                <marker date="1511245992512" expanded="true" signature="7490:7508" ph="..." />
               </folding>
             </state>
           </provider>
@@ -204,11 +155,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>launch</find>
-      <find>mainactivity</find>
-      <find>string</find>
-      <find>id</find>
-      <find>events</find>
       <find>events =</find>
       <find>MakeRequestTask</find>
       <find>getresults</find>
@@ -219,7 +165,6 @@
       <find>mProgress</find>
       <find>getdatafrom</find>
       <find>mprogress</find>
-      <find>ondest</find>
       <find>compat</find>
       <find>notify</find>
       <find>LoadSchedules</find>
@@ -227,13 +172,19 @@
       <find>newYear</find>
       <find>mWeekViewLoader</find>
       <find>getmore</find>
-      <find>easy</find>
-      <find>DateTime</find>
       <find>onmonth</find>
-      <find>contextcompat</find>
       <find>eventMatches</find>
-      <find>getweek</find>
+      <find>contextcompat</find>
+      <find>handlesign</find>
+      <find>handleSignInResult</find>
+      <find>easy</find>
+      <find>mgoogleapi</find>
+      <find>onstart</find>
+      <find>gso</find>
+      <find>DateTime</find>
       <find>getmoreevents</find>
+      <find>ondest</find>
+      <find>getweek</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -2498,7 +2449,6 @@
         <option value="$PROJECT_DIR$/Focus!/src/main/res/layout/fragment_gplus.xml" />
         <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/clientui/GPlusFragment.java" />
         <option value="$PROJECT_DIR$/Focus!/src/main/res/layout/activity_login.xml" />
-        <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/clientui/LoginActivity.java" />
         <option value="$PROJECT_DIR$/Focus!/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/clientui/ScheduleListActivity.java" />
         <option value="$PROJECT_DIR$/Focus!/src/main/res/menu/main.xml" />
@@ -2509,12 +2459,13 @@
         <option value="$PROJECT_DIR$/Focus!/build.gradle" />
         <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/clientui/ScheduleViewActivity.java" />
         <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/clientui/Holidays.java" />
-        <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/clientui/MainActivity.java" />
         <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/clientui/CalendarProvider.java" />
         <option value="$PROJECT_DIR$/Focus!/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/servicereceiver/DateManipulator.java" />
-        <option value="$PROJECT_DIR$/Focus!/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/clientui/CalendarActivity.java" />
+        <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/clientui/MainActivity.java" />
+        <option value="$PROJECT_DIR$/Focus!/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/clientui/LoginActivity.java" />
       </list>
     </option>
   </component>
@@ -3395,7 +3346,7 @@
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
       <method>
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1511244912553" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1511246167823" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -3442,7 +3393,7 @@
         <option name="ADVANCED_PROFILING_ENABLED" value="false" />
       </Profilers>
       <method>
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1511244912553" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1511246167823" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -3624,7 +3575,7 @@
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
       <method>
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1511244912554" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1511246167828" />
       </method>
     </configuration>
     <configuration default="false" name="NotificationListener" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
@@ -3672,7 +3623,7 @@
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
       <method>
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1511244912555" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1511246167828" />
       </method>
     </configuration>
     <configuration default="false" name="Focus!" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
@@ -3720,7 +3671,7 @@
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
       <method>
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1511244912555" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1511246167828" />
       </method>
     </configuration>
     <configuration default="false" name="ProfileListAdapterTest.testCreation" type="AndroidJUnit" factoryName="Android JUnit">
@@ -3843,7 +3794,7 @@
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14869505" sideWeight="0.5060827" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296837" sideWeight="0.50137365" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296837" sideWeight="0.5041209" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296837" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -3857,7 +3808,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15934066" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296837" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296837" sideWeight="0.49725273" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296837" sideWeight="0.4958791" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296837" sideWeight="0.49862638" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296837" sideWeight="0.4378434" order="7" side_tool="true" content_ui="tabs" />
@@ -4267,14 +4218,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/clientui/Holidays.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="68" column="22" lean-forward="false" selection-start-line="68" selection-start-column="22" selection-end-line="68" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/clientui/ScheduleViewActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
@@ -4318,33 +4261,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/clientui/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Focus!/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="618">
-          <caret line="153" column="56" lean-forward="false" selection-start-line="153" selection-start-column="56" selection-end-line="153" selection-end-column="56" />
-          <folding>
-            <marker date="1511243510027" expanded="true" signature="7490:7508" ph="..." />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Focus!/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="26" column="43" lean-forward="false" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
+        <state relative-caret-position="4255">
+          <caret line="138" column="13" lean-forward="true" selection-start-line="138" selection-start-column="13" selection-end-line="138" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -4357,24 +4277,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/servicereceiver/DateManipulator.java">
+    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/clientui/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1120">
-          <caret line="72" column="44" lean-forward="false" selection-start-line="72" selection-start-column="44" selection-end-line="72" selection-end-column="44" />
+        <state relative-caret-position="724">
+          <caret line="84" column="33" lean-forward="false" selection-start-line="84" selection-start-column="33" selection-end-line="84" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/clientui/LoginActivity.java">
+    <entry file="file://$PROJECT_DIR$/Focus!/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4585">
-          <caret line="208" column="0" lean-forward="false" selection-start-line="208" selection-start-column="0" selection-end-line="208" selection-end-column="0" />
+        <state relative-caret-position="5238">
+          <caret line="161" column="75" lean-forward="false" selection-start-line="161" selection-start-column="75" selection-end-line="161" selection-end-column="75" />
+          <folding>
+            <marker date="1511245992512" expanded="true" signature="7490:7508" ph="..." />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/clientui/Holidays.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="68" column="22" lean-forward="false" selection-start-line="68" selection-start-column="22" selection-end-line="68" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/servicereceiver/DateManipulator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2376">
+          <caret line="72" column="44" lean-forward="false" selection-start-line="72" selection-start-column="44" selection-end-line="72" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3568#3727#0" expanded="true" />
-            <element signature="e#3726#3727#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -4389,10 +4328,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/clientui/CalendarActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="891">
-          <caret line="601" column="41" lean-forward="false" selection-start-line="601" selection-start-column="41" selection-end-line="601" selection-end-column="41" />
+        <state relative-caret-position="12708">
+          <caret line="511" column="55" lean-forward="false" selection-start-line="511" selection-start-column="55" selection-end-line="511" selection-end-column="55" />
           <folding>
             <element signature="e#22944#22952#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Focus!/src/main/java/com/pk/example/clientui/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="132" column="29" lean-forward="false" selection-start-line="132" selection-start-column="29" selection-end-line="132" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3744#3903#0" expanded="true" />
+            <element signature="e#3902#3903#0" expanded="true" />
           </folding>
         </state>
       </provider>
