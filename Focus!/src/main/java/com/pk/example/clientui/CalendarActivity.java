@@ -116,6 +116,7 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
     int eventID;
 
     private Context context;
+    private int currentYear, currentMonth;
 
 
     @Override
@@ -605,6 +606,7 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
                 eventStrings.add(
                         String.format("%s (%s)", event.getSummary(), start));
             }
+//            getMoreEvents()
             return eventStrings;
         }
 
