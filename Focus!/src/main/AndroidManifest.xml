@@ -127,12 +127,13 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver
+       <receiver
             android:name=".servicereceiver.ProfileScheduleReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.pk.example.ADDPROFILE" />
                 <action android:name="com.pk.example.REMOVEPROFILE" />
+                <action android:name="com.pk.example.HOLIDAYSCHEDULE" />
                 <!-- <action android:name="android.intent.action.INPUT_METHOD_CHANGED" /> -->
             </intent-filter>
         </receiver>
