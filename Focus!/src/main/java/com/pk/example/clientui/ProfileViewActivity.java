@@ -81,7 +81,7 @@ public class ProfileViewActivity extends ListActivity {
             name = getIntent().getStringExtra("name");
 //            profileEntity = db.profileDao().loadProfileSync(name);
             setContentView(R.layout.activity_profile_view);
-            getActionBar().setDisplayHomeAsUpEnabled(true);
+//            getActionBar().setDisplayHomeAsUpEnabled(true);
 
             new LoadProfileApplications().execute();
 
