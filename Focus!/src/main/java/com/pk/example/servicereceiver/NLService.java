@@ -63,6 +63,7 @@ public class NLService extends NotificationListenerService {
     public static final String CHANGE_NOTIFICATIONS = "com.pk.example.CHANGENOTIFICATIONS";
     public static final String TOGGLE_SCHEDULE = "com.pk.example.TOGGLESCHEDULE";
     public static final String BLOCKED_APP_OPENED = "com.pk.example.BLOCKEDAPPOPENED";
+    public static final String HOLIDAY_SCHEDULE = "com.pk.example.HOLIDAYSCHEDULE";
 
 
 //    Handler handler = null;
