@@ -38,8 +38,7 @@
         <activity
             android:name=".clientui.MainActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"></activity>
 
         <service
             android:name=".servicereceiver.NLService"
@@ -127,7 +126,7 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-       <receiver
+        <receiver
             android:name=".servicereceiver.ProfileScheduleReceiver"
             android:exported="true">
             <intent-filter>
@@ -168,8 +167,15 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".clientui.GoogleCalendarView"
+            android:label="Google Calendar Event">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".clientui.CalendarActivity" />
         </activity>
     </application>
 

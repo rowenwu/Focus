@@ -50,8 +50,7 @@
         <activity
             android:name="com.pk.example.clientui.MainActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait" />
 
         <service
             android:name="com.pk.example.servicereceiver.NLService"
@@ -182,6 +181,13 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pk.example.clientui.GoogleCalendarView"
+            android:label="Google Calendar Event" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".clientui.CalendarActivity" />
         </activity>
         <activity
             android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"

@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:2:1-176:12
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:2:1-182:12
 	package
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:4:5-29
 	android:versionName
@@ -72,7 +72,7 @@ ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:21:5-72
 	android:name
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:21:22-69
 application
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:23:5-174:19
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:23:5-180:19
 MERGED from [com.google.android.gms:play-services-auth:11.6.0] C:\Users\kathe\.android\build-cache\3a974254bb71719c1cfb9a4208398bf5f336722e\output\AndroidManifest.xml:19:5-25:19
 MERGED from [com.google.android.gms:play-services-auth-api-phone-license:11.6.0] C:\Users\kathe\.android\build-cache\e81f7ac52ee2a37ade99cb6285af6f988885d0c8\output\AndroidManifest.xml:5:5-20
 MERGED from [com.google.android.gms:play-services-auth-base-license:11.6.0] C:\Users\kathe\.android\build-cache\89afd0501fe3544a3d5eec92d230046fca8b2729\output\AndroidManifest.xml:5:5-20
@@ -137,7 +137,7 @@ ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:33:13-35:54
 	android:name
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:34:17-67
 activity#com.pk.example.clientui.MainActivity
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:38:9-42:20
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:38:9-41:61
 	android:screenOrientation
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:41:13-49
 	android:label
@@ -145,177 +145,183 @@ ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:38:9-42:20
 	android:name
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:39:13-50
 service#com.pk.example.servicereceiver.NLService
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:44:9-51:19
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:43:9-50:19
 	android:label
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:46:13-45
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:45:13-45
 	android:permission
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:47:13-87
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:46:13-87
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:45:13-54
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:44:13-54
 intent-filter#android.service.notification.NotificationListenerService
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:48:13-50:29
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:47:13-49:29
 action#android.service.notification.NotificationListenerService
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:49:17-99
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:48:17-99
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:49:25-96
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:48:25-96
 service#com.pk.example.servicereceiver.ForegroundDetectorService
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:52:9-54:59
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:51:9-53:59
 	android:label
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:54:13-56
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:53:13-56
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:53:13-70
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:52:13-70
 activity#com.pk.example.clientui.ProfileViewActivity
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:64:9-71:20
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:63:9-70:20
 	android:label
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:66:13-66
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:65:13-66
 	android:parentActivityName
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:67:13-71
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:66:13-71
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:65:13-57
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:64:13-57
 meta-data#android.support.PARENT_ACTIVITY
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:68:13-70:65
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:67:13-69:65
 	android:value
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:70:17-62
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:69:17-62
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:69:17-63
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:68:17-63
 activity#com.pk.example.clientui.ScheduleListActivity
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:81:9-88:20
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:80:9-87:20
 	android:label
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:83:13-65
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:82:13-65
 	android:parentActivityName
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:84:13-64
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:83:13-64
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:82:13-58
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:81:13-58
 activity#com.pk.example.clientui.ProfileListActivity
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:89:9-96:20
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:88:9-95:20
 	android:label
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:91:13-42
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:90:13-42
 	android:parentActivityName
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:92:13-64
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:91:13-64
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:90:13-57
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:89:13-57
 activity#com.pk.example.clientui.ScheduleViewActivity
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:97:9-104:20
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:96:9-103:20
 	android:label
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:99:13-37
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:98:13-37
 	android:parentActivityName
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:100:13-72
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:99:13-72
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:98:13-58
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:97:13-58
 activity#com.pk.example.clientui.CalendarActivity
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:105:9-112:20
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:104:9-111:20
 	android:label
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:107:13-40
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:106:13-40
 	android:parentActivityName
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:108:13-68
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:107:13-68
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:106:13-54
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:105:13-54
 receiver#com.pk.example.servicereceiver.NotificationReceiver
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:114:9-122:20
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:113:9-121:20
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:114:19-71
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:113:19-71
 intent-filter#android.intent.category.DEFAULT+com.pk.example.CHANGENOTIFICATIONS+com.pk.example.INSERTNOTIFICATION+com.pk.example.TOGGLESCHEDULE
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:115:13-121:29
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:114:13-120:29
 action#com.pk.example.INSERTNOTIFICATION
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:116:17-76
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:115:17-76
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:116:25-73
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:115:25-73
 action#com.pk.example.CHANGENOTIFICATIONS
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:117:17-77
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:116:17-77
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:117:25-74
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:116:25-74
 action#com.pk.example.TOGGLESCHEDULE
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:118:17-72
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:117:17-72
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:118:25-69
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:117:25-69
 category#android.intent.category.DEFAULT
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:120:17-76
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:119:17-76
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:120:27-73
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:119:27-73
 receiver#com.pk.example.servicereceiver.BootReceiver
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:123:9-129:20
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:122:9-128:20
 	android:exported
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:125:13-36
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:124:13-36
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:124:13-57
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:123:13-57
 intent-filter#android.intent.action.BOOT_COMPLETED
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:126:13-128:29
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:125:13-127:29
 action#android.intent.action.BOOT_COMPLETED
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:127:17-79
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:126:17-79
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:127:25-76
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:126:25-76
 receiver#com.pk.example.servicereceiver.ProfileScheduleReceiver
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:130:8-139:20
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:129:9-138:20
 	android:exported
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:132:13-36
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:131:13-36
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:131:13-68
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:130:13-68
 intent-filter#com.pk.example.ADDPROFILE+com.pk.example.HOLIDAYSCHEDULE+com.pk.example.REMOVEPROFILE
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:133:13-138:29
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:132:13-137:29
 action#com.pk.example.ADDPROFILE
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:134:17-68
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:133:17-68
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:134:25-65
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:133:25-65
 action#com.pk.example.REMOVEPROFILE
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:135:17-71
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:134:17-71
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:135:25-68
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:134:25-68
 action#com.pk.example.HOLIDAYSCHEDULE
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:136:17-73
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:135:17-73
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:136:25-70
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:135:25-70
 activity#com.pk.example.clientui.NotificationListActivity
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:141:9-148:20
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:140:9-147:20
 	android:label
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:143:13-46
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:142:13-46
 	android:parentActivityName
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:144:13-64
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:143:13-64
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:142:13-62
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:141:13-62
 meta-data#com.facebook.sdk.ApplicationId
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:150:9-152:55
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:149:9-151:55
 	android:value
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:152:13-52
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:151:13-52
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:151:13-58
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:150:13-58
 activity#com.facebook.FacebookActivity
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:154:9-159:45
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:153:9-158:45
 MERGED from [com.facebook.android:facebook-common:4.28.0] C:\Users\kathe\.android\build-cache\4cefe662d1a7e5d74e1831dc4a5264ed6b8bd8d5\output\AndroidManifest.xml:29:9-32:66
 	android:label
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:157:13-45
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:156:13-45
 	android:configChanges
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:156:13-96
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:155:13-96
 	android:theme
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:158:13-72
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:157:13-72
 		REJECTED from [com.facebook.android:facebook-common:4.28.0] C:\Users\kathe\.android\build-cache\4cefe662d1a7e5d74e1831dc4a5264ed6b8bd8d5\output\AndroidManifest.xml:32:13-63
 	tools:replace
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:159:13-42
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:158:13-42
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:155:13-57
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:154:13-57
 provider#com.facebook.FacebookContentProvider
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:161:9-164:39
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:160:9-163:39
 	android:authorities
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:163:13-90
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:162:13-90
 	android:exported
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:164:13-36
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:163:13-36
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:162:13-64
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:161:13-64
 activity#com.pk.example.clientui.LoginActivity
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:166:9-173:20
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:165:9-173:20
 	android:label
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:168:13-45
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:167:13-45
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:167:13-51
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:166:13-51
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:169:13-172:29
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:168:13-172:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:170:17-69
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:169:17-69
 	android:name
-		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:170:25-66
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:169:25-66
 category#android.intent.category.LAUNCHER
 ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:171:17-77
 	android:name
 		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:171:27-74
+activity#com.pk.example.clientui.GoogleCalendarView
+ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:174:9-179:20
+	android:label
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:175:13-50
+	android:name
+		ADDED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml:174:19-62
 uses-sdk
 INJECTED from C:\Users\kathe\Focus\Focus!\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.google.android.gms:play-services-auth:11.6.0] C:\Users\kathe\.android\build-cache\3a974254bb71719c1cfb9a4208398bf5f336722e\output\AndroidManifest.xml:17:5-43

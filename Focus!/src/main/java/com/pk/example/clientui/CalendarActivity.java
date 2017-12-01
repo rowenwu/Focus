@@ -165,12 +165,18 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
 
     @Override
     public void onEventClick(WeekViewEvent event, RectF eventRect) {
-
-
         if(event.getColor() == getResources().getColor(R.color.activeColor) ||
                 event.getColor() == getResources().getColor(R.color.colorPrimary) ||
                 event.getColor() == getResources().getColor(R.color.disabledColor)) {
             new LoadScheduleView(event.getName()).execute();
+        }
+        else{
+            Intent i = new Intent(this, GoogleCalendarView.class);
+//            i.putExtra("id", schedule.getId());
+            i.putExtra("name", event.getName());
+            i.putExtra("start", event.getStartTime().getTimeInMillis());
+            i.putExtra("end", event.getEndTime().getTimeInMillis());
+            startActivity(i);
         }
     }
 

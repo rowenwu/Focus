@@ -74,4 +74,12 @@ public class DateManipulator {
         return getCalendarFromDate(date);
     }
 
+
+    public static int getHoursFromMillis(long millis){
+        return (int) ((millis / (1000*60*60)) % 24);
+    }
+
+    public static int getMinsFromMillis(long millis){
+        return (int) (int) ((millis / (1000*60)) % 60);
+    }
 }

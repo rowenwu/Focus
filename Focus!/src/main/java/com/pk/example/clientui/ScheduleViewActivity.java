@@ -75,8 +75,12 @@ public class ScheduleViewActivity extends ListActivity{
         database = AppDatabase.getDatabase(getApplicationContext());
 
         // create profile mode
-        if (flag.equals("create")) {
+        if (flag.equals("create") || flag.equals("cal")) {
             setContentView(R.layout.activity_schedule_create);
+            if(flag.equals("cal")){
+
+                setGoogleCalendarInfo();
+            }
         }
         else{
             id = getIntent().getIntExtra("id", -1);
@@ -88,7 +92,6 @@ public class ScheduleViewActivity extends ListActivity{
             new GetEditScheduleInfo().execute();
             new LoadSelectedProfiles().execute();
         }
-
 
         if (flag.equals("view")) {
             setContentView(R.layout.activity_schedule_view);
@@ -119,7 +122,39 @@ public class ScheduleViewActivity extends ListActivity{
 
     }
 
+    public void setGoogleCalendarInfo(){
+        EditText nameText = (EditText) findViewById(R.id.editTextScheduleName);
+        nameText.setText(getIntent().getStringExtra("name"));
+        txtDate=(EditText)findViewById(R.id.in_date);
+        txtTime=(EditText)findViewById(R.id.in_time);
+        txtDuration=(EditText)findViewById(R.id.in_duration);
+
+        long startTime = getIntent().getLongExtra("start", 0);
+        long endTime = getIntent().getLongExtra("end", 0);
+        Calendar start = Calendar.getInstance();
+        Calendar end = Calendar.getInstance();
+        start.setTimeInMillis(startTime);
+        end.setTimeInMillis(endTime);
+        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+
+        txtDate.setText(formatter.format(start.getTime()));
+        chosenDay = start.get(Calendar.DAY_OF_MONTH);
+        chosenMonth = start.get(Calendar.MONTH);
+        chosenYear = start.get(Calendar.YEAR);
+        chosenHour = start.get(Calendar.HOUR);
+        chosenMinute = start.get(Calendar.MINUTE);
+        txtTime.setText(formatNumber(chosenHour) + ":" + formatNumber(chosenMinute));
+        durationHours = DateManipulator.getHoursFromMillis(endTime-startTime);
+        durationMins = DateManipulator.getMinsFromMillis(endTime-startTime);
+        txtDuration.setText(formatNumber(durationHours) + ":" + formatNumber(durationMins));
+    }
+
     public void showDurationPicker(View v){
+        int hours = 0, mins = 0;
+        if(durationHours != null && durationMins != null){
+            hours = durationHours;
+            mins = durationMins;
+        }
         DurationPickerDialog timePickerDialog = new DurationPickerDialog(this,
                 new TimePickerDialog.OnTimeSetListener(){
                     @Override
@@ -130,12 +165,17 @@ public class ScheduleViewActivity extends ListActivity{
                         durationHours = hourOfDay;
                         durationMins = minute;
                     }
-                }, 0, 0);
+                }, hours, mins);
         timePickerDialog.show();
     }
 
     public void showDatePicker(View v){
         final Calendar c = Calendar.getInstance();
+        if(chosenDay != null && chosenMonth != null && chosenYear != null){
+            c.set(Calendar.DAY_OF_MONTH, chosenDay);
+            c.set(Calendar.MONTH, chosenMonth);
+            c.set(Calendar.YEAR, chosenYear);
+        }
         DatePickerDialog datePickerDialog = new DatePickerDialog(this,
                 new DatePickerDialog.OnDateSetListener() {
                     @Override
@@ -152,8 +192,11 @@ public class ScheduleViewActivity extends ListActivity{
     }
 
     public void showTimePicker(View v){
-        // Get Current Time
         final Calendar c = Calendar.getInstance();
+        if(chosenMinute != null && chosenHour != null){
+            c.set(Calendar.HOUR, chosenHour);
+            c.set(Calendar.MINUTE, chosenMinute);
+        }
         // Launch Time Picker Dialog
         TimePickerDialog timePickerDialog = new TimePickerDialog(this,
                 new TimePickerDialog.OnTimeSetListener() {
