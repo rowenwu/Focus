@@ -15,7 +15,7 @@ buildscript {
 
 
 ext {
-    buildToolsVersion = "26.0.2"
+    buildToolsVersion = "25.0.0"
     supportLibVersion = "25.3.1"
     archRoomVersion = "1.0.0-alpha1"
 }
