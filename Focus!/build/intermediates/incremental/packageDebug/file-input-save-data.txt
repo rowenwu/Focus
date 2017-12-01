@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Thu Nov 30 20:46:56 PST 2017
+#Thu Nov 30 21:44:53 PST 2017
 210.set=ANDROID_RESOURCE
 282.file=C\:\\Users\\kathe\\Focus\\Focus\!\\build\\intermediates\\res\\resources-debug.ap_\\res\\color\\abc_primary_text_material_dark.xml
 14.set=ANDROID_RESOURCE

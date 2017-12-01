@@ -28,6 +28,7 @@ import com.google.api.client.util.ExponentialBackOff;
 import com.google.api.services.calendar.CalendarScopes;
 import com.pk.example.R;
 import com.pk.example.database.AppDatabase;
+import com.pk.example.database.DummyDb;
 import com.pk.example.entity.PrevNotificationEntity;
 import com.pk.example.entity.ScheduleEntity;
 
@@ -90,6 +91,7 @@ import com.pk.example.servicereceiver.DateManipulator;
  */
 
 public class CalendarActivity extends Activity implements WeekView.EventClickListener, MonthLoader.MonthChangeListener, WeekView.EventLongPressListener, WeekView.EmptyViewLongPressListener, EasyPermissions.PermissionCallbacks {
+
     private static final int TYPE_DAY_VIEW = 1;
     private static final int TYPE_THREE_DAY_VIEW = 2;
     private static final int TYPE_WEEK_VIEW = 3;
@@ -163,10 +165,13 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
 
     @Override
     public void onEventClick(WeekViewEvent event, RectF eventRect) {
-        Intent i = new Intent(this, ScheduleViewActivity.class);
-        i.putExtra("flag", "edit");
-        i.putExtra("name", event.getName());
-        startActivity(i);
+
+
+        if(event.getColor() == getResources().getColor(R.color.activeColor) ||
+                event.getColor() == getResources().getColor(R.color.colorPrimary) ||
+                event.getColor() == getResources().getColor(R.color.disabledColor)) {
+            new LoadScheduleView(event.getName()).execute();
+        }
     }
 
     @Override
@@ -655,5 +660,33 @@ public class CalendarActivity extends Activity implements WeekView.EventClickLis
 //                mOutputText.setText("Request cancelled.");
             }
         }
+    }
+
+
+    private class LoadScheduleView extends AsyncTask<Void, Void, Void> {
+        private String name;
+
+        LoadScheduleView(String name) {
+            database = AppDatabase.getDatabase(getApplicationContext());
+            this.name = name;
+        }
+        @Override
+        protected Void doInBackground(Void... params) {
+            ScheduleEntity schedule = database.scheduleDao().loadScheduleSync(name);
+
+
+            Intent i = new Intent(getApplicationContext(), ScheduleViewActivity.class);
+            i.putExtra("flag", "view");
+            i.putExtra("id", schedule.getId());
+            startActivity(i);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+        }
+
+
     }
 }

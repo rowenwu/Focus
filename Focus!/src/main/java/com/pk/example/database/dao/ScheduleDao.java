@@ -51,6 +51,8 @@ public interface ScheduleDao {
     @Query("select * from schedules where _id = :id")
     ScheduleEntity loadScheduleSync(int id);
 
+    @Query("select * from schedules where _name = :name")
+    ScheduleEntity loadScheduleSync(String name);
 
     @Query("select * from schedules where _isEnabled =:isEnabled")
     List<ScheduleEntity> loadEnabledSchedulesSync(boolean isEnabled);
